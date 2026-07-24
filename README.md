@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Wettpropheten - Aufstellung</title>
+<title>Wettpropheten Analyse</title>
 
 <style>
 
@@ -10,7 +10,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -34,7 +34,7 @@ body{
 
 
 
-/* Kopf bleibt */
+/* Kopf */
 
 .header{
 
@@ -42,7 +42,7 @@ body{
     justify-content:space-between;
     align-items:center;
 
-    margin-bottom:50px;
+    margin-bottom:60px;
 
 }
 
@@ -78,7 +78,7 @@ body{
 
 
 
-/* zwei Felder */
+/* FELDER */
 
 .fields{
 
@@ -86,15 +86,17 @@ body{
 
     justify-content:center;
 
-    gap:60px;
+    align-items:center;
 
-    perspective:1400px;
+    gap:70px;
+
+    perspective:1600px;
 
 }
 
 
 
-/* Feld */
+/* 3D Feld */
 
 .field{
 
@@ -111,8 +113,8 @@ body{
         0deg,
         #267541 0px,
         #267541 45px,
-        #2e8249 45px,
-        #2e8249 90px
+        #2f8249 45px,
+        #2f8249 90px
     );
 
 
@@ -124,20 +126,22 @@ body{
 
     transform:
 
-    rotateX(48deg);
+    rotateX(52deg)
+    translateZ(30px);
 
 
     box-shadow:
 
-    0 70px 90px rgba(0,0,0,.8);
+    0 90px 120px rgba(0,0,0,.85);
+
 
 }
 
 
 
-/* richtige Mittellinie */
+/* Mittellinie */
 
-.field .middle{
+.middle{
 
     position:absolute;
 
@@ -157,9 +161,9 @@ body{
 
 
 
-/* Mittelkreis */
+/* Kreis */
 
-.field .circle{
+.circle{
 
     position:absolute;
 
@@ -168,9 +172,9 @@ body{
     top:50%;
 
 
-    width:110px;
+    width:120px;
 
-    height:110px;
+    height:120px;
 
 
     border:3px solid white;
@@ -192,13 +196,11 @@ body{
 
     left:50%;
 
-    width:230px;
+    width:240px;
 
     height:100px;
 
-
     border:3px solid white;
-
 
     transform:translateX(-50%);
 
@@ -229,7 +231,6 @@ body{
 
 <div class="header">
 
-
 <div class="team">
 HEIMTEAM
 </div>
@@ -244,9 +245,7 @@ VS
 GASTTEAM
 </div>
 
-
 </div>
-
 
 
 
@@ -256,11 +255,9 @@ GASTTEAM
 <div class="field">
 
 <div class="middle"></div>
-
 <div class="circle"></div>
 
 <div class="penalty top"></div>
-
 <div class="penalty bottom"></div>
 
 </div>
@@ -271,14 +268,13 @@ GASTTEAM
 <div class="field">
 
 <div class="middle"></div>
-
 <div class="circle"></div>
 
 <div class="penalty top"></div>
-
 <div class="penalty bottom"></div>
 
 </div>
+
 
 
 </div>
