@@ -37,36 +37,23 @@ body{
 /* Kopf */
 
 .header{
-
-    display:flex;
-    justify-content:space-between;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
     align-items:center;
-
-    margin-bottom:60px;
-
 }
 
-
-.team{
-
-    width:35%;
-    height:80px;
-
-    background:#222;
-
-    color:white;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    border-radius:15px;
-
-    font-size:28px;
-    font-weight:bold;
-
+.team:first-child{
+    justify-self:center;
 }
 
+.team:last-child{
+    justify-self:center;
+}
+
+.vs{
+    justify-self:center;
+}
 
 .vs{
 
@@ -81,17 +68,12 @@ body{
 /* FELDER */
 
 .fields{
-
+    width:100%;
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    gap:70px;
-
-    perspective:1600px;
-
+    gap:60px;
+    margin:0 auto;
 }
 
 
