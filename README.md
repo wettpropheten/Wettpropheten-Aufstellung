@@ -61,17 +61,17 @@ margin-bottom:30px;
 
 
 
-.main{
+.tv-area{
 
-display:grid;
+display:flex;
 
-grid-template-columns:
+justify-content:center;
 
-360px 1fr 360px;
+align-items:center;
 
-gap:35px;
+gap:25px;
 
-align-items:start;
+width:100%;
 
 }
 
@@ -82,27 +82,18 @@ align-items:start;
 
 .panel{
 
-
 background:
-
 rgba(255,255,255,.12);
 
-
 border:
-
 1px solid rgba(255,255,255,.25);
-
 
 border-radius:25px;
 
-
-padding:25px;
-
+padding:18px;
 
 box-shadow:
-
 0 25px 60px black;
-
 
 }
 
@@ -186,19 +177,23 @@ margin-top:20px;
 
 .player-row{
 
-
 display:grid;
 
 grid-template-columns:
+35px 1fr;
 
-45px 1fr;
+gap:5px;
+
+margin-bottom:5px;
+
+}
 
 
-gap:8px;
+.player-row input{
 
+padding:8px;
 
-margin-bottom:8px;
-
+font-size:14px;
 
 }
 
@@ -259,9 +254,9 @@ text-align:center;
 .field{
 
 
-width:430px;
+width:450px;
 
-height:680px;
+height:700px;
 
 
 background:
