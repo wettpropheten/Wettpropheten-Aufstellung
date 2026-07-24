@@ -13,6 +13,7 @@
     font-family:Arial,sans-serif;
 }
 
+
 body{
     min-height:100vh;
     background:#111;
@@ -20,6 +21,7 @@ body{
     justify-content:center;
     align-items:center;
 }
+
 
 
 .container{
@@ -30,6 +32,10 @@ body{
     background:#181818;
     border-radius:25px;
 
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
 }
 
 
@@ -37,28 +43,41 @@ body{
 /* Kopf */
 
 .header{
-    width:100%;
+
+    width:920px;
+
     display:grid;
-    grid-template-columns:1fr auto 1fr;
+
+    grid-template-columns:430px 60px 430px;
+
     align-items:center;
+
+    margin-bottom:30px;
+
 }
 
-.team:first-child{
-    justify-self:center;
-}
 
-.team:last-child{
-    justify-self:center;
-}
-
-.vs{
-    justify-self:center;
-}
-
-.vs{
+.team{
 
     color:white;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+
+.vs{
+
+    justify-self:center;
+
+    color:white;
+
     font-size:36px;
+
     font-weight:bold;
 
 }
@@ -68,12 +87,15 @@ body{
 /* FELDER */
 
 .fields{
-    width:100%;
+
+    width:920px;
+
     display:flex;
-    justify-content:center;
+
+    justify-content:space-between;
+
     align-items:center;
-    gap:60px;
-    margin:0 auto;
+
 }
 
 
@@ -115,7 +137,6 @@ body{
     box-shadow:
 
     0 90px 120px rgba(0,0,0,.85);
-
 
 }
 
@@ -190,14 +211,17 @@ body{
 
 
 .top{
+
     top:0;
+
 }
 
 
 .bottom{
-    bottom:0;
-}
 
+    bottom:0;
+
+}
 
 
 </style>
@@ -211,55 +235,59 @@ body{
 <div class="container">
 
 
-<div class="header">
+    <div class="header">
 
-<div class="team">
-HEIMTEAM
-</div>
-
-
-<div class="vs">
-VS
-</div>
+        <div class="team">
+            HEIMTEAM
+        </div>
 
 
-<div class="team">
-GASTTEAM
-</div>
-
-</div>
+        <div class="vs">
+            VS
+        </div>
 
 
+        <div class="team">
+            GASTTEAM
+        </div>
 
-<div class="fields">
-
-
-<div class="field">
-
-<div class="middle"></div>
-<div class="circle"></div>
-
-<div class="penalty top"></div>
-<div class="penalty bottom"></div>
-
-</div>
+    </div>
 
 
 
 
-<div class="field">
-
-<div class="middle"></div>
-<div class="circle"></div>
-
-<div class="penalty top"></div>
-<div class="penalty bottom"></div>
-
-</div>
+    <div class="fields">
 
 
+        <div class="field">
 
-</div>
+            <div class="middle"></div>
+
+            <div class="circle"></div>
+
+            <div class="penalty top"></div>
+
+            <div class="penalty bottom"></div>
+
+        </div>
+
+
+
+
+        <div class="field">
+
+            <div class="middle"></div>
+
+            <div class="circle"></div>
+
+            <div class="penalty top"></div>
+
+            <div class="penalty bottom"></div>
+
+        </div>
+
+
+    </div>
 
 
 
