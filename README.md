@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Wettpropheten - Fußball Analyse</title>
+<title>Football 3D Pitch</title>
 
 <style>
 
@@ -10,23 +10,21 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
 }
 
 body{
-
-    background:#111;
     min-height:100vh;
+    background:#111;
     display:flex;
     justify-content:center;
     align-items:center;
-
+    font-family:Arial, sans-serif;
 }
 
 
-.container{
+.wrapper{
 
-    width:1400px;
+    width:1200px;
     padding:40px;
 
     background:#181818;
@@ -42,7 +40,7 @@ body{
     justify-content:space-between;
     align-items:center;
 
-    margin-bottom:50px;
+    margin-bottom:80px;
 
 }
 
@@ -50,19 +48,19 @@ body{
 .team{
 
     width:35%;
-    height:80px;
+    height:70px;
 
     background:#222;
-
-    border-radius:15px;
 
     color:white;
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
-    font-size:28px;
+    border-radius:15px;
+
+    font-size:26px;
     font-weight:bold;
 
 }
@@ -71,88 +69,117 @@ body{
 .vs{
 
     color:white;
-    font-size:38px;
+    font-size:35px;
     font-weight:bold;
 
 }
 
 
 
-/* 3D FELDER */
+/* 3D BÜHNE */
 
-.fields{
+.pitch-area{
+
+    height:650px;
 
     display:flex;
     justify-content:center;
-    gap:80px;
+    align-items:center;
 
-    perspective:1200px;
+    perspective:1400px;
 
 }
 
 
-.field{
+
+/* ECHTES 3D OBJEKT */
+
+.pitch{
 
     width:430px;
     height:650px;
 
     position:relative;
 
+    transform-style:preserve-3d;
+
+
+    transform:
+
+        rotateX(52deg)
+        translateZ(0);
+
 
     background:
+
     repeating-linear-gradient(
         0deg,
-        #24723d 0px,
-        #24723d 45px,
-        #2d8248 45px,
-        #2d8248 90px
+        #24713d 0px,
+        #24713d 50px,
+        #2c7d47 50px,
+        #2c7d47 100px
     );
 
 
     border:3px solid white;
 
 
-    transform:
-
-        perspective(900px)
-
-        rotateX(60deg);
-
-
-    transform-origin:center bottom;
-
-
     box-shadow:
 
-        0 80px 100px rgba(0,0,0,.85),
-
-        inset 0 0 40px rgba(0,0,0,.35);
+    0 100px 90px rgba(0,0,0,.9);
 
 
-    overflow:hidden;
 
 }
 
 
 
-/* RICHTIGE MITTELLINIE */
+/* Seiten-Tiefe */
 
-.field::before{
+.pitch:after{
 
     content:"";
 
     position:absolute;
 
     left:0;
-    top:50%;
 
+    bottom:-35px;
 
     width:100%;
+
+    height:35px;
+
+
+    background:#12351f;
+
+
+    transform:
+
+    rotateX(90deg)
+
+    translateZ(18px);
+
+
+}
+
+
+
+/* MITTELLINIE */
+
+.pitch .middle{
+
+    position:absolute;
+
+    top:50%;
+
+    left:0;
+
+    width:100%;
+
     height:3px;
 
-
     background:white;
-
 
     transform:translateY(-50%);
 
@@ -162,60 +189,57 @@ body{
 
 /* MITTELKREIS */
 
-.field::after{
-
-    content:"";
+.pitch .circle{
 
     position:absolute;
 
-    left:50%;
     top:50%;
 
+    left:50%;
 
     width:110px;
-    height:110px;
 
+    height:110px;
 
     border:3px solid white;
 
     border-radius:50%;
 
+    transform:
 
-    transform:translate(-50%,-50%);
+    translate(-50%,-50%);
 
 }
 
 
 
-/* STRAFRAUM */
+/* STRAFRÄUME */
 
-.penalty{
+.box{
 
     position:absolute;
 
     left:50%;
 
-
     width:230px;
+
     height:100px;
 
-
     border:3px solid white;
-
 
     transform:translateX(-50%);
 
 }
 
 
-.top{
+.box.top{
 
     top:0;
 
 }
 
 
-.bottom{
+.box.bottom{
 
     bottom:0;
 
@@ -223,7 +247,7 @@ body{
 
 
 
-/* TOR */
+/* TORLINIEN */
 
 .goal{
 
@@ -231,27 +255,25 @@ body{
 
     left:50%;
 
+    width:100px;
 
-    width:90px;
-    height:30px;
-
+    height:25px;
 
     border:3px solid white;
-
 
     transform:translateX(-50%);
 
 }
 
 
-.goal-top{
+.goal.top{
 
     top:0;
 
 }
 
 
-.goal-bottom{
+.goal.bottom{
 
     bottom:0;
 
@@ -266,56 +288,47 @@ body{
 <body>
 
 
-<div class="container">
+<div class="wrapper">
 
 
 <div class="header">
-
 
 <div class="team">
 HEIMTEAM
 </div>
 
-
 <div class="vs">
 VS
 </div>
-
 
 <div class="team">
 GASTTEAM
 </div>
 
-
 </div>
 
 
 
-<div class="fields">
+<div class="pitch-area">
 
 
-<div class="field">
+<div class="pitch">
 
-<div class="penalty top"></div>
-<div class="penalty bottom"></div>
 
-<div class="goal goal-top"></div>
-<div class="goal goal-bottom"></div>
+<div class="middle"></div>
+
+<div class="circle"></div>
+
+<div class="box top"></div>
+
+<div class="box bottom"></div>
+
+<div class="goal top"></div>
+
+<div class="goal bottom"></div>
+
 
 </div>
-
-
-
-<div class="field">
-
-<div class="penalty top"></div>
-<div class="penalty bottom"></div>
-
-<div class="goal goal-top"></div>
-<div class="goal goal-bottom"></div>
-
-</div>
-
 
 
 </div>
