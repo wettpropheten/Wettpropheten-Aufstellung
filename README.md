@@ -1,292 +1,185 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wettpropheten Starting XI</title>
+<title>Wettpropheten Analyse</title>
 
 <style>
 
-*{
-box-sizing:border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-
-margin:0;
-
-height:100vh;
-
-background:
-
-linear-gradient(135deg,#071521,#0b5a32);
-
-font-family:Arial,Helvetica,sans-serif;
-
-color:white;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
+body {
+    background: #111;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
-/* komplette Grafik */
-
-.lineup-card{
-
-width:900px;
-
-height:95vh;
-
-background:#111;
-
-border-radius:25px;
-
-box-shadow:
-
-0 20px 60px black;
-
-overflow:hidden;
-
+.container {
+    width: 1400px;
+    min-height: 850px;
+    padding: 35px;
+    background: linear-gradient(145deg,#151515,#090909);
+    border-radius: 25px;
+    box-shadow: 0 0 40px rgba(0,0,0,.8);
 }
 
 
+/* HEADER */
 
-/* Kopf */
-
-.header{
-
-height:90px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-padding:20px 35px;
-
-background:
-
-linear-gradient(90deg,#222,#080808);
-
+.header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
 }
 
 
-.logo{
-
-width:60px;
-
-height:60px;
-
-border-radius:50%;
-
-background:#333;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:22px;
-
-font-weight:bold;
-
+.team {
+    width:35%;
+    height:90px;
+    border-radius:18px;
+    background:#1d1d1d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    font-weight:bold;
 }
 
 
-.team{
+.vs {
+    width:120px;
+    height:70px;
+    background:#222;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    font-weight:900;
+}
 
-font-size:28px;
 
-font-weight:bold;
+/* FELDER */
+
+.fields {
+    display:flex;
+    justify-content:center;
+    gap:45px;
+    perspective:1200px;
+}
+
+
+.field {
+    width:520px;
+    height:520px;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.04) 50%,
+        transparent 50%
+    ),
+    #1f5f35;
+
+    border:4px solid rgba(255,255,255,.5);
+    position:relative;
+
+    transform:rotateX(45deg);
+    box-shadow:
+    0 40px 50px rgba(0,0,0,.7);
 
 }
 
 
+/* Spielfeld Linien */
 
-.formation{
+.field:before {
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    width:3px;
+    height:100%;
+    background:white;
+    transform:translateX(-50%);
+}
 
-font-size:22px;
 
-background:#333;
+.field:after {
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:120px;
+    height:120px;
+    border:3px solid white;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+}
 
-padding:10px 18px;
 
-border-radius:12px;
+/* Strafräume */
+
+.box {
+    position:absolute;
+    width:180px;
+    height:70px;
+    border:3px solid white;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.top {
+    top:0;
+}
+
+.bottom {
+    bottom:0;
+}
+
+
+/* BOTTOM PANEL */
+
+
+.bottom-panel {
+
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:1fr 180px 1fr;
+    gap:20px;
 
 }
 
 
+.card {
 
-/* Feld */
-
-
-.pitch{
-
-position:relative;
-
-height:calc(100% - 180px);
-
-margin:20px;
-
-border-radius:20px;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#16833d,
-
-#239653
-
-);
-
-border:3px solid white;
-
-overflow:hidden;
+    height:130px;
+    background:#1a1a1a;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
 
 }
 
 
-
-/* Linien */
-
-
-.pitch:before{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-top:0;
-
-height:100%;
-
-width:3px;
-
-background:white;
-
-transform:translateX(-50%);
-
-}
-
-
-.pitch:after{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-top:50%;
-
-width:120px;
-
-height:120px;
-
-border:3px solid white;
-
-border-radius:50%;
-
-transform:translate(-50%,-50%);
-
-}
-
-
-
-
-.player{
-
-position:absolute;
-
-transform:translate(-50%,-50%);
-
-text-align:center;
-
-z-index:5;
-
-}
-
-
-
-.circle{
-
-width:55px;
-
-height:55px;
-
-border-radius:50%;
-
-background:white;
-
-color:#111;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:20px;
-
-font-weight:bold;
-
-box-shadow:
-
-0 5px 15px black;
-
-}
-
-
-
-.name{
-
-margin-top:8px;
-
-background:rgba(0,0,0,.7);
-
-padding:5px 10px;
-
-border-radius:8px;
-
-font-size:14px;
-
-white-space:nowrap;
-
-}
-
-
-
-/* unten */
-
-.footer{
-
-height:70px;
-
-background:#090909;
-
-display:flex;
-
-justify-content:space-around;
-
-align-items:center;
-
-font-size:16px;
-
+.center-card {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
 
 
@@ -298,210 +191,84 @@ font-size:16px;
 <body>
 
 
-<div class="lineup-card">
-
+<div class="container">
 
 
 <div class="header">
 
+<div class="team">
+HEIMTEAM
+</div>
 
-<div class="logo">
-WP
+
+<div class="vs">
+VS
 </div>
 
 
 <div class="team">
-FC Bayern München
+GASTTEAM
+</div>
+
 </div>
 
 
-<div class="formation">
+
+<div class="fields">
+
+
+<div class="field">
+
+<div class="box top"></div>
+<div class="box bottom"></div>
+
+</div>
+
+
+<div class="field">
+
+<div class="box top"></div>
+<div class="box bottom"></div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="bottom-panel">
+
+
+<div class="card">
+START XI
+</div>
+
+
+<div class="center-card">
+
+<div class="card">
 4-3-3
 </div>
 
+<div class="card">
+TRAINER
+</div>
 
 </div>
 
 
-
-
-
-<div class="pitch" id="pitch">
-
-
+<div class="card">
+START XI
 </div>
 
-
-
-
-
-
-<div class="footer">
-
-<div>
-Trainer: Kompany
-</div>
-
-<div>
-Kapitän: Neuer
-</div>
-
-<div>
-Bank: 5 Spieler
-</div>
 
 </div>
 
 
 
 </div>
-
-
-
-
-
-<script>
-
-
-const players=[
-
-
-{
-name:"Neuer",
-number:1,
-x:50,
-y:90
-},
-
-
-{
-name:"Kimmich",
-number:6,
-x:80,
-y:72
-},
-
-
-{
-name:"Upamecano",
-number:2,
-x:60,
-y:75
-},
-
-
-{
-name:"Kim",
-number:3,
-x:40,
-y:75
-},
-
-
-{
-name:"Davies",
-number:19,
-x:20,
-y:72
-},
-
-
-{
-name:"Pavlovic",
-number:45,
-x:35,
-y:52
-},
-
-
-{
-name:"Musiala",
-number:42,
-x:50,
-y:45
-},
-
-
-{
-name:"Goretzka",
-number:8,
-x:65,
-y:52
-},
-
-
-{
-name:"Sane",
-number:10,
-x:25,
-y:25
-},
-
-
-{
-name:"Kane",
-number:9,
-x:50,
-y:18
-},
-
-
-{
-name:"Müller",
-number:25,
-x:75,
-y:25
-}
-
-
-];
-
-
-
-
-
-const pitch=document.getElementById("pitch");
-
-
-
-players.forEach(player=>{
-
-
-const div=document.createElement("div");
-
-
-div.className="player";
-
-
-div.style.left=player.x+"%";
-
-div.style.top=player.y+"%";
-
-
-
-div.innerHTML=`
-
-<div class="circle">
-${player.number}
-</div>
-
-<div class="name">
-${player.name}
-</div>
-
-`;
-
-
-
-pitch.appendChild(div);
-
-
-});
-
-
-</script>
 
 
 </body>
-
 </html>
