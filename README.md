@@ -11,6 +11,11 @@
 
 <style>
 
+*{
+box-sizing:border-box;
+}
+
+
 body{
 
 margin:0;
@@ -26,10 +31,14 @@ color:white;
 }
 
 
+
 h1{
 
 text-align:center;
-font-size:40px;
+
+font-size:42px;
+
+text-shadow:0 10px 30px black;
 
 }
 
@@ -37,10 +46,12 @@ font-size:40px;
 
 .container{
 
-max-width:1600px;
+max-width:1500px;
+
 margin:auto;
 
 }
+
 
 
 
@@ -52,35 +63,44 @@ justify-content:center;
 
 gap:80px;
 
-margin-top:40px;
+margin-top:50px;
 
 }
 
 
 
+/* SPIELFELDER */
+
 
 .pitch{
 
 width:420px;
+
 height:620px;
 
 background:
-linear-gradient(#1c9b45,#0d6b2c);
 
-border:4px solid white;
+linear-gradient(
+90deg,
+#159447,
+#0c6b32
+);
+
+
+border:
+
+4px solid white;
+
 
 border-radius:20px;
 
-position:relative;
 
-transform:perspective(900px)
-rotateX(18deg)
-rotateY(-5deg);
+position:relative;
 
 
 box-shadow:
 
-0 40px 60px black;
+0 40px 70px black;
 
 
 }
@@ -94,68 +114,125 @@ content:"";
 position:absolute;
 
 left:50%;
+
 top:50%;
 
-width:100px;
-height:100px;
+width:90%;
 
-border:3px solid white;
+height:2px;
 
-border-radius:50%;
+background:white;
 
 transform:translate(-50%,-50%);
 
 }
 
 
+.pitch:after{
 
-.line{
+content:"";
 
 position:absolute;
 
+left:50%;
+
 top:50%;
 
-width:100%;
+width:120px;
 
-border-top:3px solid white;
+height:120px;
+
+border:
+
+3px solid white;
+
+border-radius:50%;
+
+transform:
+
+translate(-50%,-50%);
 
 }
 
 
+
+/* 3D NEIGUNG */
+
+
+.homePitch{
+
+transform:
+
+perspective(900px)
+
+rotateX(25deg)
+
+rotateY(18deg)
+
+rotateZ(-3deg);
+
+}
+
+
+
+.awayPitch{
+
+
+transform:
+
+perspective(900px)
+
+rotateX(25deg)
+
+rotateY(-18deg)
+
+rotateZ(3deg);
+
+
+}
+
+
+
+
+/* SPIELER */
 
 
 .player{
 
-
 position:absolute;
 
-transform:translate(-50%,-50%);
+transform:
+
+translate(-50%,-50%);
 
 text-align:center;
+
+font-weight:bold;
 
 }
 
 
 
-.shirt{
+.jersey{
 
 
-width:60px;
+width:55px;
 
-height:70px;
+height:65px;
 
-background:#e00000;
 
-clip-path:polygon(
-20% 0,
-80% 0,
-100% 20%,
-75% 35%,
-75% 100%,
-25% 100%,
-25% 35%,
-0 20%
+background:
+
+linear-gradient(
+135deg,
+white,
+#bbbbbb
 );
+
+
+border-radius:
+
+12px 12px 8px 8px;
 
 
 display:flex;
@@ -164,57 +241,58 @@ align-items:center;
 
 justify-content:center;
 
+
 font-size:22px;
 
-font-weight:bold;
-
-text-shadow:0 3px 5px black;
+color:black;
 
 
-margin:auto;
+box-shadow:
+
+0 15px 20px black;
+
+
+border:
+
+3px solid white;
 
 
 }
 
 
 
-.name{
+
+.player span{
+
+display:block;
 
 margin-top:8px;
 
-font-weight:bold;
+font-size:14px;
 
-font-size:16px;
+text-shadow:
 
-}
-
-
-
-
-
-.away .shirt{
-
-background:#eeeeee;
-
-color:#111;
+0 3px 5px black;
 
 }
 
 
 
+
+/* KARTEN */
 
 
 .cards{
 
-margin-top:80px;
+margin-top:70px;
 
 display:grid;
 
 grid-template-columns:
+
 repeat(2,1fr);
 
 gap:30px;
-
 
 }
 
@@ -222,57 +300,65 @@ gap:30px;
 
 .card{
 
-
 background:
 
 rgba(255,255,255,.12);
 
 
+padding:25px;
+
 border-radius:25px;
 
-padding:25px;
 
 box-shadow:
 
-0 20px 40px black;
+0 20px 50px black;
 
-
-}
-
-
-
-.card h2{
 
 text-align:center;
 
-}
-
-
-
-.playerlist{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:10px;
 
 }
 
 
 
-.playerlist div{
+.card input{
 
-
-background:rgba(0,0,0,.4);
+width:90%;
 
 padding:10px;
 
+margin:5px;
+
 border-radius:10px;
 
+border:none;
 
 }
 
+
+
+
+@media(max-width:900px){
+
+
+.fields{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
 
 
 </style>
@@ -297,108 +383,31 @@ border-radius:10px;
 <div class="fields">
 
 
-
-<!-- HEIM -->
-
 <div>
 
 <h2 style="text-align:center">
-Heim Mannschaft
+🏠 Heim
 </h2>
 
 
-<div class="pitch">
-
-
-<div class="line"></div>
-
-
-<div class="player" style="left:50%;top:90%">
-<div class="shirt">1</div>
-<div class="name">Torwart</div>
-</div>
-
-
-
-<div class="player" style="left:50%;top:70%">
-<div class="shirt">9</div>
-<div class="name">Stürmer</div>
-</div>
-
-
-
-<div class="player" style="left:30%;top:50%">
-<div class="shirt">10</div>
-<div class="name">Spieler</div>
-</div>
-
-
-
-<div class="player" style="left:70%;top:50%">
-<div class="shirt">7</div>
-<div class="name">Spieler</div>
-</div>
-
+<div class="pitch homePitch" id="homeField"></div>
 
 
 </div>
 
-</div>
-
-
-
-
-
-<!-- GAST -->
 
 
 <div>
 
 <h2 style="text-align:center">
-Gast Mannschaft
+✈️ Gast
 </h2>
 
 
-<div class="pitch away">
-
-
-<div class="line"></div>
-
-
-
-<div class="player" style="left:50%;top:10%">
-<div class="shirt">1</div>
-<div class="name">Torwart</div>
-</div>
-
-
-
-<div class="player" style="left:50%;top:30%">
-<div class="shirt">9</div>
-<div class="name">Stürmer</div>
-</div>
-
-
-
-<div class="player" style="left:30%;top:50%">
-<div class="shirt">10</div>
-<div class="name">Spieler</div>
-</div>
-
-
-
-<div class="player" style="left:70%;top:50%">
-<div class="shirt">7</div>
-<div class="name">Spieler</div>
-</div>
-
+<div class="pitch awayPitch" id="awayField"></div>
 
 
 </div>
-
-
-</div>
-
 
 
 </div>
@@ -412,31 +421,24 @@ Gast Mannschaft
 
 <div class="card">
 
-
 <h2>
-Heim Aufstellung
+🏠 Heim Mannschaft
 </h2>
 
 
-<div class="playerlist">
+<img width="100" 
+src="https://s.hs-data.com/gfx/emblem/common/150x150/209.png">
 
 
-<div>1 Torwart</div>
-<div>2 Verteidiger</div>
-<div>3 Verteidiger</div>
-<div>4 Verteidiger</div>
-<div>6 Mittelfeld</div>
-<div>8 Mittelfeld</div>
-<div>10 Spielmacher</div>
-<div>9 Stürmer</div>
+<h3>Bayern München</h3>
 
 
-</div>
+<input value="Trainer">
+
+<input value="Aufstellung">
 
 
 </div>
-
-
 
 
 
@@ -444,32 +446,176 @@ Heim Aufstellung
 
 
 <h2>
-Gast Aufstellung
+✈️ Gast Mannschaft
 </h2>
 
 
-<div class="playerlist">
+<img width="100"
+src="https://s.hs-data.com/gfx/emblem/common/150x150/258.png">
 
 
-<div>1 Torwart</div>
-<div>2 Verteidiger</div>
-<div>3 Verteidiger</div>
-<div>4 Verteidiger</div>
-<div>6 Mittelfeld</div>
-<div>8 Mittelfeld</div>
-<div>10 Spielmacher</div>
-<div>9 Stürmer</div>
+<h3>Borussia Dortmund</h3>
 
 
-</div>
+<input value="Trainer">
+
+<input value="Aufstellung">
 
 
 </div>
 
 
+
 </div>
 
 
+
+
+
+
+<script>
+
+
+
+const heim=[
+
+["1","Neuer","50%","90%"],
+
+["2","Davies","20%","75%"],
+
+["4","Upamecano","40%","80%"],
+
+["5","de Ligt","60%","80%"],
+
+["6","Kimmich","80%","75%"],
+
+
+["8","Goretzka","25%","55%"],
+
+["10","Musiala","50%","50%"],
+
+["11","Coman","75%","55%"],
+
+
+["7","Gnabry","30%","25%"],
+
+["9","Kane","50%","20%"],
+
+["25","Müller","70%","25%"]
+
+];
+
+
+
+
+
+const gast=[
+
+
+["1","Kobel","50%","90%"],
+
+["2","Ryerson","20%","75%"],
+
+["4","Schlotterbeck","40%","80%"],
+
+["5","Bensebaini","60%","80%"],
+
+["26","Ribeiro","80%","75%"],
+
+
+["8","Sabitzer","25%","55%"],
+
+["10","Brandt","50%","50%"],
+
+["11","Adeyemi","75%","55%"],
+
+
+["7","Malen","30%","25%"],
+
+["9","Füllkrug","50%","20%"],
+
+["21","Donyell","70%","25%"]
+
+];
+
+
+
+
+
+
+function createPlayers(field,data){
+
+
+data.forEach(player=>{
+
+
+let div=document.createElement("div");
+
+
+div.className="player";
+
+
+div.style.left=player[2];
+
+div.style.top=player[3];
+
+
+
+div.innerHTML=
+
+`
+
+<div class="jersey">
+
+${player[0]}
+
+</div>
+
+
+<span>
+
+${player[1]}
+
+</span>
+
+`;
+
+
+
+field.appendChild(div);
+
+
+
+});
+
+
+}
+
+
+
+
+
+createPlayers(
+
+document.getElementById("homeField"),
+
+heim
+
+);
+
+
+
+createPlayers(
+
+document.getElementById("awayField"),
+
+gast
+
+);
+
+
+
+</script>
 
 
 </div>
