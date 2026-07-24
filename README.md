@@ -2,259 +2,309 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Wettpropheten-Aufstellung - Final</title>
+    <title>Wettpropheten Taktik Board Pro</title>
     <style>
         body {
             background-color: #071739;
             background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%, transparent);
             background-size: 40px 40px;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
         }
+
         .main-container {
             width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
-        /* VS HEADER */
-        .header-table {
+
+        /* 1. TOP HEADER BANNER (WIE IM BILD) */
+        .vs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
             width: 100%;
-            margin-bottom: 30px;
         }
-        .team-box {
+
+        .team-banner {
             background: #ffffff;
             border-radius: 40px;
-            height: 60px;
-            padding: 0 20px;
-            width: 45%;
-        }
-        .team-container {
+            height: 65px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            padding: 0 20px;
+            width: 43%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-sizing: border-box;
         }
-        .team-container.right {
-            flex-direction: row-reverse;
-        }
+
+        .team-banner.right { flex-direction: row-reverse; }
+
         .logo-upload {
-            width: 44px;
-            height: 44px;
-            background: #15294a;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             border-radius: 50%;
             position: relative;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
         }
-        .logo-upload::before { content: '⚽'; font-size: 18px; }
-        .logo-upload img { position: absolute; width:100%; height:100%; object-fit:cover; border-radius:50%; top:0; left:0; }
-        .logo-upload input { position: absolute; opacity:0; width:100%; height:100%; cursor:pointer; }
+        .logo-upload::before { content: '⚽'; font-size: 20px; }
+        .logo-upload img { position: absolute; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; top: 0; left: 0; }
+        .logo-upload input { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+
         .team-input {
             background: transparent;
             border: none;
             color: #0d295c;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
             text-transform: uppercase;
             width: 80%;
+            padding: 5px 10px;
         }
-        .team-container.right .team-input { text-align: right; }
-        .team-input:focus { outline: none; }
-        .vs-title {
-            background: #0072ff;
+        .team-banner.right .team-input { text-align: right; }
+        .team-input:focus { outline: none; background: rgba(0,0,0,0.03); border-radius: 5px; }
+
+        .vs-badge {
+            background: linear-gradient(to bottom, #00c6ff, #0072ff);
             color: white;
-            font-size: 24px;
-            font-weight: bold;
-            padding: 10px 25px;
-            border-radius: 30px;
+            font-size: 26px;
+            font-weight: 900;
+            padding: 10px 30px;
+            border-radius: 35px;
             border: 2px solid #fff;
-            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 114, 255, 0.5);
+            font-style: italic;
         }
-        /* GRID SYSTEM FÜR DIE ZWEI SPALTEN */
-        .grid-layout {
+
+        /* ROW CONTAINER FÜR SPIELFELDER & KARTEN */
+        .grid-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
             width: 100%;
         }
-        /* SPIELFELDER */
+
+        /* 2. SPIELFELDER (FLACHES MODERNES DESIGN) */
         .field-card {
             background: #132a4f;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 1px solid #1f3d6b;
         }
-        .pitch {
+
+        .football-pitch {
             background-color: #2e7d32;
-            height: 380px;
-            border: 3px solid rgba(255,255,255,0.5);
-            border-radius: 4px;
-            box-sizing: border-box;
+            height: 420px;
+            border: 3px solid rgba(255,255,255,0.6);
+            border-radius: 6px;
+            position: relative;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.04) 50%, transparent 50%);
+            background-size: 100% 50px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            padding: 10px 0;
+            padding: 15px 0;
+            box-sizing: border-box;
         }
-        .line {
+
+        .pitch-line {
             display: flex;
             justify-content: space-around;
             width: 100%;
+            min-height: 55px;
         }
-        .player {
+
+        .player-token {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 85px;
         }
-        .icon {
-            width: 28px;
-            height: 28px;
+
+        .jersey-circle {
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: bold;
             border: 2px solid white;
-            box-shadow: 0 4px 4px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
         }
-        .left-side .icon { background: #1e88e5; color: white; }
-        .left-side .gk { background: #e0e0e0; color: black; }
-        .right-side .icon { background: #fdd835; color: black; border-color: #333; }
-        .right-side .gk { background: #e53935; color: white; }
-        .p-name {
-            background: white;
+        .left-side .jersey-circle { background: linear-gradient(135deg, #1e88e5, #1565c0); color: white; }
+        .left-side .gk-unit { background: linear-gradient(135deg, #e0e0e0, #9e9e9e); color: black; }
+        .right-side .jersey-circle { background: linear-gradient(135deg, #fdd835, #fbc02d); color: black; border-color: #333; }
+        .right-side .gk-unit { background: linear-gradient(135deg, #e53935, #b71c1c); color: white; border-color: white; }
+
+        .pitch-name-display {
+            background: rgba(255, 255, 255, 0.95);
             border: none;
-            border-radius: 2px;
-            color: black;
-            font-size: 9px;
+            border-radius: 3px;
+            color: #000000;
+            font-size: 10px;
             font-weight: bold;
-            width: 70px;
+            width: 80px;
             text-align: center;
-            margin-top: 3px;
+            margin-top: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             text-transform: uppercase;
         }
-        /* MANNSCHAFTSKARTEN */
+
+        /* 3. MANNSCHAFTSKARTEN UNTEN */
         .roster-card {
             background: #0f306e;
-            border-radius: 6px;
-            padding: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             display: grid;
             grid-template-columns: 1.2fr 1fr;
-            gap: 15px;
-            border-top: 4px solid #1e88e5;
+            gap: 20px;
+            border-top: 5px solid #1e88e5;
+            border-bottom: 1px solid #1f3d6b;
         }
         .roster-card.right-card { border-top-color: #fdd835; }
-        .p-list {
+
+        .lineup-list {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
         }
-        .p-row {
+
+        .player-input-row {
             display: flex;
             align-items: center;
             background: rgba(255,255,255,0.06);
-            padding: 4px 8px;
-            border-radius: 3px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.03);
         }
-        .p-num {
+
+        .number-badge {
             font-weight: bold;
-            font-size: 12px;
+            font-size: 13px;
             color: #64b5f6;
-            width: 20px;
+            width: 24px;
         }
-        .right-card .p-num { color: #fff176; }
-        .p-input {
+        .right-card .number-badge { color: #fff176; }
+
+        .card-name-input {
             background: transparent;
             border: none;
-            color: white;
-            font-size: 12px;
+            color: #ffffff;
+            font-size: 13px;
             width: 100%;
             text-transform: uppercase;
+            font-weight: 600;
         }
-        .p-input:focus { outline: none; }
-        .m-box {
+        .card-name-input:focus { outline: none; background: rgba(255,255,255,0.05); }
+
+        .controls-sidebar {
             display: flex;
             flex-direction: column;
         }
-        .f-title {
-            font-size: 36px;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-        .s-title {
+
+        /* DROPKLICK STYLING (DROP-DOWNS) */
+        .dropdown-label {
             font-size: 11px;
             font-weight: bold;
             color: #90caf9;
             text-transform: uppercase;
-            margin: 8px 0 4px 0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
-        .right-card .s-title { color: #fff59d; }
+        .right-card .dropdown-label { color: #fff59d; }
+
+        .dropklick-select {
+            background: #15294a;
+            color: white;
+            border: 2px solid #23467c;
+            padding: 8px 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .dropklick-select:focus { border-color: #0072ff; }
+
+        .sub-header {
+            font-size: 12px;
+            font-weight: bold;
+            color: #90caf9;
+            text-transform: uppercase;
+            margin: 5px 0;
+            letter-spacing: 0.5px;
+        }
+        .right-card .sub-header { color: #fff59d; }
+
+        .sub-box {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
 
 <div class="main-container">
 
-    <!-- VS HEADER -->
-    <table class="header-table">
-        <tr>
-            <td class="team-box">
-                <div class="team-container">
-                    <div class="logo-upload"><input type="file" accept="image/*" onchange="loadImg(this)"></div>
-                    <input type="text" class="team-input" value="TEAM HEIM">
-                </div>
-            </td>
-            <td style="width: 10%; text-align: center;">
-                <span class="vs-title">VS</span>
-            </td>
-            <td class="team-box">
-                <div class="team-container right">
-                    <div class="logo-upload"><input type="file" accept="image/*" onchange="loadImg(this)"></div>
-                    <input type="text" class="team-input" value="TEAM GAST">
-                </div>
-            </td>
-        </tr>
-    </table>
+    <!-- VS HEADER BANNER MIT LOGO-UPLOAD -->
+    <div class="vs-header">
+        <div class="team-banner left">
+            <div class="logo-upload"><input type="file" accept="image/*" onchange="previewLogo(this)"></div>
+            <input type="text" class="team-input" value="TEAM HEIM">
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="team-banner right">
+            <div class="logo-upload"><input type="file" accept="image/*" onchange="previewLogo(this)"></div>
+            <input type="text" class="team-input" value="TEAM GAST">
+        </div>
+    </div>
 
-    <!-- SPIELFELDER ROW -->
-    <div class="grid-layout" style="margin-bottom: 30px;">
-        <!-- Links (4-4-2) -->
+    <!-- SPIELFELDER ZEILE -->
+    <div class="grid-row">
+        <!-- Links Spielfeld Container -->
         <div class="field-card left-side">
-            <div class="pitch">
-                <div class="line">
-                    <div class="player"><div class="icon">10</div><input type="text" class="p-name" value="SPIELER 10" data-sync="l10"></div>
-                    <div class="player"><div class="icon">11</div><input type="text" class="p-name" value="SPIELER 11" data-sync="l11"></div>
-                </div>
-                <div class="line">
-                    <div class="player"><div class="icon">06</div><input type="text" class="p-name" value="SPIELER 06" data-sync="l6"></div>
-                    <div class="player"><div class="icon">07</div><input type="text" class="p-name" value="SPIELER 07" data-sync="l7"></div>
-                    <div class="player"><div class="icon">08</div><input type="text" class="p-name" value="SPIELER 08" data-sync="l8"></div>
-                    <div class="player"><div class="icon">09</div><input type="text" class="p-name" value="SPIELER 09" data-sync="l9"></div>
-                </div>
-                <div class="line">
-                    <div class="player"><div class="icon">02</div><input type="text" class="p-name" value="SPIELER 02" data-sync="l2"></div>
-                    <div class="player"><div class="icon">03</div><input type="text" class="p-name" value="SPIELER 03" data-sync="l3"></div>
-                    <div class="player"><div class="icon">04</div><input type="text" class="p-name" value="SPIELER 04" data-sync="l4"></div>
-                    <div class="player"><div class="icon">05</div><input type="text" class="p-name" value="SPIELER 05" data-sync="l5"></div>
-                </div>
-                <div class="line">
-                    <div class="player"><div class="icon gk">01</div><input type="text" class="p-name" value="TORWART" data-sync="l1"></div>
-                </div>
+            <div class="football-pitch" id="pitch-left">
+                <!-- Wird dynamisch per JavaScript befüllt -->
             </div>
         </div>
 
-        <!-- Rechts (4-3-3) -->
+        <!-- Rechts Spielfeld Container -->
         <div class="field-card right-side">
-            <div class="pitch">
-                <div class="line">
-                    <div class="player"><div class="icon">09</div><input type="text" class="p-name" value="SPIELER 09" data-sync="r9"></div>
-                    <div class="player"><div class="icon">10</div><input type="text" class="p-name" value="SPIELER 10" data-sync="r10"></div>
-                    <div class="player"><div class="icon">11</div><input type="text" class="p-name" value="SPIELER 11" data-sync="r11"></div>
-                </div>
-                <div class="line">
-                    <div class="player"><div class="icon">06</div><input type="text" class="p-name" value="SPIELER 06" data-sync="r6"></div>
-                    <div class="player"><div class="icon">07覆</div><input type="text" class="p-name" value="SPIELER 07" data-sync="r7"></div>
+            <div class="football-pitch" id="pitch-right">
+                <!-- Wird dynamisch per JavaScript befüllt -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MANNSCHAFTSKARTEN ZEILE -->
+    <div class="grid-row">
+        <!-- Karte Links -->
+        <div class="roster-card">
+            <div class="lineup-list" id="list-left">
+                <!-- 11 Startspieler Inputs -->
+            </div>
+            <div class="controls-sidebar">
+                <div class="dropdown-label">Formation (Dropklick)</div>
+                <select class="dropklick-select" onchange="changeFormation('left', this.value)">
+                    <option value="4-4-2">4-4-2</option>
+                    <option value="4-3-3">4-3-3</option>
