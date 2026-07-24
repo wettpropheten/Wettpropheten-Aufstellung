@@ -5,30 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wettpropheten-Aufstellung</title>
     <style>
-        :root {
-            --bg-dark: #071739;
-            --field-green: #388e3c;
-            --field-lines: rgba(255, 255, 255, 0.6);
-            --banner-white: #ffffff;
-            --box-blue: #0f306e;
-            --text-light: #ffffff;
-        }
-
         body {
             font-family: 'Arial', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: #071739;
             background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%, transparent);
             background-size: 40px 40px;
-            color: var(--text-light);
+            color: #ffffff;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             display: flex;
             justify-content: center;
         }
 
         .dashboard {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
         /* HEADER */
@@ -36,31 +30,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
-            gap: 10px;
+            gap: 15px;
         }
 
         .team-banner {
-            background: var(--banner-white);
+            background: #ffffff;
             border-radius: 40px;
-            height: 65px;
+            height: 60px;
             display: flex;
             align-items: center;
-            padding: 0 15px;
+            padding: 0 20px;
             width: 42%;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
         }
 
-        .team-banner.left { justify-content: flex-start; }
-        .team-banner.right { justify-content: flex-end; flex-direction: row-reverse; }
+        .team-banner.right { flex-direction: row-reverse; }
 
         .logo-box {
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, #3a7bd5, #3a6073);
+            width: 44px;
+            height: 44px;
+            background: #15294a;
             border-radius: 50%;
-            border: 3px solid #ccc;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -69,108 +60,62 @@
             overflow: hidden;
         }
 
-        .logo-box::before {
-            content: '⚽';
-            color: rgba(255,255,255,0.7);
-            font-size: 20px;
-        }
-
-        .logo-box img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            top: 0; left: 0;
-        }
-
-        .logo-box input {
-            position: absolute;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            z-index: 2;
-        }
+        .logo-box::before { content: '⚽'; font-size: 18px; }
+        .logo-box img { position: absolute; width: 100%; height: 100%; object-fit: cover; top:0; left:0; }
+        .logo-box input { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
 
         .team-name-input {
             background: transparent;
             border: none;
             color: #0d295c;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 900;
             text-transform: uppercase;
-            width: 75%;
-            padding: 5px 15px;
-            font-family: 'Impact', sans-serif;
+            width: 80%;
+            padding: 5px 10px;
         }
         .team-banner.right .team-name-input { text-align: right; }
         .team-name-input:focus { outline: none; }
 
         .vs-badge {
-            background: linear-gradient(to bottom, #00c6ff, #0072ff);
+            background: #0072ff;
             color: white;
-            font-size: 32px;
-            font-weight: 900;
-            padding: 8px 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 25px rgba(0, 114, 255, 0.7);
-            font-style: italic;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 30px;
             border: 2px solid #fff;
         }
 
-        /* 3D FIELDS CONTAINER - FIX HIER: ERZWINGT ZWEI SPALTEN NEBENEINANDER */
-        .fields-stage {
-            perspective: 1500px;
+        /* ZWEI SPALTEN FÜR DIE SPIELFELDER (STABILE PERSPEKTIVE) */
+        .fields-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 80px;
-            width: 100%;
+            gap: 30px;
         }
 
-        .field-3d-container {
-            position: relative;
-            transform: rotateX(55deg) rotateZ(-20deg);
-            transform-style: preserve-3d;
-            width: 100%;
+        .field-box {
+            background: #132a4f;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            /* Saubere, flache 3D-Neigung ohne Layout-Verschiebungen */
+            transform: perspective(800px) rotateX(25deg);
         }
 
         .football-field {
-            background-color: var(--field-green);
-            height: 450px;
-            border: 5px solid var(--field-lines);
-            box-shadow: -15px 15px 0px #1b5e20, -30px 30px 30px rgba(0,0,0,0.6);
+            background-color: #2e7d32;
+            height: 380px;
+            border: 3px solid rgba(255,255,255,0.5);
+            border-radius: 4px;
             position: relative;
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.08) 50%, transparent 50%);
-            background-size: 100% 60px;
-        }
-
-        /* Feldmarkierungen */
-        .field-lines-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-bottom: 3px solid var(--field-lines);
-            pointer-events: none;
-        }
-        .field-lines-overlay::before {
-            content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 70px;
-            border: 4px solid var(--field-lines); border-bottom: none;
-        }
-        .field-lines-overlay::after {
-            content: ''; position: absolute; top: 0; left: 20%; right: 20%; height: 70px;
-            border: 4px solid var(--field-lines); border-top: none;
-        }
-
-        /* SPIELER POSITIONEN */
-        .formation-layout {
-            position: absolute;
-            width: 100%; height: 100%;
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.05) 50%, transparent 50%);
+            background-size: 100% 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
             padding: 10px 0;
             box-sizing: border-box;
-            transform-style: preserve-3d;
         }
 
         .formation-row {
@@ -183,55 +128,50 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transform: rotateZ(20deg) rotateX(-55deg) scale(0.85); 
         }
 
         .jersey {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-            box-shadow: 0 5px 5px rgba(0,0,0,0.5);
             border: 2px solid white;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.4);
         }
-        .left-side .jersey { background: linear-gradient(90deg, #1e88e5 50%, #1565c0 50%); color: white; }
-        .left-side .gk-jersey { background: linear-gradient(90deg, #e0e0e0 50%, #9e9e9e 50%); color: black; }
-        
-        .right-side .jersey { background: #fdd835; color: black; border-color: #333; }
-        .right-side .gk-jersey { background: linear-gradient(90deg, #e53935 50%, #b71c1c 50%); color: white; }
+        .left-field .jersey { background: #1e88e5; color: white; }
+        .left-field .gk { background: #e0e0e0; color: black; }
+        .right-field .jersey { background: #fdd835; color: black; border-color: #333; }
+        .right-field .gk { background: #e53935; color: white; }
 
         .player-input {
             background: white;
             border: none;
-            border-radius: 3px;
+            border-radius: 2px;
             color: black;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: bold;
-            width: 80px;
+            width: 70px;
             text-align: center;
-            margin-top: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-top: 3px;
             text-transform: uppercase;
         }
 
-        /* ROSTER CONTAINER - FIX HIER: ERZWINGT ZWEI SPALTEN NEBENEINANDER */
-        .roster-stage {
+        /* MANNSCHAFTSKARTEN DIREKT DARUNTER */
+        .cards-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            width: 100%;
-            margin-top: 40px;
+            gap: 30px;
         }
 
         .roster-card {
-            background: var(--box-blue);
+            background: #0f306e;
             border-radius: 6px;
-            padding: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             gap: 15px;
@@ -239,7 +179,7 @@
         }
         .roster-card.right-card { border-top-color: #fdd835; }
 
-        .main-lineup {
+        .player-list {
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -248,80 +188,97 @@
         .player-row {
             display: flex;
             align-items: center;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.06);
             padding: 4px 8px;
             border-radius: 3px;
         }
 
-        .player-number {
+        .player-num {
             font-weight: bold;
-            font-size: 13px;
+            font-size: 12px;
             color: #64b5f6;
-            margin-right: 10px;
-            width: 18px;
+            width: 20px;
         }
-        .right-card .player-number { color: #fff176; }
+        .right-card .player-num { color: #fff176; }
 
         .row-input {
             background: transparent;
             border: none;
             color: white;
-            font-size: 13px;
+            font-size: 12px;
             width: 100%;
             text-transform: uppercase;
         }
         .row-input:focus { outline: none; background: rgba(255,255,255,0.05); }
 
-        .meta-section {
+        .meta-box {
             display: flex;
             flex-direction: column;
         }
 
-        .formation-badge {
-            font-size: 42px;
+        .formation-title {
+            font-size: 36px;
             font-weight: 900;
-            font-family: 'Impact', sans-serif;
-            color: white;
-            line-height: 1;
             margin-bottom: 10px;
-            letter-spacing: 2px;
         }
 
-        .sub-label {
+        .section-title {
             font-size: 11px;
             font-weight: bold;
             color: #90caf9;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            margin: 8px 0 4px 0;
         }
-        .right-card .sub-label { color: #fff59d; }
-
-        .sub-box {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            margin-bottom: 10px;
-        }
+        .right-card .section-title { color: #fff59d; }
     </style>
 </head>
 <body>
 
 <div class="dashboard">
 
-    <!-- TOP HEADER -->
+    <!-- VS HEADER -->
     <div class="vs-header">
-        <div class="team-banner left">
-            <div class="logo-box"><input type="file" accept="image/*" onchange="uploadLogo(this)"></div>
+        <div class="team-banner">
+            <div class="logo-box"><input type="file" accept="image/*" onchange="loadImg(this)"></div>
             <input type="text" class="team-name-input" value="TEAM HEIM">
         </div>
         <div class="vs-badge">VS</div>
         <div class="team-banner right">
-            <div class="logo-box"><input type="file" accept="image/*" onchange="uploadLogo(this)"></div>
+            <div class="logo-box"><input type="file" accept="image/*" onchange="loadImg(this)"></div>
             <input type="text" class="team-name-input" value="TEAM GAST">
         </div>
     </div>
 
-    <!-- 3D SPIELFELDER STAGE -->
-    <div class="fields-stage">
+    <!-- SPIELFELDER -->
+    <div class="fields-container">
+        <!-- Links (4-4-2) -->
+        <div class="field-box left-field">
+            <div class="football-field">
+                <div class="formation-row">
+                    <div class="player-node"><div class="jersey">10</div><input type="text" class="player-input" value="SPIELER 10" data-sync="l10"></div>
+                    <div class="player-node"><div class="jersey">11</div><input type="text" class="player-input" value="SPIELER 11" data-sync="l11"></div>
+                </div>
+                <div class="formation-row">
+                    <div class="player-node"><div class="jersey">06</div><input type="text" class="player-input" value="SPIELER 06" data-sync="l6"></div>
+                    <div class="player-node"><div class="jersey">07</div><input type="text" class="player-input" value="SPIELER 07" data-sync="l7"></div>
+                    <div class="player-node"><div class="jersey">08</div><input type="text" class="player-input" value="SPIELER 08" data-sync="l8"></div>
+                    <div class="player-node"><div class="jersey">09</div><input type="text" class="player-input" value="SPIELER 09" data-sync="l9"></div>
+                </div>
+                <div class="formation-row">
+                    <div class="player-node"><div class="jersey">02</div><input type="text" class="player-input" value="SPIELER 02" data-sync="l2"></div>
+                    <div class="player-node"><div class="jersey">03</div><input type="text" class="player-input" value="SPIELER 03" data-sync="l3"></div>
+                    <div class="player-node"><div class="jersey">04</div><input type="text" class="player-input" value="SPIELER 04" data-sync="l4"></div>
+                    <div class="player-node"><div class="jersey">05</div><input type="text" class="player-input" value="SPIELER 05" data-sync="l5"></div>
+                </div>
+                <div class="formation-row">
+                    <div class="player-node"><div class="jersey gk">01</div><input type="text" class="player-input" value="TORWART" data-sync="l1"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rechts (4-3-3) -->
+        <div class="field-box right-field">
+            <div class="football-field">
+                <div class="formation-row">
+                    <div class="player-node"><div class="jersey">09</div><input type="text" class="player-input" value="SPIELER 09" data-sync="r9"></div>
+
