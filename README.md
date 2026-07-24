@@ -6,10 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wettpropheten Aufstellung</title>
+<title>Wettpropheten Aufstellung TV</title>
 
 
 <style>
+
 
 *{
 box-sizing:border-box;
@@ -19,12 +20,13 @@ box-sizing:border-box;
 body{
 
 margin:0;
+
 padding:20px;
 
 font-family:Arial,Helvetica,sans-serif;
 
 background:
-linear-gradient(135deg,#06101d,#075c35);
+linear-gradient(135deg,#04101c,#075b35);
 
 color:white;
 
@@ -32,9 +34,10 @@ color:white;
 
 
 
+
 .container{
 
-max-width:1600px;
+max-width:1800px;
 
 margin:auto;
 
@@ -46,21 +49,27 @@ h1{
 
 text-align:center;
 
-font-size:42px;
+font-size:44px;
 
-text-shadow:0 10px 30px black;
+text-shadow:
+0 10px 30px black;
+
+margin-bottom:30px;
 
 }
 
 
 
-.layout{
+
+.main{
 
 display:grid;
 
-grid-template-columns:350px 1fr 350px;
+grid-template-columns:
 
-gap:30px;
+360px 1fr 360px;
+
+gap:35px;
 
 align-items:start;
 
@@ -69,36 +78,69 @@ align-items:start;
 
 
 
-.card{
+
+
+.panel{
+
 
 background:
 
 rgba(255,255,255,.12);
 
+
 border:
 
 1px solid rgba(255,255,255,.25);
 
+
 border-radius:25px;
+
 
 padding:25px;
 
+
 box-shadow:
 
-0 20px 50px black;
+0 25px 60px black;
+
 
 }
+
+
+
+
+
+h2{
+
+text-align:center;
+
+}
+
+
+
+
+
+label{
+
+display:block;
+
+margin-top:15px;
+
+font-weight:bold;
+
+}
+
+
 
 
 
 select,
 input{
 
+
 width:100%;
 
 padding:12px;
-
-margin-top:8px;
 
 border-radius:10px;
 
@@ -110,40 +152,20 @@ color:white;
 
 font-size:16px;
 
-}
-
-
-
-label{
-
-display:block;
-
-margin-top:15px;
 
 }
 
 
 
 
-button{
+input[type=color]{
 
-width:100%;
 
-margin-top:15px;
+height:45px;
 
-padding:12px;
 
-border:none;
+padding:5px;
 
-border-radius:10px;
-
-background:#008f45;
-
-color:white;
-
-font-weight:bold;
-
-cursor:pointer;
 
 }
 
@@ -151,10 +173,67 @@ cursor:pointer;
 
 
 
-/* SPIELFELDER */
+
+.player-list{
 
 
-.center{
+margin-top:20px;
+
+
+}
+
+
+
+.player-row{
+
+
+display:grid;
+
+grid-template-columns:
+
+45px 1fr;
+
+
+gap:8px;
+
+
+margin-bottom:8px;
+
+
+}
+
+
+
+
+
+.number{
+
+
+background:#222;
+
+
+text-align:center;
+
+
+padding:10px;
+
+
+border-radius:8px;
+
+
+}
+
+
+
+
+
+
+/* SPIELFELD BEREICH */
+
+
+
+.tv-area{
+
 
 display:flex;
 
@@ -166,34 +245,51 @@ gap:40px;
 
 
 
-.pitch{
 
-width:400px;
+.field-box{
 
-height:600px;
+text-align:center;
+
+}
+
+
+
+
+
+.field{
+
+
+width:430px;
+
+height:680px;
+
 
 background:
 
 linear-gradient(
-
 90deg,
-
-#12833d,
-
-#0c632e
-
+#158542,
+#09612f
 );
 
 
-border:4px solid white;
+border:
 
-border-radius:20px;
+4px solid white;
+
+
+border-radius:25px;
+
 
 position:relative;
 
+
 box-shadow:
 
-0 50px 80px black;
+0 40px 80px black;
+
+
+overflow:hidden;
 
 
 }
@@ -201,106 +297,148 @@ box-shadow:
 
 
 
-.pitch:before{
+
+
+
+/* Linien */
+
+
+
+.field:before{
+
 
 content:"";
 
+
 position:absolute;
 
-width:90%;
-
-height:2px;
-
-background:white;
 
 left:5%;
 
+
+right:5%;
+
+
 top:50%;
+
+
+height:2px;
+
+
+background:white;
+
 
 }
 
 
 
 
-.pitch:after{
+
+.field:after{
+
 
 content:"";
 
+
 position:absolute;
 
-width:120px;
 
-height:120px;
+width:140px;
 
-border:3px solid white;
+
+height:140px;
+
+
+border:
+
+3px solid white;
+
 
 border-radius:50%;
 
+
 left:50%;
+
 
 top:50%;
 
-transform:translate(-50%,-50%);
-
-}
-
-
-
-
-
-/* MEHR NACH HINTEN GENEIGT */
-
-
-.homePitch{
-
-transform:
-
-perspective(1000px)
-
-rotateX(45deg)
-
-rotateY(25deg)
-
-rotateZ(-5deg);
-
-}
-
-
-
-.awayPitch{
-
-
-transform:
-
-perspective(1000px)
-
-rotateX(45deg)
-
-rotateY(-25deg)
-
-rotateZ(5deg);
-
-
-}
-
-
-
-
-
-/* TRIKOT */
-
-
-.player{
-
-position:absolute;
 
 transform:
 
 translate(-50%,-50%);
 
+
+}
+
+
+
+
+
+
+
+
+/* Perspektive */
+
+
+
+
+.home-field{
+
+
+transform:
+
+perspective(1200px)
+
+rotateX(52deg)
+
+rotateY(20deg)
+
+rotateZ(-4deg);
+
+
+}
+
+
+
+.away-field{
+
+
+transform:
+
+perspective(1200px)
+
+rotateX(52deg)
+
+rotateY(-20deg)
+
+rotateZ(4deg);
+
+
+}
+
+
+
+
+
+
+
+
+/* TRIKOT PLATZHALTER */
+
+
+.player{
+
+
+position:absolute;
+
+
+transform:
+
+translate(-50%,-50%);
+
+
 text-align:center;
 
-z-index:5;
 
 }
 
@@ -309,31 +447,39 @@ z-index:5;
 .jersey{
 
 
-width:55px;
+width:65px;
 
-height:70px;
+
+height:80px;
+
+
+background:#d00000;
 
 
 border-radius:
 
-15px 15px 8px 8px;
+18px 18px 12px 12px;
 
 
 display:flex;
 
+
 align-items:center;
+
 
 justify-content:center;
 
 
-font-size:24px;
+font-size:26px;
+
 
 font-weight:bold;
 
 
 box-shadow:
 
-0 25px 25px rgba(0,0,0,.8);
+
+0 25px 35px black;
 
 
 border:
@@ -341,26 +487,28 @@ border:
 2px solid white;
 
 
-transform:
-
-rotateX(25deg);
-
-
 }
 
 
 
-.playerName{
 
-margin-top:8px;
 
-font-size:14px;
+.player-name{
+
+
+margin-top:10px;
+
+
+font-size:15px;
+
 
 font-weight:bold;
+
 
 text-shadow:
 
-0 3px 5px black;
+0 3px 8px black;
+
 
 }
 
@@ -368,74 +516,58 @@ text-shadow:
 
 
 
-/* FORMATION */
 
 
-.formationTitle{
+/* Überschrift Feld */
 
-margin-top:20px;
 
-font-size:18px;
+.team-title{
+
+
+font-size:22px;
 
 font-weight:bold;
 
-}
+margin-bottom:20px;
 
-
-
-
-/* SPIELERLISTE */
-
-
-.playerInput{
-
-display:grid;
-
-grid-template-columns:50px 1fr;
-
-gap:10px;
-
-margin-top:8px;
 
 }
 
 
 
 
-/* FARBE */
 
 
-.colorBox{
 
-height:40px;
+@media(max-width:1400px){
 
-padding:3px;
+
+.main{
+
+
+grid-template-columns:
+
+1fr;
+
 
 }
 
 
 
+.tv-area{
 
-@media(max-width:1200px){
-
-
-.layout{
-
-grid-template-columns:1fr;
-
-}
-
-
-.center{
 
 flex-direction:column;
 
+
 align-items:center;
 
+
 }
 
 
 }
+
 
 
 </style>
@@ -444,42 +576,50 @@ align-items:center;
 </head>
 
 
-
 <body>
-
 
 
 <div class="container">
 
 
 <h1>
-Wettpropheten Aufstellung
+Wettpropheten Aufstellung TV
 </h1>
 
 
 
 
-<div class="layout">
+<div class="main">
+
+
 
 
 
 <!-- HEIM -->
 
-<div class="card">
+<div class="panel">
 
 
 <h2>
-Heim Mannschaft
+Heim
 </h2>
 
 
 
 <label>
-Verein
+Mannschaft
 </label>
 
 
-<select id="homeTeam"></select>
+<select id="homeTeam">
+
+<option>
+Bayern München
+</option>
+
+</select>
+
+
 
 
 
@@ -490,14 +630,15 @@ Formation
 
 <select id="homeFormation">
 
-<option>4-4-2</option>
 <option>4-3-3</option>
+<option>4-4-2</option>
 <option>4-2-3-1</option>
 <option>3-5-2</option>
-<option>5-3-2</option>
 <option>3-4-3</option>
 
+
 </select>
+
 
 
 
@@ -506,11 +647,13 @@ Formation
 Trikotfarbe
 </label>
 
+
 <input 
 type="color"
-id="homeColor"
-value="#d00000"
-class="colorBox">
+id="homeKit"
+value="#d00000">
+
+
 
 
 
@@ -518,11 +661,13 @@ class="colorBox">
 Nummernfarbe
 </label>
 
+
 <input 
 type="color"
-id="homeNumberColor"
-value="#ffffff"
-class="colorBox">
+id="homeNumber"
+value="#ffffff">
+
+
 
 
 
@@ -531,7 +676,9 @@ Spieler
 </h3>
 
 
-<div id="homePlayers"></div>
+<div class="player-list" id="homePlayers">
+
+</div>
 
 
 
@@ -542,37 +689,61 @@ Spieler
 
 
 
-<!-- FELDER -->
-
-<div class="center">
 
 
-<div>
+<!-- MITTE -->
 
-<h2 align="center">
+
+
+<div class="tv-area">
+
+
+
+<div class="field-box">
+
+
+<div class="team-title">
 Heim
-</h2>
+</div>
 
-<div class="pitch homePitch" id="homeField"></div>
+
+
+<div class="field home-field" id="homeField">
+
+
+</div>
+
 
 </div>
 
 
 
 
-<div>
 
-<h2 align="center">
+
+<div class="field-box">
+
+
+<div class="team-title">
 Gast
-</h2>
+</div>
 
-<div class="pitch awayPitch" id="awayField"></div>
+
+
+<div class="field away-field" id="awayField">
+
+
+</div>
+
 
 </div>
 
 
 
+
+
 </div>
+
 
 
 
@@ -583,21 +754,32 @@ Gast
 <!-- GAST -->
 
 
-<div class="card">
+
+<div class="panel">
 
 
 <h2>
-Gast Mannschaft
+Gast
 </h2>
 
 
 
 <label>
-Verein
+Mannschaft
 </label>
 
 
-<select id="awayTeam"></select>
+<select id="awayTeam">
+
+
+<option>
+Borussia Dortmund
+</option>
+
+
+</select>
+
+
 
 
 
@@ -608,14 +790,16 @@ Formation
 
 <select id="awayFormation">
 
-<option>4-4-2</option>
+
 <option>4-3-3</option>
+<option>4-4-2</option>
 <option>4-2-3-1</option>
 <option>3-5-2</option>
-<option>5-3-2</option>
 <option>3-4-3</option>
 
+
 </select>
+
 
 
 
@@ -627,9 +811,10 @@ Trikotfarbe
 
 <input 
 type="color"
-id="awayColor"
-value="#000000"
-class="colorBox">
+id="awayKit"
+value="#111111">
+
+
 
 
 
@@ -640,9 +825,10 @@ Nummernfarbe
 
 <input 
 type="color"
-id="awayNumberColor"
-value="#ffffff"
-class="colorBox">
+id="awayNumber"
+value="#ffffff">
+
+
 
 
 
@@ -651,7 +837,11 @@ Spieler
 </h3>
 
 
-<div id="awayPlayers"></div>
+
+<div class="player-list" id="awayPlayers">
+
+
+</div>
 
 
 
@@ -659,43 +849,48 @@ Spieler
 </div>
 
 
-</div>
 
 
 </div>
+
+
+
+</div>
+
+
 <script>
 
 
-const vereine = {
+const teams = {
 
 
 "Bayern München":[
 "Neuer",
-"Davies",
-"Upamecano",
-"de Ligt",
 "Kimmich",
+"Upamecano",
+"Kim",
+"Davies",
 "Goretzka",
 "Musiala",
-"Sané",
+"Sane",
+"Müller",
 "Gnabry",
-"Kane",
-"Müller"
+"Kane"
 ],
 
 
 "Borussia Dortmund":[
 "Kobel",
 "Ryerson",
+"Hummels",
 "Schlotterbeck",
-"Can",
 "Bensebaini",
-"Sabitzer",
+"Can",
 "Brandt",
+"Sabitzer",
 "Adeyemi",
 "Malen",
-"Füllkrug",
-"Reus"
+"Füllkrug"
 ],
 
 
@@ -765,10 +960,10 @@ const vereine = {
 "Ginter",
 "Lienhart",
 "Günter",
-"Höler",
 "Eggestein",
 "Doan",
 "Grifo",
+"Höler",
 "Gregoritsch",
 "Adamu"
 ],
@@ -776,16 +971,16 @@ const vereine = {
 
 "Mainz 05":[
 "Zentner",
-"da Costa",
 "Bell",
 "Kohr",
 "Caci",
+"Amiri",
 "Barreiro",
 "Lee",
 "Gruda",
-"Onisiwo",
 "Burkardt",
-"Ajorque"
+"Ajorque",
+"Onisiwo"
 ],
 
 
@@ -799,8 +994,8 @@ const vereine = {
 "Schmid",
 "Ducksch",
 "Füllkrug",
-"Demirovic",
-"Bittencourt"
+"Bittencourt",
+"Demirovic"
 ],
 
 
@@ -812,10 +1007,10 @@ const vereine = {
 "Netz",
 "Weigl",
 "Neuhaus",
-"Ngoumou",
 "Pleá",
-"Honorát",
-"Reitz"
+"Reitz",
+"Ngoumou",
+"Hack"
 ],
 
 
@@ -843,8 +1038,8 @@ const vereine = {
 "Khedira",
 "Laidouni",
 "Behrens",
-"Volland",
 "Becker",
+"Volland",
 "Hollerbach"
 ],
 
@@ -919,8 +1114,8 @@ const vereine = {
 "Bilbija",
 "Conteh",
 "Muslija",
-"Klement",
-"Platte"
+"Platte",
+"Klement"
 ],
 
 
@@ -945,23 +1140,43 @@ const vereine = {
 
 
 
+const formations={
 
-let positionen={
+
+"4-3-3":[
+
+[50,90],
+
+[20,70],
+[40,78],
+[60,78],
+[80,70],
+
+[35,55],
+[50,50],
+[65,55],
+
+[20,25],
+[50,18],
+[80,25]
+
+],
+
 
 
 "4-4-2":[
 
 [50,90],
 
-[20,75],
-[40,80],
-[60,80],
-[80,75],
+[20,70],
+[40,78],
+[60,78],
+[80,70],
 
-[20,55],
+[20,50],
 [40,55],
 [60,55],
-[80,55],
+[80,50],
 
 [35,25],
 [65,25]
@@ -969,24 +1184,6 @@ let positionen={
 ],
 
 
-"4-3-3":[
-
-[50,90],
-
-[20,75],
-[40,80],
-[60,80],
-[80,75],
-
-[30,55],
-[50,50],
-[70,55],
-
-[25,25],
-[50,20],
-[75,25]
-
-],
 
 
 "3-5-2":[
@@ -997,16 +1194,17 @@ let positionen={
 [50,80],
 [70,75],
 
-[20,55],
+[15,55],
 [35,50],
 [50,55],
 [65,50],
-[80,55],
+[85,55],
 
 [35,25],
 [65,25]
 
 ]
+
 
 };
 
@@ -1014,7 +1212,193 @@ let positionen={
 
 
 
-function vereineLaden(){
+
+function createPlayers(id,team){
+
+
+let box=document.getElementById(id);
+
+
+box.innerHTML="";
+
+
+teams[team].forEach((p,i)=>{
+
+
+box.innerHTML+=`
+
+<div class="player-row">
+
+<div class="number">
+${i+1}
+</div>
+
+<input value="${p}" 
+oninput="updateAll()">
+
+</div>
+
+
+`;
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+function drawField(fieldId,playerId,formationId,kitId,numId,flip=false){
+
+
+
+let field=document.getElementById(fieldId);
+
+field.innerHTML="";
+
+
+let pos=formations[
+document.getElementById(formationId).value
+];
+
+
+let players=document.querySelectorAll(
+"#"+playerId+" input"
+);
+
+
+pos.forEach((p,i)=>{
+
+
+let name=
+players[i]?.value || "Spieler";
+
+
+
+let x=p[0];
+
+let y=p[1];
+
+
+
+if(flip){
+
+y=100-y;
+
+}
+
+
+
+let div=document.createElement("div");
+
+
+div.className="player";
+
+
+div.style.left=x+"%";
+
+div.style.top=y+"%";
+
+
+
+div.innerHTML=`
+
+<div class="jersey"
+
+style="
+background:${document.getElementById(kitId).value};
+color:${document.getElementById(numId).value};
+">
+
+${i+1}
+
+</div>
+
+
+<div class="player-name">
+
+${name}
+
+</div>
+
+`;
+
+
+
+field.appendChild(div);
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+function updateAll(){
+
+
+let home=
+document.getElementById("homeTeam").value;
+
+
+let away=
+document.getElementById("awayTeam").value;
+
+
+
+createPlayers(
+"homePlayers",
+home
+);
+
+
+
+createPlayers(
+"awayPlayers",
+away
+);
+
+
+
+drawField(
+"homeField",
+"homePlayers",
+"homeFormation",
+"homeKit",
+"homeNumber"
+);
+
+
+
+drawField(
+"awayField",
+"awayPlayers",
+"awayFormation",
+"awayKit",
+"awayNumber",
+true
+);
+
+
+
+}
+
+
+
+
+
+
+function loadTeams(){
 
 
 let h=document.getElementById("homeTeam");
@@ -1022,12 +1406,13 @@ let h=document.getElementById("homeTeam");
 let a=document.getElementById("awayTeam");
 
 
-Object.keys(vereine).forEach(v=>{
+
+Object.keys(teams).forEach(t=>{
 
 
 let o=document.createElement("option");
 
-o.text=v;
+o.text=t;
 
 h.add(o);
 
@@ -1035,7 +1420,7 @@ h.add(o);
 
 let o2=document.createElement("option");
 
-o2.text=v;
+o2.text=t;
 
 a.add(o2);
 
@@ -1053,179 +1438,14 @@ a.value="Borussia Dortmund";
 
 
 
-function spielerListe(id,verein){
-
-
-let box=document.getElementById(id);
-
-
-box.innerHTML="";
-
-
-vereine[verein].forEach((name,i)=>{
-
-
-box.innerHTML+=`
-
-<div class="playerInput">
-
-<input value="${i+1}" disabled>
-
-<input value="${name}" 
-onchange="updateAll()"
->
-
-</div>
-
-`;
-
-
-});
-
-
-}
-
-
-
-
-
-function anzeigen(fieldId,teamId,formationId,colorId,numColorId,spielerId){
-
-
-let field=document.getElementById(fieldId);
-
-
-field.innerHTML="";
-
-
-let formation=document.getElementById(formationId).value;
-
-
-let pos=positionen[formation];
-
-
-let spieler=document.querySelectorAll(
-"#"+spielerId+" .playerInput input:nth-child(2)"
-);
-
-
-
-pos.forEach((p,i)=>{
-
-
-let name=spieler[i] ? spieler[i].value:"Spieler";
-
-
-let nr=i+1;
-
-
-
-let div=document.createElement("div");
-
-
-div.className="player";
-
-
-div.style.left=p[0]+"%";
-
-div.style.top=p[1]+"%";
-
-
-
-div.innerHTML=`
-
-<div class="jersey"
-
-style="background:${document.getElementById(colorId).value};
-color:${document.getElementById(numColorId).value};">
-
-${nr}
-
-</div>
-
-
-<div class="playerName">
-
-${name}
-
-</div>
-
-`;
-
-
-
-field.appendChild(div);
-
-
-});
-
-
-}
-
-
-
-
-
-function updateAll(){
-
-
-let ht=document.getElementById("homeTeam").value;
-
-let at=document.getElementById("awayTeam").value;
-
-
-
-spielerListe(
-"homePlayers",
-ht
-);
-
-
-spielerListe(
-"awayPlayers",
-at
-);
-
-
-
-anzeigen(
-"homeField",
-"homeTeam",
-"homeFormation",
-"homeColor",
-"homeNumberColor",
-"homePlayers"
-);
-
-
-
-anzeigen(
-"awayField",
-"awayTeam",
-"awayFormation",
-"awayColor",
-"awayNumberColor",
-"awayPlayers"
-);
-
-
-
-}
-
-
-
-
 
 
 document.querySelectorAll("select,input").forEach(e=>{
 
 
 e.addEventListener(
-
 "change",
-
 updateAll
-
 );
 
 
@@ -1233,14 +1453,13 @@ updateAll
 
 
 
-vereineLaden();
+loadTeams();
 
 updateAll();
 
 
 
 </script>
-
 </body>
 
 </html>
