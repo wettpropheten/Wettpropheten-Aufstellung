@@ -17,7 +17,6 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: var(--bg-dark);
-            /* Diagonale Streifen exakt wie in deinem Hintergrund */
             background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%, transparent);
             background-size: 40px 40px;
             color: var(--text-light);
@@ -29,10 +28,10 @@
 
         .dashboard {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px;
         }
 
-        /* BANNER OBEN */
+        /* HEADER */
         .vs-header {
             display: flex;
             justify-content: space-between;
@@ -119,24 +118,26 @@
             border: 2px solid #fff;
         }
 
-        /* 3D CONTAINER STAGE */
+        /* 3D FIELDS CONTAINER - FIX HIER: ERZWINGT ZWEI SPALTEN NEBENEINANDER */
         .fields-stage {
-            perspective: 1200px;
+            perspective: 1500px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 60px;
+            gap: 40px;
+            margin-bottom: 80px;
+            width: 100%;
         }
 
         .field-3d-container {
             position: relative;
-            transform: rotateX(55deg) rotateZ(-25deg);
+            transform: rotateX(55deg) rotateZ(-20deg);
             transform-style: preserve-3d;
+            width: 100%;
         }
 
         .football-field {
             background-color: var(--field-green);
-            height: 480px;
+            height: 450px;
             border: 5px solid var(--field-lines);
             box-shadow: -15px 15px 0px #1b5e20, -30px 30px 30px rgba(0,0,0,0.6);
             position: relative;
@@ -144,6 +145,7 @@
             background-size: 100% 60px;
         }
 
+        /* Feldmarkierungen */
         .field-lines-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -151,11 +153,11 @@
             pointer-events: none;
         }
         .field-lines-overlay::before {
-            content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 80px;
+            content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 70px;
             border: 4px solid var(--field-lines); border-bottom: none;
         }
         .field-lines-overlay::after {
-            content: ''; position: absolute; top: 0; left: 20%; right: 20%; height: 80px;
+            content: ''; position: absolute; top: 0; left: 20%; right: 20%; height: 70px;
             border: 4px solid var(--field-lines); border-top: none;
         }
 
@@ -166,7 +168,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            padding: 20px 0;
+            padding: 10px 0;
             box-sizing: border-box;
             transform-style: preserve-3d;
         }
@@ -181,7 +183,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transform: rotateZ(25deg) rotateX(-55deg) scale(0.9); 
+            transform: rotateZ(20deg) rotateX(-55deg) scale(0.85); 
         }
 
         .jersey {
@@ -209,18 +211,20 @@
             color: black;
             font-size: 10px;
             font-weight: bold;
-            width: 75px;
+            width: 80px;
             text-align: center;
             margin-top: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             text-transform: uppercase;
         }
 
-        /* FOOTER / LISTEN */
+        /* ROSTER CONTAINER - FIX HIER: ERZWINGT ZWEI SPALTEN NEBENEINANDER */
         .roster-stage {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            width: 100%;
+            margin-top: 40px;
         }
 
         .roster-card {
@@ -245,7 +249,7 @@
             display: flex;
             align-items: center;
             background: rgba(255,255,255,0.08);
-            padding: 3px 8px;
+            padding: 4px 8px;
             border-radius: 3px;
         }
 
@@ -266,7 +270,7 @@
             width: 100%;
             text-transform: uppercase;
         }
-        .row-input:focus { outline: none; }
+        .row-input:focus { outline: none; background: rgba(255,255,255,0.05); }
 
         .meta-section {
             display: flex;
@@ -289,15 +293,15 @@
             color: #90caf9;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 5px;
-            margin-bottom: 3px;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
         .right-card .sub-label { color: #fff59d; }
 
         .sub-box {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 4px;
             margin-bottom: 10px;
         }
     </style>
@@ -310,18 +314,14 @@
     <div class="vs-header">
         <div class="team-banner left">
             <div class="logo-box"><input type="file" accept="image/*" onchange="uploadLogo(this)"></div>
-            <input type="text" class="team-name-input" value="TEAM NAME">
+            <input type="text" class="team-name-input" value="TEAM HEIM">
         </div>
         <div class="vs-badge">VS</div>
         <div class="team-banner right">
             <div class="logo-box"><input type="file" accept="image/*" onchange="uploadLogo(this)"></div>
-            <input type="text" class="team-name-input" value="TEAM NAME">
+            <input type="text" class="team-name-input" value="TEAM GAST">
         </div>
     </div>
 
-    <!-- 3D SPIELFELDER -->
+    <!-- 3D SPIELFELDER STAGE -->
     <div class="fields-stage">
-        <!-- Team Links -->
-        <div class="field-3d-container left-side">
-            <div class="football-field">
-                <div class="field-lines-overlay"></div>
