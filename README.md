@@ -8,6 +8,7 @@
 
 <title>LiveStats Pro Ultimate</title>
 
+
 <style>
 
 *{
@@ -28,7 +29,7 @@ body{
 
 margin:0;
 
-background:transparent;
+background:#000;
 
 color:white;
 
@@ -38,72 +39,54 @@ color:white;
 
 .overlay{
 
-width:1100px;
+width:1400px;
 
-margin:30px auto;
+margin:20px auto;
 
-background:rgba(5,15,35,.96);
+background:#050505;
 
 border-radius:20px;
 
-padding:30px;
-
-box-shadow:0 0 50px black;
-
-}
-
-
-
-
-
-/* MANNSCHAFT AUSWAHL */
-
-
-.team-select{
-
-background:#0c1930;
-
 padding:20px;
 
-border-radius:15px;
-
-margin-bottom:25px;
+box-shadow:0 0 60px #000;
 
 }
 
 
 
-.team-select h2{
-
-text-align:center;
-
-margin-top:0;
-
-}
 
 
+/* HAUPT LAYOUT */
 
-.team-columns{
+.main-layout{
 
 display:grid;
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:250px 1fr 250px;
 
-gap:25px;
+gap:20px;
 
 }
 
 
 
-.team-list{
 
-background:#101d35;
+
+/* MANNSCHAFTS BOXEN */
+
+
+.team-panel{
+
+background:#080808;
+
+border:1px solid #333;
+
+border-radius:15px;
 
 padding:15px;
 
-border-radius:12px;
-
-height:300px;
+height:850px;
 
 overflow-y:auto;
 
@@ -111,33 +94,47 @@ overflow-y:auto;
 
 
 
-.team-list h3{
+.team-panel h2{
 
 text-align:center;
+
+font-size:22px;
+
+margin-top:5px;
 
 }
 
 
 
-.team-list label{
+.team-panel label{
 
 display:block;
 
-background:#071326;
+background:#111;
 
-padding:8px;
+padding:10px;
 
-margin:5px 0;
+margin:8px 0;
 
 border-radius:8px;
 
 cursor:pointer;
 
+font-size:15px;
+
 }
 
 
 
-.team-list input{
+.team-panel label:hover{
+
+background:#222;
+
+}
+
+
+
+.team-panel input{
 
 transform:scale(1.3);
 
@@ -149,7 +146,20 @@ margin-right:10px;
 
 
 
-/* SPIELANZEIGE */
+/* MITTE */
+
+
+.stats-panel{
+
+background:#050505;
+
+border-radius:15px;
+
+padding:25px;
+
+}
+
+
 
 
 .scoreboard{
@@ -160,7 +170,7 @@ justify-content:space-between;
 
 align-items:center;
 
-border-bottom:2px solid #26354d;
+border-bottom:1px solid #333;
 
 padding-bottom:20px;
 
@@ -168,9 +178,11 @@ padding-bottom:20px;
 
 
 
-.team{
+.team-name{
 
-width:35%;
+font-size:30px;
+
+font-weight:bold;
 
 text-align:center;
 
@@ -178,21 +190,11 @@ text-align:center;
 
 
 
-.team-name{
-
-font-size:32px;
-
-font-weight:900;
-
-}
-
-
-
 .score{
 
-font-size:70px;
+font-size:65px;
 
-font-weight:900;
+font-weight:bold;
 
 color:var(--home-color);
 
@@ -210,9 +212,7 @@ color:var(--away-color);
 
 .timer{
 
-font-size:30px;
-
-font-weight:bold;
+font-size:28px;
 
 }
 
@@ -220,7 +220,7 @@ font-weight:bold;
 
 
 
-/* STATISTIK BALKEN */
+/* BALKEN */
 
 
 .stat{
@@ -228,6 +228,7 @@ font-weight:bold;
 margin-top:30px;
 
 }
+
 
 
 .stat-title{
@@ -246,9 +247,9 @@ margin-bottom:10px;
 
 .bar-area{
 
-position:relative;
-
 height:70px;
+
+position:relative;
 
 }
 
@@ -261,7 +262,7 @@ position:absolute;
 
 top:0;
 
-font-size:24px;
+font-size:25px;
 
 font-weight:bold;
 
@@ -293,7 +294,6 @@ color:var(--away-color);
 
 
 
-
 .bar{
 
 position:absolute;
@@ -302,9 +302,11 @@ bottom:10px;
 
 width:100%;
 
-height:18px;
+height:20px;
 
-background:#000000;
+background:#000;
+
+border:1px solid #333;
 
 border-radius:20px;
 
@@ -333,9 +335,9 @@ height:100%;
 background:var(--away-color);
 
 }
-<style>
+<!-- STATISTIK BOXEN -->
 
-/* STATISTIK BOXEN */
+<style>
 
 .grid{
 
@@ -353,7 +355,9 @@ margin-top:35px;
 
 .box{
 
-background:#101d35;
+background:#101010;
+
+border:1px solid #333;
 
 border-radius:12px;
 
@@ -403,13 +407,13 @@ color:var(--away-color);
 
 
 
-/* EINGABE */
-
 .input-area{
 
-margin-top:35px;
+margin-top:30px;
 
-background:#0c1930;
+background:#080808;
+
+border:1px solid #333;
 
 padding:20px;
 
@@ -423,13 +427,13 @@ textarea{
 
 width:100%;
 
-height:250px;
+height:220px;
 
-background:#071326;
+background:#000;
 
 color:white;
 
-border:0;
+border:1px solid #333;
 
 border-radius:10px;
 
@@ -449,13 +453,13 @@ margin-top:15px;
 
 padding:15px;
 
-background:#00b7ff;
-
-border:0;
-
-border-radius:10px;
+background:#222;
 
 color:white;
+
+border:1px solid #555;
+
+border-radius:10px;
 
 font-size:18px;
 
@@ -465,345 +469,19 @@ cursor:pointer;
 
 }
 
+
+
 </style>
 
 
 
 
 
-<!-- MANNSCHAFT AUSWAHL -->
-
-
-<div class="team-select">
-
-<h2>
-HEIM / AUSWÄRTS AUSWAHL
-</h2>
-
-
-<div class="team-columns">
-
-
-<div class="team-list">
-
-<h3>HEIMMANNSCHAFT</h3>
-
-
-<div id="homeTeams"></div>
-
-
-</div>
-
-
-
-
-
-<div class="team-list">
-
-<h3>AUSWÄRTSMANNSCHAFT</h3>
-
-
-<div id="awayTeams"></div>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-<!-- SPIELSTAND -->
-
-
-<div class="scoreboard">
-
-
-<div class="team">
-
-
-<div class="team-name" id="homeName">
-HEIMTEAM
-</div>
-
-
-<div class="score" id="homeScore">
-0
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="timer">
-00:00
-</div>
-
-
-
-
-
-<div class="team">
-
-
-<div class="team-name" id="awayName">
-AUSWÄRTS
-</div>
-
-
-<div class="score away-score" id="awayScore">
-0
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<script>
-
-
-const teams = {
-
-
-"SV Werder Bremen":"#00875A",
-"Borussia Dortmund":"#FDE100",
-"Bayern München":"#DC052D",
-"Bayer Leverkusen":"#E32221",
-"RB Leipzig":"#FFFFFF",
-"VfB Stuttgart":"#FFFFFF",
-"Borussia Mönchengladbach":"#FFFFFF",
-"Eintracht Frankfurt":"#FFFFFF",
-"1. FC Köln":"#FFFFFF",
-"TSG Hoffenheim":"#005CA9",
-"SC Freiburg":"#E30613",
-"FSV Mainz 05":"#C41230",
-"FC Augsburg":"#BA3733",
-"VfL Wolfsburg":"#65B32E",
-"FC St. Pauli":"#5A372A",
-"Hamburger SV":"#005CA9",
-"Hertha BSC":"#0057B8",
-"Schalke 04":"#004C99",
-"1. FC Union Berlin":"#EB0016",
-"Borussia Mönchengladbach":"#FFFFFF"
-
-};
-
-
-
-
-
-function createTeamLists(){
-
-
-let home=document.getElementById("homeTeams");
-
-let away=document.getElementById("awayTeams");
-
-
-
-Object.keys(teams).forEach(team=>{
-
-
-home.innerHTML+=`
-
-<label>
-
-<input type="checkbox" 
-class="homeChoice"
-value="${team}">
-
-${team}
-
-</label>`;
-
-
-away.innerHTML+=`
-
-<label>
-
-<input type="checkbox" 
-class="awayChoice"
-value="${team}">
-
-${team}
-
-</label>`;
-
-
-
-});
-
-
-
-}
-
-
-
-createTeamLists();
-
-
-
-
-
-
-
-function colorDifference(c1,c2){
-
-
-let a=parseInt(c1.substring(1),16);
-
-let b=parseInt(c2.substring(1),16);
-
-
-
-let r1=a>>16;
-let g1=(a>>8)&255;
-let b1=a&255;
-
-
-let r2=b>>16;
-let g2=(b>>8)&255;
-let b2=b&255;
-
-
-
-return Math.sqrt(
-
-(r1-r2)**2+
-(g1-g2)**2+
-(b1-b2)**2
-
-);
-
-
-}
-
-
-
-
-
-
-
-
-function setTeams(){
-
-
-let home=document.querySelector(
-".homeChoice:checked"
-);
-
-
-let away=document.querySelector(
-".awayChoice:checked"
-);
-
-
-
-if(!home || !away){
-
-return;
-
-}
-
-
-
-let homeColor=teams[home.value];
-
-let awayColor=teams[away.value];
-
-
-
-
-// gleiche Farben erkennen
-
-
-if(
-colorDifference(homeColor,awayColor)<90
-){
-
-
-awayColor="#777777";
-
-
-}
-
-
-
-
-document.documentElement.style
-.setProperty(
-"--home-color",
-homeColor
-);
-
-
-
-document.documentElement.style
-.setProperty(
-"--away-color",
-awayColor
-);
-
-
-
-
-document.getElementById("homeName")
-.innerHTML=home.value;
-
-
-
-document.getElementById("awayName")
-.innerHTML=away.value;
-
-
-
-}
-
-
-
-
-
-document.addEventListener(
-"change",
-function(e){
-
-
-if(
-e.target.classList.contains("homeChoice")
-||
-e.target.classList.contains("awayChoice")
-){
-
-
-setTeams();
-
-
-}
-
-
-});
-
-
-
-</script>
-<!-- STATISTIK -->
+<!-- MITTLERE STATISTIK -->
 
 
 <div class="stat">
+
 
 <div class="stat-title">
 Expected Goals (xG)
@@ -811,6 +489,7 @@ Expected Goals (xG)
 
 
 <div class="bar-area">
+
 
 <div class="value-left" id="xgHome">
 0.00
@@ -824,17 +503,22 @@ Expected Goals (xG)
 
 <div class="bar">
 
+
 <div class="home-bar" id="xgHomeBar" style="width:50%">
 </div>
+
 
 <div class="away-bar" id="xgAwayBar" style="width:50%">
 </div>
 
+
 </div>
+
 
 </div>
 
 </div>
+
 
 
 
@@ -842,12 +526,14 @@ Expected Goals (xG)
 
 <div class="stat">
 
+
 <div class="stat-title">
 Ballbesitz
 </div>
 
 
 <div class="bar-area">
+
 
 <div class="value-left" id="posHome">
 50%
@@ -859,28 +545,32 @@ Ballbesitz
 </div>
 
 
+
 <div class="bar">
+
 
 <div class="home-bar" id="posHomeBar" style="width:50%">
 </div>
 
+
 <div class="away-bar" id="posAwayBar" style="width:50%">
 </div>
 
+
+</div>
+
+
 </div>
 
 </div>
 
-</div>
 
 
 
-
-
-<!-- BOXEN -->
 
 
 <div class="grid">
+
 
 
 <div class="box">
@@ -898,6 +588,7 @@ SCHÜSSE GESAMT
 </div>
 
 </div>
+
 
 
 
@@ -990,9 +681,15 @@ PÄSSE GESAMT
 
 <div class="box-value">
 
-<span class="home" id="passTotalHome">0/0</span>
+<span class="home" id="passTotalHome">
+0/0
+</span>
+
 :
-<span class="away" id="passTotalAway">0/0</span>
+
+<span class="away" id="passTotalAway">
+0/0
+</span>
 
 </div>
 
@@ -1010,28 +707,30 @@ GELBE KARTEN
 
 <div class="box-value">
 
-<span class="home" id="cardHome">0</span>
+<span class="home" id="cardHome">
+0
+</span>
+
 :
-<span class="away" id="cardAway">0</span>
+
+<span class="away" id="cardAway">
+0
+</span>
 
 </div>
 
 </div>
 
 
+
 </div>
 
 
 
 
-
-
-
-<!-- DATEN EINGABE -->
 
 
 <div class="input-area">
-
 
 <h2>
 LIVE DATEN EINFÜGEN
@@ -1040,7 +739,6 @@ LIVE DATEN EINFÜGEN
 
 <textarea id="dataInput"
 placeholder="Statistik hier einfügen..."></textarea>
-
 
 
 <button onclick="updateData()">
@@ -1052,11 +750,251 @@ AKTUALISIEREN
 
 
 
+</div> <!-- Ende Statistik Panel -->
 
 
 
 <script>
 
+
+/* MANNSCHAFTEN + FARBEN */
+
+
+const teams = {
+
+
+"SV Werder Bremen":"#00875A",
+
+"Borussia Dortmund":"#FDE100",
+
+"Bayern München":"#DC052D",
+
+"Bayer Leverkusen":"#E32221",
+
+"RB Leipzig":"#FFFFFF",
+
+"VfB Stuttgart":"#FFFFFF",
+
+"Borussia Mönchengladbach":"#FFFFFF",
+
+"Eintracht Frankfurt":"#FFFFFF",
+
+"1. FC Köln":"#FFFFFF",
+
+"TSG Hoffenheim":"#005CA9",
+
+"SC Freiburg":"#E30613",
+
+"FSV Mainz 05":"#C41230",
+
+"FC Augsburg":"#BA3733",
+
+"VfL Wolfsburg":"#65B32E",
+
+"FC St. Pauli":"#5A372A",
+
+"Hamburger SV":"#005CA9",
+
+"Hertha BSC":"#0057B8",
+
+"Schalke 04":"#004C99",
+
+"1. FC Union Berlin":"#EB0016"
+
+};
+
+
+
+
+
+function createTeams(){
+
+
+let home=document.getElementById("homeList");
+
+let away=document.getElementById("awayList");
+
+
+
+Object.keys(teams).forEach(team=>{
+
+
+home.innerHTML += `
+
+<label>
+
+<input type="checkbox"
+class="homeChoice"
+value="${team}">
+
+${team}
+
+</label>`;
+
+
+away.innerHTML += `
+
+<label>
+
+<input type="checkbox"
+class="awayChoice"
+value="${team}">
+
+${team}
+
+</label>`;
+
+
+
+});
+
+
+}
+
+
+
+
+
+/* FARBKONTRAST */
+
+
+function colorDistance(a,b){
+
+
+let c1=parseInt(a.replace("#",""),16);
+
+let c2=parseInt(b.replace("#",""),16);
+
+
+let r1=(c1>>16)&255;
+let g1=(c1>>8)&255;
+let b1=c1&255;
+
+
+let r2=(c2>>16)&255;
+let g2=(c2>>8)&255;
+let b2=c2&255;
+
+
+
+return Math.sqrt(
+
+(r1-r2)**2+
+(g1-g2)**2+
+(b1-b2)**2
+
+);
+
+
+}
+
+
+
+
+
+
+function setTeams(){
+
+
+let home=document.querySelector(".homeChoice:checked");
+
+let away=document.querySelector(".awayChoice:checked");
+
+
+
+if(!home || !away){
+
+return;
+
+}
+
+
+
+let homeColor=teams[home.value];
+
+let awayColor=teams[away.value];
+
+
+
+
+// gleiche Farben
+
+if(colorDistance(homeColor,awayColor)<80){
+
+
+awayColor="#777777";
+
+
+}
+
+
+
+
+
+document.documentElement.style
+.setProperty(
+"--home-color",
+homeColor
+);
+
+
+
+document.documentElement.style
+.setProperty(
+"--away-color",
+awayColor
+);
+
+
+
+document.getElementById("homeName")
+.innerHTML=home.value;
+
+
+document.getElementById("awayName")
+.innerHTML=away.value;
+
+
+
+}
+
+
+
+
+document.addEventListener(
+"change",
+function(e){
+
+
+if(
+e.target.classList.contains("homeChoice")
+||
+e.target.classList.contains("awayChoice")
+){
+
+setTeams();
+
+}
+
+
+});
+
+
+
+
+
+
+createTeams();
+
+
+
+
+
+
+
+
+
+/* STATISTIK AUSLESEN */
 
 
 function findNumbers(text,name){
@@ -1088,9 +1026,12 @@ let values=[];
 
 
 
+
 for(let i=index-1;i>=0;i--){
 
+
 let m=lines[i].match(/\d+([.,]\d+)?/);
+
 
 if(m){
 
@@ -1102,14 +1043,18 @@ break;
 
 }
 
+
 }
+
 
 
 
 
 for(let i=index+1;i<lines.length;i++){
 
+
 let m=lines[i].match(/\d+([.,]\d+)?/);
+
 
 if(m){
 
@@ -1120,6 +1065,7 @@ Number(m[0].replace(",","."))
 break;
 
 }
+
 
 }
 
@@ -1147,21 +1093,22 @@ document.getElementById(id).innerHTML=value;
 
 
 
-function updateBar(home,away,left,right){
+
+function updateBar(a,b,left,right){
 
 
-let total=home+away;
+let total=a+b;
 
 
 if(total<=0)return;
 
 
-document.getElementById(left)
-.style.width=(home/total*100)+"%";
+document.getElementById(left).style.width=
+(a/total*100)+"%";
 
 
-document.getElementById(right)
-.style.width=(away/total*100)+"%";
+document.getElementById(right).style.width=
+(b/total*100)+"%";
 
 
 }
@@ -1172,11 +1119,13 @@ document.getElementById(right)
 
 
 
+
 function updateData(){
 
 
-let text=
-document.getElementById("dataInput").value;
+let text=document
+.getElementById("dataInput")
+.value;
 
 
 
@@ -1192,13 +1141,16 @@ return;
 
 
 
+
 let xg=findNumbers(
 text,
 "Expected Goals"
 );
 
 
+
 set("xgHome",xg[0].toFixed(2));
+
 set("xgAway",xg[1].toFixed(2));
 
 
@@ -1221,8 +1173,11 @@ text,
 );
 
 
+
 set("posHome",pos[0]+"%");
+
 set("posAway",pos[1]+"%");
+
 
 
 document.getElementById("posHomeBar")
@@ -1238,7 +1193,6 @@ document.getElementById("posAwayBar")
 
 
 
-
 let shots=findNumbers(
 text,
 "Schüsse insgesamt"
@@ -1246,7 +1200,10 @@ text,
 
 
 set("shotsHome",shots[0]);
+
 set("shotsAway",shots[1]);
+
+
 
 
 
@@ -1260,7 +1217,10 @@ text,
 
 
 set("targetHome",target[0]);
+
 set("targetAway",target[1]);
+
+
 
 
 
@@ -1274,7 +1234,10 @@ text,
 
 
 set("chanceHome",chance[0]);
+
 set("chanceAway",chance[1]);
+
+
 
 
 
@@ -1288,7 +1251,9 @@ text,
 
 
 set("cornerHome",corner[0]);
+
 set("cornerAway",corner[1]);
+
 
 
 
@@ -1303,7 +1268,9 @@ text,
 
 
 set("cardHome",cards[0]);
+
 set("cardAway",cards[1]);
+
 
 
 
@@ -1319,8 +1286,17 @@ let pass=text.match(
 if(pass){
 
 
-set("passHome",pass[1]+"%");
-set("passAway",pass[4]+"%");
+set(
+"passHome",
+pass[1]+"%"
+);
+
+
+set(
+"passAway",
+pass[4]+"%"
+);
+
 
 
 set(
@@ -1329,13 +1305,17 @@ pass[2]+"/"+pass[3]
 );
 
 
+
 set(
 "passTotalAway",
 pass[5]+"/"+pass[6]
 );
 
 
+
 }
+
+
 
 
 
@@ -1345,7 +1325,9 @@ text
 );
 
 
+
 }
+
 
 
 
@@ -1355,13 +1337,14 @@ text
 window.onload=function(){
 
 
-let save=
+let saved=
 localStorage.getItem("liveStats");
 
 
-if(save){
 
-document.getElementById("dataInput").value=save;
+if(saved){
+
+document.getElementById("dataInput").value=saved;
 
 updateData();
 
@@ -1373,6 +1356,9 @@ updateData();
 
 
 </script>
+
+
+</div>
 
 
 </div>
