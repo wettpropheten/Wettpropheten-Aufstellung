@@ -4,7 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
-<title>LiveStats Pro V2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LiveStats Pro V3</title>
+
 
 <style>
 
@@ -27,14 +30,17 @@ body{
 
 .overlay{
 
-    width:1000px;
-    margin:50px auto;
+    width:950px;
 
-    background:rgba(5,15,35,0.96);
+    margin:60px auto;
 
-    border-radius:20px;
+    background:rgba(5,15,35,.96);
 
-    padding:30px;
+    border-radius:18px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,.15);
 
     box-shadow:0 0 40px rgba(0,0,0,.8);
 
@@ -42,18 +48,20 @@ body{
 
 
 
-/* SCOREBOARD */
+/* SCORE */
 
 
 .scoreboard{
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    border-bottom:2px solid #26354d;
-
     padding-bottom:20px;
+
+    border-bottom:2px solid #26354d;
 
 }
 
@@ -62,15 +70,18 @@ body{
 .team{
 
     width:35%;
+
     text-align:center;
 
 }
 
 
+
 .team-name{
 
-    font-size:32px;
-    font-weight:bold;
+    font-size:30px;
+
+    font-weight:800;
 
 }
 
@@ -78,7 +89,8 @@ body{
 
 .score{
 
-    font-size:70px;
+    font-size:65px;
+
     font-weight:900;
 
 }
@@ -87,27 +99,11 @@ body{
 
 .timer{
 
-    font-size:30px;
-    color:#00c8ff;
+    font-size:28px;
+
     font-weight:bold;
 
-}
-
-
-
-/* FARBEN */
-
-
-.home{
-
-    color:#00b7ff;
-
-}
-
-
-.away{
-
-    color:#ff4757;
+    color:#00c8ff;
 
 }
 
@@ -123,22 +119,56 @@ body{
 }
 
 
-.row{
 
-    margin-bottom:20px;
+.stat{
+
+    margin-bottom:25px;
 
 }
 
 
-.header{
+
+.stat-title{
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.values{
 
     display:flex;
 
     justify-content:space-between;
 
-    font-size:20px;
+    font-size:22px;
 
     font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.home{
+
+    color:#00b7ff;
+
+}
+
+
+
+.away{
+
+    color:#ff4757;
 
 }
 
@@ -148,21 +178,19 @@ body{
 
     height:18px;
 
-    background:#18263d;
-
-    border-radius:20px;
+    background:#17243b;
 
     display:flex;
 
-    overflow:hidden;
+    border-radius:20px;
 
-    margin-top:8px;
+    overflow:hidden;
 
 }
 
 
 
-.left{
+.home-bar{
 
     background:#00b7ff;
 
@@ -170,12 +198,17 @@ body{
 
 
 
-.right{
+.away-bar{
 
     background:#ff4757;
 
 }
 
+
+
+
+
+/* ZAHLEN */
 
 
 .grid{
@@ -186,27 +219,27 @@ body{
 
     gap:15px;
 
-    margin-top:30px;
+    margin-top:25px;
 
 }
 
 
 
-.card{
+.box{
 
     background:#101d35;
 
     padding:15px;
 
-    border-radius:12px;
-
     text-align:center;
+
+    border-radius:12px;
 
 }
 
 
 
-.card-title{
+.label{
 
     font-size:13px;
 
@@ -216,9 +249,9 @@ body{
 
 
 
-.value{
+.number{
 
-    font-size:32px;
+    font-size:30px;
 
     font-weight:bold;
 
@@ -226,10 +259,13 @@ body{
 
 
 
-/* STEUERUNG */
 
 
-.control{
+
+/* DATENQUELLE */
+
+
+.source-box{
 
     margin-top:30px;
 
@@ -243,59 +279,31 @@ body{
 
 
 
-.control-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:15px;
-
-}
-
-
-
-.input-box{
-
-    background:#132542;
-
-    padding:12px;
-
-    border-radius:10px;
-
-}
-
-
-
-label{
+.source-box label{
 
     display:block;
 
-    font-size:13px;
-
-    opacity:.7;
-
-    margin-bottom:5px;
+    margin-bottom:8px;
 
 }
 
 
 
-input{
+.source-box input{
 
     width:100%;
 
-    padding:10px;
+    padding:12px;
 
     background:#071326;
-
-    color:white;
 
     border:none;
 
     border-radius:8px;
 
-    font-size:18px;
+    color:white;
+
+    font-size:16px;
 
 }
 
@@ -305,9 +313,9 @@ button{
 
     width:100%;
 
-    padding:12px;
+    margin-top:15px;
 
-    margin-top:22px;
+    padding:14px;
 
     background:#00b7ff;
 
@@ -317,6 +325,8 @@ button{
 
     border-radius:8px;
 
+    font-size:18px;
+
     font-weight:bold;
 
     cursor:pointer;
@@ -325,17 +335,10 @@ button{
 
 
 
-button:hover{
-
-    opacity:.8;
-
-}
-
-
 </style>
 
-</head>
 
+</head>
 
 
 <body>
@@ -345,29 +348,34 @@ button:hover{
 
 
 
+<!-- SPIELSTAND -->
+
+
 <div class="scoreboard">
 
 
 <div class="team">
 
-<div class="team-name" id="homeTeam">
+<div class="team-name">
 
 HEIMTEAM
 
 </div>
 
 
-<div class="score" id="homeGoals">
+<div class="score">
 
 0
 
 </div>
 
+
 </div>
 
 
 
-<div class="timer" id="time">
+
+<div class="timer">
 
 00:00
 
@@ -375,320 +383,555 @@ HEIMTEAM
 
 
 
+
 <div class="team">
 
-<div class="team-name" id="awayTeam">
+<div class="team-name">
 
 AUSWÄRTS
 
 </div>
 
 
-<div class="score" id="awayGoals">
+<div class="score">
 
 0
 
 </div>
 
-</div>
-
-
 
 </div>
 
 
 
+</div>
+
+
+
+
+
+
+<!-- STATISTIK -->
 
 
 <div class="stats">
 
 
-<div class="row">
 
-<div class="header">
+<!-- xG -->
 
-<span>xG</span>
 
-<span>
-<b class="home">1.24</b>
-:
-<b class="away">0.80</b>
-</span>
+<div class="stat">
+
+
+<div class="stat-title">
+
+Expected Goals (xG)
 
 </div>
+
+
+
+<div class="values">
+
+
+<span class="home" id="xgHomeValue">
+
+0.00
+
+</span>
+
+
+<span class="away" id="xgAwayValue">
+
+0.00
+
+</span>
+
+
+</div>
+
 
 
 <div class="bar">
 
-<div class="left" style="width:60%"></div>
 
-<div class="right" style="width:40%"></div>
+<div class="home-bar" id="xgHomeBar" style="width:50%"></div>
+
+
+<div class="away-bar" id="xgAwayBar" style="width:50%"></div>
+
 
 </div>
 
+
 </div>
 
 
 
 
 
-<div class="row">
 
-<div class="header">
 
-<span>Ballbesitz</span>
+<!-- BALLBESITZ -->
 
-<span>
-<b class="home">50%</b>
-:
-<b class="away">50%</b>
+
+<div class="stat">
+
+
+<div class="stat-title">
+
+Ballbesitz
+
+</div>
+
+
+
+<div class="values">
+
+
+<span class="home" id="posHomeValue">
+
+50%
+
 </span>
 
+
+<span class="away" id="posAwayValue">
+
+50%
+
+</span>
+
+
 </div>
+
+
 
 
 <div class="bar">
 
-<div class="left" style="width:50%"></div>
 
-<div class="right" style="width:50%"></div>
+<div class="home-bar" id="posHomeBar" style="width:50%"></div>
+
+
+<div class="away-bar" id="posAwayBar" style="width:50%"></div>
+
 
 </div>
 
+
 </div>
 
 
 
 
+
+
+
+
+<!-- ZAHLEN -->
 
 
 <div class="grid">
 
 
-<div class="card">
 
-<div class="card-title">
+<div class="box">
+
+<div class="label">
+
 SCHÜSSE
+
 </div>
 
-<div class="value">
 
-<span class="home">10</span>
+<div class="number">
+
+<span class="home" id="shotsHome">
+
+0
+
+</span>
+
 :
-<span class="away">12</span>
+
+<span class="away" id="shotsAway">
+
+0
+
+</span>
+
 
 </div>
 
+
 </div>
 
 
 
-<div class="card">
 
-<div class="card-title">
+
+
+<div class="box">
+
+<div class="label">
+
 TORSCHÜSSE
+
 </div>
 
-<div class="value">
 
-<span class="home">3</span>
+<div class="number">
+
+
+<span class="home" id="targetHome">
+
+0
+
+</span>
+
 :
-<span class="away">5</span>
+
+<span class="away" id="targetAway">
+
+0
+
+</span>
+
 
 </div>
 
+
 </div>
 
 
 
 
-<div class="card">
 
-<div class="card-title">
+
+<div class="box">
+
+<div class="label">
+
 ECKEN
+
 </div>
 
-<div class="value">
 
-<span class="home">3</span>
+<div class="number">
+
+
+<span class="home" id="cornerHome">
+
+0
+
+</span>
+
 :
-<span class="away">4</span>
+
+<span class="away" id="cornerAway">
+
+0
+
+</span>
+
 
 </div>
 
+
 </div>
 
 
 
 
-<div class="card">
 
-<div class="card-title">
+
+
+<div class="box">
+
+<div class="label">
+
 KARTEN
+
 </div>
 
-<div class="value">
 
-<span class="home">0</span>
+<div class="number">
+
+
+<span class="home" id="cardHome">
+
+0
+
+</span>
+
 :
-<span class="away">1</span>
+
+<span class="away" id="cardAway">
+
+0
+
+</span>
+
 
 </div>
 
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div class="control">
-
-
-<h2>
-LIVE STEUERUNG
-</h2>
-
-
-<div class="control-grid">
-
-
-
-<div class="input-box">
-
-<label>Heimteam</label>
-
-<input id="homeInput" value="HEIMTEAM">
 
 </div>
 
 
 
 
-<div class="input-box">
-
-<label>Auswärtsteam</label>
-
-<input id="awayInput" value="AUSWÄRTS">
-
 </div>
 
 
 
 
-<div class="input-box">
-
-<label>Spielzeit</label>
-
-<input id="timeInput" value="00:00">
-
-</div>
 
 
+<!-- DATENLINK -->
 
 
-<div class="input-box">
+<div class="source-box">
 
-<label>Heimtore</label>
 
-<input id="homeScoreInput" type="number" value="0">
+<label>
 
-</div>
+Datenquelle / API-Link
+
+</label>
+
+
+<input id="dataURL" placeholder="https://deine-datenquelle.de/live.json">
 
 
 
-
-<div class="input-box">
-
-<label>Auswärtstore</label>
-
-<input id="awayScoreInput" type="number" value="0">
-
-</div>
-
-
-
-
-<div class="input-box">
-
-<button onclick="updateGame()">
+<button onclick="loadData()">
 
 AKTUALISIEREN
 
 </button>
 
-</div>
-
-
-
-</div>
-
 
 </div>
 
 
 
 </div>
-
-
-
-
-
 
 <script>
 
 
-function updateGame(){
+async function loadData(){
 
 
-document.getElementById("homeTeam").innerHTML =
-document.getElementById("homeInput").value;
-
-
-document.getElementById("awayTeam").innerHTML =
-document.getElementById("awayInput").value;
-
-
-document.getElementById("time").innerHTML =
-document.getElementById("timeInput").value;
-
-
-document.getElementById("homeGoals").innerHTML =
-document.getElementById("homeScoreInput").value;
-
-
-document.getElementById("awayGoals").innerHTML =
-document.getElementById("awayScoreInput").value;
+let url = document.getElementById("dataURL").value;
 
 
 
-localStorage.setItem("home",
-document.getElementById("homeInput").value);
+if(!url){
+
+alert("Bitte zuerst einen Daten-Link eingeben!");
+
+return;
+
+}
 
 
-localStorage.setItem("away",
-document.getElementById("awayInput").value);
+
+try{
 
 
-localStorage.setItem("time",
-document.getElementById("timeInput").value);
+let response = await fetch(url);
 
 
-localStorage.setItem("homeGoals",
-document.getElementById("homeScoreInput").value);
+let data = await response.json();
 
 
-localStorage.setItem("awayGoals",
-document.getElementById("awayScoreInput").value);
+
+
+
+// SPIELINFO
+
+
+document.querySelectorAll(".team-name")[0].innerHTML =
+data.homeTeam || "HEIMTEAM";
+
+
+document.querySelectorAll(".team-name")[1].innerHTML =
+data.awayTeam || "AUSWÄRTS";
+
+
+
+document.querySelectorAll(".score")[0].innerHTML =
+data.homeScore ?? 0;
+
+
+
+document.querySelectorAll(".score")[1].innerHTML =
+data.awayScore ?? 0;
+
+
+
+document.querySelector(".timer").innerHTML =
+data.time || "00:00";
+
+
+
+
+
+
+
+// xG
+
+
+let xgHome = Number(data.xgHome || 0);
+
+let xgAway = Number(data.xgAway || 0);
+
+
+
+document.getElementById("xgHomeValue").innerHTML =
+xgHome.toFixed(2);
+
+
+
+document.getElementById("xgAwayValue").innerHTML =
+xgAway.toFixed(2);
+
+
+
+
+
+let xgTotal = xgHome + xgAway;
+
+
+if(xgTotal > 0){
+
+
+document.getElementById("xgHomeBar").style.width =
+(xgHome / xgTotal * 100) + "%";
+
+
+document.getElementById("xgAwayBar").style.width =
+(xgAway / xgTotal * 100) + "%";
 
 
 }
+
+
+
+
+
+
+
+
+
+// BALLBESITZ
+
+
+let posHome = Number(data.posHome || 50);
+
+let posAway = Number(data.posAway || 50);
+
+
+
+document.getElementById("posHomeValue").innerHTML =
+posHome + "%";
+
+
+document.getElementById("posAwayValue").innerHTML =
+posAway + "%";
+
+
+
+document.getElementById("posHomeBar").style.width =
+posHome + "%";
+
+
+document.getElementById("posAwayBar").style.width =
+posAway + "%";
+
+
+
+
+
+
+
+
+
+// STATISTIKEN
+
+
+
+document.getElementById("shotsHome").innerHTML =
+data.shotsHome || 0;
+
+
+document.getElementById("shotsAway").innerHTML =
+data.shotsAway || 0;
+
+
+
+
+document.getElementById("targetHome").innerHTML =
+data.targetHome || 0;
+
+
+document.getElementById("targetAway").innerHTML =
+data.targetAway || 0;
+
+
+
+
+
+document.getElementById("cornerHome").innerHTML =
+data.cornersHome || 0;
+
+
+document.getElementById("cornerAway").innerHTML =
+data.cornersAway || 0;
+
+
+
+
+
+document.getElementById("cardHome").innerHTML =
+data.cardsHome || 0;
+
+
+document.getElementById("cardAway").innerHTML =
+data.cardsAway || 0;
+
+
+
+
+
+localStorage.setItem(
+"dataURL",
+url
+);
+
+
+
+}
+
+catch(error){
+
+
+alert(
+"Fehler beim Laden der Daten: " + error
+);
+
+
+}
+
+
+
+}
+
+
 
 
 
@@ -696,42 +939,21 @@ document.getElementById("awayScoreInput").value);
 window.onload=function(){
 
 
-if(localStorage.getItem("home")){
+let saved =
+localStorage.getItem("dataURL");
 
 
-document.getElementById("homeInput").value =
-localStorage.getItem("home");
+if(saved){
 
-
-document.getElementById("awayInput").value =
-localStorage.getItem("away");
-
-
-document.getElementById("timeInput").value =
-localStorage.getItem("time");
-
-
-document.getElementById("homeScoreInput").value =
-localStorage.getItem("homeGoals");
-
-
-document.getElementById("awayScoreInput").value =
-localStorage.getItem("awayGoals");
-
-
-updateGame();
-
+document.getElementById("dataURL").value=saved;
 
 }
 
 
 }
-
 
 
 </script>
-
-
 </body>
 
 </html>
