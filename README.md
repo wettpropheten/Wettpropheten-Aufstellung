@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LiveStats Pro</title>
+<title>LiveStats Pro Final</title>
 
 <style>
 
@@ -39,7 +39,7 @@ box-shadow:0 0 50px black;
 
 
 
-/* BALKEN */
+/* STATISTIK LINIE */
 
 .stat{
 
@@ -51,9 +51,12 @@ margin-top:30px;
 .stat-title{
 
 text-align:center;
+
 font-size:22px;
+
 font-weight:bold;
-margin-bottom:10px;
+
+margin-bottom:8px;
 
 }
 
@@ -77,6 +80,7 @@ position:absolute;
 top:0;
 
 font-size:24px;
+
 font-weight:bold;
 
 }
@@ -92,6 +96,7 @@ transform:translateX(-50%);
 color:#00b7ff;
 
 }
+
 
 
 .value-right{
@@ -112,11 +117,11 @@ position:absolute;
 
 bottom:10px;
 
-height:18px;
+left:0;
 
 width:100%;
 
-display:flex;
+height:18px;
 
 background:#18263d;
 
@@ -124,15 +129,17 @@ border-radius:20px;
 
 overflow:hidden;
 
+display:flex;
+
 }
 
 
 
 .home-bar{
 
-background:#00b7ff;
-
 height:100%;
+
+background:#00b7ff;
 
 }
 
@@ -140,16 +147,17 @@ height:100%;
 
 .away-bar{
 
-background:#ff4757;
-
 height:100%;
+
+background:#ff4757;
 
 }
 
 
 
-/* BOXEN */
 
+
+/* BOXEN */
 
 .grid{
 
@@ -159,7 +167,7 @@ grid-template-columns:repeat(4,1fr);
 
 gap:15px;
 
-margin-top:30px;
+margin-top:35px;
 
 }
 
@@ -169,9 +177,9 @@ margin-top:30px;
 
 background:#101d35;
 
-padding:15px;
-
 border-radius:12px;
+
+padding:15px;
 
 text-align:center;
 
@@ -215,8 +223,8 @@ color:#ff4757;
 
 
 
-/* EINGABE */
 
+/* EINGABE */
 
 .input-area{
 
@@ -268,16 +276,15 @@ border:0;
 
 border-radius:10px;
 
+color:white;
+
 font-size:18px;
 
 font-weight:bold;
 
-color:white;
-
 cursor:pointer;
 
 }
-
 
 
 </style>
@@ -315,18 +322,22 @@ Expected Goals (xG)
 </div>
 
 
+
 <div class="bar">
 
-<div class="home-bar" id="xgHomeBar" style="width:50%"></div>
-
-<div class="away-bar" id="xgAwayBar" style="width:50%"></div>
-
+<div class="home-bar" id="xgHomeBar" style="width:50%">
 </div>
 
-
+<div class="away-bar" id="xgAwayBar" style="width:50%">
 </div>
 
 </div>
+
+
+</div>
+
+</div>
+
 
 
 
@@ -357,26 +368,26 @@ Ballbesitz
 
 <div class="bar">
 
-<div class="home-bar" id="posHomeBar" style="width:50%"></div>
 
-<div class="away-bar" id="posAwayBar" style="width:50%"></div>
+<div class="home-bar" id="posHomeBar" style="width:50%">
+</div>
 
 
+<div class="away-bar" id="posAwayBar" style="width:50%">
 </div>
 
 
 </div>
 
+
 </div>
 
-
-
-
-
-<!-- DATEN -->
+</div>
+<!-- STATISTIK BOXEN -->
 
 
 <div class="grid">
+
 
 
 <div class="box">
@@ -387,15 +398,20 @@ SCHÜSSE GESAMT
 
 <div class="box-value">
 
-<span class="home" id="shotsHome">0</span>
+<span class="home" id="shotsHome">
+0
+</span>
 
 :
 
-<span class="away" id="shotsAway">0</span>
+<span class="away" id="shotsAway">
+0
+</span>
 
 </div>
 
 </div>
+
 
 
 
@@ -408,15 +424,20 @@ SCHÜSSE AUFS TOR
 
 <div class="box-value">
 
-<span class="home" id="targetHome">0</span>
+<span class="home" id="targetHome">
+0
+</span>
 
 :
 
-<span class="away" id="targetAway">0</span>
+<span class="away" id="targetAway">
+0
+</span>
 
 </div>
 
 </div>
+
 
 
 
@@ -429,15 +450,20 @@ GROSSCHANCEN
 
 <div class="box-value">
 
-<span class="home" id="chanceHome">0</span>
+<span class="home" id="chanceHome">
+0
+</span>
 
 :
 
-<span class="away" id="chanceAway">0</span>
+<span class="away" id="chanceAway">
+0
+</span>
 
 </div>
 
 </div>
+
 
 
 
@@ -450,36 +476,46 @@ ECKBÄLLE
 
 <div class="box-value">
 
-<span class="home" id="cornerHome">0</span>
+<span class="home" id="cornerHome">
+0
+</span>
 
 :
 
-<span class="away" id="cornerAway">0</span>
+<span class="away" id="cornerAway">
+0
+</span>
 
 </div>
 
 </div>
+
 
 
 
 
 <div class="box">
 
-<div="box-title">
+<div class="box-title">
 PÄSSE
 </div>
 
 <div class="box-value">
 
-<span class="home" id="passHome">0%</span>
+<span class="home" id="passHome">
+0%
+</span>
 
 :
 
-<span class="away" id="passAway">0%</span>
+<span class="away" id="passAway">
+0%
+</span>
 
 </div>
 
 </div>
+
 
 
 
@@ -492,11 +528,15 @@ GELBE KARTEN
 
 <div class="box-value">
 
-<span class="home" id="cardHome">0</span>
+<span class="home" id="cardHome">
+0
+</span>
 
 :
 
-<span class="away" id="cardAway">0</span>
+<span class="away" id="cardAway">
+0
+</span>
 
 </div>
 
@@ -510,7 +550,7 @@ GELBE KARTEN
 
 
 
-<!-- EINGABE -->
+<!-- DATENEINGABE -->
 
 
 <div class="input-area">
@@ -520,8 +560,7 @@ LIVE DATEN EINFÜGEN
 </h2>
 
 
-<textarea id="dataInput"
-placeholder="Statistik hier einfügen..."></textarea>
+<textarea id="dataInput" placeholder="Statistik hier einfügen..."></textarea>
 
 
 <button onclick="updateData()">
@@ -532,27 +571,24 @@ AKTUALISIEREN
 </div>
 
 
-
 </div>
-
-
 <script>
 
-function updateData(){
-
-alert(<script>
 
 function findNumbers(text,name){
+
 
 let lines=text
 .split("\n")
 .map(x=>x.trim())
-.filter(x=>x!="");
+.filter(x=>x.length>0);
+
 
 
 let index=lines.findIndex(
 x=>x.toLowerCase().includes(name.toLowerCase())
 );
+
 
 
 if(index===-1){
@@ -562,19 +598,23 @@ return [0,0];
 }
 
 
+
 let values=[];
 
 
-// Zahl vor Überschrift suchen
+// Wert vor Überschrift suchen
 
 for(let i=index-1;i>=0;i--){
 
-let m=lines[i].match(/\d+([.,]\d+)?/);
 
-if(m){
+let match=lines[i].match(/\d+([.,]\d+)?/);
+
+
+
+if(match){
 
 values.unshift(
-Number(m[0].replace(",","."))
+Number(match[0].replace(",","."))
 );
 
 break;
@@ -585,17 +625,19 @@ break;
 
 
 
-// Zahl nach Überschrift suchen
+// Wert nach Überschrift suchen
 
 for(let i=index+1;i<lines.length;i++){
 
-let m=lines[i].match(/\d+([.,]\d+)?/);
+
+let match=lines[i].match(/\d+([.,]\d+)?/);
 
 
-if(m){
+
+if(match){
 
 values.push(
-Number(m[0].replace(",","."))
+Number(match[0].replace(",","."))
 );
 
 break;
@@ -620,6 +662,8 @@ return values;
 
 
 
+
+
 function setValue(id,value){
 
 document.getElementById(id).innerHTML=value;
@@ -629,7 +673,10 @@ document.getElementById(id).innerHTML=value;
 
 
 
-function setBar(home,away,left,right){
+
+
+function updateBar(home,away,left,right){
+
 
 let total=home+away;
 
@@ -654,11 +701,14 @@ document.getElementById(right).style.width=
 
 
 
+
+
 function updateData(){
 
 
-let text=
-document.getElementById("dataInput").value;
+let text=document
+.getElementById("dataInput")
+.value;
 
 
 
@@ -673,12 +723,16 @@ return;
 
 
 
-// XG
+
+
+// EXPECTED GOALS
+
 
 let xg=findNumbers(
 text,
 "Expected Goals"
 );
+
 
 
 setValue(
@@ -687,13 +741,15 @@ xg[0].toFixed(2)
 );
 
 
+
 setValue(
 "xgAway",
 xg[1].toFixed(2)
 );
 
 
-setBar(
+
+updateBar(
 xg[0],
 xg[1],
 "xgHomeBar",
@@ -705,12 +761,16 @@ xg[1],
 
 
 
+
+
 // BALLBESITZ
+
 
 let pos=findNumbers(
 text,
 "Ballbesitz"
 );
+
 
 
 setValue(
@@ -719,14 +779,17 @@ pos[0]+"%"
 );
 
 
+
 setValue(
 "posAway",
 pos[1]+"%"
 );
 
 
+
 document.getElementById("posHomeBar").style.width=
 pos[0]+"%";
+
 
 
 document.getElementById("posAwayBar").style.width=
@@ -738,7 +801,11 @@ pos[1]+"%";
 
 
 
+
+
+
 // SCHÜSSE GESAMT
+
 
 let shots=findNumbers(
 text,
@@ -746,10 +813,12 @@ text,
 );
 
 
+
 setValue(
 "shotsHome",
 shots[0]
 );
+
 
 
 setValue(
@@ -763,7 +832,9 @@ shots[1]
 
 
 
+
 // SCHÜSSE AUFS TOR
+
 
 let target=findNumbers(
 text,
@@ -771,10 +842,12 @@ text,
 );
 
 
+
 setValue(
 "targetHome",
 target[0]
 );
+
 
 
 setValue(
@@ -788,7 +861,9 @@ target[1]
 
 
 
+
 // GROSSCHANCEN
+
 
 let chance=findNumbers(
 text,
@@ -796,10 +871,12 @@ text,
 );
 
 
+
 setValue(
 "chanceHome",
 chance[0]
 );
+
 
 
 setValue(
@@ -813,7 +890,9 @@ chance[1]
 
 
 
+
 // ECKBÄLLE
+
 
 let corner=findNumbers(
 text,
@@ -821,20 +900,12 @@ text,
 );
 
 
-if(corner[0]===0){
-
-corner=findNumbers(
-text,
-"Eckbälle"
-);
-
-}
-
 
 setValue(
 "cornerHome",
 corner[0]
 );
+
 
 
 setValue(
@@ -848,7 +919,9 @@ corner[1]
 
 
 
+
 // PÄSSE
+
 
 let pass=findNumbers(
 text,
@@ -856,10 +929,12 @@ text,
 );
 
 
+
 setValue(
 "passHome",
 pass[0]+"%"
 );
+
 
 
 setValue(
@@ -873,12 +948,15 @@ pass[1]+"%"
 
 
 
+
 // GELBE KARTEN
+
 
 let cards=findNumbers(
 text,
 "Gelbe Karten"
 );
+
 
 
 setValue(
@@ -887,10 +965,12 @@ cards[0]
 );
 
 
+
 setValue(
 "cardAway",
 cards[1]
 );
+
 
 
 
@@ -908,6 +988,8 @@ text
 
 
 
+
+
 window.onload=function(){
 
 
@@ -915,21 +997,21 @@ let saved=
 localStorage.getItem("liveStats");
 
 
+
 if(saved){
+
 
 document.getElementById("dataInput").value=saved;
 
+
 updateData();
 
-}
-
 
 }
 
 
-</script>);
-
 }
+
 
 </script>
 
