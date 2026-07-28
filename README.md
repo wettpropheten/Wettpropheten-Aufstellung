@@ -4,17 +4,21 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LiveStats Pro 3D</title>
+<title>LiveStats Pro 3D 2.0</title>
 
 
 <style>
 
 
 *{
+
 box-sizing:border-box;
+
 font-family:Arial,Helvetica,sans-serif;
+
 }
 
 
@@ -22,6 +26,7 @@ font-family:Arial,Helvetica,sans-serif;
 :root{
 
 --home-color:#00b7ff;
+
 --away-color:#ff4757;
 
 }
@@ -30,31 +35,38 @@ font-family:Arial,Helvetica,sans-serif;
 
 body{
 
+
 margin:0;
 
+
 min-height:100vh;
+
 
 background:
 
 radial-gradient(
 circle at top,
 #555,
-#000 70%
+#000 75%
 );
 
+
 color:white;
+
 
 }
 
 
 
 
-
 .container{
+
 
 width:1500px;
 
+
 margin:20px auto;
+
 
 padding:25px;
 
@@ -63,7 +75,7 @@ background:
 
 linear-gradient(
 145deg,
-#181818,
+#1b1b1b,
 #050505
 );
 
@@ -73,7 +85,9 @@ border-radius:35px;
 
 box-shadow:
 
+
 0 50px 100px #000,
+
 
 inset 0 0 50px #333;
 
@@ -85,9 +99,12 @@ inset 0 0 50px #333;
 
 .layout{
 
+
 display:grid;
 
-grid-template-columns:380px 1fr;
+
+grid-template-columns:400px 1fr;
+
 
 gap:25px;
 
@@ -98,18 +115,7 @@ gap:25px;
 
 
 
-/* =====================
-   SPIELTAG
-===================== */
-
-
-.left-panel{
-
-
-height:950px;
-
-
-padding:20px;
+.panel{
 
 
 background:
@@ -124,44 +130,60 @@ linear-gradient(
 border-radius:25px;
 
 
+padding:20px;
+
+
 border:1px solid #555;
 
 
 box-shadow:
 
+
 0 25px 60px #000,
+
 
 inset 0 0 30px #333;
 
 
-overflow-y:auto;
+}
+
+
+
+
+
+
+/* SPIELTAG */
+
+
+.left-panel{
+
+
+height:1000px;
+
+
+overflow:auto;
 
 
 }
 
 
 
-.left-panel h2{
+
+h2{
 
 
 text-align:center;
 
-font-size:30px;
-
 
 }
 
 
 
 
-
-#matchInput{
+textarea{
 
 
 width:100%;
-
-
-height:260px;
 
 
 background:#000;
@@ -170,7 +192,7 @@ background:#000;
 color:white;
 
 
-border:1px solid #555;
+border:1px solid #666;
 
 
 border-radius:15px;
@@ -179,7 +201,7 @@ border-radius:15px;
 padding:15px;
 
 
-font-size:15px;
+font-size:16px;
 
 
 }
@@ -187,10 +209,36 @@ font-size:15px;
 
 
 
+#matchInput{
+
+
+height:250px;
+
+
+}
+
+
+
 button{
 
 
+width:100%;
+
+
+margin-top:15px;
+
+
+padding:15px;
+
+
+border-radius:15px;
+
+
+border:1px solid #777;
+
+
 background:
+
 
 linear-gradient(
 180deg,
@@ -202,15 +250,6 @@ linear-gradient(
 color:white;
 
 
-border:1px solid #777;
-
-
-border-radius:15px;
-
-
-padding:15px;
-
-
 font-weight:bold;
 
 
@@ -219,40 +258,8 @@ cursor:pointer;
 
 box-shadow:
 
+
 0 8px 0 #000;
-
-
-transition:.2s;
-
-
-}
-
-
-
-button:hover{
-
-transform:translateY(-3px);
-
-}
-
-
-
-
-button:active{
-
-transform:translateY(3px);
-
-}
-
-
-
-
-
-.load-button{
-
-width:100%;
-
-margin-top:15px;
 
 
 }
@@ -272,6 +279,7 @@ padding:18px;
 
 background:
 
+
 linear-gradient(
 145deg,
 #333,
@@ -285,44 +293,27 @@ border-radius:18px;
 border:1px solid #666;
 
 
-box-shadow:
-
-0 15px 35px #000;
-
-
 cursor:pointer;
 
 
-transition:.25s;
+box-shadow:
+
+
+0 15px 30px #000;
 
 
 }
-
 
 
 
 .match-card:hover{
 
 
-transform:
-
-translateY(-5px)
-scale(1.03);
+transform:translateY(-4px);
 
 
 }
 
-
-
-
-.match-time{
-
-font-size:13px;
-
-color:#aaa;
-
-
-}
 
 
 
@@ -330,9 +321,11 @@ color:#aaa;
 .match-team{
 
 
-font-size:17px;
-
 font-weight:bold;
+
+
+font-size:18px;
+
 
 margin:8px 0;
 
@@ -341,54 +334,30 @@ margin:8px 0;
 
 
 
-
 .match-vs{
+
 
 text-align:center;
 
-color:#888;
+
+color:#999;
+
 
 }
 
 
 
 
-
-
-
-/* =====================
-   RECHTE SEITE
-===================== */
-
+/* RECHTS */
 
 
 .right-panel{
 
 
-padding:30px;
-
-
-background:
-
-linear-gradient(
-145deg,
-#151515,
-#050505
-);
-
-
-border-radius:30px;
-
-
-box-shadow:
-
-0 35px 80px #000,
-
-inset 0 0 40px #333;
+min-height:1000px;
 
 
 }
-
 
 
 
@@ -404,14 +373,13 @@ justify-content:space-between;
 align-items:center;
 
 
-border-bottom:1px solid #444;
+border-bottom:1px solid #555;
 
 
 padding-bottom:25px;
 
 
 }
-
 
 
 
@@ -433,11 +401,11 @@ font-weight:bold;
 
 text-shadow:
 
-0 10px 25px #000;
+
+0 10px 25px black;
 
 
 }
-
 
 
 
@@ -451,13 +419,7 @@ font-size:80px;
 font-weight:bold;
 
 
-text-shadow:
-
-0 15px 35px #000;
-
-
 }
-
 
 
 
@@ -474,13 +436,12 @@ text-shadow:
 <div class="container">
 
 
+
 <div class="layout">
 
 
 
-<!-- SPIELTAG -->
-
-<div class="left-panel">
+<div class="panel left-panel">
 
 
 <h2>
@@ -491,9 +452,7 @@ SPIELTAG
 
 
 
-<textarea
-
-id="matchInput"
+<textarea id="matchInput"
 
 placeholder="
 
@@ -507,30 +466,13 @@ TSG Hoffenheim
 
 -
 
-29.08. 15:30
-
-RB Leipzig
-
-Borussia Mönchengladbach
-
--
-
--
-
 ">
 
 </textarea>
 
 
 
-
-<button
-
-class="load-button"
-
-onclick="loadMatches()"
-
->
+<button onclick="loadMatches()">
 
 SPIELE LADEN
 
@@ -544,32 +486,26 @@ SPIELE LADEN
 </div>
 
 
+
+
 </div>
 
 
 
 
 
-<!-- HAUPTBEREICH -->
-
-
-<div class="right-panel">
+<div class="panel right-panel">
 
 
 
 <div class="scoreboard">
 
 
-
-<div 
-id="homeName"
-class="team-name">
+<div id="homeName" class="team-name">
 
 HEIM
 
 </div>
-
-
 
 
 <div class="score">
@@ -580,305 +516,46 @@ HEIM
 
 
 
-
-<div 
-id="awayName"
-class="team-name">
+<div id="awayName" class="team-name">
 
 GAST
 
 </div>
 
 
+</div>
+
+
+
+<!-- DATENTABELLE KOMMT TEIL 2 -->
+
+<div id="dataTableArea">
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
 
 </div>
 <style>
 
 
-/* =====================
-   STATISTIK
-===================== */
+/* ==========================
+   DATENTABELLE
+========================== */
 
 
-.stat{
-
-margin-top:35px;
-
-}
-
-
-
-
-.stat-title{
-
-
-text-align:center;
-
-font-size:25px;
-
-font-weight:bold;
-
-margin-bottom:15px;
-
-
-}
-
-
-
-
-.values{
-
-
-display:flex;
-
-justify-content:space-between;
-
-
-font-size:34px;
-
-font-weight:bold;
-
-
-}
-
-
-
-.home-value{
-
-color:var(--home-color);
-
-
-text-shadow:
-
-0 0 20px var(--home-color);
-
-
-}
-
-
-
-.away-value{
-
-color:var(--away-color);
-
-
-text-shadow:
-
-0 0 20px var(--away-color);
-
-
-}
-
-
-
-
-
-.bar{
-
-
-height:30px;
-
-
-display:flex;
-
-
-background:#000;
-
-
-border-radius:20px;
-
-
-overflow:hidden;
-
-
-border:1px solid #555;
-
-
-box-shadow:
-
-inset 0 5px 15px #000;
-
-
-}
-
-
-
-
-.home-bar{
-
-
-height:100%;
-
-
-background:
-
-linear-gradient(
-180deg,
-white,
-transparent
-),
-var(--home-color);
-
-
-transition:.5s;
-
-
-}
-
-
-
-.away-bar{
-
-
-height:100%;
-
-
-background:
-
-linear-gradient(
-180deg,
-white,
-transparent
-),
-var(--away-color);
-
-
-transition:.5s;
-
-
-}
-
-
-
-
-
-
-/* =====================
-   STATISTIK BOXEN
-===================== */
-
-
-.stats-grid{
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(3,1fr);
-
-
-gap:18px;
+.data-table-box{
 
 
 margin-top:35px;
-
-
-}
-
-
-
-
-
-.stat-box{
-
-
-background:
-
-linear-gradient(
-145deg,
-#292929,
-#080808
-);
-
-
-border-radius:20px;
-
-
-padding:20px;
-
-
-text-align:center;
-
-
-border:1px solid #555;
-
-
-box-shadow:
-
-0 20px 40px #000,
-
-inset 0 0 20px #333;
-
-
-}
-
-
-
-
-.stat-title-small{
-
-
-font-size:14px;
-
-
-color:#aaa;
-
-
-}
-
-
-
-
-.stat-number{
-
-
-font-size:34px;
-
-
-font-weight:bold;
-
-
-margin-top:12px;
-
-
-}
-
-
-
-
-.home-text{
-
-color:var(--home-color);
-
-}
-
-
-
-.away-text{
-
-color:var(--away-color);
-
-}
-
-
-
-
-
-
-/* =====================
-   DATEN
-===================== */
-
-
-.input-area{
-
-
-margin-top:35px;
-
-
-padding:25px;
 
 
 background:
@@ -886,11 +563,14 @@ background:
 linear-gradient(
 145deg,
 #222,
-#080808
+#090909
 );
 
 
 border-radius:25px;
+
+
+padding:20px;
 
 
 border:1px solid #555;
@@ -898,7 +578,9 @@ border:1px solid #555;
 
 box-shadow:
 
-0 25px 50px #000;
+0 25px 50px #000,
+
+inset 0 0 25px #333;
 
 
 }
@@ -906,31 +588,68 @@ box-shadow:
 
 
 
-#dataInput{
+.data-table-box h2{
+
+
+font-size:24px;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+table{
 
 
 width:100%;
 
 
-height:260px;
+border-collapse:collapse;
 
 
-background:#000;
+margin-top:20px;
 
 
-color:white;
+}
 
 
-border-radius:15px;
+
+
+
+th{
+
+
+background:#111;
+
+
+padding:12px;
 
 
 border:1px solid #555;
 
 
-padding:15px;
+}
 
 
-font-size:16px;
+
+td{
+
+
+padding:12px;
+
+
+border:1px solid #444;
+
+
+text-align:center;
+
+
+font-size:18px;
 
 
 }
@@ -938,49 +657,49 @@ font-size:16px;
 
 
 
-.update-button{
+
+.stat-name{
 
 
-width:100%;
+text-align:left;
 
 
-margin-top:15px;
+font-weight:bold;
 
 
-}
-
-
-
-
-
-/* =====================
- SPEICHER UNTEN
-===================== */
-
-
-.save-area{
-
-
-display:flex;
-
-
-gap:15px;
-
-
-margin-top:30px;
+color:#ccc;
 
 
 }
 
 
 
-.save-area button{
+.table-home{
 
 
-flex:1;
+color:var(--home-color);
+
+
+font-weight:bold;
 
 
 }
+
+
+
+.table-away{
+
+
+color:var(--away-color);
+
+
+font-weight:bold;
+
+
+}
+
+
+
 
 
 </style>
@@ -991,458 +710,390 @@ flex:1;
 
 
 
-<!-- =====================
-   xG
-===================== -->
 
+<!-- ==========================
+   SPIELDATEN TABELLE
+========================== -->
 
-<div class="stat">
 
-
-<div class="stat-title">
-
-Expected Goals (xG)
-
-</div>
-
-
-
-<div class="values">
-
-
-<span id="xgHome"
-class="home-value">
-
-0.00
-
-</span>
-
-
-
-<span id="xgAway"
-class="away-value">
-
-0.00
-
-</span>
-
-
-
-</div>
-
-
-
-<div class="bar">
-
-
-<div id="xgHomeBar"
-class="home-bar"
-style="width:50%">
-
-</div>
-
-
-<div id="xgAwayBar"
-class="away-bar"
-style="width:50%">
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- =====================
-   BALLBESITZ
-===================== -->
-
-
-<div class="stat">
-
-
-<div class="stat-title">
-
-Ballbesitz
-
-</div>
-
-
-
-
-<div class="values">
-
-
-<span id="posHome"
-class="home-value">
-
-50%
-
-</span>
-
-
-
-
-<span id="posAway"
-class="away-value">
-
-50%
-
-</span>
-
-
-</div>
-
-
-
-<div class="bar">
-
-
-<div id="posHomeBar"
-class="home-bar"
-style="width:50%">
-
-</div>
-
-
-
-<div id="posAwayBar"
-class="away-bar"
-style="width:50%">
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- =====================
- STATISTIK KARTEN
-===================== -->
-
-
-<div class="stats-grid">
-
-
-
-<div class="stat-box">
-
-<div class="stat-title-small">
-
-SCHÜSSE
-
-</div>
-
-
-<div class="stat-number">
-
-
-<span id="shotsHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="shotsAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-title-small">
-
-SCHÜSSE AUFS TOR
-
-</div>
-
-
-<div class="stat-number">
-
-
-<span id="targetHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="targetAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-title-small">
-
-GROSSCHANCEN
-
-</div>
-
-
-<div class="stat-number">
-
-
-<span id="chanceHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="chanceAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-title-small">
-
-ECKEN
-
-</div>
-
-
-<div class="stat-number">
-
-
-<span id="cornerHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="cornerAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-title-small">
-
-PASSQUOTE
-
-</div>
-
-
-<div class="stat-number">
-
-
-<span id="passHome"
-class="home-text">
-
-0%
-
-</span>
-
-
-:
-
-
-<span id="passAway"
-class="away-text">
-
-0%
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-title-small">
-
-PÄSSE
-
-</div>
-
-
-<div class="stat-number">
-
-
-<span id="passesHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="passesAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-title-small">
-
-GELBE KARTEN
-
-</div>
-
-
-<div class="stat-number">
-
-
-<span id="cardsHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="cardsAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- =====================
- LIVE EINGABE
-===================== -->
-
-
-<div class="input-area">
+<div class="data-table-box">
 
 
 <h2>
 
-LIVE DATEN EINGEBEN
+SPIELDATENBANK
+
+</h2>
+
+
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+STATISTIK
+
+</th>
+
+
+<th>
+
+HEIM
+
+</th>
+
+
+<th>
+
+GAST
+
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody id="statsTable">
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Expected Goals (xG)
+
+</td>
+
+
+<td id="table_xg_home"
+class="table-home">
+
+0.00
+
+</td>
+
+
+<td id="table_xg_away"
+class="table-away">
+
+0.00
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Ballbesitz
+
+</td>
+
+
+<td id="table_pos_home"
+class="table-home">
+
+0
+
+</td>
+
+
+<td id="table_pos_away"
+class="table-away">
+
+0
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Schüsse
+
+</td>
+
+
+<td id="table_shots_home"
+class="table-home">
+
+0
+
+</td>
+
+
+<td id="table_shots_away"
+class="table-away">
+
+0
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Schüsse aufs Tor
+
+</td>
+
+
+<td id="table_target_home"
+class="table-home">
+
+0
+
+</td>
+
+
+<td id="table_target_away"
+class="table-away">
+
+0
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Großchancen
+
+</td>
+
+
+<td id="table_chance_home"
+class="table-home">
+
+0
+
+</td>
+
+
+<td id="table_chance_away"
+class="table-away">
+
+0
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Ecken
+
+</td>
+
+
+<td id="table_corner_home"
+class="table-home">
+
+0
+
+</td>
+
+
+<td id="table_corner_away"
+class="table-away">
+
+0
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Passquote
+
+</td>
+
+
+<td id="table_passrate_home"
+class="table-home">
+
+0%
+
+</td>
+
+
+<td id="table_passrate_away"
+class="table-away">
+
+0%
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Pässe
+
+</td>
+
+
+<td id="table_pass_home"
+class="table-home">
+
+0
+
+</td>
+
+
+<td id="table_pass_away"
+class="table-away">
+
+0
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<td class="stat-name">
+
+Gelbe Karten
+
+</td>
+
+
+<td id="table_cards_home"
+class="table-home">
+
+0
+
+</td>
+
+
+<td id="table_cards_away"
+class="table-away">
+
+0
+
+</td>
+
+
+</tr>
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- IMPORT BEREICH -->
+
+
+<div class="data-table-box">
+
+
+<h2>
+
+LIVE DATEN IMPORT
 
 </h2>
 
@@ -1454,7 +1105,7 @@ id="dataInput"
 
 placeholder="
 
-Hier die Live-Statistik einfügen:
+Hier Live-Daten einfügen:
 
 1.24
 Expected Goals (xG)
@@ -1474,7 +1125,7 @@ Schüsse aufs Tor
 
 2
 Großchance
-3
+1
 
 3
 Eckbälle
@@ -1496,44 +1147,12 @@ Gelbe Karten
 
 
 
+<button onclick="importData()">
 
-<button
-
-class="update-button"
-
-onclick="updateStats()"
-
->
-
-AKTUALISIEREN
+DATEN ÜBERNEHMEN
 
 </button>
 
-
-</div>
-
-
-
-
-
-
-
-
-<div class="save-area">
-
-
-<button onclick="saveGame()">
-
-💾 SPIEL SPEICHERN
-
-</button>
-
-
-<button onclick="loadGame()">
-
-📂 SPIEL LADEN
-
-</button>
 
 
 </div>
@@ -1541,75 +1160,8 @@ AKTUALISIEREN
 
 
 /* ==========================
- TEAM FARBEN
+   SPIELDATEN SPEICHER
 ========================== */
-
-
-const teamColors={
-
-
-"1. FC Köln":{
-main:"#E30613",
-alt:"#FFFFFF"
-},
-
-
-"TSG Hoffenheim":{
-main:"#005CA9",
-alt:"#FFFFFF"
-},
-
-
-"1. FC Union Berlin":{
-main:"#E30613",
-alt:"#FFFFFF"
-},
-
-
-"Eintracht Frankfurt":{
-main:"#C00000",
-alt:"#FFFFFF"
-},
-
-
-"FSV Mainz 05":{
-main:"#C41230",
-alt:"#FFFFFF"
-},
-
-
-"SC Paderborn":{
-main:"#005CA9",
-alt:"#FFFFFF"
-},
-
-
-"RB Leipzig":{
-main:"#DD0000",
-alt:"#FFFFFF"
-},
-
-
-"Borussia Mönchengladbach":{
-main:"#008F39",
-alt:"#FFFFFF"
-},
-
-
-"SV Elversberg":{
-main:"#D4AF37",
-alt:"#111111"
-},
-
-
-"Bayer Leverkusen":{
-main:"#E32221",
-alt:"#FFFFFF"
-}
-
-
-};
-
 
 
 let currentGame="";
@@ -1618,81 +1170,19 @@ let currentGame="";
 
 
 
-
-
-
 /* ==========================
- SPIELTAG SPEICHERN
-========================== */
-
-
-function saveMatchday(){
-
-
-localStorage.setItem(
-
-"saved_matchday",
-
-document.getElementById("matchInput").value
-
-);
-
-
-}
-
-
-
-
-
-
-
-function loadMatchday(){
-
-
-let data=
-
-localStorage.getItem(
-"saved_matchday"
-);
-
-
-
-if(data){
-
-
-document.getElementById("matchInput").value=data;
-
-
-loadMatches();
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-/* ==========================
- SPIELTAG LADEN
+   SPIELTAG LADEN
 ========================== */
 
 
 function loadMatches(){
 
 
-saveMatchday();
-
-
 
 let lines=
 
-document.getElementById("matchInput")
+document
+.getElementById("matchInput")
 .value
 .split("\n")
 .map(x=>x.trim())
@@ -1709,17 +1199,16 @@ list.innerHTML="";
 
 
 
-
 for(let i=0;i<lines.length;i++){
 
 
 if(lines[i].match(/\d{2}\.\d{2}/)){
 
 
-
 let time=lines[i];
 
-let clubs=[];
+
+let teams=[];
 
 
 
@@ -1731,29 +1220,30 @@ break;
 
 
 
-if(!clubs.includes(lines[j])){
+if(!teams.includes(lines[j])){
 
 
-clubs.push(lines[j]);
-
-
-}
+teams.push(lines[j]);
 
 
 }
 
 
+}
 
-if(clubs.length>=2){
+
+
+
+if(teams.length>=2){
 
 
 createMatch(
 
 time,
 
-clubs[0],
+teams[0],
 
-clubs[1]
+teams[1]
 
 );
 
@@ -1761,15 +1251,16 @@ clubs[1]
 }
 
 
-}
-
 
 }
 
 
+
 }
 
 
+
+}
 
 
 
@@ -1781,7 +1272,11 @@ clubs[1]
 function createMatch(time,home,away){
 
 
-let card=document.createElement("div");
+
+let card=
+
+document.createElement("div");
+
 
 
 card.className="match-card";
@@ -1792,7 +1287,7 @@ card.innerHTML=
 
 `
 
-<div class="match-time">
+<div>
 
 ${time}
 
@@ -1838,9 +1333,11 @@ loadGame();
 
 
 
+
 document
 .getElementById("matchList")
 .appendChild(card);
+
 
 
 }
@@ -1851,12 +1348,6 @@ document
 
 
 
-
-
-
-/* ==========================
- TEAMS SETZEN
-========================== */
 
 
 function setTeams(home,away){
@@ -1869,79 +1360,19 @@ home+"_"+away;
 
 
 
-homeName.innerHTML=home;
-
-awayName.innerHTML=away;
-
-
-
-
-let homeTeam=
-
-teamColors[home] ||
-
-{
-main:"#00b7ff",
-alt:"#FFFFFF"
-};
+document
+.getElementById("homeName")
+.innerHTML=home;
 
 
 
-let awayTeam=
-
-teamColors[away] ||
-
-{
-main:"#ff4757",
-alt:"#FFFFFF"
-};
-
-
-
-
-
-/* gleiche Farbe vermeiden */
-
-
-if(homeTeam.main===awayTeam.main){
-
-
-awayTeam.main=awayTeam.alt;
-
-
-}
-
-
-
-
-
-document.documentElement
-.style
-.setProperty(
-
-"--home-color",
-
-homeTeam.main
-
-);
-
-
-
-
-document.documentElement
-.style
-.setProperty(
-
-"--away-color",
-
-awayTeam.main
-
-);
+document
+.getElementById("awayName")
+.innerHTML=away;
 
 
 
 }
-
 
 
 
@@ -1952,11 +1383,11 @@ awayTeam.main
 
 
 /* ==========================
- STATISTIK PARSER
+   TEXT IN ZEILEN
 ========================== */
 
 
-function getLines(){
+function getInputLines(){
 
 
 return document
@@ -1973,31 +1404,27 @@ return document
 
 
 
+function getNumber(text){
 
 
-function numberFrom(text){
+let match=
+
+text.match(
+/\d+(?:[.,]\d+)?
+/);
 
 
-let n=
 
-parseFloat(
+if(match)
 
-text
-.replace("%","")
-.replace(",", ".")
-
+return Number(
+match[0]
+.replace(",",".")
 );
 
 
 
-return isNaN(n)
-?
-
-null
-
-:
-
-n;
+return null;
 
 
 }
@@ -2009,11 +1436,18 @@ n;
 
 
 
-function findStat(title){
+
+
+/* ==========================
+   STATISTIK FINDEN
+========================== */
+
+
+function findValues(title){
 
 
 
-let lines=getLines();
+let lines=getInputLines();
 
 
 
@@ -2040,27 +1474,19 @@ return [0,0];
 
 
 
-
 let before=null;
+
 
 
 if(index>0){
 
 
-let n=
-
-numberFrom(
+before=getNumber(
 lines[index-1]
 );
 
 
-if(n!==null)
-
-before=n;
-
-
 }
-
 
 
 
@@ -2080,9 +1506,7 @@ i++
 
 
 
-let n=
-
-numberFrom(
+let n=getNumber(
 lines[i]
 );
 
@@ -2104,52 +1528,36 @@ break;
 
 
 
-if(
-n===null &&
-after.length>0
-)
-
-break;
-
-
 }
 
 
 
 
 
-
-/* Titel mit Wert davor */
-
-
-if(
-title
-.includes("Expected")
-){
+if(before!==null && after.length>0){
 
 
 return [
 
-before ?? 0,
+before,
 
-after[0] ?? 0
+after[0]
 
 ];
 
-}
 
+}
 
 
 
 
 return [
 
-after[0] ?? 0,
+after[0] || 0,
 
-after[1] ?? 0
+after[1] || 0
 
 ];
-
 
 
 }
@@ -2159,10 +1567,16 @@ after[1] ?? 0
 
 
 
-/* Pässe extra */
+
+
+
+/* ==========================
+   PÄSSE
+========================== */
 
 
 function findPasses(){
+
 
 
 let text=
@@ -2176,27 +1590,24 @@ document
 let values=
 
 text.match(
-(/\(\d+\/\d+\)/g)
+/\((\d+)\/\d+\)/g
 );
 
 
 
-if(
-values &&
-values.length>=2
-){
+if(values && values.length>=2){
 
 
 
 return [
 
-parseInt(
+Number(
 values[0]
 .match(/\d+/)[0]
 ),
 
 
-parseInt(
+Number(
 values[1]
 .match(/\d+/)[0]
 )
@@ -2210,197 +1621,200 @@ values[1]
 
 return [0,0];
 
-
 }
- 
+
+
+
+
+
+
+
+
+
+
 /* ==========================
-   STATISTIK AKTUALISIEREN
+   IMPORT IN TABELLE
 ========================== */
 
 
-function updateStats(){
+function importData(){
 
-
-
-/* xG */
 
 
 let xg=
 
-findStat(
+findValues(
 "Expected Goals"
 );
 
 
 
-xgHome.innerHTML=
+table_xg_home.innerHTML=
 
 xg[0].toFixed(2);
 
 
 
-xgAway.innerHTML=
+table_xg_away.innerHTML=
 
 xg[1].toFixed(2);
 
 
 
-setBar(
-
-xg[0],
-
-xg[1],
-
-"xgHomeBar",
-
-"xgAwayBar"
-
-);
 
 
 
 
 
+let pos=
 
-/* Ballbesitz */
-
-
-let possession=
-
-findStat(
+findValues(
 "Ballbesitz"
 );
 
 
 
-posHome.innerHTML=
+table_pos_home.innerHTML=
 
-possession[0]+"%";
+pos[0]+"%";
 
 
-posAway.innerHTML=
+table_pos_away.innerHTML=
 
-possession[1]+"%";
+pos[1]+"%";
 
 
 
-posHomeBar.style.width=
 
-possession[0]+"%";
 
 
-posAwayBar.style.width=
 
-possession[1]+"%";
+let shots=
 
+findValues(
+"Schüsse insgesamt"
+);
 
 
 
+table_shots_home.innerHTML=
 
+shots[0];
 
 
-/* normale Werte */
+table_shots_away.innerHTML=
 
+shots[1];
 
-let stats=[
 
 
-["Schüsse insgesamt",
-"shotsHome",
-"shotsAway"],
 
 
-["Schüsse",
-"shotsHome",
-"shotsAway"],
 
 
+let target=
 
-["Schüsse aufs Tor",
-"targetHome",
-"targetAway"],
+findValues(
+"Schüsse aufs Tor"
+);
 
 
 
-["Großchance",
-"chanceHome",
-"chanceAway"],
+table_target_home.innerHTML=
 
+target[0];
 
 
-["Großchancen",
-"chanceHome",
-"chanceAway"],
+table_target_away.innerHTML=
 
+target[1];
 
 
-["Eckbälle",
-"cornerHome",
-"cornerAway"],
 
 
 
-["Ecken",
-"cornerHome",
-"cornerAway"],
 
 
+let chance=
 
-["Gelbe Karten",
-"cardsHome",
-"cardsAway"]
+findValues(
+"Großchance"
+);
 
 
-];
 
+table_chance_home.innerHTML=
 
+chance[0];
 
 
+table_chance_away.innerHTML=
 
-stats.forEach(item=>{
+chance[1];
 
 
-let value=
 
-findStat(item[0]);
 
 
 
-document
-.getElementById(item[1])
-.innerHTML=value[0];
 
+let corner=
 
+findValues(
+"Eckbälle"
+);
 
-document
-.getElementById(item[2])
-.innerHTML=value[1];
 
 
+table_corner_home.innerHTML=
 
-});
+corner[0];
 
 
+table_corner_away.innerHTML=
 
+corner[1];
 
 
 
 
-/* Pässe */
 
 
-let passes=
 
-findPasses();
+let cards=
 
+findValues(
+"Gelbe Karten"
+);
 
 
-passesHome.innerHTML=
+
+table_cards_home.innerHTML=
+
+cards[0];
+
+
+table_cards_away.innerHTML=
+
+cards[1];
+
+
+
+
+
+
+
+
+let passes=findPasses();
+
+
+
+table_pass_home.innerHTML=
 
 passes[0];
 
 
-passesAway.innerHTML=
+table_pass_away.innerHTML=
 
 passes[1];
 
@@ -2408,57 +1822,830 @@ passes[1];
 
 
 
-
-saveGame();
-
-
-
 }
 
 
 
-
-
-
-
-
+</script>
+<style>
 
 
 /* ==========================
-   BALKEN
+   LIVE ANZEIGE
 ========================== */
 
 
-function setBar(home,away,left,right){
+.live-panel{
+
+
+margin-top:35px;
+
+
+background:
+
+linear-gradient(
+145deg,
+#222,
+#080808
+);
+
+
+border-radius:25px;
+
+
+padding:25px;
+
+
+border:1px solid #555;
+
+
+box-shadow:
+
+0 25px 60px #000,
+
+inset 0 0 30px #333;
+
+
+}
 
 
 
-let total=
-
-home+away;
 
 
-
-if(total<=0)
-
-return;
+.live-title{
 
 
-
-document
-.getElementById(left)
-.style.width=
-
-(home/total*100)+"%";
+text-align:center;
 
 
+font-size:28px;
 
 
-document
-.getElementById(right)
-.style.width=
+font-weight:bold;
 
-(away/total*100)+"%";
+
+margin-bottom:25px;
+
+
+}
+
+
+
+
+.stat-line{
+
+
+margin-top:25px;
+
+
+}
+
+
+
+
+
+.stat-head{
+
+
+display:flex;
+
+
+justify-content:space-between;
+
+
+font-size:30px;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+.home-live{
+
+
+color:var(--home-color);
+
+
+text-shadow:
+
+0 0 15px var(--home-color);
+
+
+}
+
+
+
+.away-live{
+
+
+color:var(--away-color);
+
+
+text-shadow:
+
+0 0 15px var(--away-color);
+
+
+}
+
+
+
+
+
+.stat-bar{
+
+
+height:28px;
+
+
+display:flex;
+
+
+background:#000;
+
+
+border-radius:20px;
+
+
+overflow:hidden;
+
+
+border:1px solid #555;
+
+
+margin-top:10px;
+
+
+}
+
+
+
+.stat-bar-home{
+
+
+background:var(--home-color);
+
+
+height:100%;
+
+
+}
+
+
+
+.stat-bar-away{
+
+
+background:var(--away-color);
+
+
+height:100%;
+
+
+}
+
+
+
+
+.live-grid{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(3,1fr);
+
+
+gap:20px;
+
+
+margin-top:35px;
+
+
+}
+
+
+
+
+
+.live-box{
+
+
+background:
+
+linear-gradient(
+145deg,
+#333,
+#090909
+);
+
+
+border-radius:20px;
+
+
+padding:20px;
+
+
+text-align:center;
+
+
+border:1px solid #555;
+
+
+box-shadow:
+
+0 15px 35px #000;
+
+
+}
+
+
+
+
+.live-box-title{
+
+
+color:#aaa;
+
+
+font-size:14px;
+
+
+}
+
+
+
+
+
+.live-number{
+
+
+font-size:34px;
+
+
+font-weight:bold;
+
+
+margin-top:10px;
+
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<div class="live-panel">
+
+
+<div class="live-title">
+
+LIVE STATISTIK
+
+</div>
+
+
+
+
+
+<div class="stat-line">
+
+
+<div class="stat-head">
+
+<span class="home-live">
+
+<span id="live_xg_home">
+
+0.00
+
+</span>
+
+</span>
+
+
+
+Expected Goals (xG)
+
+
+
+<span class="away-live">
+
+<span id="live_xg_away">
+
+0.00
+
+</span>
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="stat-line">
+
+
+<div class="stat-head">
+
+
+<span class="home-live">
+
+<span id="live_pos_home">
+
+0%
+
+</span>
+
+</span>
+
+
+
+Ballbesitz
+
+
+
+<span class="away-live">
+
+<span id="live_pos_away">
+
+0%
+
+</span>
+
+</span>
+
+
+</div>
+
+
+<div class="stat-bar">
+
+
+<div id="pos_live_home"
+class="stat-bar-home"
+style="width:50%">
+
+</div>
+
+
+<div id="pos_live_away"
+class="stat-bar-away"
+style="width:50%">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="live-grid">
+
+
+
+<div class="live-box">
+
+
+<div class="live-box-title">
+
+SCHÜSSE
+
+</div>
+
+
+<div class="live-number">
+
+
+<span id="live_shots_home"
+class="home-live">
+
+0
+
+</span>
+
+
+:
+
+
+<span id="live_shots_away"
+class="away-live">
+
+0
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="live-box">
+
+
+<div class="live-box-title">
+
+SCHÜSSE AUFS TOR
+
+</div>
+
+
+<div class="live-number">
+
+
+<span id="live_target_home"
+class="home-live">
+
+0
+
+</span>
+
+
+:
+
+
+<span id="live_target_away"
+class="away-live">
+
+0
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="live-box">
+
+
+<div class="live-box-title">
+
+GROSSCHANCEN
+
+</div>
+
+
+<div class="live-number">
+
+
+<span id="live_chance_home"
+class="home-live">
+
+0
+
+</span>
+
+
+:
+
+
+<span id="live_chance_away"
+class="away-live">
+
+0
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="live-box">
+
+
+<div class="live-box-title">
+
+ECKEN
+
+</div>
+
+
+<div class="live-number">
+
+
+<span id="live_corner_home"
+class="home-live">
+
+0
+
+</span>
+
+
+:
+
+
+<span id="live_corner_away"
+class="away-live">
+
+0
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="live-box">
+
+
+<div class="live-box-title">
+
+PÄSSE
+
+</div>
+
+
+<div class="live-number">
+
+
+<span id="live_pass_home"
+class="home-live">
+
+0
+
+</span>
+
+
+:
+
+
+<span id="live_pass_away"
+class="away-live">
+
+0
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="live-box">
+
+
+<div class="live-box-title">
+
+GELBE KARTEN
+
+</div>
+
+
+<div class="live-number">
+
+
+<span id="live_cards_home"
+class="home-live">
+
+0
+
+</span>
+
+
+:
+
+
+<span id="live_cards_away"
+class="away-live">
+
+0
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+/* ==========================
+   TABELLE → LIVE ANZEIGE
+========================== */
+
+
+
+function updateLiveView(){
+
+
+
+live_xg_home.innerHTML=
+
+table_xg_home.innerHTML;
+
+
+
+live_xg_away.innerHTML=
+
+table_xg_away.innerHTML;
+
+
+
+
+
+live_pos_home.innerHTML=
+
+table_pos_home.innerHTML;
+
+
+
+live_pos_away.innerHTML=
+
+table_pos_away.innerHTML;
+
+
+
+
+
+pos_live_home.style.width=
+
+table_pos_home.innerHTML;
+
+
+
+pos_live_away.style.width=
+
+table_pos_away.innerHTML;
+
+
+
+
+
+
+
+live_shots_home.innerHTML=
+
+table_shots_home.innerHTML;
+
+
+live_shots_away.innerHTML=
+
+table_shots_away.innerHTML;
+
+
+
+
+
+
+live_target_home.innerHTML=
+
+table_target_home.innerHTML;
+
+
+live_target_away.innerHTML=
+
+table_target_away.innerHTML;
+
+
+
+
+
+
+
+live_chance_home.innerHTML=
+
+table_chance_home.innerHTML;
+
+
+live_chance_away.innerHTML=
+
+table_chance_away.innerHTML;
+
+
+
+
+
+
+
+live_corner_home.innerHTML=
+
+table_corner_home.innerHTML;
+
+
+live_corner_away.innerHTML=
+
+table_corner_away.innerHTML;
+
+
+
+
+
+
+
+live_pass_home.innerHTML=
+
+table_pass_home.innerHTML;
+
+
+live_pass_away.innerHTML=
+
+table_pass_away.innerHTML;
+
+
+
+
+
+
+
+live_cards_home.innerHTML=
+
+table_cards_home.innerHTML;
+
+
+live_cards_away.innerHTML=
+
+table_cards_away.innerHTML;
+
 
 
 }
@@ -2469,6 +2656,28 @@ document
 
 
 
+/* nach Import aktualisieren */
+
+
+let oldImportData=importData;
+
+
+
+importData=function(){
+
+
+oldImportData();
+
+
+updateLiveView();
+
+
+};
+
+
+
+</script>
+<script>
 
 
 /* ==========================
@@ -2486,77 +2695,58 @@ return;
 
 
 
-
-let save={};
-
-
-
-let ids=[
-
-
-"xgHome",
-"xgAway",
-
-"posHome",
-"posAway",
-
-"shotsHome",
-"shotsAway",
-
-"targetHome",
-"targetAway",
-
-"chanceHome",
-"chanceAway",
-
-"cornerHome",
-"cornerAway",
-
-"passHome",
-"passAway",
-
-"passesHome",
-"passesAway",
-
-"cardsHome",
-"cardsAway"
+let save={
 
 
 
-];
+xgHome:table_xg_home.innerHTML,
+
+xgAway:table_xg_away.innerHTML,
 
 
+posHome:table_pos_home.innerHTML,
+
+posAway:table_pos_away.innerHTML,
 
 
+shotsHome:table_shots_home.innerHTML,
 
-ids.forEach(id=>{
-
-
-let element=
-
-document.getElementById(id);
+shotsAway:table_shots_away.innerHTML,
 
 
+targetHome:table_target_home.innerHTML,
 
-if(element){
-
-
-save[id]=element.innerHTML;
+targetAway:table_target_away.innerHTML,
 
 
-}
+chanceHome:table_chance_home.innerHTML,
+
+chanceAway:table_chance_away.innerHTML,
 
 
-});
+cornerHome:table_corner_home.innerHTML,
+
+cornerAway:table_corner_away.innerHTML,
 
 
+passHome:table_pass_home.innerHTML,
+
+passAway:table_pass_away.innerHTML,
+
+
+cardsHome:table_cards_home.innerHTML,
+
+cardsAway:table_cards_away.innerHTML
+
+
+};
 
 
 
 
 localStorage.setItem(
 
-"game_"+currentGame,
+"livestats_"+currentGame,
 
 JSON.stringify(save)
 
@@ -2565,10 +2755,6 @@ JSON.stringify(save)
 
 
 }
-
-
-
-
 
 
 
@@ -2589,24 +2775,19 @@ return;
 
 
 
-
 let data=
 
 localStorage.getItem(
 
-"game_"+currentGame
+"livestats_"+currentGame
 
 );
-
-
 
 
 
 if(!data)
 
 return;
-
-
 
 
 
@@ -2618,33 +2799,54 @@ JSON.parse(data);
 
 
 
-Object.keys(data)
-.forEach(id=>{
+table_xg_home.innerHTML=data.xgHome;
+
+table_xg_away.innerHTML=data.xgAway;
+
+
+table_pos_home.innerHTML=data.posHome;
+
+table_pos_away.innerHTML=data.posAway;
+
+
+table_shots_home.innerHTML=data.shotsHome;
+
+table_shots_away.innerHTML=data.shotsAway;
+
+
+table_target_home.innerHTML=data.targetHome;
+
+table_target_away.innerHTML=data.targetAway;
+
+
+table_chance_home.innerHTML=data.chanceHome;
+
+table_chance_away.innerHTML=data.chanceAway;
+
+
+table_corner_home.innerHTML=data.cornerHome;
+
+table_corner_away.innerHTML=data.cornerAway;
+
+
+table_pass_home.innerHTML=data.passHome;
+
+table_pass_away.innerHTML=data.passAway;
+
+
+table_cards_home.innerHTML=data.cardsHome;
+
+table_cards_away.innerHTML=data.cardsAway;
 
 
 
-let element=
+updateLiveView();
 
-document.getElementById(id);
-
-
-
-if(element){
-
-
-element.innerHTML=data[id];
 
 
 }
 
 
-
-});
-
-
-
-
-}
 
 
 
@@ -2654,8 +2856,85 @@ element.innerHTML=data[id];
 
 
 /* ==========================
- START
+   SPIELTAG SPEICHERN
 ========================== */
+
+
+function saveMatchday(){
+
+
+localStorage.setItem(
+
+"spieltag",
+
+document
+.getElementById("matchInput")
+.value
+
+);
+
+
+}
+
+
+
+
+
+
+
+function loadMatchday(){
+
+
+
+let data=
+
+localStorage.getItem(
+"spieltag"
+);
+
+
+
+if(data){
+
+
+matchInput.value=data;
+
+
+loadMatches();
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================
+   AUTO SPEICHERN
+========================== */
+
+
+document
+.getElementById("matchInput")
+.addEventListener(
+"change",
+saveMatchday
+);
+
+
+
+
+
+
 
 
 window.onload=function(){
@@ -2667,38 +2946,13 @@ loadMatchday();
 };
 
 
- 
-/* ==========================
-   AUTOMATISCH SPIELTAG LADEN
-========================== */
-
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-
-loadMatchday();
-
-
-
-}
-);
-
-
 
 
 
 </script>
 
 
-</div>
-
-
-</div>
-
 
 </body>
-
 
 </html>
