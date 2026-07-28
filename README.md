@@ -928,29 +928,68 @@ AKTUALISIEREN
 ===================== */
 
 
-const teams={
+const teams = {
 
+"BVB":"#FDE100",
+"Borussia Dortmund":"#FDE100",
 
-"1. FC Union Berlin":"#e30613",
+"SVW":"#00875A",
+"SV Werder Bremen":"#00875A",
+"Werder Bremen":"#00875A",
+
+"FCB":"#DC052D",
+"FC Bayern München":"#DC052D",
+"Bayern München":"#DC052D",
+
+"B04":"#E32221",
+"Bayer 04 Leverkusen":"#E32221",
+"Bayer Leverkusen":"#E32221",
+
+"RBL":"#FFFFFF",
+"RB Leipzig":"#FFFFFF",
+
+"VFB":"#FFFFFF",
+"VfB Stuttgart":"#FFFFFF",
+
+"SGE":"#777777",
 "Eintracht Frankfurt":"#777777",
-"Bayern München":"#dc052d",
-"Bayer Leverkusen":"#e32221",
-"Werder Bremen":"#00875a",
-"SV Werder Bremen":"#00875a",
-"Schalke 04":"#004c99",
-"HSV":"#005ca9",
-"Hamburger SV":"#005ca9",
-"Borussia Dortmund":"#fde100",
-"Borussia Mönchengladbach":"#777777",
-"TSG Hoffenheim":"#005ca9",
-"1. FC Köln":"#777777",
-"FSV Mainz 05":"#c41230",
-"SC Freiburg":"#e30613",
-"FC Augsburg":"#ba3733",
-"SC Paderborn":"#005ca9",
-"VfB Stuttgart":"#777777",
-"SV Elversberg":"#444444",
-"RB Leipzig":"#777777"
+
+"BMG":"#FFFFFF",
+"Borussia Mönchengladbach":"#FFFFFF",
+
+"TSG":"#005CA9",
+"TSG 1899 Hoffenheim":"#005CA9",
+"TSG Hoffenheim":"#005CA9",
+
+"SCF":"#E30613",
+"SC Freiburg":"#E30613",
+
+"FCA":"#00875A",
+"FC Augsburg":"#00875A",
+
+"FCK":"#E30613",
+"1. FC Köln":"#E30613",
+
+"M05":"#C41230",
+"1. FSV Mainz 05":"#C41230",
+"FSV Mainz 05":"#C41230",
+
+"FCU":"#E30613",
+"1. FC Union Berlin":"#E30613",
+
+"S04":"#004C99",
+"FC Schalke 04":"#004C99",
+"Schalke 04":"#004C99",
+
+"HSV":"#005CA9",
+"Hamburger SV":"#005CA9",
+
+"SCP":"#005CA9",
+"SC Paderborn 07":"#005CA9",
+"SC Paderborn":"#005CA9",
+
+"SVE":"#D4AF37",
+"SV Elversberg":"#D4AF37"
 
 };
 
