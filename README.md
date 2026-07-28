@@ -304,7 +304,7 @@ width:100%;
 
 height:18px;
 
-background:#18263d;
+background:#000000;
 
 border-radius:20px;
 
