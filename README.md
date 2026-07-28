@@ -4,13 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LiveStats Pro V2</title>
 
-
 <style>
-
 
 *{
     box-sizing:border-box;
@@ -24,27 +20,21 @@ body{
     height:100vh;
     background:transparent;
     color:white;
-    overflow:hidden;
 
 }
 
 
 
-/* HAUPT OVERLAY */
-
 .overlay{
 
     width:1000px;
+    margin:50px auto;
 
-    margin:60px auto;
-
-    background:rgba(5,15,35,0.95);
+    background:rgba(5,15,35,0.96);
 
     border-radius:20px;
 
     padding:30px;
-
-    border:1px solid rgba(255,255,255,.15);
 
     box-shadow:0 0 40px rgba(0,0,0,.8);
 
@@ -52,16 +42,13 @@ body{
 
 
 
-
-/* SPIELSTAND */
+/* SCOREBOARD */
 
 
 .scoreboard{
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     border-bottom:2px solid #26354d;
@@ -75,17 +62,14 @@ body{
 .team{
 
     width:35%;
-
     text-align:center;
 
 }
 
 
-
 .team-name{
 
     font-size:32px;
-
     font-weight:bold;
 
 }
@@ -95,7 +79,6 @@ body{
 .score{
 
     font-size:70px;
-
     font-weight:900;
 
 }
@@ -105,23 +88,24 @@ body{
 .timer{
 
     font-size:30px;
-
-    font-weight:bold;
-
     color:#00c8ff;
+    font-weight:bold;
 
 }
 
 
 
-.home-color{
+/* FARBEN */
+
+
+.home{
 
     color:#00b7ff;
 
 }
 
 
-.away-color{
+.away{
 
     color:#ff4757;
 
@@ -129,8 +113,226 @@ body{
 
 
 
-</style>
+/* STATISTIK */
 
+
+.stats{
+
+    margin-top:25px;
+
+}
+
+
+.row{
+
+    margin-bottom:20px;
+
+}
+
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+.bar{
+
+    height:18px;
+
+    background:#18263d;
+
+    border-radius:20px;
+
+    display:flex;
+
+    overflow:hidden;
+
+    margin-top:8px;
+
+}
+
+
+
+.left{
+
+    background:#00b7ff;
+
+}
+
+
+
+.right{
+
+    background:#ff4757;
+
+}
+
+
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+
+
+.card{
+
+    background:#101d35;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+}
+
+
+
+.card-title{
+
+    font-size:13px;
+
+    opacity:.7;
+
+}
+
+
+
+.value{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* STEUERUNG */
+
+
+.control{
+
+    margin-top:30px;
+
+    background:#0c1930;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+
+.control-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+
+
+.input-box{
+
+    background:#132542;
+
+    padding:12px;
+
+    border-radius:10px;
+
+}
+
+
+
+label{
+
+    display:block;
+
+    font-size:13px;
+
+    opacity:.7;
+
+    margin-bottom:5px;
+
+}
+
+
+
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    background:#071326;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+}
+
+
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:22px;
+
+    background:#00b7ff;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    opacity:.8;
+
+}
+
+
+</style>
 
 </head>
 
@@ -139,41 +341,33 @@ body{
 <body>
 
 
-
 <div class="overlay">
 
-
-
-<!-- SPIELSTAND -->
 
 
 <div class="scoreboard">
 
 
-
 <div class="team">
 
-<div class="team-name">
+<div class="team-name" id="homeTeam">
 
 HEIMTEAM
 
 </div>
 
 
-<div class="score">
+<div class="score" id="homeGoals">
 
 0
 
 </div>
 
-
 </div>
 
 
 
-
-
-<div class="timer">
+<div class="timer" id="time">
 
 00:00
 
@@ -181,158 +375,26 @@ HEIMTEAM
 
 
 
-
-
 <div class="team">
 
-
-<div class="team-name">
+<div class="team-name" id="awayTeam">
 
 AUSWÄRTS
 
 </div>
 
 
-<div class="score">
+<div class="score" id="awayGoals">
 
 0
 
 </div>
 
-
 </div>
 
 
 
 </div>
-
-
-<!-- STATISTIK BEREICH -->
-
-
-<style>
-
-.stats{
-
-    margin-top:25px;
-
-}
-
-
-
-.stat-row{
-
-    margin-bottom:22px;
-
-}
-
-
-
-.stat-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font-size:20px;
-
-    font-weight:bold;
-
-}
-
-
-
-.bar{
-
-    height:18px;
-
-    margin-top:8px;
-
-    background:#18263d;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    display:flex;
-
-}
-
-
-
-.bar-home{
-
-    height:100%;
-
-    background:#00b7ff;
-
-}
-
-
-
-.bar-away{
-
-    height:100%;
-
-    background:#ff4757;
-
-}
-
-
-
-
-
-.stats-grid{
-
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:15px;
-
-}
-
-
-
-.box{
-
-    background:#101d35;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    text-align:center;
-
-}
-
-
-
-.box-title{
-
-    font-size:13px;
-
-    opacity:.7;
-
-}
-
-
-
-.box-value{
-
-    font-size:32px;
-
-    font-weight:bold;
-
-    margin-top:10px;
-
-}
-
-
-
-</style>
 
 
 
@@ -341,89 +403,57 @@ AUSWÄRTS
 <div class="stats">
 
 
+<div class="row">
 
+<div class="header">
 
-
-<!-- xG -->
-
-
-<div class="stat-row">
-
-
-<div class="stat-header">
-
-<span>Expected Goals (xG)</span>
-
+<span>xG</span>
 
 <span>
-
-<b class="home-color">1.24</b>
-
+<b class="home">1.24</b>
 :
-
-<b class="away-color">0.80</b>
-
+<b class="away">0.80</b>
 </span>
 
-
 </div>
-
 
 
 <div class="bar">
 
-<div class="bar-home" style="width:60%"></div>
+<div class="left" style="width:60%"></div>
 
-<div class="bar-away" style="width:40%"></div>
+<div class="right" style="width:40%"></div>
+
+</div>
 
 </div>
 
 
-</div>
 
 
 
+<div class="row">
 
-
-
-
-<!-- BALLBESITZ -->
-
-
-<div class="stat-row">
-
-
-<div class="stat-header">
+<div class="header">
 
 <span>Ballbesitz</span>
 
-
 <span>
-
-<b class="home-color">50%</b>
-
+<b class="home">50%</b>
 :
-
-<b class="away-color">50%</b>
-
+<b class="away">50%</b>
 </span>
 
-
 </div>
-
 
 
 <div class="bar">
 
+<div class="left" style="width:50%"></div>
 
-<div class="bar-home" style="width:50%"></div>
-
-
-<div class="bar-away" style="width:50%"></div>
-
+<div class="right" style="width:50%"></div>
 
 </div>
-
 
 </div>
 
@@ -432,25 +462,20 @@ AUSWÄRTS
 
 
 
-
-<!-- STATISTIK ZAHLEN -->
-
-
-<div class="stats-grid">
+<div class="grid">
 
 
+<div class="card">
 
-<div class="box">
-
-<div class="box-title">
+<div class="card-title">
 SCHÜSSE
 </div>
 
-<div class="box-value">
+<div class="value">
 
-<span class="home-color">10</span>
+<span class="home">10</span>
 :
-<span class="away-color">12</span>
+<span class="away">12</span>
 
 </div>
 
@@ -458,19 +483,17 @@ SCHÜSSE
 
 
 
+<div class="card">
 
-
-<div class="box">
-
-<div class="box-title">
+<div class="card-title">
 TORSCHÜSSE
 </div>
 
-<div class="box-value">
+<div class="value">
 
-<span class="home-color">3</span>
+<span class="home">3</span>
 :
-<span class="away-color">5</span>
+<span class="away">5</span>
 
 </div>
 
@@ -479,18 +502,17 @@ TORSCHÜSSE
 
 
 
+<div class="card">
 
-<div class="box">
-
-<div class="box-title">
+<div class="card-title">
 ECKEN
 </div>
 
-<div class="box-value">
+<div class="value">
 
-<span class="home-color">3</span>
+<span class="home">3</span>
 :
-<span class="away-color">4</span>
+<span class="away">4</span>
 
 </div>
 
@@ -499,270 +521,22 @@ ECKEN
 
 
 
+<div class="card">
 
-<div class="box">
-
-<div class="box-title">
+<div class="card-title">
 KARTEN
 </div>
 
-<div class="box-value">
+<div class="value">
 
-<span class="home-color">0</span>
+<span class="home">0</span>
 :
-<span class="away-color">1</span>
+<span class="away">1</span>
 
 </div>
 
 </div>
 
-
-
-</div>
-<!-- STATISTIK BEREICH -->
-
-
-<style>
-
-.stats{
-
-    margin-top:25px;
-
-}
-
-
-
-.stat-row{
-
-    margin-bottom:22px;
-
-}
-
-
-
-.stat-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font-size:20px;
-
-    font-weight:bold;
-
-}
-
-
-
-.bar{
-
-    height:18px;
-
-    margin-top:8px;
-
-    background:#18263d;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    display:flex;
-
-}
-
-
-
-.bar-home{
-
-    height:100%;
-
-    background:#00b7ff;
-
-}
-
-
-
-.bar-away{
-
-    height:100%;
-
-    background:#ff4757;
-
-}
-
-
-
-
-
-.stats-grid{
-
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:15px;
-
-}
-
-
-
-.box{
-
-    background:#101d35;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    text-align:center;
-
-}
-
-
-
-.box-title{
-
-    font-size:13px;
-
-    opacity:.7;
-
-}
-
-
-
-.box-value{
-
-    font-size:32px;
-
-    font-weight:bold;
-
-    margin-top:10px;
-
-}
-
-
-
-</style>
-
-
-
-
-
-<div class="stats">
-
-
-
-
-
-<!-- xG -->
-
-
-<div class="stat-row">
-
-
-<div class="stat-header">
-
-<span>Expected Goals (xG)</span>
-
-
-<span>
-
-<b class="home-color">1.24</b>
-
-:
-
-<b class="away-color">0.80</b>
-
-</span>
-
-
-</div>
-
-
-
-<div class="bar">
-
-<div class="bar-home" style="width:60%"></div>
-
-<div class="bar-away" style="width:40%"></div>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- BALLBESITZ -->
-
-
-<div class="stat-row">
-
-
-<div class="stat-header">
-
-<span>Ballbesitz</span>
-
-
-<span>
-
-<b class="home-color">50%</b>
-
-:
-
-<b class="away-color">50%</b>
-
-</span>
-
-
-</div>
-
-
-
-<div class="bar">
-
-
-<div class="bar-home" style="width:50%"></div>
-
-
-<div class="bar-away" style="width:50%"></div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- STATISTIK ZAHLEN -->
-
-
-<div class="stats-grid">
-
-
-
-<div class="box">
-
-<div class="box-title">
-SCHÜSSE
-</div>
-
-<div class="box-value">
-
-<span class="home-color">10</span>
-:
-<span class="away-color">12</span>
 
 </div>
 
@@ -772,67 +546,100 @@ SCHÜSSE
 
 
 
-<div class="box">
 
-<div class="box-title">
-TORSCHÜSSE
-</div>
 
-<div class="box-value">
+<div class="control">
 
-<span class="home-color">3</span>
-:
-<span class="away-color">5</span>
 
-</div>
+<h2>
+LIVE STEUERUNG
+</h2>
 
-</div>
+
+<div class="control-grid">
 
 
 
+<div class="input-box">
 
+<label>Heimteam</label>
 
-<div class="box">
-
-<div class="box-title">
-ECKEN
-</div>
-
-<div class="box-value">
-
-<span class="home-color">3</span>
-:
-<span class="away-color">4</span>
-
-</div>
+<input id="homeInput" value="HEIMTEAM">
 
 </div>
 
 
 
 
+<div class="input-box">
 
-<div class="box">
+<label>Auswärtsteam</label>
 
-<div class="box-title">
-KARTEN
-</div>
-
-<div class="box-value">
-
-<span class="home-color">0</span>
-:
-<span class="away-color">1</span>
-
-</div>
+<input id="awayInput" value="AUSWÄRTS">
 
 </div>
 
 
 
-</div>
+
+<div class="input-box">
+
+<label>Spielzeit</label>
+
+<input id="timeInput" value="00:00">
 
 </div>
+
+
+
+
+<div class="input-box">
+
+<label>Heimtore</label>
+
+<input id="homeScoreInput" type="number" value="0">
+
+</div>
+
+
+
+
+<div class="input-box">
+
+<label>Auswärtstore</label>
+
+<input id="awayScoreInput" type="number" value="0">
+
+</div>
+
+
+
+
+<div class="input-box">
+
+<button onclick="updateGame()">
+
+AKTUALISIEREN
+
+</button>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
 
 <script>
 
@@ -840,86 +647,45 @@ KARTEN
 function updateGame(){
 
 
-let homeName =
+document.getElementById("homeTeam").innerHTML =
 document.getElementById("homeInput").value;
 
 
-let awayName =
+document.getElementById("awayTeam").innerHTML =
 document.getElementById("awayInput").value;
 
 
-let time =
+document.getElementById("time").innerHTML =
 document.getElementById("timeInput").value;
 
 
-let homeScore =
+document.getElementById("homeGoals").innerHTML =
 document.getElementById("homeScoreInput").value;
 
 
-let awayScore =
+document.getElementById("awayGoals").innerHTML =
 document.getElementById("awayScoreInput").value;
 
 
 
-let teams =
-document.querySelectorAll(".team-name");
+localStorage.setItem("home",
+document.getElementById("homeInput").value);
 
 
-
-teams[0].innerHTML = homeName;
-
-teams[1].innerHTML = awayName;
+localStorage.setItem("away",
+document.getElementById("awayInput").value);
 
 
+localStorage.setItem("time",
+document.getElementById("timeInput").value);
 
 
-let scores =
-document.querySelectorAll(".score");
+localStorage.setItem("homeGoals",
+document.getElementById("homeScoreInput").value);
 
 
-
-scores[0].innerHTML = homeScore;
-
-scores[1].innerHTML = awayScore;
-
-
-
-
-document.querySelector(".timer").innerHTML = time;
-
-
-
-
-
-localStorage.setItem(
-"homeName",
-homeName
-);
-
-
-localStorage.setItem(
-"awayName",
-awayName
-);
-
-
-localStorage.setItem(
-"homeScore",
-homeScore
-);
-
-
-localStorage.setItem(
-"awayScore",
-awayScore
-);
-
-
-localStorage.setItem(
-"time",
-time
-);
-
+localStorage.setItem("awayGoals",
+document.getElementById("awayScoreInput").value);
 
 
 }
@@ -930,29 +696,27 @@ time
 window.onload=function(){
 
 
-
-if(localStorage.getItem("homeName")){
+if(localStorage.getItem("home")){
 
 
 document.getElementById("homeInput").value =
-localStorage.getItem("homeName");
+localStorage.getItem("home");
 
 
 document.getElementById("awayInput").value =
-localStorage.getItem("awayName");
-
-
-document.getElementById("homeScoreInput").value =
-localStorage.getItem("homeScore");
-
-
-document.getElementById("awayScoreInput").value =
-localStorage.getItem("awayScore");
+localStorage.getItem("away");
 
 
 document.getElementById("timeInput").value =
 localStorage.getItem("time");
 
+
+document.getElementById("homeScoreInput").value =
+localStorage.getItem("homeGoals");
+
+
+document.getElementById("awayScoreInput").value =
+localStorage.getItem("awayGoals");
 
 
 updateGame();
@@ -961,14 +725,13 @@ updateGame();
 }
 
 
-
 }
 
 
 
 </script>
 
-</body>
 
+</body>
 
 </html>
