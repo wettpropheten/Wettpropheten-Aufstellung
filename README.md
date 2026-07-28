@@ -1601,7 +1601,24 @@ e.innerHTML=data[id];
    STATISTIK UPDATE
 ========================== */
 
+function updateBar(a,b,left,right){
 
+let total=a+b;
+
+if(total<=0)return;
+
+
+document.getElementById(left)
+.style.width=
+(a/total*100)+"%";
+
+
+document.getElementById(right)
+.style.width=
+(b/total*100)+"%";
+
+
+}
 function updateStats(){
 
 
@@ -1611,20 +1628,209 @@ let text=document
 
 
 
+let lines=text
+.split("\n")
+.map(x=>x.trim())
+.filter(x=>x);
 
-function getPair(name){
 
 
-let r=text.match(
+function findValues(keyword){
 
-new RegExp(
-"(\\d+(?:\\.\\d+)?)\\s*"+name+"\\s*(\\d+(?:\\.\\d+)?)",
-"i"
 
-)
+let index=lines.findIndex(
+
+x=>x.toLowerCase()
+.includes(keyword.toLowerCase())
 
 );
 
+
+
+if(index<0){
+
+return [0,0];
+
+}
+
+
+
+let nums=[];
+
+
+
+for(let i=index+1;i<lines.length;i++){
+
+
+let n=lines[i]
+.match(/\d+(?:[.,]\d+)?/);
+
+
+
+if(n){
+
+nums.push(
+Number(
+n[0].replace(",",".")
+)
+);
+
+}
+
+
+
+if(nums.length===2)
+break;
+
+
+
+}
+
+
+
+return nums.length===2 ? nums:[0,0];
+
+}
+
+
+
+
+
+
+
+/* xG */
+
+
+let xg=findValues("Expected Goals");
+
+
+xgHome.innerHTML=
+xg[0].toFixed(2);
+
+
+xgAway.innerHTML=
+xg[1].toFixed(2);
+
+
+
+updateBar(
+xg[0],
+xg[1],
+"xgHomeBar",
+"xgAwayBar"
+);
+
+
+
+
+
+
+
+/* Ballbesitz */
+
+
+let pos=findValues("Ballbesitz");
+
+
+posHome.innerHTML=
+pos[0]+"%";
+
+
+posAway.innerHTML=
+pos[1]+"%";
+
+
+
+posHomeBar.style.width=
+pos[0]+"%";
+
+
+posAwayBar.style.width=
+pos[1]+"%";
+
+
+
+
+
+
+
+/* Kästen */
+
+
+let stats=[
+
+
+["Schüsse","shotsHome","shotsAway"],
+
+["Schüsse aufs Tor","targetHome","targetAway"],
+
+["Großchancen","chanceHome","chanceAway"],
+
+["Eckbälle","cornerHome","cornerAway"],
+
+["Gelbe Karten","cardsHome","cardsAway"]
+
+
+];
+
+
+
+
+stats.forEach(s=>{
+
+
+let v=findValues(s[0]);
+
+
+document.getElementById(s[1])
+.innerHTML=v[0];
+
+
+document.getElementById(s[2])
+.innerHTML=v[1];
+
+
+});
+
+
+
+
+
+
+
+
+/* Pässe */
+
+
+let pass=findValues("Pässe gesamt");
+
+
+if(pass[0] || pass[1]){
+
+
+passesHome.innerHTML=
+pass[0];
+
+
+passesAway.innerHTML=
+pass[1];
+
+
+}
+
+
+
+
+/* automatisch speichern */
+
+if(currentGame){
+
+saveGame();
+
+}
+
+
+}
 
 
 return r?
