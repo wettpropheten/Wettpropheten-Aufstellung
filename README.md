@@ -327,15 +327,22 @@ ECKBÄLLE
 
 
 
-<div class="box">
 <div class="box-title">
 PÄSSE
 </div>
 
 <div class="box-value">
-<span class="home" id="passHome">0%</span>
+
+<span class="home" id="passHome">
+0%
+</span>
+
 :
-<span class="away" id="passAway">0%</span>
+
+<span class="away" id="passAway">
+0%
+</span>
+
 </div>
 </div>
 
@@ -643,25 +650,24 @@ function updateData(){
 
 
 
-    // Pässe
+   // Pässe
 
-    let passes = findNumbers(
-        text,
-        "Pässe"
-    );
-
-
-    setValue(
-        "passHome",
-        passes[0] + "%"
-    );
+let pass=findNumbers(
+text,
+"Pässe"
+);
 
 
-    setValue(
-        "passAway",
-        passes[1] + "%"
-    );
+setValue(
+"passHome",
+pass[0]+"%"
+);
 
+
+setValue(
+"passAway",
+pass[1]+"%"
+);
 
 
 
