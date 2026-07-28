@@ -3,390 +3,423 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Wettpropheten Live Stats Pro</title>
+<title>Live Statistik Dashboard</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
-background:#041822;
-color:white;
-padding:25px;
-
+    background:#041822;
+    color:white;
+    padding:20px;
 }
 
-.container{
-
-max-width:950px;
-margin:auto;
-
+.dashboard{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:25px;
 }
 
-/* ================= HEADER ================= */
+/* ================= PANEL ================= */
 
-.header{
-
-background:#072534;
-border-radius:15px;
-padding:20px;
-margin-bottom:25px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
+.panel{
+    background:#06202d;
+    border-radius:16px;
+    padding:20px;
+    height:fit-content;
 }
 
-.team{
-
-width:35%;
-text-align:center;
-
+.panel h2{
+    margin-bottom:18px;
+    text-align:center;
+    font-size:22px;
 }
 
-.team h2{
-
-font-size:28px;
-font-weight:bold;
-
+.input-group{
+    margin-bottom:14px;
 }
 
-.score{
-
-text-align:center;
-
+.input-group label{
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+    color:#c7d8e6;
 }
 
-.score h1{
-
-font-size:55px;
-
+.input-group input{
+    width:100%;
+    padding:10px 12px;
+    border-radius:10px;
+    border:none;
+    background:#0b3142;
+    color:white;
+    font-size:15px;
 }
 
-.live{
-
-margin-top:8px;
-
-display:inline-block;
-
-padding:6px 15px;
-
-background:#e40046;
-
-border-radius:30px;
-
-font-size:14px;
-
-font-weight:bold;
-
-animation:pulse 1.2s infinite;
-
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#0f8cff;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
 }
 
-.minute{
+/* ================= PREVIEW ================= */
 
-margin-top:10px;
-font-size:22px;
-
+.preview{
+    background:#06202d;
+    border-radius:16px;
+    padding:25px;
 }
 
-@keyframes pulse{
-
-0%{opacity:.5;}
-50%{opacity:1;}
-100%{opacity:.5;}
-
+.preview h1{
+    text-align:center;
+    margin-bottom:22px;
+    font-size:28px;
 }
-
-/* ================= KATEGORIE ================= */
 
 .category{
-
-margin-top:25px;
-
-background:#06202d;
-
-padding:12px;
-
-border-radius:8px;
-
-text-align:center;
-
-font-weight:bold;
-
-text-transform:uppercase;
-
-letter-spacing:1px;
-
-color:#d5e9ff;
-
+    text-align:center;
+    margin:22px 0 12px;
+    font-size:14px;
+    color:#c7d8e6;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
-/* ================= STATISTIK ================= */
-
 .stat{
-
-padding:18px 0;
-
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .stat-header{
-
-display:flex;
-
-justify-content:space-between;
-
-font-weight:bold;
-
-margin-bottom:10px;
-
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:8px;
 }
 
-.stat-title{
-
-text-align:center;
-flex:1;
-
+.value{
+    width:72px;
+    font-weight:bold;
+    font-size:18px;
 }
 
-/* ================= BALKEN ================= */
+.value.right{
+    text-align:right;
+}
+
+.title{
+    flex:1;
+    text-align:center;
+    color:#d9e6f0;
+    font-size:15px;
+}
 
 .bar{
-
-height:10px;
-
-background:#0d2d3b;
-
-border-radius:20px;
-
-overflow:hidden;
-
-display:flex;
-
+    height:10px;
+    background:#0b3142;
+    border-radius:999px;
+    overflow:hidden;
+    display:flex;
 }
 
 .homeBar{
-
-background:#e40046;
-
-width:50%;
-
-transition:1s;
-
+    background:#00b4ff;
+    width:50%;
+    transition:width .5s ease;
 }
 
 .awayBar{
-
-background:#e5e5e5;
-
-width:50%;
-
-transition:1s;
-
+    background:#e6eef5;
+    width:50%;
+    transition:width .5s ease;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:700px){
-
-.header{
-
-flex-direction:column;
-gap:15px;
-
+.pass-line{
+    text-align:center;
+    margin-top:6px;
+    color:#c7d8e6;
+    font-size:13px;
 }
 
-.team{
-
-width:100%;
-
+@media(max-width:900px){
+    .dashboard{
+        grid-template-columns:1fr;
+    }
 }
-
-.score h1{
-
-font-size:38px;
-
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<div class="dashboard">
 
-<div class="header">
+    <!-- EINGABE -->
 
-<div class="team">
-<h2>FC Bayern</h2>
+    <div class="panel">
+
+        <h2>Live Eingabe</h2>
+
+        <div class="input-group">
+            <label>xGoals Heim</label>
+            <input id="hxg" value="1.24">
+        </div>
+
+        <div class="input-group">
+            <label>xGoals Gast</label>
+            <input id="axg" value="0.80">
+        </div>
+
+        <div class="input-group">
+            <label>Ballbesitz Heim (%)</label>
+            <input id="hpos" value="50">
+        </div>
+
+        <div class="input-group">
+            <label>Ballbesitz Gast (%)</label>
+            <input id="apos" value="50">
+        </div>
+
+        <div class="input-group">
+            <label>Schüsse Heim</label>
+            <input id="hshots" value="10">
+        </div>
+
+        <div class="input-group">
+            <label>Schüsse Gast</label>
+            <input id="ashots" value="12">
+        </div>
+
+        <div class="input-group">
+            <label>Schüsse aufs Tor Heim</label>
+            <input id="hsot" value="3">
+        </div>
+
+        <div class="input-group">
+            <label>Schüsse aufs Tor Gast</label>
+            <input id="asot" value="5">
+        </div>
+
+        <div class="input-group">
+            <label>Großchancen Heim</label>
+            <input id="hbig" value="1">
+        </div>
+
+        <div class="input-group">
+            <label>Großchancen Gast</label>
+            <input id="abig" value="2">
+        </div>
+
+        <div class="input-group">
+            <label>Eckbälle Heim</label>
+            <input id="hcorn" value="3">
+        </div>
+
+        <div class="input-group">
+            <label>Eckbälle Gast</label>
+            <input id="acorn" value="4">
+        </div>
+
+        <div class="input-group">
+            <label>Erfolgreiche Pässe Heim</label>
+            <input id="hpass" value="454">
+        </div>
+
+        <div class="input-group">
+            <label>Passversuche Heim</label>
+            <input id="hpasstotal" value="526">
+        </div>
+
+        <div class="input-group">
+            <label>Erfolgreiche Pässe Gast</label>
+            <input id="apass" value="464">
+        </div>
+
+        <div class="input-group">
+            <label>Passversuche Gast</label>
+            <input id="apasstotal" value="524">
+        </div>
+
+        <div class="input-group">
+            <label>Gelbe Karten Heim</label>
+            <input id="hyellow" value="0">
+        </div>
+
+        <div class="input-group">
+            <label>Gelbe Karten Gast</label>
+            <input id="ayellow" value="1">
+        </div>
+
+        <button onclick="updateStats()">Aktualisieren</button>
+
+    </div>
+
+    <!-- VORSCHAU -->
+
+    <div class="preview">
+
+        <h1>Top-Statistiken</h1>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vxgH">1.24</div>
+                <div class="title">Expected Goals (xG)</div>
+                <div class="value right" id="vxgA">0.80</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="bxgH"></div>
+                <div class="awayBar" id="bxgA"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vposH">50%</div>
+                <div class="title">Ballbesitz</div>
+                <div class="value right" id="vposA">50%</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="bposH"></div>
+                <div class="awayBar" id="bposA"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vshotsH">10</div>
+                <div class="title">Schüsse insgesamt</div>
+                <div class="value right" id="vshotsA">12</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="bshotsH"></div>
+                <div class="awayBar" id="bshotsA"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vsotH">3</div>
+                <div class="title">Schüsse aufs Tor</div>
+                <div class="value right" id="vsotA">5</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="bsotH"></div>
+                <div class="awayBar" id="bsotA"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vbigH">1</div>
+                <div class="title">Großchance</div>
+                <div class="value right" id="vbigA">2</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="bbigH"></div>
+                <div class="awayBar" id="bbigA"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vcornH">3</div>
+                <div class="title">Eckbälle</div>
+                <div class="value right" id="vcornA">4</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="bcornH"></div>
+                <div class="awayBar" id="bcornA"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vpassPctH">86%</div>
+                <div class="title">Passquote</div>
+                <div class="value right" id="vpassPctA">89%</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="bpassH"></div>
+                <div class="awayBar" id="bpassA"></div>
+            </div>
+            <div class="pass-line">
+                <span id="vpassLineH">454/526</span>
+                &nbsp;&nbsp;•&nbsp;&nbsp;
+                <span id="vpassLineA">464/524</span>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-header">
+                <div class="value" id="vyellowH">0</div>
+                <div class="title">Gelbe Karten</div>
+                <div class="value right" id="vyellowA">1</div>
+            </div>
+            <div class="bar">
+                <div class="homeBar" id="byellowH"></div>
+                <div class="awayBar" id="byellowA"></div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
-<div class="score">
-
-<h1>1 : 0</h1>
-
-<div class="live">
-LIVE
-</div>
-
-<div class="minute">
-58'
-</div>
-
-</div>
-
-<div class="team">
-<h2>Borussia Dortmund</h2>
-</div>
-
-</div>
-
-<div class="category">
-TOP-STATISTIKEN
-</div>
-
-<!-- Ballbesitz -->
-
-<div class="stat">
-
-<div class="stat-header">
-
-<div>53%</div>
-
-<div class="stat-title">
-Ballbesitz
-</div>
-
-<div>47%</div>
-
-</div>
-
-<div class="bar">
-
-<div class="homeBar" style="width:53%"></div>
-
-<div class="awayBar" style="width:47%"></div>
-
-</div>
-
-</div>
-
-<!-- Schüsse -->
-
-<div class="stat">
-
-<div class="stat-header">
-
-<div>4</div>
-
-<div class="stat-title">
-Schüsse insgesamt
-</div>
-
-<div>3</div>
-
-</div>
-
-<div class="bar">
-
-<div class="homeBar" style="width:57%"></div>
-
-<div class="awayBar" style="width:43%"></div>
-
-</div>
-
-</div>
-
-<!-- Schüsse aufs Tor -->
-
-<div class="stat">
-
-<div class="stat-header">
-
-<div>3</div>
-
-<div class="stat-title">
-Schüsse aufs Tor
-</div>
-
-<div>2</div>
-
-</div>
-
-<div class="bar">
-
-<div class="homeBar" style="width:60%"></div>
-
-<div class="awayBar" style="width:40%"></div>
-
-</div>
-
-</div>
-
-<!-- Eckbälle -->
-
-<div class="stat">
-
-<div class="stat-header">
-
-<div>3</div>
-
-<div class="stat-title">
-Eckbälle
-</div>
-
-<div>1</div>
-
-</div>
-
-<div class="bar">
-
-<div class="homeBar" style="width:75%"></div>
-
-<div class="awayBar" style="width:25%"></div>
-
-</div>
-
-</div>
-
-<!-- Gelbe Karten -->
-
-<div class="stat">
-
-<div class="stat-header">
-
-<div>1</div>
-
-<div class="stat-title">
-Gelbe Karten
-</div>
-
-<div>0</div>
-
-</div>
-
-<div class="bar">
-
-<div class="homeBar" style="width:100%"></div>
-
-<div class="awayBar" style="width:0%"></div>
-
-</div>
-
-</div>
-
-</div>
+<script>
+function ratio(a,b){
+    const total=a+b;
+    if(total<=0) return [50,50];
+    return [(a/total)*100,(b/total)*100];
+}
+
+function setPair(prefix,h,a,suffix=''){
+    document.getElementById('v'+prefix+'H').textContent = h + suffix;
+    document.getElementById('v'+prefix+'A').textContent = a + suffix;
+    const [hp,ap] = ratio(Number(h), Number(a));
+    document.getElementById('b'+prefix+'H').style.width = hp + '%';
+    document.getElementById('b'+prefix+'A').style.width = ap + '%';
+}
+
+function updateStats(){
+    setPair('xg', parseFloat(hxg.value).toFixed(2), parseFloat(axg.value).toFixed(2));
+    setPair('pos', Number(hpos.value), Number(apos.value), '%');
+    setPair('shots', Number(hshots.value), Number(ashots.value));
+    setPair('sot', Number(hsot.value), Number(asot.value));
+    setPair('big', Number(hbig.value), Number(abig.value));
+    setPair('corn', Number(hcorn.value), Number(acorn.value));
+    setPair('yellow', Number(hyellow.value), Number(ayellow.value));
+
+    const hCompleted = Number(hpass.value);
+    const hTotal = Number(hpasstotal.value);
+    const aCompleted = Number(apass.value);
+    const aTotal = Number(apasstotal.value);
+
+    const hPct = hTotal ? Math.round(hCompleted / hTotal * 100) : 0;
+    const aPct = aTotal ? Math.round(aCompleted / aTotal * 100) : 0;
+
+    document.getElementById('vpassPctH').textContent = hPct + '%';
+    document.getElementById('vpassPctA').textContent = aPct + '%';
+    document.getElementById('vpassLineH').textContent = `${hCompleted}/${hTotal}`;
+    document.getElementById('vpassLineA').textContent = `${aCompleted}/${aTotal}`;
+
+    const [hp,ap] = ratio(hPct,aPct);
+    document.getElementById('bpassH').style.width = hp + '%';
+    document.getElementById('bpassA').style.width = ap + '%';
+}
+
+updateStats();
+</script>
 
 </body>
 </html>
