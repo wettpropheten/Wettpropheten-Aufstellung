@@ -50,8 +50,6 @@ border-radius:20px;
 
 padding:20px;
 
-box-shadow:0 0 60px #000;
-
 }
 
 
@@ -70,9 +68,8 @@ gap:20px;
 
 
 
-
 /* =====================
-   LINKE SPIELTAGSLISTE
+LINKER SPIELTAG
 ===================== */
 
 
@@ -106,7 +103,7 @@ text-align:center;
 
 width:100%;
 
-height:220px;
+height:230px;
 
 background:#000;
 
@@ -140,9 +137,9 @@ border:1px solid #555;
 
 border-radius:10px;
 
-cursor:pointer;
-
 font-weight:bold;
+
+cursor:pointer;
 
 }
 
@@ -150,7 +147,7 @@ font-weight:bold;
 
 .match-card{
 
-background:#151515;
+background:#111;
 
 border:1px solid #333;
 
@@ -168,7 +165,7 @@ cursor:pointer;
 
 .match-card:hover{
 
-background:#252525;
+background:#222;
 
 }
 
@@ -190,7 +187,7 @@ font-size:16px;
 
 font-weight:bold;
 
-margin:5px 0;
+margin:5px;
 
 }
 
@@ -208,8 +205,9 @@ color:#777;
 
 
 
+
 /* =====================
-   RECHTE STATISTIK
+RECHTE STATISTIK
 ===================== */
 
 
@@ -262,44 +260,12 @@ font-size:65px;
 font-weight:bold;
 
 }
-
-<!-- =====================
-     LIVE STATISTIK
-===================== -->
-
-
-<div class="scoreboard">
-
-
-<div class="team-name" id="homeName">
-HEIM
-</div>
-
-
-<div class="score">
-0 : 0
-</div>
-
-
-<div class="team-name" id="awayName">
-GAST
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- =====================
-     BALKEN STATISTIK
-===================== -->
-
-
 <style>
+
+
+/* =====================
+   STATISTIK BEREICH
+===================== */
 
 
 .stat{
@@ -358,9 +324,9 @@ color:var(--away-color);
 
 .bar{
 
-width:100%;
-
 height:20px;
+
+width:100%;
 
 background:#111;
 
@@ -399,9 +365,8 @@ background:var(--away-color);
 
 
 
-
 /* =====================
-   KÄSTCHEN
+   STATISTIK KÄSTCHEN
 ===================== */
 
 
@@ -416,8 +381,6 @@ gap:15px;
 margin-top:35px;
 
 }
-
-
 
 
 
@@ -526,21 +489,21 @@ font-size:16px;
 
 width:100%;
 
-margin-top:12px;
+margin-top:10px;
 
 padding:15px;
 
 background:#222;
 
+color:white;
+
 border:1px solid #555;
 
 border-radius:10px;
 
-color:white;
+font-size:18px;
 
 font-weight:bold;
-
-font-size:18px;
 
 cursor:pointer;
 
@@ -553,9 +516,96 @@ cursor:pointer;
 
 
 
+<!-- =====================
+   HTML START
+===================== -->
 
 
-<!-- EXPECTED GOALS -->
+<div class="container">
+
+
+<div class="layout">
+
+
+
+<!-- LINKER BEREICH -->
+
+
+<div class="left-panel">
+
+
+<h2>
+SPIELTAG
+</h2>
+
+
+<textarea 
+id="matchInput"
+placeholder="Spieltag hier einfügen...">
+</textarea>
+
+
+<button 
+class="load-button"
+onclick="loadMatches()">
+
+SPIELE LADEN
+
+</button>
+
+
+<div id="matchList">
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- RECHTER BEREICH -->
+
+
+<div class="right-panel">
+
+
+
+
+
+<div class="scoreboard">
+
+
+<div class="team-name" id="homeName">
+HEIM
+</div>
+
+
+
+<div class="score">
+0 : 0
+</div>
+
+
+
+<div class="team-name" id="awayName">
+GAST
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- xG -->
 
 
 <div class="stat">
@@ -568,7 +618,9 @@ Expected Goals (xG)
 </div>
 
 
+
 <div class="values">
+
 
 <span id="xgHome" class="home-value">
 0.00
@@ -623,17 +675,16 @@ Ballbesitz
 </div>
 
 
+
 <div class="values">
 
 
-<span id="posHome"
-class="home-value">
+<span id="posHome" class="home-value">
 50%
 </span>
 
 
-<span id="posAway"
-class="away-value">
+<span id="posAway" class="away-value">
 50%
 </span>
 
@@ -662,15 +713,9 @@ style="width:50%">
 
 </div>
 
-
-
-
-
-
-
-
-
-<!-- STATISTIK BOXEN -->
+<!-- =====================
+ STATISTIK KÄSTCHEN
+===================== -->
 
 
 <div class="stats-grid">
@@ -682,7 +727,6 @@ style="width:50%">
 <div class="stat-box-title">
 SCHÜSSE
 </div>
-
 
 <div class="stat-number">
 
@@ -706,7 +750,6 @@ SCHÜSSE
 SCHÜSSE AUFS TOR
 </div>
 
-
 <div class="stat-number">
 
 <span id="targetHome" class="home-text">0</span>
@@ -729,7 +772,6 @@ SCHÜSSE AUFS TOR
 GROSSCHANCEN
 </div>
 
-
 <div class="stat-number">
 
 <span id="chanceHome" class="home-text">0</span>
@@ -746,13 +788,11 @@ GROSSCHANCEN
 
 
 
-
 <div class="stat-box">
 
 <div class="stat-box-title">
 ECKBÄLLE
 </div>
-
 
 <div class="stat-number">
 
@@ -770,14 +810,11 @@ ECKBÄLLE
 
 
 
-
-
 <div class="stat-box">
 
 <div class="stat-box-title">
 PASSQUOTE
 </div>
-
 
 <div class="stat-number">
 
@@ -795,14 +832,11 @@ PASSQUOTE
 
 
 
-
-
 <div class="stat-box">
 
 <div class="stat-box-title">
 PÄSSE GESAMT
 </div>
-
 
 <div class="stat-number">
 
@@ -820,14 +854,11 @@ PÄSSE GESAMT
 
 
 
-
-
 <div class="stat-box">
 
 <div class="stat-box-title">
 GELBE KARTEN
 </div>
-
 
 <div class="stat-number">
 
@@ -849,7 +880,6 @@ GELBE KARTEN
 
 
 
-
 <!-- DATEN EINGABE -->
 
 
@@ -861,15 +891,15 @@ LIVE DATEN EINFÜGEN
 </h2>
 
 
-
-<textarea 
+<textarea
 id="dataInput"
 placeholder="Statistik hier einfügen...">
+
 </textarea>
 
 
-
-<button class="update-button"
+<button
+class="update-button"
 onclick="updateStats()">
 
 AKTUALISIEREN
@@ -878,15 +908,27 @@ AKTUALISIEREN
 
 
 </div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
 <script>
 
 
-/* ===========================
-   MANNSCHAFTS FARBEN
-=========================== */
+/* =====================
+ MANNSCHAFTSFARBEN
+===================== */
 
 
-const teams = {
+const teams={
 
 
 "1. FC Union Berlin":"#e30613",
@@ -917,9 +959,10 @@ const teams = {
 
 
 
-/* ===========================
-   SPIELTAG LADEN
-=========================== */
+
+/* =====================
+ SPIELE LADEN
+===================== */
 
 
 function loadMatches(){
@@ -950,9 +993,7 @@ list.innerHTML="";
 for(let i=0;i<lines.length;i++){
 
 
-
-if(lines[i].match(/\d{2}\.\d{2}\./)){
-
+if(lines[i].match(/\d{2}\.\d{2}/)){
 
 
 let time=lines[i];
@@ -966,11 +1007,9 @@ let away=lines[i+2];
 if(home && away){
 
 
-
 let card=document.createElement("div");
 
 card.className="match-card";
-
 
 
 card.innerHTML=
@@ -1008,18 +1047,14 @@ setTeams(home,away);
 list.appendChild(card);
 
 
-
 }
-
-
-
-}
-
 
 
 }
 
 
+}
+
 
 }
 
@@ -1029,67 +1064,42 @@ list.appendChild(card);
 
 
 
-/* ===========================
-   TEAMS SETZEN
-=========================== */
+/* =====================
+ FARBEN SETZEN
+===================== */
 
 
 function setTeams(home,away){
 
 
 
-document
-.getElementById("homeName")
-.innerHTML=home;
+document.getElementById("homeName").innerHTML=home;
+
+document.getElementById("awayName").innerHTML=away;
 
 
 
-document
-.getElementById("awayName")
-.innerHTML=away;
+let hc=teams[home] || "#00b7ff";
+
+let ac=teams[away] || "#ff4757";
 
 
 
+if(hc===ac){
 
-
-let homeColor=
-teams[home] || "#00b7ff";
-
-
-
-let awayColor=
-teams[away] || "#ff4757";
-
-
-
-
-
-/* gleiche Farbe vermeiden */
-
-
-if(homeColor===awayColor){
-
-awayColor="#777777";
+ac="#777777";
 
 }
 
 
 
-
-
-document.documentElement
-.style.setProperty(
-"--home-color",
-homeColor
-);
+document.documentElement.style
+.setProperty("--home-color",hc);
 
 
 
-document.documentElement
-.style.setProperty(
-"--away-color",
-awayColor
-);
+document.documentElement.style
+.setProperty("--away-color",ac);
 
 
 
@@ -1101,10 +1111,9 @@ awayColor
 
 
 
-
-/* ===========================
-   STATISTIK AUSLESEN
-=========================== */
+/* =====================
+ ZAHLEN FINDEN
+===================== */
 
 
 function findNumbers(text,name){
@@ -1118,82 +1127,56 @@ let lines=text
 
 
 let index=lines.findIndex(
-
 x=>x.toLowerCase()
 .includes(name.toLowerCase())
-
 );
 
 
 
-if(index<0){
-
+if(index<0)
 return [0,0];
 
-}
 
 
+let numbers=[];
 
-let values=[];
-
-
-
-/* Zahl davor */
 
 
 for(let i=index-1;i>=0;i--){
 
 
-let m=lines[i]
-.match(/\d+([.,]\d+)?/);
-
+let m=lines[i].match(/\d+([.,]\d+)?/);
 
 
 if(m){
 
-
-values.unshift(
-Number(
-m[0].replace(",",".")
-)
+numbers.unshift(
+Number(m[0].replace(",","."))
 );
-
 
 break;
 
-
 }
 
 
 }
 
-
-
-
-/* Zahl danach */
 
 
 for(let i=index+1;i<lines.length;i++){
 
 
-let m=lines[i]
-.match(/\d+([.,]\d+)?/);
-
+let m=lines[i].match(/\d+([.,]\d+)?/);
 
 
 if(m){
 
-
-values.push(
-Number(
-m[0].replace(",",".")
-)
+numbers.push(
+Number(m[0].replace(",","."))
 );
-
 
 break;
 
-
 }
 
 
@@ -1201,14 +1184,9 @@ break;
 
 
 
-
-return values.length===2 ? values:[0,0];
-
+return numbers.length===2 ? numbers:[0,0];
 
 }
-
-
-
 
 
 
@@ -1216,60 +1194,12 @@ return values.length===2 ? values:[0,0];
 
 function set(id,value){
 
-document
-.getElementById(id)
-.innerHTML=value;
+document.getElementById(id).innerHTML=value;
 
 }
 
 
 
-
-
-
-
-function updateBar(a,b,left,right){
-
-
-let total=a+b;
-
-
-
-if(total<=0){
-
-return;
-
-}
-
-
-
-document
-.getElementById(left)
-.style.width=
-(a/total*100)+"%";
-
-
-
-document
-.getElementById(right)
-.style.width=
-(b/total*100)+"%";
-
-
-
-}
-
-
-
-
-
-
-
-
-
-/* ===========================
-   STATISTIK UPDATE
-=========================== */
 
 
 function updateStats(){
@@ -1282,97 +1212,33 @@ let text=document
 
 
 
-if(!text.trim()){
-
-alert("Keine Daten eingefügt");
-
-return;
-
-}
+let xg=findNumbers(text,"Expected Goals");
 
 
 
+set("xgHome",xg[0].toFixed(2));
+
+set("xgAway",xg[1].toFixed(2));
 
 
 
-
-let xg=findNumbers(
-text,
-"Expected Goals"
-);
+let pos=findNumbers(text,"Ballbesitz");
 
 
 
-set(
-"xgHome",
-xg[0].toFixed(2)
-);
+set("posHome",pos[0]+"%");
+
+set("posAway",pos[1]+"%");
 
 
 
-set(
-"xgAway",
-xg[1].toFixed(2)
-);
+document.getElementById("posHomeBar").style.width=pos[0]+"%";
 
-
-
-updateBar(
-xg[0],
-xg[1],
-"xgHomeBar",
-"xgAwayBar"
-);
-
-
-
-
-
-
-
-
-let pos=findNumbers(
-text,
-"Ballbesitz"
-);
-
-
-
-set(
-"posHome",
-pos[0]+"%"
-);
-
-
-
-set(
-"posAway",
-pos[1]+"%"
-);
-
-
-
-document
-.getElementById("posHomeBar")
-.style.width=
-pos[0]+"%";
-
-
-
-document
-.getElementById("posAwayBar")
-.style.width=
-pos[1]+"%";
-
-
-
-
-
+document.getElementById("posAwayBar").style.width=pos[1]+"%";
 
 
 
 let stats=[
-
 
 ["Schüsse","shotsHome","shotsAway"],
 
@@ -1384,91 +1250,22 @@ let stats=[
 
 ["Gelbe Karten","cardsHome","cardsAway"]
 
-
 ];
-
-
 
 
 
 stats.forEach(s=>{
 
 
-let data=findNumbers(
-text,
-s[0]
-);
+let v=findNumbers(text,s[0]);
 
 
+set(s[1],v[0]);
 
-set(
-s[1],
-data[0]
-);
-
-
-
-set(
-s[2],
-data[1]
-);
-
+set(s[2],v[1]);
 
 
 });
-
-
-
-
-
-
-
-
-/* Pässe */
-
-
-let pass=text.match(
-
-/(\d+)%.*?(\d+)\/(\d+).*?(\d+)%.*?(\d+)\/(\d+)/s
-
-);
-
-
-
-if(pass){
-
-
-
-set(
-"passHome",
-pass[1]+"%"
-);
-
-
-
-set(
-"passAway",
-pass[4]+"%"
-);
-
-
-
-set(
-"passesHome",
-pass[2]+"/"+pass[3]
-);
-
-
-
-set(
-"passesAway",
-pass[5]+"/"+pass[6]
-);
-
-
-
-}
-
 
 
 
@@ -1478,55 +1275,14 @@ text
 );
 
 
-
 }
 
 
 
-
-
-
-
-
-
-/* Speicher laden */
-
-
-window.onload=function(){
-
-
-
-let old=
-localStorage.getItem("liveStats");
-
-
-
-if(old){
-
-
-
-document
-.getElementById("dataInput")
-.value=old;
-
-
-
-}
-
-
-
-};
 
 
 </script>
 
-
-
-
-
-</div>
-
-</div>
 
 </body>
 
