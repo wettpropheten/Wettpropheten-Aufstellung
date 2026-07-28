@@ -2019,92 +2019,114 @@ el.innerHTML=data[id];
 
 function getStat(name){
 
-
-let text=
-
-document
-.getElementById("dataInput")
-.value;
-
-
-
-let lines=
-
-text
+let lines =
+document.getElementById("dataInput")
+.value
 .split("\n")
 .map(x=>x.trim())
 .filter(Boolean);
 
 
 
-let index=
-
-lines.findIndex(
-
-x=>
-
+let index =
+lines.findIndex(x =>
 x.toLowerCase()
 .includes(name.toLowerCase())
-
 );
 
 
 
-if(index===-1)
+if(index===-1){
 
 return [0,0];
 
+}
 
 
 
 
-let values=[];
+let before = null;
+
+let after = null;
 
 
 
-for(
-let i=index+1;
+/* Zahl vor Überschrift */
 
-i<lines.length;
+if(index>0){
 
-i++
-
-){
-
-
-if(
-
-lines[i]
-.match(/[a-zA-ZäöüÄÖÜ]/)
-
-)
-
-break;
-
-
-
-let number=
-
+let n =
 parseFloat(
+lines[index-1]
+.replace(",",".")
+.replace("%","")
+);
 
+
+if(!isNaN(n)){
+
+before=n;
+
+}
+
+}
+
+
+
+
+/* Zahlen nach Überschrift */
+
+
+for(let i=index+1;i<lines.length;i++){
+
+
+let value =
 lines[i]
-.replace(",", ".")
+.replace(",",".");
 
+
+let n =
+parseFloat(
+value.replace("%","")
 );
 
 
 
-if(!isNaN(number)){
+if(!isNaN(n)){
 
 
-values.push(number);
+after=n;
 
+
+if(
+i+1<lines.length
+){
+
+let n2=
+parseFloat(
+lines[i+1]
+.replace(",","")
+.replace("%","")
+);
+
+
+
+if(!isNaN(n2)){
+
+
+return [
+
+after,
+
+n2
+
+];
 
 }
 
 
+}
 
-if(values.length===2)
 
 break;
 
@@ -2113,15 +2135,17 @@ break;
 
 
 
-return values.length===2
+}
 
-?
 
-values
 
-:
+return [
 
-[0,0];
+before ?? after ?? 0,
+
+after ?? 0
+
+];
 
 
 }
