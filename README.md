@@ -967,7 +967,6 @@ const teams={
 
 function loadMatches(){
 
-
 let text=document
 .getElementById("matchInput")
 .value;
@@ -993,18 +992,50 @@ list.innerHTML="";
 for(let i=0;i<lines.length;i++){
 
 
-if(lines[i].match(/\d{2}\.\d{2}/)){
+if(lines[i].match(/\d{2}\.\d{2}\./)){
 
 
 let time=lines[i];
 
-let home=lines[i+1];
 
-let away=lines[i+2];
+
+let teams=[];
+
+
+/* nächste 6 Zeilen prüfen */
+
+for(let j=i+1;j<i+7 && j<lines.length;j++){
+
+
+if(
+lines[j]!=="-" &&
+!lines[j].match(/\d{2}\.\d{2}\./)
+){
+
+if(
+teams.length===0 ||
+teams[teams.length-1]!==lines[j]
+){
+
+teams.push(lines[j]);
+
+}
+
+}
+
+
+}
+
+
+
+let home=teams[0];
+
+let away=teams[1];
 
 
 
 if(home && away){
+
 
 
 let card=document.createElement("div");
@@ -1012,9 +1043,8 @@ let card=document.createElement("div");
 card.className="match-card";
 
 
-card.innerHTML=
 
-`
+card.innerHTML=`
 
 <div class="match-time">
 ${time}
@@ -1050,10 +1080,13 @@ list.appendChild(card);
 }
 
 
+
 }
 
 
+
 }
+
 
 
 }
