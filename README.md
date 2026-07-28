@@ -4,10 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LiveStats Pro</title>
+<title>LiveStats Pro V1.1</title>
 
 
 <style>
@@ -19,16 +18,13 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 
+
 body{
 
 margin:0;
 
 background:
-linear-gradient(
-135deg,
-#061326,
-#12345f
-);
+linear-gradient(135deg,#061326,#12345f);
 
 color:white;
 
@@ -42,7 +38,7 @@ min-height:100vh;
 
 width:95%;
 
-max-width:1000px;
+max-width:1100px;
 
 margin:auto;
 
@@ -52,7 +48,6 @@ padding:30px 0;
 
 
 
-/* TITEL */
 
 
 .header{
@@ -64,13 +59,15 @@ margin-bottom:30px;
 }
 
 
+
 .header h1{
 
-font-size:40px;
+font-size:42px;
 
 margin:0;
 
 }
+
 
 
 .header p{
@@ -90,33 +87,21 @@ font-size:18px;
 
 .import-panel{
 
-
 background:#0d2347;
 
 padding:25px;
 
 border-radius:18px;
 
-box-shadow:
-0 10px 30px rgba(0,0,0,.5);
+box-shadow:0 10px 30px rgba(0,0,0,.5);
 
 margin-bottom:30px;
-
-
-}
-
-
-
-.import-panel h2{
-
-margin-top:0;
 
 }
 
 
 
 textarea{
-
 
 width:100%;
 
@@ -136,41 +121,35 @@ font-size:15px;
 
 resize:vertical;
 
-
 }
 
 
 
 button{
 
-
 width:100%;
 
-margin-top:20px;
+margin-top:15px;
 
 padding:15px;
-
 
 border:none;
 
 border-radius:12px;
 
-
 background:#2196f3;
 
 color:white;
-
 
 font-size:18px;
 
 font-weight:bold;
 
-
 cursor:pointer;
 
+transition:.3s;
 
 }
-
 
 
 
@@ -178,7 +157,26 @@ button:hover{
 
 background:#42a5f5;
 
+transform:scale(1.01);
+
 }
+
+
+
+.reset{
+
+background:#e53935;
+
+}
+
+
+
+.reset:hover{
+
+background:#ef5350;
+
+}
+
 
 
 
@@ -188,22 +186,19 @@ background:#42a5f5;
 
 .match-card{
 
-
 background:#0d2347;
-
-border-radius:18px;
 
 padding:25px;
 
-margin-bottom:30px;
+border-radius:18px;
 
+margin-bottom:30px;
 
 }
 
 
 
 .teams{
-
 
 display:flex;
 
@@ -212,7 +207,6 @@ justify-content:space-between;
 align-items:center;
 
 text-align:center;
-
 
 }
 
@@ -228,7 +222,7 @@ width:40%;
 
 .team h2{
 
-font-size:24px;
+font-size:25px;
 
 }
 
@@ -236,7 +230,7 @@ font-size:24px;
 
 .score{
 
-font-size:45px;
+font-size:55px;
 
 font-weight:bold;
 
@@ -246,11 +240,12 @@ font-weight:bold;
 
 .vs{
 
-font-size:20px;
+font-size:22px;
 
 opacity:.7;
 
 }
+
 
 
 
@@ -260,7 +255,6 @@ opacity:.7;
 
 .stats-box{
 
-
 background:#0d2347;
 
 padding:25px;
@@ -269,45 +263,59 @@ border-radius:18px;
 
 margin-bottom:30px;
 
-
 }
 
 
 
 .stat{
 
-
-margin-bottom:25px;
-
+margin-bottom:30px;
 
 }
 
 
 
-.stat-title{
-
+.stat-header{
 
 display:flex;
 
 justify-content:space-between;
 
+align-items:center;
+
 font-size:18px;
 
 font-weight:bold;
 
-margin-bottom:10px;
-
+margin-bottom:12px;
 
 }
 
 
 
+.home-number{
+
+color:#42a5f5;
+
+}
+
+
+
+.away-number{
+
+color:#ff867f;
+
+}
+
+
+
+
+
 .bar{
 
+height:22px;
 
-height:16px;
-
-background:#243957;
+background:#1b304e;
 
 border-radius:20px;
 
@@ -315,20 +323,19 @@ overflow:hidden;
 
 display:flex;
 
-
 }
 
 
 
 .home-bar{
 
-
-background:#2196f3;
+height:100%;
 
 width:50%;
 
-transition:1s;
+background:#2196f3;
 
+transition:1.5s ease;
 
 }
 
@@ -336,13 +343,13 @@ transition:1s;
 
 .away-bar{
 
-
-background:#ff5252;
+height:100%;
 
 width:50%;
 
-transition:1s;
+background:#ff5252;
 
+transition:1.5s ease;
 
 }
 
@@ -350,20 +357,18 @@ transition:1s;
 
 
 
-/* KLEINE KARTEN */
+
+
+/* KARTEN */
 
 
 .cards{
 
-
 display:grid;
 
-grid-template-columns:
-repeat(auto-fit,minmax(180px,1fr));
-
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 
 gap:15px;
-
 
 }
 
@@ -371,15 +376,23 @@ gap:15px;
 
 .card{
 
-
 background:#0d2347;
-
-border-radius:15px;
 
 padding:20px;
 
+border-radius:15px;
+
 text-align:center;
 
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-5px);
 
 }
 
@@ -399,20 +412,83 @@ opacity:.8;
 
 .card span{
 
-
 display:block;
 
-font-size:28px;
+font-size:30px;
 
 font-weight:bold;
 
 margin-top:10px;
+
+}
+
+
+
+
+
+/* ANIMATION */
+
+
+.animate{
+
+animation:pop .5s ease;
+
+}
+
+
+
+@keyframes pop{
+
+
+0%{
+
+transform:scale(.7);
+
+opacity:0;
+
+}
+
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
 
 
 }
 
 
 
+
+/* OBS */
+
+
+.obs-mode{
+
+background:#000;
+
+}
+
+
+
+.obs-mode .import-panel,
+.obs-mode .reset,
+.obs-mode .obs-button{
+
+display:none;
+
+}
+
+
+
+.obs-button{
+
+background:#8e24aa;
+
+}
 
 
 
@@ -426,9 +502,10 @@ font-size:30px;
 }
 
 
+
 .score{
 
-font-size:35px;
+font-size:40px;
 
 }
 
@@ -439,9 +516,7 @@ font-size:35px;
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -454,11 +529,9 @@ font-size:35px;
 
 <div class="header">
 
-
 <h1>⚽ LiveStats Pro</h1>
 
 <p>Automatische Fußball Statistik Analyse</p>
-
 
 </div>
 
@@ -475,7 +548,8 @@ font-size:35px;
 
 
 <textarea id="rawStats"
-placeholder="Hier Statistik einfügen...
+
+placeholder="Statistik von Sofascore / FotMob einfügen...
 
 Beispiel:
 
@@ -513,14 +587,20 @@ Gelbe Karten
 
 <button onclick="readStats()">
 
-Statistik auslesen
+📊 Statistik auslesen
+
+</button>
+
+
+
+<button class="reset" onclick="resetStats()">
+
+🔄 Zurücksetzen
 
 </button>
 
 
 </div>
-
-
 
 
 
@@ -536,12 +616,14 @@ Statistik auslesen
 
 <div class="team">
 
-<h2>
+<h2 id="homeTeam">
+
 Heimteam
+
 </h2>
 
 
-<div class="score">
+<div class="score" id="homeScore">
 
 0
 
@@ -549,6 +631,7 @@ Heimteam
 
 
 </div>
+
 
 
 
@@ -563,12 +646,14 @@ VS
 
 <div class="team">
 
-<h2>
+<h2 id="awayTeam">
+
 Auswärtsteam
+
 </h2>
 
 
-<div class="score">
+<div class="score" id="awayScore">
 
 0
 
@@ -596,8 +681,9 @@ Auswärtsteam
 
 
 <h2>
-📊 Spielstatistik
+📊 Live Statistik
 </h2>
+
 
 
 
@@ -605,14 +691,15 @@ Auswärtsteam
 <div class="stat">
 
 
-<div class="stat-title">
+<div class="stat-header">
+
 
 <span>
 Expected Goals (xG)
 </span>
 
 
-<span>
+<span id="xgValue">
 
 0.00 - 0.00
 
@@ -622,18 +709,21 @@ Expected Goals (xG)
 </div>
 
 
+
 <div class="bar">
 
 
-<div class="home-bar"></div>
+<div class="home-bar" id="xgHomeBar"></div>
 
-<div class="away-bar"></div>
+
+<div class="away-bar" id="xgAwayBar"></div>
+
+
+</div>
 
 
 </div>
 
-
-</div>
 
 
 
@@ -645,7 +735,7 @@ Expected Goals (xG)
 <div class="stat">
 
 
-<div class="stat-title">
+<div class="stat-header">
 
 
 <span>
@@ -653,7 +743,7 @@ Ballbesitz
 </span>
 
 
-<span>
+<span id="posValue">
 
 0% - 0%
 
@@ -663,24 +753,26 @@ Ballbesitz
 </div>
 
 
+
 <div class="bar">
 
 
-<div class="home-bar"></div>
-
-<div class="away-bar"></div>
+<div class="home-bar" id="posHomeBar"></div>
 
 
-</div>
+<div class="away-bar" id="posAwayBar"></div>
 
 
 </div>
 
 
+</div>
+
+
+
 
 
 </div>
-
 
 
 
@@ -698,7 +790,7 @@ Ballbesitz
 Schüsse
 </h3>
 
-<span>
+<span id="shots">
 0 - 0
 </span>
 
@@ -713,7 +805,7 @@ Schüsse
 Schüsse aufs Tor
 </h3>
 
-<span>
+<span id="target">
 0 - 0
 </span>
 
@@ -728,7 +820,7 @@ Schüsse aufs Tor
 Großchancen
 </h3>
 
-<span>
+<span id="big">
 0 - 0
 </span>
 
@@ -743,7 +835,7 @@ Großchancen
 Eckbälle
 </h3>
 
-<span>
+<span id="corner">
 0 - 0
 </span>
 
@@ -758,7 +850,7 @@ Eckbälle
 Gelbe Karten
 </h3>
 
-<span>
+<span id="yellow">
 0 - 0
 </span>
 
@@ -771,168 +863,12 @@ Gelbe Karten
 
 
 
+<button class="obs-button" onclick="toggleOBS()">
 
+📺 OBS Vollbild Modus
 
-</div>
+</button>
 
-
-
-
-
-
-
-<script>
-
-
-function readStats(){
-
-
-alert("Automatischer Import kommt in Teil 3");
-
-
-}
-
-/* ==========================
-   LIVE SOFASCORE BALKEN
-========================== */
-
-
-.live-title{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-font-size:18px;
-
-font-weight:bold;
-
-margin-bottom:12px;
-
-}
-
-
-
-.live-values{
-
-display:flex;
-
-gap:35px;
-
-}
-
-
-
-.live-bar{
-
-height:20px;
-
-width:100%;
-
-background:#182c48;
-
-border-radius:20px;
-
-overflow:hidden;
-
-display:flex;
-
-}
-
-
-
-.live-home{
-
-height:100%;
-
-background:#2196f3;
-
-width:50%;
-
-transition:
-width 1.5s ease;
-
-
-}
-
-
-
-.live-away{
-
-height:100%;
-
-background:#ff5252;
-
-width:50%;
-
-transition:
-width 1.5s ease;
-
-
-}
-
-
-
-.stat-box-live{
-
-
-background:#081a35;
-
-padding:20px;
-
-border-radius:15px;
-
-margin-top:20px;
-
-
-}
-
-
-
-.stat-box-live h3{
-
-margin-top:0;
-
-}
-
-
-
-
-.number-animation{
-
-
-animation:
-numberPop .5s ease;
-
-
-}
-
-
-
-@keyframes numberPop{
-
-
-0%{
-
-transform:scale(.7);
-
-opacity:0;
-
-}
-
-
-100%{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-
-}
 <script>
 
 
@@ -940,56 +876,60 @@ const stats = {};
 
 
 
-function cleanNumber(value){
 
-    if(!value) return "";
+// ==========================
+// TEXT BEREINIGEN
+// ==========================
 
-    return value
-    .replace(",",".")
-    .trim();
+
+function clean(value){
+
+if(!value){
+
+return "";
+
+}
+
+
+return value
+.replace(",",".")
+.trim();
 
 }
 
 
 
 
-function valueBefore(lines,index){
-
-    return lines[index-1] || "";
-
-}
 
 
-
-function valueAfter(lines,index){
-
-    return lines[index+1] || "";
-
-}
-
-
-
-
+// ==========================
+// IMPORTER
+// ==========================
 
 
 function readStats(){
 
 
 
-let text=document
+let text =
+document
 .getElementById("rawStats")
 .value;
 
 
 
-let lines=text
+let lines =
+text
 .split(/\r?\n/)
 .map(x=>x.trim())
-.filter(x=>x!="");
+.filter(x=>x !== "");
 
 
 
-lines.forEach((line,index)=>{
+
+
+lines.forEach(function(line,index){
+
 
 
 switch(line){
@@ -999,12 +939,12 @@ switch(line){
 case "Expected Goals (xG)":
 
 
-stats.xgHome=
-cleanNumber(valueBefore(lines,index));
+stats.xgHome =
+clean(lines[index-1]);
 
 
-stats.xgAway=
-cleanNumber(valueAfter(lines,index));
+stats.xgAway =
+clean(lines[index+1]);
 
 
 break;
@@ -1017,16 +957,15 @@ break;
 case "Ballbesitz":
 
 
-stats.posHome=
-valueBefore(lines,index);
+stats.posHome =
+clean(lines[index-1]);
 
 
-stats.posAway=
-valueAfter(lines,index);
+stats.posAway =
+clean(lines[index+1]);
 
 
 break;
-
 
 
 
@@ -1036,16 +975,15 @@ break;
 case "Schüsse insgesamt":
 
 
-stats.shotsHome=
-valueBefore(lines,index);
+stats.shotsHome =
+clean(lines[index-1]);
 
 
-stats.shotsAway=
-valueAfter(lines,index);
+stats.shotsAway =
+clean(lines[index+1]);
 
 
 break;
-
 
 
 
@@ -1055,16 +993,15 @@ break;
 case "Schüsse aufs Tor":
 
 
-stats.targetHome=
-valueBefore(lines,index);
+stats.targetHome =
+clean(lines[index-1]);
 
 
-stats.targetAway=
-valueAfter(lines,index);
+stats.targetAway =
+clean(lines[index+1]);
 
 
 break;
-
 
 
 
@@ -1074,16 +1011,15 @@ break;
 case "Großchance":
 
 
-stats.bigHome=
-valueBefore(lines,index);
+stats.bigHome =
+clean(lines[index-1]);
 
 
-stats.bigAway=
-valueAfter(lines,index);
+stats.bigAway =
+clean(lines[index+1]);
 
 
 break;
-
 
 
 
@@ -1093,16 +1029,15 @@ break;
 case "Eckbälle":
 
 
-stats.cornerHome=
-valueBefore(lines,index);
+stats.cornerHome =
+clean(lines[index-1]);
 
 
-stats.cornerAway=
-valueAfter(lines,index);
+stats.cornerAway =
+clean(lines[index+1]);
 
 
 break;
-
 
 
 
@@ -1112,16 +1047,15 @@ break;
 case "Gelbe Karten":
 
 
-stats.yellowHome=
-valueBefore(lines,index);
+stats.yellowHome =
+clean(lines[index-1]);
 
 
-stats.yellowAway=
-valueAfter(lines,index);
+stats.yellowAway =
+clean(lines[index+1]);
 
 
 break;
-
 
 
 
@@ -1133,317 +1067,7 @@ break;
 
 
 
-updateStats();
-
-
-}
-
-
-
-
-
-
-
-
-function updateStats(){
-
-
-
-console.log(stats);
-
-
-
-
-
-// xG
-
-
-if(stats.xgHome){
-
-
-document
-.getElementById("xgHome")
-.innerHTML=
-stats.xgHome;
-
-
-
-document
-.getElementById("xgAway")
-.innerHTML=
-stats.xgAway;
-
-
-
-
-updateBar(
-"xgHomeBar",
-"xgAwayBar",
-parseFloat(stats.xgHome),
-parseFloat(stats.xgAway)
-);
-
-
-
-}
-
-
-
-
-
-
-
-// Ballbesitz
-
-
-if(stats.posHome){
-
-
-document
-.getElementById("posHome")
-.innerHTML=
-stats.posHome;
-
-
-
-document
-.getElementById("posAway")
-.innerHTML=
-stats.posAway;
-
-
-
-
-let home=
-parseInt(stats.posHome);
-
-
-let away=
-parseInt(stats.posAway);
-
-
-
-document
-.getElementById("posHomeBar")
-.style.width=
-home+"%";
-
-
-
-document
-.getElementById("posAwayBar")
-.style.width=
-away+"%";
-
-
-}
-
-
-
-
-
-
-
-}
-
-
-
-
-function updateBar(homeID,awayID,home,away){
-
-
-
-let total=
-home+away;
-
-
-
-if(total===0)
-return;
-
-
-
-let homePercent=
-(home/total)*100;
-
-
-let awayPercent=
-(away/total)*100;
-
-
-
-document
-.getElementById(homeID)
-.style.width=
-homePercent+"%";
-
-
-
-document
-.getElementById(awayID)
-.style.width=
-awayPercent+"%";
-
-
-
-}
-function updateStats(){
-
-
-
-console.log(stats);
-
-
-
-
-
-if(stats.xgHome){
-
-
-document.getElementById("xgHome").innerHTML=
-stats.xgHome;
-
-
-document.getElementById("xgAway").innerHTML=
-stats.xgAway;
-
-
-
-updateBar(
-"xgHomeBar",
-"xgAwayBar",
-parseFloat(stats.xgHome),
-parseFloat(stats.xgAway)
-);
-
-
-}
-
-
-
-
-
-
-
-if(stats.posHome){
-
-
-document.getElementById("posHome").innerHTML=
-stats.posHome;
-
-
-document.getElementById("posAway").innerHTML=
-stats.posAway;
-
-
-
-document.getElementById("posHomeBar").style.width=
-parseInt(stats.posHome)+"%";
-
-
-document.getElementById("posAwayBar").style.width=
-parseInt(stats.posAway)+"%";
-
-
-}
-
-
-
-
-
-
-
-if(stats.shotsHome){
-
-
-document.getElementById("shots").innerHTML=
-
-stats.shotsHome
-+
-" - "
-+
-stats.shotsAway;
-
-
-}
-
-
-
-
-
-
-if(stats.targetHome){
-
-
-document.getElementById("target").innerHTML=
-
-stats.targetHome
-+
-" - "
-+
-stats.targetAway;
-
-
-}
-
-
-
-
-
-
-if(stats.bigHome){
-
-
-document.getElementById("big").innerHTML=
-
-stats.bigHome
-+
-" - "
-+
-stats.bigAway;
-
-
-}
-
-
-
-
-
-
-if(stats.cornerHome){
-
-
-document.getElementById("corner").innerHTML=
-
-stats.cornerHome
-+
-" - "
-+
-stats.cornerAway;
-
-
-}
-
-
-
-
-
-
-
-if(stats.yellowHome){
-
-
-document.getElementById("yellow").innerHTML=
-
-stats.yellowHome
-+
-" - "
-+
-stats.yellowAway;
-
-
-}
-
+updateDisplay();
 
 
 saveStats();
@@ -1457,16 +1081,303 @@ saveStats();
 
 
 
+
+// ==========================
+// ANZEIGE AKTUALISIEREN
+// ==========================
+
+
+function updateDisplay(){
+
+
+
+if(stats.xgHome){
+
+
+
+document
+.getElementById("xgValue")
+.innerHTML =
+
+
+'<span class="home-number">'
++
+stats.xgHome
++
+'</span> - <span class="away-number">'
++
+stats.xgAway
++
+'</span>';
+
+
+
+updateBar(
+"xgHomeBar",
+"xgAwayBar",
+parseFloat(stats.xgHome),
+parseFloat(stats.xgAway)
+);
+
+
+
+animate("xgValue");
+
+}
+
+
+if(stats.posHome){
+
+
+
+document
+.getElementById("posValue")
+.innerHTML =
+
+
+'<span class="home-number">'
++
+stats.posHome
++
+'</span> - <span class="away-number">'
++
+stats.posAway
++
+'</span>';
+
+
+
+document
+.getElementById("posHomeBar")
+.style.width =
+parseInt(stats.posHome)
++
+"%";
+
+
+
+document
+.getElementById("posAwayBar")
+.style.width =
+parseInt(stats.posAway)
++
+"%";
+
+
+
+animate("posValue");
+
+
+}
+
+
+
+
+
+updateCard(
+"shots",
+stats.shotsHome,
+stats.shotsAway
+);
+
+
+
+updateCard(
+"target",
+stats.targetHome,
+stats.targetAway
+);
+
+
+
+updateCard(
+"big",
+stats.bigHome,
+stats.bigAway
+);
+
+
+
+updateCard(
+"corner",
+stats.cornerHome,
+stats.cornerAway
+);
+
+
+
+updateCard(
+"yellow",
+stats.yellowHome,
+stats.yellowAway
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+function updateCard(id,home,away){
+
+
+
+if(home !== undefined){
+
+
+
+document
+.getElementById(id)
+.innerHTML =
+
+home
++
+" - "
++
+away;
+
+
+
+animate(id);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+// ==========================
+// BALKEN
+// ==========================
+
+
+function updateBar(homeID,awayID,home,away){
+
+
+
+let total =
+home + away;
+
+
+
+if(total <= 0){
+
+return;
+
+}
+
+
+
+document
+.getElementById(homeID)
+.style.width =
+
+(home / total * 100)
++
+"%";
+
+
+
+document
+.getElementById(awayID)
+.style.width =
+
+(away / total * 100)
++
+"%";
+
+
+
+}
+
+
+
+
+
+
+
+
+// ==========================
+// ANIMATION
+// ==========================
+
+
+function animate(id){
+
+
+
+let element =
+document.getElementById(id);
+
+
+
+if(!element){
+
+return;
+
+}
+
+
+
+element.classList.remove(
+"animate"
+);
+
+
+
+void element.offsetWidth;
+
+
+
+element.classList.add(
+"animate"
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+// ==========================
+// SPEICHERN
+// ==========================
+
+
 function saveStats(){
 
 
+
 localStorage.setItem(
-"LiveStats",
+
+"LiveStatsPro",
+
 JSON.stringify(stats)
+
 );
 
 
 }
+
 
 
 
@@ -1477,40 +1388,58 @@ JSON.stringify(stats)
 function loadStats(){
 
 
-let saved=
-localStorage.getItem("LiveStats");
+
+let saved =
+localStorage.getItem(
+"LiveStatsPro"
+);
 
 
 
 if(saved){
 
 
+
 Object.assign(
+
 stats,
+
 JSON.parse(saved)
+
 );
 
 
-updateStats();
+
+updateDisplay();
+
 
 
 }
 
 
+
 }
 
 
 
 
 
+
+
+
+// ==========================
+// RESET
+// ==========================
 
 
 function resetStats(){
 
 
+
 localStorage.removeItem(
-"LiveStats"
+"LiveStatsPro"
 );
+
 
 
 location.reload();
@@ -1523,16 +1452,49 @@ location.reload();
 
 
 
+
+
+// ==========================
+// OBS MODUS
+// ==========================
+
+
+function toggleOBS(){
+
+
+
+document
+.body
+.classList
+.toggle(
+"obs-mode"
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+// START
+
+
 window.onload=function(){
 
 
 loadStats();
 
 
-}
+};
+
+
 
 </script>
-
 
 
 
