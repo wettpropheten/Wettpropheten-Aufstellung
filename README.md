@@ -1112,16 +1112,13 @@ const teams={
 "Bayer Leverkusen":"#E32221",
 
 
-"RB Leipzig":"#777777",
+"RB Leipzig":"#DD0000",
 
+"VfB Stuttgart":"#EEEEEE",
 
-"VfB Stuttgart":"#777777",
+"Eintracht Frankfurt":"#C00000",
 
-
-"Eintracht Frankfurt":"#777777",
-
-
-"Borussia Mönchengladbach":"#777777",
+"Borussia Mönchengladbach":"#00A651",
 
 
 "TSG 1899 Hoffenheim":"#005CA9",
