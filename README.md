@@ -23,269 +23,163 @@ color:white;
 
 
 .overlay{
-
 width:1100px;
 margin:40px auto;
-
 background:rgba(5,15,35,.96);
-
 border-radius:20px;
-
 padding:30px;
-
 box-shadow:0 0 50px black;
-
 }
 
 
-
-/* STATISTIK LINIE */
+/* Statistik Linien */
 
 .stat{
-
 margin-top:30px;
-
 }
 
 
 .stat-title{
-
 text-align:center;
-
 font-size:22px;
-
 font-weight:bold;
-
-margin-bottom:8px;
-
+margin-bottom:10px;
 }
-
 
 
 .bar-area{
-
 position:relative;
-
 height:70px;
-
 }
-
 
 
 .value-left,
 .value-right{
-
 position:absolute;
-
 top:0;
-
 font-size:24px;
-
 font-weight:bold;
-
 }
-
 
 
 .value-left{
-
 left:25%;
-
 transform:translateX(-50%);
-
 color:#00b7ff;
-
 }
-
 
 
 .value-right{
-
 left:75%;
-
 transform:translateX(-50%);
-
 color:#ff4757;
-
 }
-
 
 
 .bar{
-
 position:absolute;
-
 bottom:10px;
-
 left:0;
-
 width:100%;
-
 height:18px;
-
 background:#18263d;
-
 border-radius:20px;
-
 overflow:hidden;
-
 display:flex;
-
 }
-
 
 
 .home-bar{
-
 height:100%;
-
 background:#00b7ff;
-
 }
-
 
 
 .away-bar{
-
 height:100%;
-
 background:#ff4757;
-
 }
 
 
 
+/* Statistik Boxen */
 
-
-/* BOXEN */
 
 .grid{
-
 display:grid;
-
 grid-template-columns:repeat(4,1fr);
-
 gap:15px;
-
 margin-top:35px;
-
 }
-
 
 
 .box{
-
 background:#101d35;
-
 border-radius:12px;
-
 padding:15px;
-
 text-align:center;
-
 }
-
 
 
 .box-title{
-
 font-size:13px;
-
 opacity:.7;
-
 }
-
 
 
 .box-value{
-
 font-size:30px;
-
 font-weight:bold;
-
 }
 
 
-
 .home{
-
 color:#00b7ff;
-
 }
 
 
 .away{
-
 color:#ff4757;
-
 }
 
 
 
+/* Eingabe */
 
-
-/* EINGABE */
 
 .input-area{
-
 margin-top:35px;
-
 background:#0c1930;
-
 padding:20px;
-
 border-radius:15px;
-
 }
-
 
 
 textarea{
-
 width:100%;
-
 height:250px;
-
 background:#071326;
-
 color:white;
-
 border:0;
-
 border-radius:10px;
-
 padding:15px;
-
 font-size:16px;
-
+resize:none;
 }
-
 
 
 button{
-
 width:100%;
-
 margin-top:15px;
-
 padding:15px;
-
 background:#00b7ff;
-
 border:0;
-
 border-radius:10px;
-
 color:white;
-
 font-size:18px;
-
 font-weight:bold;
-
 cursor:pointer;
-
 }
-
 
 </style>
 
@@ -298,9 +192,7 @@ cursor:pointer;
 <div class="overlay">
 
 
-
 <!-- EXPECTED GOALS -->
-
 
 <div class="stat">
 
@@ -310,7 +202,6 @@ Expected Goals (xG)
 
 
 <div class="bar-area">
-
 
 <div class="value-left" id="xgHome">
 0.00
@@ -322,28 +213,22 @@ Expected Goals (xG)
 </div>
 
 
-
 <div class="bar">
 
-<div class="home-bar" id="xgHomeBar" style="width:50%">
-</div>
+<div class="home-bar" id="xgHomeBar" style="width:50%"></div>
 
-<div class="away-bar" id="xgAwayBar" style="width:50%">
-</div>
-
-</div>
-
+<div class="away-bar" id="xgAwayBar" style="width:50%"></div>
 
 </div>
 
 </div>
 
+</div>
 
 
 
 
 <!-- BALLBESITZ -->
-
 
 <div class="stat">
 
@@ -365,200 +250,120 @@ Ballbesitz
 </div>
 
 
-
 <div class="bar">
 
+<div class="home-bar" id="posHomeBar" style="width:50%"></div>
 
-<div class="home-bar" id="posHomeBar" style="width:50%">
-</div>
-
-
-<div class="away-bar" id="posAwayBar" style="width:50%">
-</div>
-
-
-</div>
-
+<div class="away-bar" id="posAwayBar" style="width:50%"></div>
 
 </div>
 
 </div>
-<!-- STATISTIK BOXEN -->
 
+</div>
+
+
+
+
+
+<!-- BOXEN -->
 
 <div class="grid">
 
 
-
 <div class="box">
-
 <div class="box-title">
 SCHÜSSE GESAMT
 </div>
 
 <div class="box-value">
-
-<span class="home" id="shotsHome">
-0
-</span>
-
+<span class="home" id="shotsHome">0</span>
 :
-
-<span class="away" id="shotsAway">
-0
-</span>
-
+<span class="away" id="shotsAway">0</span>
 </div>
-
 </div>
-
-
 
 
 
 <div class="box">
-
 <div class="box-title">
 SCHÜSSE AUFS TOR
 </div>
 
 <div class="box-value">
-
-<span class="home" id="targetHome">
-0
-</span>
-
+<span class="home" id="targetHome">0</span>
 :
-
-<span class="away" id="targetAway">
-0
-</span>
-
+<span class="away" id="targetAway">0</span>
 </div>
-
 </div>
-
-
 
 
 
 <div class="box">
-
 <div class="box-title">
 GROSSCHANCEN
 </div>
 
 <div class="box-value">
-
-<span class="home" id="chanceHome">
-0
-</span>
-
+<span class="home" id="chanceHome">0</span>
 :
-
-<span class="away" id="chanceAway">
-0
-</span>
-
+<span class="away" id="chanceAway">0</span>
 </div>
-
 </div>
-
-
 
 
 
 <div class="box">
-
 <div class="box-title">
 ECKBÄLLE
 </div>
 
 <div class="box-value">
-
-<span class="home" id="cornerHome">
-0
-</span>
-
+<span class="home" id="cornerHome">0</span>
 :
-
-<span class="away" id="cornerAway">
-0
-</span>
-
+<span class="away" id="cornerAway">0</span>
 </div>
-
 </div>
-
-
 
 
 
 <div class="box">
-
 <div class="box-title">
 PÄSSE
 </div>
 
 <div class="box-value">
-
-<span class="home" id="passHome">
-0%
-</span>
-
+<span class="home" id="passHome">0%</span>
 :
-
-<span class="away" id="passAway">
-0%
-</span>
-
+<span class="away" id="passAway">0%</span>
 </div>
-
 </div>
-
-
 
 
 
 <div class="box">
-
 <div class="box-title">
 GELBE KARTEN
 </div>
 
 <div class="box-value">
-
-<span class="home" id="cardHome">
-0
-</span>
-
+<span class="home" id="cardHome">0</span>
 :
-
-<span class="away" id="cardAway">
-0
-</span>
-
+<span class="away" id="cardAway">0</span>
 </div>
-
 </div>
-
 
 
 </div>
 
 
-
-
-
-<!-- DATENEINGABE -->
-
+<!-- EINGABE -->
 
 <div class="input-area">
 
 <h2>
 LIVE DATEN EINFÜGEN
 </h2>
-
 
 <textarea id="dataInput" placeholder="Statistik hier einfügen..."></textarea>
 
@@ -567,97 +372,79 @@ LIVE DATEN EINFÜGEN
 AKTUALISIEREN
 </button>
 
-
-</div>
-
-
 </div>
 <script>
 
+function findNumbers(text, keyword){
 
-function findNumbers(text,name){
-
-
-let lines=text
-.split("\n")
-.map(x=>x.trim())
-.filter(x=>x.length>0);
+    let lines = text
+    .split("\n")
+    .map(line => line.trim())
+    .filter(line => line !== "");
 
 
-
-let index=lines.findIndex(
-x=>x.toLowerCase().includes(name.toLowerCase())
-);
-
+    let index = lines.findIndex(
+        line => line.toLowerCase().includes(keyword.toLowerCase())
+    );
 
 
-if(index===-1){
-
-return [0,0];
-
-}
+    if(index === -1){
+        return [0,0];
+    }
 
 
-
-let values=[];
-
-
-// Wert vor Überschrift suchen
-
-for(let i=index-1;i>=0;i--){
+    let values = [];
 
 
-let match=lines[i].match(/\d+([.,]\d+)?/);
+    // Zahl vor Überschrift suchen
 
+    for(let i=index-1; i>=0; i--){
 
+        let match = lines[i].match(/\d+(?:[.,]\d+)?/);
 
-if(match){
+        if(match){
 
-values.unshift(
-Number(match[0].replace(",","."))
-);
+            values.unshift(
+                Number(match[0].replace(",","."))
+            );
 
-break;
+            break;
+        }
 
-}
-
-}
+    }
 
 
 
-// Wert nach Überschrift suchen
+    // Zahl nach Überschrift suchen
 
-for(let i=index+1;i<lines.length;i++){
+    for(let i=index+1; i<lines.length; i++){
+
+        let match = lines[i].match(/\d+(?:[.,]\d+)?/);
+
+        if(match){
+
+            values.push(
+                Number(match[0].replace(",","."))
+            );
+
+            break;
+        }
+
+    }
 
 
-let match=lines[i].match(/\d+([.,]\d+)?/);
+
+    if(values.length !== 2){
+
+        return [0,0];
+
+    }
 
 
-
-if(match){
-
-values.push(
-Number(match[0].replace(",","."))
-);
-
-break;
-
-}
+    return values;
 
 }
 
-
-
-if(values.length<2){
-
-return [0,0];
-
-}
-
-
-return values;
-
-}
 
 
 
@@ -666,9 +453,10 @@ return values;
 
 function setValue(id,value){
 
-document.getElementById(id).innerHTML=value;
+    document.getElementById(id).innerHTML = value;
 
 }
+
 
 
 
@@ -677,25 +465,23 @@ document.getElementById(id).innerHTML=value;
 
 function updateBar(home,away,left,right){
 
-
-let total=home+away;
-
-
-if(total<=0){
-
-return;
-
-}
+    let total = home + away;
 
 
-document.getElementById(left).style.width=
-(home/total*100)+"%";
+    if(total <= 0){
+        return;
+    }
 
 
-document.getElementById(right).style.width=
-(away/total*100)+"%";
+    document.getElementById(left).style.width =
+    (home / total * 100) + "%";
+
+
+    document.getElementById(right).style.width =
+    (away / total * 100) + "%";
 
 }
+
 
 
 
@@ -706,126 +492,133 @@ document.getElementById(right).style.width=
 function updateData(){
 
 
-let text=document
-.getElementById("dataInput")
-.value;
+    let text =
+    document.getElementById("dataInput").value;
 
 
 
-if(text.trim()==""){
+    if(text.trim()===""){
 
-alert("Bitte Daten einfügen");
+        alert("Bitte Daten einfügen");
+        return;
 
-return;
+    }
 
-}
 
 
 
 
 
+    // Expected Goals
 
-// EXPECTED GOALS
+    let xg = findNumbers(
+        text,
+        "Expected Goals"
+    );
 
 
-let xg=findNumbers(
-text,
-"Expected Goals"
-);
+    setValue(
+        "xgHome",
+        xg[0].toFixed(2)
+    );
 
 
+    setValue(
+        "xgAway",
+        xg[1].toFixed(2)
+    );
 
-setValue(
-"xgHome",
-xg[0].toFixed(2)
-);
 
+    updateBar(
+        xg[0],
+        xg[1],
+        "xgHomeBar",
+        "xgAwayBar"
+    );
 
 
-setValue(
-"xgAway",
-xg[1].toFixed(2)
-);
 
 
 
-updateBar(
-xg[0],
-xg[1],
-"xgHomeBar",
-"xgAwayBar"
-);
 
 
+    // Ballbesitz
 
+    let possession = findNumbers(
+        text,
+        "Ballbesitz"
+    );
 
 
+    setValue(
+        "posHome",
+        possession[0] + "%"
+    );
 
 
+    setValue(
+        "posAway",
+        possession[1] + "%"
+    );
 
-// BALLBESITZ
 
+    document.getElementById("posHomeBar").style.width =
+    possession[0] + "%";
 
-let pos=findNumbers(
-text,
-"Ballbesitz"
-);
 
+    document.getElementById("posAwayBar").style.width =
+    possession[1] + "%";
 
 
-setValue(
-"posHome",
-pos[0]+"%"
-);
 
 
 
-setValue(
-"posAway",
-pos[1]+"%"
-);
 
 
+    // Schüsse Gesamt
 
-document.getElementById("posHomeBar").style.width=
-pos[0]+"%";
+    let shots = findNumbers(
+        text,
+        "Schüsse insgesamt"
+    );
 
 
+    setValue("shotsHome", shots[0]);
+    setValue("shotsAway", shots[1]);
 
-document.getElementById("posAwayBar").style.width=
-pos[1]+"%";
 
 
 
 
 
 
+    // Schüsse aufs Tor
 
+    let target = findNumbers(
+        text,
+        "Schüsse aufs Tor"
+    );
 
 
+    setValue("targetHome", target[0]);
+    setValue("targetAway", target[1]);
 
-// SCHÜSSE GESAMT
 
 
-let shots=findNumbers(
-text,
-"Schüsse insgesamt"
-);
 
 
 
-setValue(
-"shotsHome",
-shots[0]
-);
 
+    // Großchancen
 
+    let chances = findNumbers(
+        text,
+        "Großchance"
+    );
 
-setValue(
-"shotsAway",
-shots[1]
-);
 
+    setValue("chanceHome", chances[0]);
+    setValue("chanceAway", chances[1]);
 
 
 
@@ -833,57 +626,58 @@ shots[1]
 
 
 
-// SCHÜSSE AUFS TOR
+    // Eckbälle / Ecken
 
+    let corners = findNumbers(
+        text,
+        "Eck"
+    );
 
-let target=findNumbers(
-text,
-"Schüsse aufs Tor"
-);
 
+    setValue("cornerHome", corners[0]);
+    setValue("cornerAway", corners[1]);
 
 
-setValue(
-"targetHome",
-target[0]
-);
 
 
 
-setValue(
-"targetAway",
-target[1]
-);
 
 
+    // Pässe
 
+    let passes = findNumbers(
+        text,
+        "Pässe"
+    );
 
 
+    setValue(
+        "passHome",
+        passes[0] + "%"
+    );
 
 
+    setValue(
+        "passAway",
+        passes[1] + "%"
+    );
 
-// GROSSCHANCEN
 
 
-let chance=findNumbers(
-text,
-"Großchance"
-);
 
 
 
-setValue(
-"chanceHome",
-chance[0]
-);
 
+    // Gelbe Karten
 
+    let cards = findNumbers(
+        text,
+        "Gelbe Karten"
+    );
 
-setValue(
-"chanceAway",
-chance[1]
-);
 
+    setValue("cardHome", cards[0]);
+    setValue("cardAway", cards[1]);
 
 
 
@@ -891,95 +685,10 @@ chance[1]
 
 
 
-// ECKBÄLLE
-
-
-let corner=findNumbers(
-text,
-"Eckbälle"
-);
-
-
-
-setValue(
-"cornerHome",
-corner[0]
-);
-
-
-
-setValue(
-"cornerAway",
-corner[1]
-);
-
-
-
-
-
-
-
-
-// PÄSSE
-
-
-let pass=findNumbers(
-text,
-"Pässe"
-);
-
-
-
-setValue(
-"passHome",
-pass[0]+"%"
-);
-
-
-
-setValue(
-"passAway",
-pass[1]+"%"
-);
-
-
-
-
-
-
-
-
-// GELBE KARTEN
-
-
-let cards=findNumbers(
-text,
-"Gelbe Karten"
-);
-
-
-
-setValue(
-"cardHome",
-cards[0]
-);
-
-
-
-setValue(
-"cardAway",
-cards[1]
-);
-
-
-
-
-
-
-localStorage.setItem(
-"liveStats",
-text
-);
+    localStorage.setItem(
+        "liveStats",
+        text
+    );
 
 
 }
@@ -990,27 +699,24 @@ text
 
 
 
-window.onload=function(){
+
+window.onload = function(){
 
 
-let saved=
-localStorage.getItem("liveStats");
+    let saved =
+    localStorage.getItem("liveStats");
 
 
+    if(saved){
 
-if(saved){
+        document.getElementById("dataInput").value = saved;
 
+        updateData();
 
-document.getElementById("dataInput").value=saved;
+    }
 
+};
 
-updateData();
-
-
-}
-
-
-}
 
 
 </script>
