@@ -4,422 +4,389 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wettpropheten Taktik Board</title>
+<title>Wettpropheten Live Stats Pro</title>
 
 <style>
 
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-margin:0;
-background:#06152d;
-font-family:Arial,Helvetica,sans-serif;
+
+background:#041822;
 color:white;
+padding:25px;
+
 }
 
+.container{
 
-.board{
-max-width:1200px;
+max-width:950px;
 margin:auto;
-padding:20px;
+
 }
 
-
-/* HEADER */
+/* ================= HEADER ================= */
 
 .header{
 
-display:flex;
-align-items:center;
-justify-content:center;
-gap:20px;
+background:#072534;
+border-radius:15px;
+padding:20px;
 margin-bottom:25px;
 
-}
+display:flex;
+justify-content:space-between;
+align-items:center;
 
+}
 
 .team{
 
-width:40%;
-height:70px;
-
-background:white;
-border-radius:40px;
-
-display:flex;
-align-items:center;
-
-padding:10px;
-
-}
-
-
-.logo{
-
-width:55px;
-height:55px;
-
-border-radius:50%;
-background:#ddd;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-overflow:hidden;
-
-}
-
-
-.logo img{
-
-width:100%;
-height:100%;
-object-fit:cover;
-
-}
-
-
-.team input{
-
-border:0;
-outline:0;
-
-font-size:25px;
-font-weight:bold;
-
-width:100%;
+width:35%;
 text-align:center;
 
-color:#092451;
-
 }
 
+.team h2{
 
-
-.vs{
-
-background:#006cff;
-
-padding:15px 30px;
-
-border-radius:20px;
-
-font-size:30px;
-
+font-size:28px;
 font-weight:bold;
 
 }
 
-
-
-/* SPIELFELD */
-
-
-.tactical-area{
-
-position:relative;
-
-width:100%;
-
-aspect-ratio:16/9;
-
-background-image:url("DEIN_ORIGINAL_BILD.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.6);
-
-}
-
-
-
-/* SPIELER */
-
-
-.player{
-
-position:absolute;
-
-transform:translate(-50%,-50%);
+.score{
 
 text-align:center;
 
-cursor:pointer;
+}
+
+.score h1{
+
+font-size:55px;
 
 }
 
+.live{
 
-.circle{
+margin-top:8px;
 
-width:45px;
-height:45px;
+display:inline-block;
 
-border-radius:50%;
+padding:6px 15px;
 
-display:flex;
+background:#e40046;
 
-align-items:center;
-justify-content:center;
+border-radius:30px;
 
-background:#087cff;
-
-border:3px solid white;
+font-size:14px;
 
 font-weight:bold;
 
-}
-
-
-
-.name{
-
-margin-top:5px;
-
-background:white;
-
-color:#111;
-
-padding:3px 8px;
-
-border-radius:5px;
-
-font-size:12px;
-
-font-weight:bold;
+animation:pulse 1.2s infinite;
 
 }
 
+.minute{
 
+margin-top:10px;
+font-size:22px;
 
+}
 
-/* KADER */
+@keyframes pulse{
 
+0%{opacity:.5;}
+50%{opacity:1;}
+100%{opacity:.5;}
 
-.squad{
+}
+
+/* ================= KATEGORIE ================= */
+
+.category{
 
 margin-top:25px;
 
-display:grid;
+background:#06202d;
 
-grid-template-columns:1fr 1fr;
+padding:12px;
 
-gap:20px;
-
-}
-
-
-
-.card{
-
-background:#102852;
-
-padding:20px;
-
-border-radius:15px;
-
-}
-
-
-.card h2{
+border-radius:8px;
 
 text-align:center;
 
-}
+font-weight:bold;
 
+text-transform:uppercase;
 
+letter-spacing:1px;
 
-.player-line{
-
-padding:8px;
-
-background:rgba(255,255,255,.08);
-
-margin:5px;
+color:#d5e9ff;
 
 }
 
+/* ================= STATISTIK ================= */
 
+.stat{
 
-
-@media(max-width:800px){
-
-.header,
-.squad{
-
-display:block;
+padding:18px 0;
 
 }
 
+.stat-header{
 
-.team{
+display:flex;
 
-width:100%;
+justify-content:space-between;
+
+font-weight:bold;
+
 margin-bottom:10px;
 
 }
 
-
-.vs{
+.stat-title{
 
 text-align:center;
+flex:1;
 
 }
 
+/* ================= BALKEN ================= */
+
+.bar{
+
+height:10px;
+
+background:#0d2d3b;
+
+border-radius:20px;
+
+overflow:hidden;
+
+display:flex;
 
 }
 
+.homeBar{
+
+background:#e40046;
+
+width:50%;
+
+transition:1s;
+
+}
+
+.awayBar{
+
+background:#e5e5e5;
+
+width:50%;
+
+transition:1s;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px){
+
+.header{
+
+flex-direction:column;
+gap:15px;
+
+}
+
+.team{
+
+width:100%;
+
+}
+
+.score h1{
+
+font-size:38px;
+
+}
+
+}
 
 </style>
 
 </head>
 
-
 <body>
 
-
-<div class="board">
-
+<div class="container">
 
 <div class="header">
 
+<div class="team">
+<h2>FC Bayern</h2>
+</div>
+
+<div class="score">
+
+<h1>1 : 0</h1>
+
+<div class="live">
+LIVE
+</div>
+
+<div class="minute">
+58'
+</div>
+
+</div>
 
 <div class="team">
-
-<div class="logo">
-⚽
-</div>
-
-<input value="HEIM TEAM">
-
-</div>
-
-
-<div class="vs">
-VS
-</div>
-
-
-<div class="team">
-
-
-<div class="logo">
-⚽
-</div>
-
-
-<input value="GAST TEAM">
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="tactical-area">
-
-
-<!-- Spieler werden hier platziert -->
-
-
-<div class="player" style="left:50%;top:85%;">
-
-<div class="circle">
-1
-</div>
-
-<div class="name">
-TORWART
+<h2>Borussia Dortmund</h2>
 </div>
 
 </div>
 
-
-
-<div class="player" style="left:50%;top:50%;">
-
-<div class="circle">
-10
+<div class="category">
+TOP-STATISTIKEN
 </div>
 
-<div class="name">
-SPIELER
+<!-- Ballbesitz -->
+
+<div class="stat">
+
+<div class="stat-header">
+
+<div>53%</div>
+
+<div class="stat-title">
+Ballbesitz
 </div>
 
-</div>
-
-
-
-</div>
-
-
-
-
-<div class="squad">
-
-
-<div class="card">
-
-<h2>HEIM KADER</h2>
-
-<div class="player-line">
-1 Torwart
-</div>
-
-<div class="player-line">
-2 Spieler
-</div>
-
-
-<div class="player-line">
-3 Spieler
-</div>
-
+<div>47%</div>
 
 </div>
 
+<div class="bar">
 
+<div class="homeBar" style="width:53%"></div>
 
-<div class="card">
-
-<h2>GAST KADER</h2>
-
-<div class="player-line">
-1 Torwart
-</div>
-
-<div class="player-line">
-2 Spieler
-</div>
-
-
-<div class="player-line">
-3 Spieler
-</div>
-
+<div class="awayBar" style="width:47%"></div>
 
 </div>
 
+</div>
+
+<!-- Schüsse -->
+
+<div class="stat">
+
+<div class="stat-header">
+
+<div>4</div>
+
+<div class="stat-title">
+Schüsse insgesamt
+</div>
+
+<div>3</div>
 
 </div>
 
+<div class="bar">
 
+<div class="homeBar" style="width:57%"></div>
+
+<div class="awayBar" style="width:43%"></div>
 
 </div>
 
+</div>
+
+<!-- Schüsse aufs Tor -->
+
+<div class="stat">
+
+<div class="stat-header">
+
+<div>3</div>
+
+<div class="stat-title">
+Schüsse aufs Tor
+</div>
+
+<div>2</div>
+
+</div>
+
+<div class="bar">
+
+<div class="homeBar" style="width:60%"></div>
+
+<div class="awayBar" style="width:40%"></div>
+
+</div>
+
+</div>
+
+<!-- Eckbälle -->
+
+<div class="stat">
+
+<div class="stat-header">
+
+<div>3</div>
+
+<div class="stat-title">
+Eckbälle
+</div>
+
+<div>1</div>
+
+</div>
+
+<div class="bar">
+
+<div class="homeBar" style="width:75%"></div>
+
+<div class="awayBar" style="width:25%"></div>
+
+</div>
+
+</div>
+
+<!-- Gelbe Karten -->
+
+<div class="stat">
+
+<div class="stat-header">
+
+<div>1</div>
+
+<div class="stat-title">
+Gelbe Karten
+</div>
+
+<div>0</div>
+
+</div>
+
+<div class="bar">
+
+<div class="homeBar" style="width:100%"></div>
+
+<div class="awayBar" style="width:0%"></div>
+
+</div>
+
+</div>
+
+</div>
 
 </body>
 </html>
