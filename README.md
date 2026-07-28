@@ -6,15 +6,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LiveStats Pro 2.0</title>
+<title>LiveStats Pro 3D</title>
 
 
 <style>
+
 
 *{
 box-sizing:border-box;
 font-family:Arial,Helvetica,sans-serif;
 }
+
 
 
 :root{
@@ -28,21 +30,26 @@ font-family:Arial,Helvetica,sans-serif;
 
 body{
 
+
 margin:0;
 
+min-height:100vh;
+
 background:
-radial-gradient(circle at top,#202020,#000 60%);
+
+radial-gradient(circle at top,#303030,#000 65%);
 
 color:white;
 
-min-height:100vh;
 
 }
 
 
 
 
+
 .container{
+
 
 width:1500px;
 
@@ -50,22 +57,28 @@ margin:20px auto;
 
 padding:25px;
 
+
 background:#080808;
 
-border-radius:25px;
+
+border-radius:30px;
+
 
 box-shadow:
 
-0 30px 80px #000,
+0 40px 80px #000,
 
-inset 0 0 30px #111;
+inset 0 0 40px #222;
+
 
 }
 
 
 
 
+
 .layout{
+
 
 display:grid;
 
@@ -73,6 +86,7 @@ grid-template-columns:380px 1fr;
 
 gap:25px;
 
+
 }
 
 
@@ -81,40 +95,61 @@ gap:25px;
 
 
 
-/* ==========================
+/* =====================
    3D SPIELTAG
-========================== */
+===================== */
 
 
 .left-panel{
 
 
-background:#111;
+background:
 
-border-radius:20px;
+linear-gradient(
+145deg,
+#1c1c1c,
+#090909
+);
 
-padding:18px;
+
+border-radius:25px;
 
 
-border:1px solid #333;
+padding:20px;
+
+
+border:1px solid #444;
 
 
 box-shadow:
 
-0 15px 30px #000,
 
-inset 0 0 20px #222;
+15px 20px 40px #000,
+
+
+inset 0 0 25px #333;
 
 
 }
 
 
 
-h2{
+
+.left-panel h2{
+
 
 text-align:center;
 
+font-size:26px;
+
+
+text-shadow:
+
+0 5px 10px #000;
+
+
 }
+
 
 
 
@@ -123,23 +158,30 @@ text-align:center;
 
 width:100%;
 
-height:250px;
+height:260px;
 
 
 background:#050505;
 
+
 color:white;
 
 
-border-radius:15px;
+border-radius:18px;
 
-border:1px solid #444;
+
+border:1px solid #555;
 
 
 padding:15px;
 
 
 font-size:15px;
+
+
+box-shadow:
+
+inset 0 5px 15px #000;
 
 
 }
@@ -150,18 +192,25 @@ font-size:15px;
 button{
 
 
-background:#222;
+background:
+
+linear-gradient(
+180deg,
+#444,
+#111
+);
+
 
 color:white;
 
 
-border:1px solid #555;
+border:1px solid #666;
 
 
-border-radius:12px;
+border-radius:15px;
 
 
-padding:14px;
+padding:15px;
 
 
 font-weight:bold;
@@ -172,7 +221,11 @@ cursor:pointer;
 
 box-shadow:
 
-0 6px 0 #000;
+
+0 8px 0 #000,
+
+
+0 15px 25px #000;
 
 
 transition:.2s;
@@ -185,10 +238,9 @@ transition:.2s;
 button:hover{
 
 
-transform:translateY(-2px);
+transform:
 
-
-background:#333;
+translateY(-3px);
 
 
 }
@@ -198,12 +250,14 @@ background:#333;
 button:active{
 
 
-transform:translateY(4px);
+transform:
+
+translateY(5px);
 
 
 box-shadow:
 
-0 2px 0 #000;
+0 3px 0 #000;
 
 
 }
@@ -216,6 +270,7 @@ box-shadow:
 
 
 width:100%;
+
 
 margin-top:15px;
 
@@ -234,25 +289,34 @@ margin-top:15px;
 margin-top:15px;
 
 
-padding:15px;
+padding:18px;
 
 
-background:#171717;
+background:
+
+linear-gradient(
+145deg,
+#222,
+#101010
+);
 
 
-border-radius:15px;
+border-radius:18px;
 
 
-border:1px solid #333;
-
-
-cursor:pointer;
+border:1px solid #444;
 
 
 box-shadow:
 
 
-0 10px 20px #000;
+0 12px 25px #000,
+
+
+inset 0 0 15px #333;
+
+
+cursor:pointer;
 
 
 transition:.25s;
@@ -267,12 +331,9 @@ transition:.25s;
 
 transform:
 
-translateY(-5px)
+translateY(-6px)
 
-scale(1.02);
-
-
-background:#222;
+rotateX(3deg);
 
 
 }
@@ -283,9 +344,10 @@ background:#222;
 .match-time{
 
 
+font-size:13px;
+
 color:#aaa;
 
-font-size:13px;
 
 }
 
@@ -298,10 +360,12 @@ font-size:17px;
 
 font-weight:bold;
 
-margin:6px 0;
+
+margin:8px 0;
 
 
 }
+
 
 
 
@@ -321,18 +385,25 @@ color:#777;
 
 
 
-/* ==========================
+
+/* =====================
    RECHTE SEITE
-========================== */
+===================== */
 
 
 .right-panel{
 
 
-background:#050505;
+background:
+
+linear-gradient(
+145deg,
+#121212,
+#050505
+);
 
 
-border-radius:20px;
+border-radius:25px;
 
 
 padding:30px;
@@ -341,10 +412,14 @@ padding:30px;
 box-shadow:
 
 
-inset 0 0 30px #111;
+0 30px 60px #000,
+
+
+inset 0 0 30px #222;
 
 
 }
+
 
 
 
@@ -354,18 +429,21 @@ inset 0 0 30px #111;
 
 display:flex;
 
-align-items:center;
 
 justify-content:space-between;
+
+
+align-items:center;
 
 
 padding-bottom:25px;
 
 
-border-bottom:1px solid #333;
+border-bottom:1px solid #444;
 
 
 }
+
 
 
 
@@ -378,7 +456,7 @@ width:40%;
 text-align:center;
 
 
-font-size:32px;
+font-size:34px;
 
 
 font-weight:bold;
@@ -386,7 +464,8 @@ font-weight:bold;
 
 text-shadow:
 
-0 5px 10px #000;
+
+0 8px 15px #000;
 
 
 }
@@ -397,27 +476,27 @@ text-shadow:
 .score{
 
 
-font-size:70px;
+font-size:75px;
+
 
 font-weight:bold;
 
 
 text-shadow:
 
-0 10px 20px #000;
+
+0 15px 30px #000;
 
 
 }
 
 
+<!-- ==========================
+     STATISTIK BEREICH
+========================== -->
 
 
-
-
-
-/* ==========================
-   3D STATISTIK BEREICH
-========================== */
+<style>
 
 
 .stat{
@@ -430,17 +509,25 @@ margin-top:35px;
 
 
 
+
 .stat-title{
 
 
 text-align:center;
 
-font-size:22px;
+
+font-size:24px;
+
 
 font-weight:bold;
 
 
-margin-bottom:12px;
+margin-bottom:15px;
+
+
+text-shadow:
+
+0 5px 10px #000;
 
 
 }
@@ -453,10 +540,11 @@ margin-bottom:12px;
 
 display:flex;
 
+
 justify-content:space-between;
 
 
-font-size:30px;
+font-size:32px;
 
 
 font-weight:bold;
@@ -466,13 +554,20 @@ font-weight:bold;
 
 
 
+
 .home-value{
 
 
 color:var(--home-color);
 
 
+text-shadow:
+
+0 0 15px var(--home-color);
+
+
 }
+
 
 
 
@@ -482,7 +577,13 @@ color:var(--home-color);
 color:var(--away-color);
 
 
+text-shadow:
+
+0 0 15px var(--away-color);
+
+
 }
+
 
 
 
@@ -490,10 +591,13 @@ color:var(--away-color);
 .bar{
 
 
-height:25px;
+height:28px;
 
 
-background:#111;
+width:100%;
+
+
+background:#050505;
 
 
 border-radius:20px;
@@ -505,16 +609,17 @@ overflow:hidden;
 display:flex;
 
 
-border:1px solid #333;
+border:1px solid #444;
 
 
 box-shadow:
 
 
-inset 0 5px 10px #000;
+inset 0 5px 15px #000;
 
 
 }
+
 
 
 
@@ -526,15 +631,20 @@ height:100%;
 
 background:
 
+
 linear-gradient(
 180deg,
-#fff5,
+#ffffff66,
 transparent
 ),
 var(--home-color);
 
 
+transition:.5s;
+
+
 }
+
 
 
 
@@ -546,12 +656,51 @@ height:100%;
 
 background:
 
+
 linear-gradient(
 180deg,
-#fff5,
+#ffffff66,
 transparent
 ),
 var(--away-color);
+
+
+transition:.5s;
+
+
+}
+
+
+
+
+
+
+/* ======================
+   SPEICHER
+====================== */
+
+
+.save-area{
+
+
+display:flex;
+
+
+gap:15px;
+
+
+margin-top:25px;
+
+
+}
+
+
+
+
+.save-area button{
+
+
+flex:1;
 
 
 }
@@ -562,9 +711,10 @@ var(--away-color);
 
 
 
-/* ==========================
-   BOXEN
-========================== */
+
+/* ======================
+   STATISTIK BOXEN
+====================== */
 
 
 .stats-grid{
@@ -573,10 +723,12 @@ var(--away-color);
 display:grid;
 
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:
+
+repeat(3,1fr);
 
 
-gap:15px;
+gap:18px;
 
 
 margin-top:35px;
@@ -586,34 +738,45 @@ margin-top:35px;
 
 
 
+
+
 .stat-box{
 
 
-background:#111;
+background:
 
 
-border-radius:15px;
+linear-gradient(
+145deg,
+#222,
+#0c0c0c
+);
 
 
-padding:20px;
+border-radius:20px;
+
+
+padding:22px;
 
 
 text-align:center;
 
 
-border:1px solid #333;
+border:1px solid #444;
 
 
 box-shadow:
 
 
-0 10px 25px #000,
+0 15px 30px #000,
 
 
-inset 0 0 15px #222;
+inset 0 0 20px #333;
 
 
 }
+
+
 
 
 
@@ -622,7 +785,8 @@ inset 0 0 15px #222;
 
 color:#aaa;
 
-font-size:13px;
+
+font-size:14px;
 
 
 }
@@ -632,7 +796,7 @@ font-size:13px;
 .stat-number{
 
 
-font-size:32px;
+font-size:34px;
 
 
 font-weight:bold;
@@ -645,9 +809,12 @@ margin-top:12px;
 
 
 
+
 .home-text{
 
+
 color:var(--home-color);
+
 
 }
 
@@ -655,15 +822,21 @@ color:var(--home-color);
 
 .away-text{
 
+
 color:var(--away-color);
 
+
 }
-<style>
 
 
-/* ==========================
-   EINGABE BEREICH
-========================== */
+
+
+
+
+
+/* ======================
+   LIVE DATEN
+====================== */
 
 
 .input-area{
@@ -672,28 +845,33 @@ color:var(--away-color);
 margin-top:35px;
 
 
-background:#111;
+background:
 
 
-padding:20px;
+linear-gradient(
+145deg,
+#191919,
+#080808
+);
 
 
-border-radius:20px;
+border-radius:25px;
 
 
-border:1px solid #333;
+padding:25px;
+
+
+border:1px solid #444;
 
 
 box-shadow:
 
 
-0 15px 30px #000,
-
-
-inset 0 0 20px #222;
+0 20px 40px #000;
 
 
 }
+
 
 
 
@@ -704,25 +882,31 @@ inset 0 0 20px #222;
 width:100%;
 
 
-height:230px;
+height:240px;
 
 
-background:#050505;
+background:#000;
 
 
 color:white;
 
 
-border-radius:15px;
+border-radius:18px;
 
 
-border:1px solid #444;
+border:1px solid #555;
 
 
-padding:15px;
+padding:18px;
 
 
 font-size:16px;
+
+
+box-shadow:
+
+
+inset 0 5px 15px #000;
 
 
 }
@@ -743,44 +927,6 @@ margin-top:15px;
 
 
 
-
-
-
-
-/* ==========================
-   SPEICHER BUTTONS
-========================== */
-
-
-.save-area{
-
-
-display:flex;
-
-
-gap:15px;
-
-
-margin-top:25px;
-
-
-}
-
-
-
-.save-area button{
-
-
-flex:1;
-
-
-}
-
-
-
-
-
-
 </style>
 
 
@@ -789,16 +935,9 @@ flex:1;
 
 
 
-
-
 <!-- ==========================
-     RECHTE ANZEIGE WEITER
+     SPIEL ANZEIGE
 ========================== -->
-
-
-
-
-<!-- XG -->
 
 
 <div class="stat">
@@ -809,7 +948,6 @@ flex:1;
 Expected Goals (xG)
 
 </div>
-
 
 
 <div class="values">
@@ -863,10 +1001,6 @@ style="width:50%">
 
 
 
-
-<!-- BALLBESITZ -->
-
-
 <div class="stat">
 
 
@@ -875,7 +1009,6 @@ style="width:50%">
 Ballbesitz
 
 </div>
-
 
 
 <div class="values">
@@ -911,7 +1044,6 @@ style="width:50%">
 </div>
 
 
-
 <div id="posAwayBar"
 class="away-bar"
 style="width:50%">
@@ -931,26 +1063,22 @@ style="width:50%">
 
 
 
-<!-- SPEICHERN -->
-
 
 <div class="save-area">
 
 
 <button onclick="saveGame()">
 
-SPIEL SPEICHERN
+💾 SPIEL SPEICHERN
 
 </button>
-
 
 
 <button onclick="loadGame()">
 
-SPIEL LADEN
+📂 SPIEL LADEN
 
 </button>
-
 
 
 </div>
@@ -961,9 +1089,6 @@ SPIEL LADEN
 
 
 
-
-
-<!-- STATISTIK BOXEN -->
 
 
 <div class="stats-grid">
@@ -997,10 +1122,10 @@ class="away-text">
 
 </span>
 
-</div>
 
 </div>
 
+</div>
 
 
 
@@ -1033,10 +1158,10 @@ class="away-text">
 
 </span>
 
-</div>
 
 </div>
 
+</div>
 
 
 
@@ -1069,10 +1194,10 @@ class="away-text">
 
 </span>
 
-</div>
 
 </div>
 
+</div>
 
 
 
@@ -1105,10 +1230,10 @@ class="away-text">
 
 </span>
 
-</div>
 
 </div>
 
+</div>
 
 
 
@@ -1141,11 +1266,10 @@ class="away-text">
 
 </span>
 
-</div>
 
 </div>
 
-
+</div>
 
 
 
@@ -1178,10 +1302,10 @@ class="away-text">
 
 </span>
 
-</div>
 
 </div>
 
+</div>
 
 
 
@@ -1214,10 +1338,12 @@ class="away-text">
 
 </span>
 
-</div>
 
 </div>
 
+</div>
+
+
 
 </div>
 
@@ -1227,8 +1353,6 @@ class="away-text">
 
 
 
-
-<!-- LIVE DATEN -->
 
 
 <div class="input-area">
@@ -1236,7 +1360,7 @@ class="away-text">
 
 <h2>
 
-LIVE DATEN EINFÜGEN
+LIVE DATEN EINGEBEN
 
 </h2>
 
@@ -1248,7 +1372,7 @@ id="dataInput"
 
 placeholder="
 
-Statistik hier einfügen:
+Statistiken einfügen:
 
 Expected Goals
 Ballbesitz
@@ -1261,9 +1385,7 @@ Karten
 
 ">
 
-
 </textarea>
-
 
 
 
@@ -1281,13 +1403,12 @@ AKTUALISIEREN
 </button>
 
 
-
 </div>
 <script>
 
 
 /* ==========================
-   VEREINSFARBEN SYSTEM
+   VEREINSFARBEN
 ========================== */
 
 
@@ -1296,17 +1417,11 @@ const teams={
 
 "Borussia Dortmund":{
 main:"#FDE100",
-alt:"#000000"
+alt:"#222222"
 },
 
 
 "SV Werder Bremen":{
-main:"#00875A",
-alt:"#FFFFFF"
-},
-
-
-"Werder Bremen":{
 main:"#00875A",
 alt:"#FFFFFF"
 },
@@ -1360,12 +1475,6 @@ alt:"#FFFFFF"
 },
 
 
-"TSG 1899 Hoffenheim":{
-main:"#005CA9",
-alt:"#FFFFFF"
-},
-
-
 "TSG Hoffenheim":{
 main:"#005CA9",
 alt:"#FFFFFF"
@@ -1374,7 +1483,7 @@ alt:"#FFFFFF"
 
 "SC Freiburg":{
 main:"#E30613",
-alt:"#FFFFFF"
+alt:"#AAAAAA"
 },
 
 
@@ -1390,13 +1499,13 @@ alt:"#FFFFFF"
 },
 
 
-"1. FSV Mainz 05":{
+"FSV Mainz 05":{
 main:"#C41230",
 alt:"#FFFFFF"
 },
 
 
-"FSV Mainz 05":{
+"1. FSV Mainz 05":{
 main:"#C41230",
 alt:"#FFFFFF"
 },
@@ -1420,13 +1529,13 @@ alt:"#FFFFFF"
 },
 
 
-"SC Paderborn 07":{
+"SC Paderborn":{
 main:"#005CA9",
 alt:"#FFFFFF"
 },
 
 
-"SC Paderborn":{
+"SC Paderborn 07":{
 main:"#005CA9",
 alt:"#FFFFFF"
 },
@@ -1455,20 +1564,22 @@ let currentGame="";
 
 
 /* ==========================
- SPIELTAG SPEICHERN
+   SPIELTAG SPEICHERN
 ========================== */
 
 
 function saveMatchday(){
 
 
-let data=
+let text=
+
 document.getElementById("matchInput").value;
+
 
 
 localStorage.setItem(
 "matchday",
-data
+text
 );
 
 
@@ -1482,14 +1593,18 @@ data
 function loadMatchday(){
 
 
-let data=
-localStorage.getItem("matchday");
+let text=
+
+localStorage.getItem(
+"matchday"
+);
 
 
-if(data){
+
+if(text){
 
 
-document.getElementById("matchInput").value=data;
+document.getElementById("matchInput").value=text;
 
 
 loadMatches();
@@ -1506,25 +1621,26 @@ loadMatches();
 
 
 
-
 /* ==========================
- SPIELE LADEN
+   SPIELTAG LADEN
 ========================== */
 
 
 function loadMatches(){
 
 
-let text=
-document.getElementById("matchInput").value;
-
-
-
 saveMatchday();
 
 
 
+let text=
+
+document.getElementById("matchInput").value;
+
+
+
 let lines=
+
 text.split("\n")
 .map(x=>x.trim())
 .filter(x=>x);
@@ -1532,7 +1648,9 @@ text.split("\n")
 
 
 let list=
+
 document.getElementById("matchList");
+
 
 
 list.innerHTML="";
@@ -1542,18 +1660,20 @@ list.innerHTML="";
 for(let i=0;i<lines.length;i++){
 
 
+
 if(lines[i].match(/\d{2}\.\d{2}/)){
 
 
 
-let date=lines[i];
+let time=lines[i];
 
 
-let clubs=[];
+let teamsFound=[];
 
 
 
 for(let j=i+1;j<lines.length;j++){
+
 
 
 if(lines[j]=="-")
@@ -1561,9 +1681,11 @@ break;
 
 
 
-if(!clubs.includes(lines[j])){
+if(!teamsFound.includes(lines[j])){
 
-clubs.push(lines[j]);
+
+teamsFound.push(lines[j]);
+
 
 }
 
@@ -1572,19 +1694,24 @@ clubs.push(lines[j]);
 
 
 
-if(clubs.length>=2){
+if(teamsFound.length>=2){
+
 
 
 createMatch(
-date,
-clubs[0],
-clubs[1]
+time,
+teamsFound[0],
+teamsFound[1]
 );
 
 
 }
 
 
+
+}
+
+
 }
 
 
@@ -1592,15 +1719,11 @@ clubs[1]
 
 
 
-}
 
 
 
 
-
-
-
-function createMatch(date,home,away){
+function createMatch(time,home,away){
 
 
 
@@ -1615,9 +1738,10 @@ card.innerHTML=`
 
 <div class="match-time">
 
-${date}
+${time}
 
 </div>
+
 
 <div class="match-team">
 
@@ -1625,11 +1749,13 @@ ${home}
 
 </div>
 
+
 <div class="match-vs">
 
 -
 
 </div>
+
 
 <div class="match-team">
 
@@ -1668,14 +1794,12 @@ document
 
 
 
-
 /* ==========================
- TEAM SETZEN
+   SPIEL SETZEN
 ========================== */
 
 
 function setTeams(home,away){
-
 
 
 currentGame=
@@ -1683,33 +1807,42 @@ home+"_"+away;
 
 
 
-homeName.innerHTML=home;
+document.getElementById("homeName")
+.innerHTML=home;
 
 
-awayName.innerHTML=away;
+document.getElementById("awayName")
+.innerHTML=away;
 
 
 
-let h=
+
+let homeData=
 teams[home] || {
-main:"#00b7ff"
+
+main:"#00b7ff",
+alt:"#FFFFFF"
+
 };
 
 
 
-let a=
+let awayData=
 teams[away] || {
-main:"#ff4757"
+
+main:"#ff4757",
+alt:"#FFFFFF"
+
 };
 
 
 
 
 
-if(h.main===a.main){
+if(homeData.main===awayData.main){
 
 
-a.main=a.alt;
+awayData.main=awayData.alt;
 
 
 }
@@ -1719,7 +1852,7 @@ a.main=a.alt;
 document.documentElement
 .style.setProperty(
 "--home-color",
-h.main
+homeData.main
 );
 
 
@@ -1727,7 +1860,7 @@ h.main
 document.documentElement
 .style.setProperty(
 "--away-color",
-a.main
+awayData.main
 );
 
 
@@ -1740,9 +1873,8 @@ a.main
 
 
 
-
 /* ==========================
- SPIEL SPEICHERN
+   SPEICHERN
 ========================== */
 
 
@@ -1764,7 +1896,8 @@ document.querySelectorAll("[id]")
 
 if(
 e.id!="dataInput" &&
-e.id!="matchInput"
+e.id!="matchInput" &&
+e.id!="matchList"
 ){
 
 
@@ -1796,8 +1929,9 @@ JSON.stringify(save)
 
 
 
+
 /* ==========================
- SPIEL LADEN
+   LADEN
 ========================== */
 
 
@@ -1810,6 +1944,7 @@ return;
 
 
 let data=
+
 localStorage.getItem(
 "game_"+currentGame
 );
@@ -1829,25 +1964,25 @@ Object.keys(data)
 .forEach(id=>{
 
 
-let e=
+let element=
+
 document.getElementById(id);
 
 
 
-if(e){
+if(element){
 
-e.innerHTML=data[id];
+element.innerHTML=data[id];
+
 
 }
+
 
 
 });
 
 
-
 }
-
-
 
 
 
@@ -1856,25 +1991,27 @@ e.innerHTML=data[id];
 
 
 /* ==========================
- STATISTIK
+   STATISTIK ERKENNUNG
 ========================== */
 
 
-function findValues(text,key){
+function getNumbers(text,keyword){
+
 
 
 let lines=
+
 text.split("\n")
-.map(x=>x.trim())
-.filter(x=>x);
+.map(x=>x.trim());
 
 
 
 let index=
+
 lines.findIndex(
 
 x=>x.toLowerCase()
-.includes(key.toLowerCase())
+.includes(keyword.toLowerCase())
 
 );
 
@@ -1889,44 +2026,56 @@ let nums=[];
 
 
 
-for(let i=Math.max(0,index-2);
-i<Math.min(lines.length,index+4);
-i++){
+for(
+let i=index;
+i<index+5;
+i++
+){
 
 
 
-let m=
-lines[i].match(/\d+(?:[.,]\d+)?/);
+let found=
+
+lines[i].match(
+/\d+(?:[.,]\d+)?/g
+);
 
 
 
-if(m){
+if(found){
+
+
+found.forEach(n=>{
+
 
 nums.push(
 Number(
-m[0].replace(",",".")
+n.replace(",",".")
 )
 );
 
-}
+
+});
 
 
 }
 
 
+}
 
-return nums.length>=2
-?
-[
-nums[0],
-nums[1]
-]
-:
-[0,0];
 
+
+return [
+
+nums[0] || 0,
+
+nums[1] || 0
+
+];
 
 
 }
+
 
 
 
@@ -1939,19 +2088,25 @@ function updateStats(){
 
 
 let text=
-dataInput.value;
+
+document.getElementById("dataInput").value;
 
 
 
 
 
 let xg=
-findValues(text,"Expected Goals");
+
+getNumbers(
+text,
+"Expected Goals"
+);
 
 
 
 xgHome.innerHTML=
 xg[0].toFixed(2);
+
 
 
 xgAway.innerHTML=
@@ -1962,7 +2117,12 @@ xg[1].toFixed(2);
 
 
 let pos=
-findValues(text,"Ballbesitz");
+
+getNumbers(
+text,
+"Ballbesitz"
+);
+
 
 
 posHome.innerHTML=
@@ -1986,16 +2146,21 @@ pos[1]+"%";
 
 
 
-let list=[
+
+let stats=[
 
 
 ["Schüsse","shotsHome","shotsAway"],
 
+
 ["Schüsse aufs Tor","targetHome","targetAway"],
+
 
 ["Großchancen","chanceHome","chanceAway"],
 
+
 ["Ecken","cornerHome","cornerAway"],
+
 
 ["Gelbe Karten","cardsHome","cardsAway"]
 
@@ -2004,21 +2169,25 @@ let list=[
 
 
 
-list.forEach(s=>{
+
+stats.forEach(s=>{
 
 
-let v=
-findValues(text,s[0]);
+let value=
+
+getNumbers(
+text,
+s[0]
+);
 
 
 
 document.getElementById(s[1])
-.innerHTML=v[0];
-
+.innerHTML=value[0];
 
 
 document.getElementById(s[2])
-.innerHTML=v[1];
+.innerHTML=value[1];
 
 
 });
@@ -2027,11 +2196,13 @@ document.getElementById(s[2])
 
 
 
+
 saveGame();
 
 
-
 }
+
+
 
 
 
@@ -2050,10 +2221,6 @@ loadMatchday();
 
 </script>
 
-
-</div>
-
-</div>
 
 </body>
 
