@@ -1,3 +1,4 @@
+teil 1
 <!DOCTYPE html>
 <html lang="de">
 
@@ -23,11 +24,32 @@ RESET
 }
 
 
+
+/* =========================
+FARB SYSTEM
+========================= */
+
+:root{
+
+    --heim-farbe:#0099ff;
+    --gast-farbe:#ff3344;
+
+}
+
+
+
+/* =========================
+GRUNDLAYOUT
+========================= */
+
 html,
 body{
 
-    width:100%;
-    height:100%;
+    margin:0 !important;
+    padding:0 !important;
+
+    width:100vw;
+    height:100vh;
 
     background:#050505;
     color:white;
@@ -37,11 +59,13 @@ body{
 }
 
 
-/* =========================
-APP
-========================= */
 
 .app{
+
+    position:fixed;
+
+    top:0;
+    left:0;
 
     width:100vw;
     height:100vh;
@@ -56,11 +80,11 @@ APP
 LINKER SPIELTAG
 ========================= */
 
-
 .sidebar{
 
+    flex:0 0 280px;
+
     width:280px;
-    min-width:280px;
 
     height:100vh;
 
@@ -90,6 +114,7 @@ LINKER SPIELTAG
     margin-bottom:20px;
 
 }
+
 
 
 
@@ -132,6 +157,8 @@ LINKER SPIELTAG
 
     resize:none;
 
+    font-size:15px;
+
 }
 
 
@@ -151,7 +178,6 @@ LINKER SPIELTAG
     border:1px solid #777;
 
     background:
-
     linear-gradient(
     #555,
     #111
@@ -181,7 +207,6 @@ SPIELKARTEN
     padding:15px;
 
     background:
-
     linear-gradient(
     145deg,
     #333,
@@ -205,7 +230,6 @@ SPIELKARTEN
     border-color:#f5c542;
 
 }
-
 
 
 
@@ -234,8 +258,9 @@ SPIELKARTEN
 
 
 
+
 /* =========================
-RECHTE SEITE
+RECHTER HAUPTBEREICH
 ========================= */
 
 
@@ -243,12 +268,17 @@ RECHTE SEITE
 
     flex:1;
 
+    width:auto;
+
     height:100vh;
+
+    margin:0;
+
+    padding:0;
 
     overflow-y:auto;
 
     background:
-
     linear-gradient(
     145deg,
     #191919,
@@ -256,6 +286,7 @@ RECHTE SEITE
     );
 
 }
+
 
 
 
@@ -278,6 +309,7 @@ SPIELKOPF
 
     display:grid;
 
+
     grid-template-columns:
     1fr 220px 1fr;
 
@@ -287,7 +319,9 @@ SPIELKOPF
 
     background:#111;
 
+
     border:1px solid #333;
+
 
     border-radius:30px;
 
@@ -302,16 +336,6 @@ SPIELKOPF
     font-size:40px;
 
     font-weight:bold;
-
-}
-
-
-
-:root{
-
-    --heim-farbe:#0099ff;
-
-    --gast-farbe:#ff3344;
 
 }
 
@@ -334,6 +358,7 @@ SPIELKOPF
 
 
 
+
 .ergebnis{
 
     text-align:center;
@@ -350,7 +375,6 @@ SPIELKOPF
 
 </style>
 
-
 </head>
 
 
@@ -364,7 +388,7 @@ SPIELKOPF
 
 
 <!-- =========================
-LINKS
+LINKER SPIELTAG
 ========================= -->
 
 
@@ -401,12 +425,14 @@ Borussia Dortmund
 
 
 
+
 <button class="button"
 onclick="spieltagLaden()">
 
 SPIELTAG LADEN
 
 </button>
+
 
 
 
@@ -424,7 +450,7 @@ SPIELTAG LADEN
 
 
 <!-- =========================
-RECHTS
+RECHTE SEITE
 ========================= -->
 
 
@@ -433,6 +459,7 @@ RECHTS
 
 
 <div class="spielkopf">
+
 
 
 <div class="team heim" id="heimName">
