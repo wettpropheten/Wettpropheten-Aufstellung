@@ -11,21 +11,16 @@
 
 <style>
 
-
 /* =========================
-GRUNDLAGE
+RESET
 ========================= */
 
-
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-
+    font-family:Arial, Helvetica, sans-serif;
 }
-
 
 
 html,
@@ -42,6 +37,11 @@ body{
 
 }
 
+
+
+/* =========================
+HAUPTSTRUKTUR
+========================= */
 
 
 .app{
@@ -100,11 +100,16 @@ LINKER SPIELTAG
 
 
 
+
 #spieltagInput{
 
     width:100%;
 
     height:220px;
+
+    padding:12px;
+
+    resize:none;
 
     background:#050505;
 
@@ -114,11 +119,10 @@ LINKER SPIELTAG
 
     border-radius:15px;
 
-    padding:12px;
-
-    resize:none;
+    font-size:15px;
 
 }
+
 
 
 
@@ -135,7 +139,6 @@ button{
     border:1px solid #777;
 
     background:
-
     linear-gradient(
         #555,
         #111
@@ -159,6 +162,8 @@ button:hover{
 
 
 
+
+
 /* =========================
 SPIELKARTEN
 ========================= */
@@ -171,7 +176,6 @@ SPIELKARTEN
     padding:15px;
 
     background:
-
     linear-gradient(
         145deg,
         #333,
@@ -198,6 +202,7 @@ SPIELKARTEN
 
 
 
+
 .datum{
 
     color:#aaa;
@@ -205,6 +210,7 @@ SPIELKARTEN
     font-size:13px;
 
 }
+
 
 
 
@@ -239,6 +245,7 @@ RECHTER BEREICH
 
 
 
+
 /* =========================
 SPIELKOPF
 ========================= */
@@ -257,7 +264,6 @@ SPIELKOPF
     display:grid;
 
     grid-template-columns:
-
     1fr 220px 1fr;
 
     align-items:center;
@@ -272,11 +278,12 @@ SPIELKOPF
 
 
 
+
 .team{
 
     text-align:center;
 
-    font-size:40px;
+    font-size:38px;
 
     font-weight:bold;
 
@@ -330,7 +337,6 @@ PANELS
     padding:20px;
 
     background:
-
     linear-gradient(
         145deg,
         #222,
@@ -342,6 +348,7 @@ PANELS
     border:1px solid #333;
 
 }
+
 
 
 
@@ -367,8 +374,9 @@ PANELS
 
 
 
+
 /* =========================
-STATISTIK KÄSTEN
+STATISTIK
 ========================= */
 
 
@@ -377,12 +385,12 @@ STATISTIK KÄSTEN
     display:grid;
 
     grid-template-columns:
-
     repeat(4,1fr);
 
     gap:15px;
 
 }
+
 
 
 
@@ -402,20 +410,21 @@ STATISTIK KÄSTEN
 
 
 
+
 .stats span{
 
     display:block;
 
     margin-top:10px;
 
-    color:#f5c542;
-
     font-size:30px;
 
+    color:#f5c542;
+
 }
-/* =========================
+<!-- =========================
 BALLBESITZ
-========================= */
+========================= -->
 
 
 .bar{
@@ -438,15 +447,16 @@ BALLBESITZ
 
 #ballBalken{
 
-    width:50%;
-
     height:100%;
+
+    width:50%;
 
     background:#0099ff;
 
     transition:.3s;
 
 }
+
 
 
 
@@ -461,6 +471,8 @@ BALLBESITZ
     font-size:18px;
 
 }
+
+
 
 
 
@@ -501,6 +513,7 @@ input{
 
 
 
+
 #status{
 
     margin-top:15px;
@@ -510,6 +523,8 @@ input{
     color:#aaa;
 
 }
+
+
 
 
 
@@ -542,14 +557,12 @@ MOBILE
 .stats{
 
     grid-template-columns:
-
     repeat(2,1fr);
 
 }
 
 
 }
-
 
 
 
@@ -575,9 +588,7 @@ LINKER BEREICH
 
 
 <h1>
-
 SPIELTAG
-
 </h1>
 
 
@@ -601,6 +612,7 @@ Eintracht Frankfurt
 
 
 
+
 <button onclick="spieltagLaden()">
 
 SPIELTAG LADEN
@@ -609,19 +621,21 @@ SPIELTAG LADEN
 
 
 
-<div id="spielListe">
+
+<div id="spielListe"></div>
+
+
 
 </div>
 
 
-</div>
 
 
 
 
 
 <!-- =========================
-HAUPTBEREICH
+RECHTER BEREICH
 ========================= -->
 
 
@@ -632,13 +646,13 @@ HAUPTBEREICH
 <div class="spielkopf">
 
 
-<div id="heimName"
 
-class="team heim">
+<div id="heimName" class="team heim">
 
 HEIM
 
 </div>
+
 
 
 
@@ -650,16 +664,19 @@ HEIM
 
 
 
-<div id="gastName"
 
-class="team gast">
+<div id="gastName" class="team gast">
 
 GAST
 
 </div>
 
 
+
 </div>
+
+
+
 
 
 
@@ -669,9 +686,7 @@ GAST
 
 
 <h2>
-
 Statistik
-
 </h2>
 
 
@@ -679,97 +694,86 @@ Statistik
 <div class="stats">
 
 
+
 <div>
 
 <h3>
-
 xG Heim
-
 </h3>
 
 <span id="xgHeim">
-
 1.00
-
 </span>
 
 </div>
 
 
 
+
 <div>
 
 <h3>
-
 xG Gast
-
 </h3>
 
 <span id="xgGast">
-
 1.00
-
 </span>
 
 </div>
 
 
 
+
 <div>
 
 <h3>
-
 Pässe Heim
-
 </h3>
 
 <span id="passHeim">
-
 0
-
 </span>
 
 </div>
+
 
 
 
 <div>
 
 <h3>
-
 Pässe Gast
-
 </h3>
 
 <span id="passGast">
-
 0
-
 </span>
 
 </div>
 
 
+
 </div>
+
+
 
 
 
 
 
 <h3>
-
 Ballbesitz
-
 </h3>
+
 
 
 <div class="bar">
 
-<div id="ballBalken">
+<div id="ballBalken"></div>
 
 </div>
 
-</div>
 
 
 
@@ -777,18 +781,14 @@ Ballbesitz
 
 
 <span id="ballHeim">
-
 50%
-
 </span>
-
 
 
 <span id="ballGast">
-
 50%
-
 </span>
+
 
 
 </div>
@@ -797,10 +797,10 @@ Ballbesitz
 
 
 
+
+
 <h3>
-
 Passquote
-
 </h3>
 
 
@@ -811,7 +811,11 @@ Heim 0% | Gast 0%
 </div>
 
 
+
 </div>
+
+
+
 
 
 
@@ -821,9 +825,7 @@ Heim 0% | Gast 0%
 
 
 <h2>
-
 Werte ändern
-
 </h2>
 
 
@@ -846,6 +848,7 @@ value="1">
 
 
 
+
 <label>
 
 xG Gast
@@ -859,6 +862,7 @@ step="0.01"
 value="1">
 
 </label>
+
 
 
 
@@ -878,6 +882,7 @@ value="50">
 
 
 
+
 <label>
 
 Pässe Heim
@@ -889,6 +894,7 @@ type="number"
 value="0">
 
 </label>
+
 
 
 
@@ -908,6 +914,7 @@ value="0">
 
 
 
+
 <button onclick="updateStatistik()">
 
 AKTUALISIEREN
@@ -915,14 +922,14 @@ AKTUALISIEREN
 </button>
 
 
+
+
 </div>
 <div class="panel">
 
 
 <h2>
-
 Speichern / Laden
-
 </h2>
 
 
@@ -935,11 +942,13 @@ Speichern / Laden
 
 
 
+
 <button onclick="laden()">
 
 📂 LADEN
 
 </button>
+
 
 
 
@@ -950,13 +959,26 @@ Bereit
 </p>
 
 
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
 </div>
 
 
 
 
 
-</div>
+
+
 
 
 <script>
@@ -1009,26 +1031,24 @@ let dashboard={
 
 
 
+
 /* =========================
-SPIELTAG LADEN
+SPIELTAG EINLESEN
 ========================= */
 
 
 function spieltagLaden(){
 
 
-let text=
-
-document
+let text=document
 .getElementById("spieltagInput")
 .value;
 
 
 
-let zeilen=
 
-text
-.split("\n")
+let zeilen=text
+.split(/\n/)
 .map(
 x=>x.trim()
 )
@@ -1038,7 +1058,9 @@ x=>x!=""
 
 
 
+
 spiele=[];
+
 
 
 
@@ -1051,29 +1073,16 @@ i++
 
 
 if(
-/^\d{2}\.\d{2}\.\d{4}$/
-.test(
-zeilen[i]
-)
+/^\d{2}\.\d{2}\.\d{4}$/.test(zeilen[i])
 ){
 
 
 
-let datum=
+let datum=zeilen[i];
 
-zeilen[i];
+let heim=zeilen[i+1];
 
-
-
-let heim=
-
-zeilen[i+1];
-
-
-
-let gast=
-
-zeilen[i+2];
+let gast=zeilen[i+2];
 
 
 
@@ -1086,7 +1095,6 @@ gast
 
 
 spiele.push({
-
 
 datum:datum,
 
@@ -1113,7 +1121,9 @@ gast:gast
 spieleAnzeigen();
 
 
+
 }
+
 
 
 
@@ -1131,9 +1141,7 @@ function spieleAnzeigen(){
 
 
 
-let liste=
-
-document
+let liste=document
 .getElementById("spielListe");
 
 
@@ -1142,26 +1150,23 @@ liste.innerHTML="";
 
 
 
-spiele.forEach(
 
-function(spiel){
-
+spiele.forEach(function(spiel){
 
 
-let karte=
 
-document
+let karte=document
 .createElement("div");
 
 
 
-karte.className=
+karte.className="spielkarte";
 
-"spielkarte";
 
 
 
 karte.innerHTML=`
+
 
 <div class="datum">
 
@@ -1190,7 +1195,9 @@ ${spiel.gast}
 
 </div>
 
+
 `;
+
 
 
 
@@ -1206,15 +1213,12 @@ spielLaden(spiel);
 
 
 
+
 liste.appendChild(karte);
 
 
 
-}
-
-
-
-);
+});
 
 
 
@@ -1238,13 +1242,11 @@ function spielLaden(spiel){
 
 
 dashboard.aktuell.heim=
-
 spiel.heim;
 
 
 
 dashboard.aktuell.gast=
-
 spiel.gast;
 
 
@@ -1253,7 +1255,6 @@ spiel.gast;
 document
 .getElementById("heimName")
 .textContent=
-
 spiel.heim;
 
 
@@ -1262,13 +1263,49 @@ spiel.heim;
 document
 .getElementById("gastName")
 .textContent=
-
 spiel.gast;
 
 
 
 
+if(spiel.statistik){
+
+
+
+dashboard.statistik.xgHeim=
+spiel.statistik.xgHeim;
+
+
+
+dashboard.statistik.xgGast=
+spiel.statistik.xgGast;
+
+
+
+dashboard.statistik.ballHeim=
+spiel.statistik.ballHeim;
+
+
+
+dashboard.statistik.passHeim=
+spiel.statistik.passHeim;
+
+
+
+dashboard.statistik.passGast=
+spiel.statistik.passGast;
+
+
+
+passQuote();
+
+
+}
+
+
+
 statistikAnzeigen();
+
 
 
 }
@@ -1280,9 +1317,8 @@ statistikAnzeigen();
 
 
 
-
 /* =========================
-STATISTIK ÄNDERN
+STATISTIK UPDATE
 ========================= */
 
 
@@ -1290,33 +1326,29 @@ function updateStatistik(){
 
 
 
-let s=
-
-dashboard.statistik;
+let s=dashboard.statistik;
 
 
 
-s.xgHeim=
 
-zahl(
+s.xgHeim=zahl(
 "inputXgHeim",
 1
 );
 
 
 
-s.xgGast=
 
-zahl(
+s.xgGast=zahl(
 "inputXgGast",
 1
 );
 
 
 
-s.ballHeim=
 
-zahl(
+
+s.ballHeim=zahl(
 "inputBall",
 50
 );
@@ -1324,37 +1356,31 @@ zahl(
 
 
 
-if(
-s.ballHeim<0
-)
+if(s.ballHeim<0)
 s.ballHeim=0;
 
 
 
-if(
-s.ballHeim>100
-)
+if(s.ballHeim>100)
 s.ballHeim=100;
 
 
 
 
 
-s.passHeim=
-
-zahl(
+s.passHeim=zahl(
 "inputPassHeim",
 0
 );
 
 
 
-s.passGast=
 
-zahl(
+s.passGast=zahl(
 "inputPassGast",
 0
 );
+
 
 
 
@@ -1371,39 +1397,38 @@ statistikAnzeigen();
 
 
 
-
-
-
-
-
-
+ 
 /* =========================
 ZAHLEN SICHER LESEN
 ========================= */
 
 
-function zahl(id,wert){
+function zahl(id,standard){
 
 
 
-let x=
+let wert=Number(
 
-Number(
 document
 .getElementById(id)
 .value
+
 );
 
 
 
-if(
-isNaN(x)
-)
+if(isNaN(wert)){
+
+
+return standard;
+
+
+}
+
+
+
 return wert;
 
-
-
-return x;
 
 
 }
@@ -1415,9 +1440,8 @@ return x;
 
 
 
-
 /* =========================
-PASSQUOTE
+PASSQUOTE BERECHNEN
 ========================= */
 
 
@@ -1425,9 +1449,7 @@ function passQuote(){
 
 
 
-let s=
-
-dashboard.statistik;
+let s=dashboard.statistik;
 
 
 
@@ -1437,13 +1459,15 @@ s.passHeim>0
 
 ?
 
-Math.round(
-s.passHeim/6
+Math.min(
+100,
+Math.round(s.passHeim/6)
 )
 
 :
 
 0;
+
 
 
 
@@ -1454,8 +1478,9 @@ s.passGast>0
 
 ?
 
-Math.round(
-s.passGast/6
+Math.min(
+100,
+Math.round(s.passGast/6)
 )
 
 :
@@ -1474,7 +1499,7 @@ s.passGast/6
 
 
 /* =========================
-ANZEIGE AKTUALISIEREN
+STATISTIK ANZEIGEN
 ========================= */
 
 
@@ -1482,17 +1507,16 @@ function statistikAnzeigen(){
 
 
 
-let s=
+let s=dashboard.statistik;
 
-dashboard.statistik;
 
 
 
 document
 .getElementById("xgHeim")
 .textContent=
-
 s.xgHeim.toFixed(2);
+
 
 
 
@@ -1500,8 +1524,8 @@ s.xgHeim.toFixed(2);
 document
 .getElementById("xgGast")
 .textContent=
-
 s.xgGast.toFixed(2);
+
 
 
 
@@ -1509,8 +1533,8 @@ s.xgGast.toFixed(2);
 document
 .getElementById("passHeim")
 .textContent=
-
 s.passHeim;
+
 
 
 
@@ -1518,8 +1542,8 @@ s.passHeim;
 document
 .getElementById("passGast")
 .textContent=
-
 s.passGast;
+
 
 
 
@@ -1527,8 +1551,8 @@ s.passGast;
 document
 .getElementById("ballBalken")
 .style.width=
-
 s.ballHeim+"%";
+
 
 
 
@@ -1536,8 +1560,8 @@ s.ballHeim+"%";
 document
 .getElementById("ballHeim")
 .textContent=
-
 s.ballHeim+"%";
+
 
 
 
@@ -1545,8 +1569,8 @@ s.ballHeim+"%";
 document
 .getElementById("ballGast")
 .textContent=
-
 (100-s.ballHeim)+"%";
+
 
 
 
@@ -1570,12 +1594,20 @@ s.quoteGast
 }
 
 
+
+
+
+
+
+
+
 /* =========================
 SPEICHERN
 ========================= */
 
 
 function speichern(){
+
 
 
 let daten={
@@ -1587,7 +1619,9 @@ spiele:spiele,
 dashboard:dashboard
 
 
+
 };
+
 
 
 
@@ -1603,6 +1637,7 @@ JSON.stringify(daten)
 
 
 
+
 document
 .getElementById("status")
 .textContent=
@@ -1610,7 +1645,9 @@ document
 "Gespeichert";
 
 
+
 }
+
 
 
 
@@ -1639,6 +1676,7 @@ localStorage.getItem(
 
 
 
+
 if(!daten){
 
 
@@ -1658,6 +1696,7 @@ return;
 
 
 
+
 let gespeichert=
 
 JSON.parse(daten);
@@ -1672,9 +1711,12 @@ gespeichert.spiele || [];
 
 
 
+
+
 dashboard=
 
 gespeichert.dashboard || dashboard;
+
 
 
 
@@ -1688,8 +1730,8 @@ spieleAnzeigen();
 document
 .getElementById("heimName")
 .textContent=
-
 dashboard.aktuell.heim;
+
 
 
 
@@ -1697,13 +1739,14 @@ dashboard.aktuell.heim;
 document
 .getElementById("gastName")
 .textContent=
-
 dashboard.aktuell.gast;
 
 
 
 
+
 statistikAnzeigen();
+
 
 
 
@@ -1715,6 +1758,7 @@ document
 "Geladen";
 
 
+
 }
 
 
@@ -1724,9 +1768,8 @@ document
 
 
 
-
 /* =========================
-BEISPIELDATEN
+BEISPIEL DATEN
 ========================= */
 
 
@@ -1735,6 +1778,7 @@ const beispielDaten={
 
 
 spiele:[
+
 
 
 {
@@ -1753,12 +1797,9 @@ xgHeim:1.85,
 
 xgGast:1.20,
 
-
 ballHeim:58,
 
-
 passHeim:520,
-
 
 passGast:410
 
@@ -1766,7 +1807,10 @@ passGast:410
 }
 
 
+
 },
+
+
 
 
 
@@ -1775,7 +1819,9 @@ passGast:410
 
 datum:"09.08.2026",
 
+
 heim:"Union Berlin",
+
 
 gast:"Eintracht Frankfurt",
 
@@ -1787,17 +1833,15 @@ xgHeim:1.10,
 
 xgGast:1.45,
 
-
 ballHeim:44,
 
-
 passHeim:350,
-
 
 passGast:480
 
 
 }
+
 
 
 }
@@ -1816,9 +1860,8 @@ passGast:480
 
 
 
-
 /* =========================
-BEISPIELE LADEN
+BEISPIEL SPIELE LADEN
 ========================= */
 
 
@@ -1831,9 +1874,7 @@ spiele=
 JSON.parse(
 
 JSON.stringify(
-
 beispielDaten.spiele
-
 )
 
 );
@@ -1841,7 +1882,10 @@ beispielDaten.spiele
 
 
 
+
 spieleAnzeigen();
+
+
 
 
 
@@ -1852,136 +1896,20 @@ document
 "Beispieldaten geladen";
 
 
+
 }
 
 
 
 
-
-
-
-
-
+ 
 /* =========================
-STATISTIK AUS SPIEL ÜBERNEHMEN
-========================= */
-
-
-const alteSpielLaden=
-
-spielLaden;
-
-
-
-spielLaden=function(spiel){
-
-
-
-alteSpielLaden(spiel);
-
-
-
-
-
-let gefunden=
-
-spiele.find(
-
-function(x){
-
-
-
-return(
-
-x.datum===spiel.datum &&
-
-x.heim===spiel.heim &&
-
-x.gast===spiel.gast
-
-
-);
-
-
-
-}
-
-);
-
-
-
-
-
-
-if(
-gefunden &&
-gefunden.statistik
-){
-
-
-
-dashboard.statistik.xgHeim=
-
-gefunden.statistik.xgHeim;
-
-
-
-dashboard.statistik.xgGast=
-
-gefunden.statistik.xgGast;
-
-
-
-dashboard.statistik.ballHeim=
-
-gefunden.statistik.ballHeim;
-
-
-
-dashboard.statistik.passHeim=
-
-gefunden.statistik.passHeim;
-
-
-
-dashboard.statistik.passGast=
-
-gefunden.statistik.passGast;
-
-
-
-passQuote();
-
-
-
-statistikAnzeigen();
-
-
-
-}
-
-
-
-
-
-};
-
-
-
-
-
-
-
-
-/* =========================
-START
+STARTSYSTEM
 ========================= */
 
 
 window.addEventListener(
-
 "load",
-
 function(){
 
 
@@ -1990,10 +1918,7 @@ statistikAnzeigen();
 
 
 
-
-if(
-spiele.length===0
-){
+if(spiele.length===0){
 
 
 beispieleLaden();
@@ -2006,16 +1931,15 @@ beispieleLaden();
 }
 
 );
+
+
+
+
+
 </script>
 
 
-</div>
-
-
-</div>
-
 
 </body>
-
 
 </html>
