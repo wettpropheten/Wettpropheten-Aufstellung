@@ -45,8 +45,8 @@ GRUNDLAYOUT
 html,
 body{
 
-    margin:0 !important;
-    padding:0 !important;
+    margin:0;
+    padding:0;
 
     width:100vw;
     height:100vh;
@@ -80,6 +80,7 @@ body{
 LINKER SPIELTAG
 ========================= */
 
+
 .sidebar{
 
     flex:0 0 280px;
@@ -100,6 +101,8 @@ LINKER SPIELTAG
     padding:15px;
 
 }
+
+
 
 
 
@@ -156,8 +159,6 @@ LINKER SPIELTAG
     padding:15px;
 
     resize:none;
-
-    font-size:15px;
 
 }
 
@@ -239,8 +240,6 @@ SPIELKARTEN
 
     font-size:13px;
 
-    margin-bottom:8px;
-
 }
 
 
@@ -251,7 +250,7 @@ SPIELKARTEN
 
     font-weight:bold;
 
-    margin:5px;
+    margin:6px;
 
 }
 
@@ -260,15 +259,13 @@ SPIELKARTEN
 
 
 /* =========================
-RECHTER HAUPTBEREICH
+HAUPTBEREICH
 ========================= */
 
 
 .main{
 
     flex:1;
-
-    width:auto;
 
     height:100vh;
 
@@ -304,6 +301,7 @@ SPIELKOPF
 
     margin-right:20px;
 
+
     height:190px;
 
 
@@ -326,6 +324,8 @@ SPIELKOPF
     border-radius:30px;
 
 }
+
+
 
 
 
@@ -388,7 +388,7 @@ SPIELKOPF
 
 
 <!-- =========================
-LINKER SPIELTAG
+LINKS SPIELTAG
 ========================= -->
 
 
@@ -405,7 +405,8 @@ SPIELTAG
 
 
 
-<textarea id="spieltagInput">
+<textarea id="spieltagInput"
+placeholder="
 
 08.08.2026
 
@@ -420,8 +421,7 @@ Bayern München
 
 Borussia Dortmund
 
-</textarea>
-
+"></textarea>
 
 
 
@@ -449,8 +449,9 @@ SPIELTAG LADEN
 
 
 
+
 <!-- =========================
-RECHTE SEITE
+RECHTS
 ========================= -->
 
 
@@ -470,11 +471,13 @@ HEIM
 
 
 
+
 <div class="ergebnis">
 
 0 : 0
 
 </div>
+
 
 
 
@@ -486,7 +489,254 @@ GAST
 
 
 
+
 </div>
+
+
+
+
+
+
+<!-- TEIL 2 FOLGT -->
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+let spiele=[];
+
+
+
+/* =========================
+SPIELTAG AUSLESEN
+========================= */
+
+
+function spieltagLaden(){
+
+
+
+let text=document
+.getElementById("spieltagInput")
+.value;
+
+
+
+let zeilen=text
+.split("\n")
+.map(
+x=>x.trim()
+)
+.filter(
+x=>x!=""
+);
+
+
+
+spiele=[];
+
+
+
+let liste=document
+.getElementById("spielListe");
+
+
+
+liste.innerHTML="";
+
+
+
+
+
+for(let i=0;i<zeilen.length;i++){
+
+
+
+if(
+/^\d{2}\.\d{2}\.\d{4}$/
+.test(
+zeilen[i]
+)
+){
+
+
+
+let datum=zeilen[i];
+
+let heim=zeilen[i+1];
+
+let gast=zeilen[i+2];
+
+
+
+if(heim && gast){
+
+
+
+let spiel={
+
+datum:datum,
+
+heim:heim,
+
+gast:gast
+
+};
+
+
+
+spiele.push(spiel);
+
+
+
+spielkarteErstellen(spiel);
+
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+/* =========================
+SPIELKARTE ERSTELLEN
+========================= */
+
+
+function spielkarteErstellen(spiel){
+
+
+
+let karte=document.createElement("div");
+
+
+
+karte.className="spielkarte";
+
+
+
+karte.innerHTML=`
+
+<div class="spielzeit">
+
+${spiel.datum}
+
+</div>
+
+
+<div class="verein">
+
+${spiel.heim}
+
+</div>
+
+
+<div>
+
+VS
+
+</div>
+
+
+<div class="verein">
+
+${spiel.gast}
+
+</div>
+
+`;
+
+
+
+
+karte.onclick=function(){
+
+
+spielLaden(spiel);
+
+
+};
+
+
+
+
+
+document
+.getElementById("spielListe")
+.appendChild(karte);
+
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+SPIEL RECHTS LADEN
+========================= */
+
+
+function spielLaden(spiel){
+
+
+
+document
+.getElementById("heimName")
+.textContent=
+spiel.heim;
+
+
+
+document
+.getElementById("gastName")
+.textContent=
+spiel.gast;
+
+
+
+document
+.querySelector(".ergebnis")
+.textContent=
+"0 : 0";
+
+
+
+}
+
+
+
+
+
+</script>
 
 
 
