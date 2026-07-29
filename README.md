@@ -52,7 +52,6 @@ LAYOUT
 }
 
 
-
 /* =========================
 LINKER SPIELTAG
 ========================= */
@@ -112,7 +111,6 @@ LINKER SPIELTAG
 
 
 
-
 #spieltagInput{
 
     width:100%;
@@ -131,11 +129,7 @@ LINKER SPIELTAG
 
     resize:none;
 
-    font-size:15px;
-
 }
-
-
 
 
 
@@ -152,7 +146,6 @@ LINKER SPIELTAG
     border:1px solid #777;
 
     background:
-
     linear-gradient(
     #555,
     #111
@@ -167,9 +160,6 @@ LINKER SPIELTAG
 }
 
 
-
-
-
 /* =========================
 SPIELKARTEN
 ========================= */
@@ -182,13 +172,11 @@ SPIELKARTEN
     padding:15px;
 
     background:
-
     linear-gradient(
     145deg,
     #333,
     #111
     );
-
 
     border-radius:18px;
 
@@ -231,7 +219,6 @@ SPIELKARTEN
 }
 
 
-
 /* =========================
 RECHTER BEREICH
 ========================= */
@@ -248,7 +235,6 @@ RECHTER BEREICH
     overflow-y:auto;
 
     background:
-
     linear-gradient(
     145deg,
     #191919,
@@ -256,8 +242,6 @@ RECHTER BEREICH
     );
 
 }
-
-
 
 
 
@@ -278,7 +262,6 @@ SPIELKOPF
     1fr 220px 1fr;
 
     align-items:center;
-
 
     background:#111;
 
@@ -302,20 +285,29 @@ SPIELKOPF
 
 
 
-.heim{
+:root{
 
-    color:#0099ff;
+    --heim-farbe:#0099ff;
+
+    --gast-farbe:#ff3344;
+
+}
+
+
+
+.team.heim{
+
+    color:var(--heim-farbe);
 
 }
 
 
 
-.gast{
+.team.gast{
 
-    color:#ff3344;
+    color:var(--gast-farbe);
 
 }
-
 
 
 
@@ -331,22 +323,6 @@ SPIELKOPF
 
 }
 
-
-
-
-
-/* =========================
-FARB SYSTEM
-========================= */
-
-
-:root{
-
-    --heim-farbe:#0099ff;
-
-    --gast-farbe:#ff3344;
-
-}
 
 
 </style>
@@ -377,21 +353,16 @@ SPIELTAG
 
 <textarea id="spieltagInput"
 placeholder="
-
 08.08.2026
 
 1. FC Union Berlin
 Eintracht Frankfurt
 
--
-
 09.08.2026
 
 Bayern München
 Borussia Dortmund
-
-">
-</textarea>
+"></textarea>
 
 
 
@@ -424,7 +395,7 @@ SPIELTAG LADEN
 <div class="spielkopf">
 
 
-<div class="team heim">
+<div class="team heim" id="heimName">
 HEIM
 </div>
 
@@ -436,26 +407,18 @@ HEIM
 
 
 
-<div class="team gast">
+<div class="team gast" id="gastName">
 GAST
 </div>
 
 
 
 </div>
+<!-- =========================
+SPIELTAG SYSTEM
+========================= -->
 
 
-
-
-
-<!-- TEIL 2 FOLGT -->
-
-
-
-</div>
-
-
-</div>
 <script>
 
 let spiele=[];
@@ -485,13 +448,13 @@ let zeilen=text
 spiele=[];
 
 
+
 let liste=document
 .getElementById("spielListe");
 
 
+
 liste.innerHTML="";
-
-
 
 
 
@@ -527,9 +490,7 @@ for(let i=0;i<zeilen.length;i++){
             spiele.push(spiel);
 
 
-
             spielkarteErstellen(spiel);
-
 
 
         }
@@ -542,7 +503,6 @@ for(let i=0;i<zeilen.length;i++){
 
 
 
-
 }
 
 
@@ -550,7 +510,7 @@ for(let i=0;i<zeilen.length;i++){
 
 
 /* =========================
-SPIELKARTE ERSTELLEN
+SPIELKARTE
 ========================= */
 
 
@@ -598,13 +558,11 @@ ${spiel.gast}
 
 
 
-
 karte.onclick=function(){
 
 spielLaden(spiel);
 
 };
-
 
 
 
@@ -632,7 +590,7 @@ function spielLaden(spiel){
 
 
 document
-.querySelector(".team.heim")
+.getElementById("heimName")
 .textContent=
 
 spiel.heim;
@@ -641,11 +599,10 @@ spiel.heim;
 
 
 document
-.querySelector(".team.gast")
+.getElementById("gastName")
 .textContent=
 
 spiel.gast;
-
 
 
 
@@ -654,8 +611,6 @@ document
 .textContent=
 
 "0 : 0";
-
-
 
 
 
@@ -671,60 +626,6 @@ spiel.gast
 
 
 
-</script>
-
-
-
-
-
-<style>
-
-
-/* =========================
-FARBEN MANNSCHAFTEN
-========================= */
-
-
-.team.heim{
-
-color:var(--heim-farbe)!important;
-
-}
-
-
-
-.team.gast{
-
-color:var(--gast-farbe)!important;
-
-}
-
-
-
-.heim-balken{
-
-background:var(--heim-farbe)!important;
-
-}
-
-
-
-.gast-balken{
-
-background:var(--gast-farbe)!important;
-
-}
-
-
-
-</style>
-
-
-
-
-
-
-<script>
 
 
 /* =========================
@@ -735,81 +636,46 @@ VEREINS FARBEN
 const vereinsFarben={
 
 
+"1. FC Union Berlin":"#eb0016",
 
-"1. FC Union Berlin":
-"#eb0016",
+"Eintracht Frankfurt":"#e1000f",
 
+"Bayern München":"#dc052d",
 
-"Eintracht Frankfurt":
-"#e1000f",
+"Bayer Leverkusen":"#e32221",
 
+"Werder Bremen":"#1d9053",
 
-"Bayern München":
-"#dc052d",
+"Schalke 04":"#004d9f",
 
+"HSV":"#0066b3",
 
-"Bayer Leverkusen":
-"#e32221",
+"Borussia Dortmund":"#f6d800",
 
+"Borussia Mönchengladbach":"#009b3a",
 
-"Werder Bremen":
-"#1d9053",
+"TSG Hoffenheim":"#005ca9",
 
+"1. FC Köln":"#ffffff",
 
-"Schalke 04":
-"#004d9f",
+"FSV Mainz 05":"#c31432",
 
+"SC Freiburg":"#e2001a",
 
-"HSV":
-"#0066b3",
+"FC Augsburg":"#ba3733",
 
+"SC Paderborn":"#005ca9",
 
-"Borussia Dortmund":
-"#f6d800",
+"VfB Stuttgart":"#e32219",
 
+"SV Elversberg":"#111111",
 
-"Borussia Mönchengladbach":
-"#009b3a",
-
-
-"TSG Hoffenheim":
-"#005ca9",
-
-
-"1. FC Köln":
-"#ffffff",
-
-
-"FSV Mainz 05":
-"#c31432",
-
-
-"SC Freiburg":
-"#e2001a",
-
-
-"FC Augsburg":
-"#ba3733",
-
-
-"SC Paderborn":
-"#005ca9",
-
-
-"VfB Stuttgart":
-"#e32219",
-
-
-"SV Elversberg":
-"#111111",
-
-
-"RB Leipzig":
-"#dd0000"
-
+"RB Leipzig":"#dd0000"
 
 
 };
+
+
 
 
 
@@ -823,7 +689,9 @@ function farbenSetzen(heim,gast){
 let heimFarbe=
 
 vereinsFarben[heim]
+
 ||
+
 "#0099ff";
 
 
@@ -831,14 +699,18 @@ vereinsFarben[heim]
 let gastFarbe=
 
 vereinsFarben[gast]
+
 ||
+
 "#ff3344";
 
 
 
 
 
-document.documentElement.style.setProperty(
+document.documentElement
+.style
+.setProperty(
 
 "--heim-farbe",
 
@@ -850,7 +722,9 @@ heimFarbe
 
 
 
-document.documentElement.style.setProperty(
+document.documentElement
+.style
+.setProperty(
 
 "--gast-farbe",
 
@@ -867,58 +741,49 @@ gastFarbe
 </script>
 
 
-<!-- TEIL 3 FOLGT -->
+
+
+
+<!-- =========================
+xG + BALLBESITZ + TOP STATISTIKEN
+========================= -->
+
+
 <style>
 
 
-/* =========================
-xG + BALLBESITZ
-========================= */
-
-
-.xg-panel,
-.ballbesitz-panel{
-
+.panel{
 
     margin:20px;
 
     padding:25px;
 
-
     background:
-
     linear-gradient(
     145deg,
     #252525,
     #101010
     );
 
-
     border-radius:25px;
 
     border:1px solid #333;
-
 
 }
 
 
 
-
-.xg-panel h2,
-.ballbesitz-panel h2{
-
+.panel h2{
 
     color:#f5c542;
 
     margin-bottom:15px;
-
 
 }
 
 
 
 .wert-zeile{
-
 
     display:flex;
 
@@ -930,13 +795,11 @@ xG + BALLBESITZ
 
     margin-bottom:12px;
 
-
 }
 
 
 
 .balken{
-
 
     width:100%;
 
@@ -944,12 +807,11 @@ xG + BALLBESITZ
 
     background:#000;
 
+    border-radius:25px;
+
     display:flex;
 
     overflow:hidden;
-
-    border-radius:25px;
-
 
 }
 
@@ -957,9 +819,9 @@ xG + BALLBESITZ
 
 #xgBalkenHeim{
 
-    background:var(--heim-farbe);
-
     width:50%;
+
+    background:var(--heim-farbe);
 
 }
 
@@ -967,9 +829,9 @@ xG + BALLBESITZ
 
 #xgBalkenGast{
 
-    background:var(--gast-farbe);
-
     width:50%;
+
+    background:var(--gast-farbe);
 
 }
 
@@ -977,9 +839,9 @@ xG + BALLBESITZ
 
 #ballHeim{
 
-    background:var(--heim-farbe);
-
     width:50%;
+
+    background:var(--heim-farbe);
 
 }
 
@@ -987,21 +849,35 @@ xG + BALLBESITZ
 
 #ballGast{
 
-    background:var(--gast-farbe);
-
     width:50%;
+
+    background:var(--gast-farbe);
 
 }
 
 
 
 
+.heim-stat{
+
+    color:var(--heim-farbe);
+
+}
+
+
+
+.gast-stat{
+
+    color:var(--gast-farbe);
+
+}
+
+
+
 
 /* =========================
-TOP STATISTIKEN
-3 KÄSTCHEN NEBENEINANDER
+TOP KÄSTCHEN 3 NEBENEINANDER
 ========================= */
-
 
 
 .top-statistik{
@@ -1011,10 +887,7 @@ TOP STATISTIKEN
 
     display:grid;
 
-    grid-template-columns:
-
-    repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
 
     gap:20px;
 
@@ -1023,13 +896,10 @@ TOP STATISTIKEN
 
 
 
-
-
 .stat-box{
 
 
     background:
-
     linear-gradient(
     145deg,
     #333,
@@ -1041,9 +911,7 @@ TOP STATISTIKEN
 
     border:1px solid #444;
 
-
     padding:20px;
-
 
     text-align:center;
 
@@ -1054,13 +922,11 @@ TOP STATISTIKEN
 
 .stat-box h3{
 
-
     color:#aaa;
 
     font-size:15px;
 
     margin-bottom:15px;
-
 
 }
 
@@ -1073,8 +939,9 @@ TOP STATISTIKEN
 
     justify-content:center;
 
-    gap:15px;
+    align-items:center;
 
+    gap:15px;
 
     font-size:32px;
 
@@ -1085,39 +952,20 @@ TOP STATISTIKEN
 
 
 
-.heim-stat{
-
-
-    color:var(--heim-farbe);
-
-
-}
-
-
-
-.gast-stat{
-
-
-    color:var(--gast-farbe);
-
-
-}
-
-
-
-
 </style>
 
 
 
 
 
+
+
 <!-- =========================
-xG
+EXPECTED GOALS
 ========================= -->
 
 
-<div class="xg-panel">
+<div class="panel">
 
 
 <h2>
@@ -1125,7 +973,9 @@ Expected Goals (xG)
 </h2>
 
 
+
 <div class="wert-zeile">
+
 
 <span class="heim-stat" id="xgHeim">
 0.00
@@ -1141,6 +991,7 @@ Expected Goals (xG)
 
 
 
+
 <div class="balken">
 
 
@@ -1153,8 +1004,9 @@ Expected Goals (xG)
 </div>
 
 
-
 </div>
+
+
 
 
 
@@ -1165,7 +1017,7 @@ BALLBESITZ
 ========================= -->
 
 
-<div class="ballbesitz-panel">
+<div class="panel">
 
 
 <h2>
@@ -1213,7 +1065,6 @@ Ballbesitz
 
 
 
-
 <!-- =========================
 TOP STATISTIKEN
 ========================= -->
@@ -1249,6 +1100,7 @@ SCHÜSSE
 
 
 
+
 <div class="stat-box">
 
 <h3>
@@ -1270,6 +1122,7 @@ SCHÜSSE AUFS TOR
 </div>
 
 </div>
+
 
 
 
@@ -1301,6 +1154,7 @@ GROSSCHANCEN
 
 
 
+
 <div class="stat-box">
 
 <h3>
@@ -1322,6 +1176,7 @@ ECKBÄLLE
 </div>
 
 </div>
+
 
 
 
@@ -1353,6 +1208,7 @@ PÄSSE
 
 
 
+
 <div class="stat-box">
 
 <h3>
@@ -1379,7 +1235,6 @@ PASSGENAUIGKEIT
 
 
 
-<!-- TEIL 4 FOLGT -->
 <div class="stat-box">
 
 <h3>
@@ -1411,7 +1266,7 @@ GELBE KARTEN
 
 
 <!-- =========================
-LIVE DATEN
+LIVE DATEN SYSTEM
 ========================= -->
 
 
@@ -1496,12 +1351,16 @@ font-size:16px;
 
 
 
+
+
 <div class="live-bereich">
 
 
 <h2>
 LIVE DATEN
 </h2>
+
+
 
 
 
@@ -1549,6 +1408,8 @@ Gelbe Karten
 
 
 
+
+
 <button class="button"
 onclick="datenUebernehmen()">
 
@@ -1569,6 +1430,7 @@ DATEN ÜBERNEHMEN
 <script>
 
 
+
 function paarLesen(text,titel){
 
 
@@ -1582,26 +1444,36 @@ titel+
 );
 
 
+
 let wert=text.match(regex);
+
 
 
 if(wert){
 
 return [
+
 wert[1],
+
 wert[2]
+
 ];
 
 }
 
 
 return [
+
 "0",
+
 "0"
+
 ];
 
 
 }
+
+
 
 
 
@@ -1637,7 +1509,6 @@ wert[2]+"%"
 }
 
 
-
 return [
 
 "0%",
@@ -1657,10 +1528,11 @@ return [
 function xgLesen(text){
 
 
-let regex=/xG\s*\n\s*(\d+\.\d+)\s*\n\s*(\d+\.\d+)/i;
+let wert=text.match(
 
+/xG\s*\n\s*(\d+\.\d+)\s*\n\s*(\d+\.\d+)/i
 
-let wert=text.match(regex);
+);
 
 
 
@@ -1687,8 +1559,8 @@ return [
 ];
 
 
-
 }
+
 
 
 
@@ -1719,32 +1591,41 @@ let xg=xgLesen(text);
 
 
 xgHeim.textContent=
+
 xg[0].toFixed(2);
 
 
 
 xgGast.textContent=
+
 xg[1].toFixed(2);
 
 
 
-let gesamt=xg[0]+xg[1];
+let gesamt=
+
+xg[0]+xg[1];
 
 
 
 if(gesamt>0){
 
 
+
 xgBalkenHeim.style.width=
+
 (xg[0]/gesamt*100)+"%";
 
 
 
 xgBalkenGast.style.width=
+
 (xg[1]/gesamt*100)+"%";
 
 
 }
+
+
 
 
 
@@ -1756,6 +1637,7 @@ BALLBESITZ
 
 
 let ball=
+
 prozentLesen(
 text,
 "Ballbesitz"
@@ -1764,21 +1646,28 @@ text,
 
 
 ballTextHeim.textContent=
+
 ball[0];
 
 
 
 ballTextGast.textContent=
+
 ball[1];
 
 
 
 ballHeim.style.width=
+
 ball[0];
 
 
+
 ballGast.style.width=
+
 ball[1];
+
+
 
 
 
@@ -1793,6 +1682,7 @@ STATISTIKEN
 
 
 let schuesse=
+
 paarLesen(
 text,
 "Schüsse insgesamt"
@@ -1801,10 +1691,12 @@ text,
 
 
 schuesseHeim.textContent=
+
 schuesse[0];
 
 
 schuesseGast.textContent=
+
 schuesse[1];
 
 
@@ -1814,6 +1706,7 @@ schuesse[1];
 
 
 let tore=
+
 paarLesen(
 text,
 "Schüsse aufs Tor"
@@ -1822,10 +1715,12 @@ text,
 
 
 torHeim.textContent=
+
 tore[0];
 
 
 torGast.textContent=
+
 tore[1];
 
 
@@ -1834,7 +1729,8 @@ tore[1];
 
 
 
-let chance=
+let chancen=
+
 paarLesen(
 text,
 "Großchance"
@@ -1843,11 +1739,13 @@ text,
 
 
 chanceHeim.textContent=
-chance[0];
+
+chancen[0];
 
 
 chanceGast.textContent=
-chance[1];
+
+chancen[1];
 
 
 
@@ -1856,6 +1754,7 @@ chance[1];
 
 
 let ecken=
+
 paarLesen(
 text,
 "Eckbälle"
@@ -1864,10 +1763,12 @@ text,
 
 
 eckenHeim.textContent=
+
 ecken[0];
 
 
 eckenGast.textContent=
+
 ecken[1];
 
 
@@ -1875,10 +1776,10 @@ ecken[1];
 
 
 
-/* PÄSSE */
 
+let paesse=
 
-let paesse=text.match(
+text.match(
 
 /Pässe\s*\n\s*(\d+)\/\d+\s*\n\s*(\d+)\/\d+/i
 
@@ -1890,10 +1791,12 @@ if(paesse){
 
 
 paesseHeim.textContent=
+
 paesse[1];
 
 
 paesseGast.textContent=
+
 paesse[2];
 
 
@@ -1905,10 +1808,8 @@ paesse[2];
 
 
 
-/* PASSGENAUIGKEIT */
-
-
 let pass=
+
 prozentLesen(
 text,
 "Passgenauigkeit"
@@ -1917,10 +1818,12 @@ text,
 
 
 passHeim.textContent=
+
 pass[0];
 
 
 passGast.textContent=
+
 pass[1];
 
 
@@ -1928,10 +1831,10 @@ pass[1];
 
 
 
-/* KARTEN */
 
 
 let karten=
+
 paarLesen(
 text,
 "Gelbe Karten"
@@ -1940,12 +1843,13 @@ text,
 
 
 kartenHeim.textContent=
+
 karten[0];
 
 
 kartenGast.textContent=
-karten[1];
 
+karten[1];
 
 
 
@@ -1959,9 +1863,9 @@ karten[1];
 
 
 
-<!-- TEIL 5 FOLGT -->
 <!-- =========================
-SPEICHERN / LADEN + ABSCHLUSS
+TEIL 5
+SPEICHERN / LADEN / ABSCHLUSS
 ========================= -->
 
 
@@ -1973,7 +1877,6 @@ SPEICHERN / LADEN + ABSCHLUSS
 
 margin:20px;
 
-
 padding:25px;
 
 
@@ -1984,7 +1887,6 @@ linear-gradient(
 #252525,
 #101010
 );
-
 
 
 border-radius:25px;
@@ -2009,7 +1911,36 @@ margin-bottom:15px;
 
 
 
+.status-box{
+
+
+margin-top:20px;
+
+padding:15px;
+
+
+background:#050505;
+
+
+border-radius:15px;
+
+
+border:1px solid #555;
+
+
+color:#aaa;
+
+
+font-size:14px;
+
+
+}
+
+
+
 </style>
+
+
 
 
 
@@ -2024,23 +1955,40 @@ SPIELTAG SPEICHERN
 
 
 
-<button onclick="spieltagSpeichern()">
 
-💾 SPEICHERN
+<button class="button"
+onclick="spieltagSpeichern()">
+
+💾 SPIELTAG SPEICHERN
+
+</button>
+
+
+
+
+
+<button class="button"
+onclick="spieltagLadenSpeicher()">
+
+📂 SPIELTAG LADEN
 
 </button>
 
 
 
-<button onclick="spieltagLadenSpeicher()">
 
-📂 LADEN
 
-</button>
+<div class="status-box" id="statusBox">
+
+Bereit
+
+</div>
 
 
 
 </div>
+
+
 
 
 
@@ -2056,7 +2004,6 @@ SPIELTAG SPEICHERN
 ========================= */
 
 
-
 function spieltagSpeichern(){
 
 
@@ -2067,8 +2014,8 @@ let daten={
 spiele:spiele,
 
 
-zeit:new Date()
-.toLocaleString("de-DE")
+datum:new Date()
+.toLocaleString("de-DE"),
 
 
 
@@ -2086,9 +2033,12 @@ JSON.stringify(daten)
 
 
 
-alert(
-"Spieltag gespeichert"
-);
+document.getElementById("statusBox")
+.textContent=
+
+"Gespeichert: "
++
+daten.datum;
 
 
 
@@ -2101,10 +2051,10 @@ alert(
 
 
 
+
 /* =========================
 SPIELTAG LADEN
 ========================= */
-
 
 
 function spieltagLadenSpeicher(){
@@ -2124,15 +2074,18 @@ localStorage.getItem(
 if(!daten){
 
 
-alert(
-"Keine gespeicherten Daten"
-);
+
+document.getElementById("statusBox")
+.textContent=
+
+"Keine Daten gespeichert";
 
 
 return;
 
 
 }
+
 
 
 
@@ -2145,6 +2098,7 @@ JSON.parse(daten);
 spiele=
 
 gespeichert.spiele || [];
+
 
 
 
@@ -2162,6 +2116,8 @@ liste.innerHTML="";
 
 
 
+
+
 spiele.forEach(function(spiel){
 
 
@@ -2172,13 +2128,20 @@ spielkarteErstellen(spiel);
 
 
 
-alert(
-"Spieltag geladen"
-);
+
+
+document.getElementById("statusBox")
+.textContent=
+
+"Geladen: "
++
+gespeichert.datum;
 
 
 
 }
+
+
 
 
 
@@ -2191,9 +2154,7 @@ VEREINS FARBEN
 ========================= */
 
 
-
 const vereinsFarben={
-
 
 
 "1. FC Union Berlin":"#eb0016",
@@ -2233,7 +2194,6 @@ const vereinsFarben={
 "RB Leipzig":"#dd0000"
 
 
-
 };
 
 
@@ -2243,14 +2203,75 @@ const vereinsFarben={
 
 
 
+
 /* =========================
-FARBEN BEIM SPIELWECHSEL
+FARBEN AKTUALISIEREN
 ========================= */
 
 
+function farbenSetzen(heim,gast){
 
-const originalSpielLaden = spielLaden;
 
+
+let heimFarbe=
+
+vereinsFarben[heim]
+||
+"#0099ff";
+
+
+
+let gastFarbe=
+
+vereinsFarben[gast]
+||
+"#ff3344";
+
+
+
+
+document.documentElement.style
+.setProperty(
+
+"--heim-farbe",
+
+heimFarbe
+
+);
+
+
+
+
+
+document.documentElement.style
+.setProperty(
+
+"--gast-farbe",
+
+gastFarbe
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+SPIEL LADEN ERWEITERN
+========================= */
+
+
+const alteSpielLaden=
+
+spielLaden;
 
 
 
@@ -2258,42 +2279,17 @@ spielLaden=function(spiel){
 
 
 
-originalSpielLaden(spiel);
+alteSpielLaden(spiel);
 
 
 
 
-let heim=
+farbenSetzen(
 
-vereinsFarben[spiel.heim]
-||
-"#0099ff";
+spiel.heim,
 
+spiel.gast
 
-
-let gast=
-
-vereinsFarben[spiel.gast]
-||
-"#ff3344";
-
-
-
-
-document.documentElement
-.style
-.setProperty(
-"--heim-farbe",
-heim
-);
-
-
-
-document.documentElement
-.style
-.setProperty(
-"--gast-farbe",
-gast
 );
 
 
@@ -2304,6 +2300,7 @@ gast
 
 
 </script>
+
 
 
 
