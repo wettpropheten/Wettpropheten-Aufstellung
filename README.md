@@ -6,69 +6,96 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wettpropheten Dashboard</title>
+<title>Wettpropheten Dashboard Teil 1</title>
 
 
 <style>
 
 *{
+    margin:0;
+    padding:0;
     box-sizing:border-box;
     font-family:Arial,Helvetica,sans-serif;
 }
 
 
-html,body{
-
-    margin:0;
-    padding:0;
+html,
+body{
 
     width:100%;
     height:100%;
 
     background:#050505;
-    color:white;
 
     overflow:hidden;
+
 }
 
 
-/* =====================
-   GESAMT
-===================== */
+
+body{
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+}
+
+
+
+/* =========================
+   HAUPT CONTAINER
+========================= */
 
 
 .app{
 
-    display:flex;
+    position:absolute;
+
+    left:0;
+    top:0;
 
     width:100vw;
     height:100vh;
 
+    display:flex;
+
 }
 
 
-/* =====================
+
+
+
+/* =========================
    SPIELTAG LINKS
-===================== */
+========================= */
 
 
 .sidebar{
 
+
+    flex:0 0 260px;
+
     width:260px;
-    min-width:260px;
 
     height:100vh;
 
+
     background:
+
     linear-gradient(
         180deg,
-        #222,
-        #070707
+        #252525,
+        #080808
     );
+
 
     border-right:2px solid #444;
 
+
     padding:15px;
+
 
 }
 
@@ -76,78 +103,100 @@ html,body{
 
 .sidebar h1{
 
-    margin:5px 0 20px;
-
-    text-align:center;
 
     color:#f5c542;
 
+    text-align:center;
+
     font-size:26px;
+
+    margin-bottom:20px;
+
 
 }
 
 
-.spieltag-box{
 
-    background:#111;
+.spieltag{
 
-    border:1px solid #555;
+    height:calc(100vh - 80px);
+
 
     border-radius:15px;
 
-    height:300px;
+
+    background:#111;
+
+
+    border:1px solid #555;
+
 
     padding:15px;
 
-    color:white;
+
+    color:#aaa;
+
 
 }
 
 
 
-/* =====================
-   HAUPTBEREICH
-===================== */
+
+
+
+/* =========================
+   HAUPTFENSTER
+========================= */
 
 
 .main{
 
+
     flex:1;
+
 
     height:100vh;
 
-    padding:20px;
 
-    overflow:hidden;
+    width:calc(100vw - 260px);
+
+
+    padding:20px;
 
 
     background:
 
+
     linear-gradient(
         145deg,
-        #181818,
+        #191919,
         #050505
     );
+
 
 }
 
 
 
 
-/* =====================
+
+
+/* =========================
    SPIELKOPF
-===================== */
+========================= */
 
 
-.score-header{
+.header{
 
 
     width:100%;
+
 
     height:180px;
 
 
     display:grid;
+
 
     grid-template-columns:1fr 200px 1fr;
 
@@ -155,33 +204,33 @@ html,body{
     align-items:center;
 
 
-    background:
-
-    linear-gradient(
-        90deg,
-        #ffffff15,
-        transparent,
-        #ffffff15
-    );
-
-
     border-radius:30px;
+
+
+    background:#111;
 
 
 }
 
 
-.team-name{
+
+.team{
 
 
     text-align:center;
 
+
+    color:white;
+
+
     font-size:42px;
+
 
     font-weight:bold;
 
 
 }
+
 
 
 .score{
@@ -189,198 +238,14 @@ html,body{
 
     text-align:center;
 
+
     font-size:90px;
 
-    color:#f5c542;
 
     font-weight:bold;
 
-}
-
-
-
-
-
-/* =====================
-   BALKEN MODULE
-===================== */
-
-
-.panel{
-
-
-    margin-top:25px;
-
-    padding:25px;
-
-
-    background:
-
-    linear-gradient(
-        145deg,
-        #252525,
-        #101010
-    );
-
-
-    border-radius:25px;
-
-    border:1px solid #333;
-
-
-}
-
-
-
-
-.panel-title{
 
     color:#f5c542;
-
-    font-size:25px;
-
-    font-weight:bold;
-
-    margin-bottom:20px;
-
-}
-
-
-
-.values{
-
-
-    display:flex;
-
-    justify-content:space-between;
-
-
-    font-size:35px;
-
-    font-weight:bold;
-
-
-    padding:0 30px;
-
-    margin-bottom:15px;
-
-
-}
-
-
-
-
-
-.bar{
-
-
-    width:100%;
-
-    height:40px;
-
-
-    display:flex;
-
-    overflow:hidden;
-
-
-    border-radius:20px;
-
-
-    background:#000;
-
-
-    border:1px solid #555;
-
-
-}
-
-
-
-
-.home-bar{
-
-    width:60%;
-
-    background:#0099ff;
-
-
-}
-
-
-
-.away-bar{
-
-    width:40%;
-
-    background:#ff3344;
-
-
-}
-
-
-
-
-
-
-/* =====================
-   STATISTIK KARTEN
-===================== */
-
-
-.stats-grid{
-
-
-    margin-top:25px;
-
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-
-    gap:20px;
-
-
-}
-
-
-
-.stat-box{
-
-
-    background:#181818;
-
-
-    border:1px solid #444;
-
-
-    border-radius:20px;
-
-
-    padding:25px;
-
-
-    text-align:center;
-
-
-    font-size:18px;
-
-
-}
-
-
-
-.stat-box strong{
-
-
-    display:block;
-
-
-    margin-top:15px;
-
-
-    font-size:35px;
 
 
 }
@@ -400,8 +265,6 @@ html,body{
 
 
 
-<!-- LINKS -->
-
 <div class="sidebar">
 
 
@@ -412,9 +275,11 @@ SPIELTAG
 </h1>
 
 
-<div class="spieltag-box">
+<div class="spieltag">
 
-Spiele kommen hier rein
+
+Hier kommen später die Spiele rein
+
 
 </div>
 
@@ -424,21 +289,19 @@ Spiele kommen hier rein
 
 
 
-
-<!-- HAUPTANSICHT -->
 
 <div class="main">
 
 
+<div class="header">
 
-<div class="score-header">
 
-
-<div class="team-name">
+<div class="team">
 
 HEIM
 
 </div>
+
 
 
 <div class="score">
@@ -448,7 +311,8 @@ HEIM
 </div>
 
 
-<div class="team-name">
+
+<div class="team">
 
 GAST
 
@@ -458,157 +322,12 @@ GAST
 </div>
 
 
-
-
-
-<div class="panel">
-
-
-<div class="panel-title">
-
-Expected Goals (xG)
-
-</div>
-
-
-<div class="values">
-
-<span>
-
-1.24
-
-</span>
-
-
-<span>
-
-0.80
-
-</span>
-
-
-</div>
-
-
-<div class="bar">
-
-
-<div class="home-bar"></div>
-
-<div class="away-bar"></div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="panel">
-
-
-<div class="panel-title">
-
-Ballbesitz
-
-</div>
-
-
-<div class="values">
-
-<span>
-
-58%
-
-</span>
-
-
-<span>
-
-42%
-
-</span>
-
-
-</div>
-
-
-<div class="bar">
-
-
-<div class="home-bar"></div>
-
-<div class="away-bar"></div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="stats-grid">
-
-
-<div class="stat-box">
-
-SCHÜSSE
-
-<strong>
-
-12 : 8
-
-</strong>
-
-</div>
-
-
-
-<div class="stat-box">
-
-ECKEN
-
-<strong>
-
-6 : 3
-
-</strong>
-
-</div>
-
-
-
-<div class="stat-box">
-
-PÄSSE
-
-<strong>
-
-450 : 380
-
-</strong>
-
 </div>
 
 
 
 </div>
 
-
-
-</div>
-
-
-</div>
 
 
 </body>
