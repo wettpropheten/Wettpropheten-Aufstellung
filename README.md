@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wettpropheten Dashboard</title>
@@ -12,163 +11,112 @@
 
 <style>
 
-
 *{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
-
 
 
 html,body{
 
+    width:100%;
+    height:100%;
 
-width:100%;
-height:100%;
+    background:#050505;
 
+    color:white;
 
-background:#050505;
-
-color:white;
-
-
-overflow:hidden;
-
+    overflow:hidden;
 
 }
 
 
 
-
-:root{
-
-
---home-color:#0099ff;
-
---away-color:#ff3344;
-
-
-}
-
-
-
-
-/* =====================
+/* =========================
    APP
-===================== */
+========================= */
 
 
 .app{
 
+    width:100vw;
+    height:100vh;
 
-display:flex;
+    display:flex;
 
-width:100vw;
+    position:absolute;
 
-height:100vh;
-
+    left:0;
+    top:0;
 
 }
 
 
 
-
-/* =====================
-   SIDEBAR
-===================== */
+/* =========================
+   SPIELTAG LINKS
+========================= */
 
 
 .sidebar{
 
+    width:280px;
 
-width:320px;
+    min-width:280px;
 
-min-width:320px;
+    height:100vh;
 
+    background:
 
-height:100vh;
-
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#252525,
-
-#080808
-
-);
+    linear-gradient(
+        180deg,
+        #252525,
+        #080808
+    );
 
 
+    border-right:2px solid #444;
 
-border-right:2px solid #444;
+    padding:15px;
+
+}
 
 
-padding:20px;
 
+.sidebar h1{
 
-overflow-y:auto;
+    text-align:center;
 
+    color:#f5c542;
+
+    font-size:28px;
+
+    margin-bottom:20px;
 
 }
 
 
 
 
-.logo{
+
+#spieltagBereich{
 
 
-text-align:center;
+    height:calc(100vh - 90px);
 
 
-font-size:28px;
+    background:#111;
 
 
-font-weight:bold;
+    border:1px solid #444;
 
 
-color:#f5c542;
+    border-radius:20px;
 
 
-margin-bottom:20px;
-
-
-}
-
-
-
-
-textarea{
-
-
-width:100%;
-
-
-height:220px;
-
-
-background:#111;
-
-
-color:white;
-
-
-border:1px solid #555;
-
-
-border-radius:15px;
-
-
-padding:15px;
-
-
-resize:none;
+    padding:15px;
 
 
 }
@@ -177,154 +125,30 @@ resize:none;
 
 
 
-button{
-
-
-width:100%;
-
-
-margin-top:12px;
-
-
-padding:14px;
-
-
-border-radius:15px;
-
-
-border:1px solid #777;
-
-
-background:
-
-
-linear-gradient(
-
-#555,
-
-#111
-
-);
-
-
-
-color:white;
-
-
-font-weight:bold;
-
-
-cursor:pointer;
-
-
-}
-
-
-
-
-button:hover{
-
-
-filter:brightness(1.3);
-
-
-}
-
-
-
-
-
-/* =====================
-   SPIELKARTEN
-===================== */
-
-
-
-.spiel-card{
-
-
-margin-top:15px;
-
-
-padding:15px;
-
-
-border-radius:18px;
-
-
-background:
-
-
-linear-gradient(
-
-145deg,
-
-#333,
-
-#111
-
-);
-
-
-
-border:1px solid #555;
-
-
-cursor:pointer;
-
-
-text-align:center;
-
-
-}
-
-
-
-.spiel-card:hover{
-
-
-border-color:#f5c542;
-
-
-}
-
-
-
-
-
-/* =====================
-   MAIN
-===================== */
+/* =========================
+   HAUPTBEREICH
+========================= */
 
 
 .main{
 
+    flex:1;
 
-flex:1;
+    height:100vh;
 
-
-height:100vh;
-
-
-overflow-y:auto;
+    padding:20px;
 
 
-padding:25px;
+    background:
+
+    linear-gradient(
+        145deg,
+        #191919,
+        #050505
+    );
 
 
-background:
-
-
-linear-gradient(
-
-145deg,
-
-#181818,
-
-#050505
-
-);
-
+    overflow-y:auto;
 
 
 }
@@ -332,36 +156,38 @@ linear-gradient(
 
 
 
-/* =====================
+
+/* =========================
    SPIELKOPF
-===================== */
+========================= */
 
 
-.header{
+.spielkopf{
 
 
-height:200px;
+    width:100%;
+
+    height:190px;
 
 
-display:grid;
+    display:grid;
 
 
-grid-template-columns:
+    grid-template-columns:
 
-1fr 220px 1fr;
-
-
-align-items:center;
+    1fr 220px 1fr;
 
 
-
-border-radius:30px;
-
-
-background:#111;
+    align-items:center;
 
 
-border:1px solid #333;
+    border-radius:30px;
+
+
+    background:#111;
+
+
+    border:1px solid #333;
 
 
 }
@@ -373,32 +199,89 @@ border:1px solid #333;
 .team{
 
 
-text-align:center;
+    text-align:center;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+}
 
 
-font-size:42px;
+
+.heim{
+
+    color:#0099ff;
+
+}
 
 
-font-weight:bold;
+
+.gast{
+
+    color:#ff3344;
+
+}
+
+
+
+.ergebnis{
+
+
+    text-align:center;
+
+    font-size:90px;
+
+    font-weight:bold;
+
+    color:#f5c542;
+
+}
+
+
+
+
+/* =========================
+   TEST BEREICH
+========================= */
+
+
+.panel{
+
+
+    margin-top:25px;
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #252525,
+        #101010
+    );
+
+
+    border-radius:25px;
+
+
+    padding:30px;
+
+
+    border:1px solid #333;
 
 
 }
 
 
 
-.score{
+
+.panel h2{
 
 
-text-align:center;
+    color:#f5c542;
 
 
-font-size:90px;
-
-
-font-weight:bold;
-
-
-color:#f5c542;
+    margin-bottom:20px;
 
 
 }
@@ -407,27 +290,59 @@ color:#f5c542;
 
 
 
-.home-text{
+.balken{
 
 
-color:var(--home-color);
+    width:100%;
+
+
+    height:40px;
+
+
+    background:#000;
+
+
+    border-radius:20px;
+
+
+    overflow:hidden;
+
+
+    display:flex;
 
 
 }
 
 
 
+.heim-balken{
 
-.away-text{
+
+    width:60%;
 
 
-color:var(--away-color);
+    background:#0099ff;
 
 
 }
+
+
+
+.gast-balken{
+
+
+    width:40%;
+
+
+    background:#ff3344;
+
+
+}
+
 
 
 </style>
+
 
 </head>
 
@@ -436,84 +351,30 @@ color:var(--away-color);
 <body>
 
 
-
 <div class="app">
 
 
 
-<!-- =====================
-     SPIELTAG
-===================== -->
+<!-- =========================
+     LINKS
+========================= -->
 
 
 <div class="sidebar">
 
 
+<h1>
+SPIELTAG
+</h1>
 
-<div class="logo">
 
-WETTPROPHETEN
+<div id="spieltagBereich">
+
+
+Spieltag kommt hier rein
+
 
 </div>
-
-
-
-<textarea id="spieltagInput"
-
-placeholder="
-
-Spieltag einfügen:
-
-29.08. 15:30
-
-FC Bayern München
-
-Borussia Dortmund
-
--
-
-29.08. 18:30
-
-Bayer Leverkusen
-
-RB Leipzig
-
--
-
-"></textarea>
-
-
-
-
-<button id="importBtn">
-
-SPIELTAG EINLESEN
-
-</button>
-
-
-
-<button id="saveBtn">
-
-💾 SPIELTAG SPEICHERN
-
-</button>
-
-
-
-<button id="loadBtn">
-
-📂 SPIELTAG LADEN
-
-</button>
-
-
-
-
-<div id="spielListe">
-
-</div>
-
 
 
 </div>
@@ -523,26 +384,20 @@ SPIELTAG EINLESEN
 
 
 
-
-
-<!-- =====================
-     HAUPTBEREICH
-===================== -->
+<!-- =========================
+     HAUPT
+========================= -->
 
 
 <div class="main">
 
 
 
-
-
-<div class="header">
+<div class="spielkopf">
 
 
 
-<div id="heimTeam"
-
-class="team home-text">
+<div class="team heim">
 
 HEIM
 
@@ -550,8 +405,7 @@ HEIM
 
 
 
-
-<div class="score">
+<div class="ergebnis">
 
 0 : 0
 
@@ -559,10 +413,7 @@ HEIM
 
 
 
-
-<div id="gastTeam"
-
-class="team away-text">
+<div class="team gast">
 
 GAST
 
@@ -570,7 +421,6 @@ GAST
 
 
 
-
 </div>
 
 
@@ -578,148 +428,25 @@ GAST
 
 
 
-<!-- =====================
-     xG
-===================== -->
-
-
 <div class="panel">
 
 
-
-<div class="panel-title">
-
+<h2>
 Expected Goals (xG)
-
-</div>
-
-
-
-
-<div class="werte">
-
-
-<span id="xgHome"
-
-class="home-text">
-
-0.00
-
-</span>
-
-
-
-
-<span id="xgAway"
-
-class="away-text">
-
-0.00
-
-</span>
-
-
-</div>
-
-
+</h2>
 
 
 
 <div class="balken">
 
 
-<div id="xgHomeBar"
-
-class="home-bar">
-
-</div>
+<div class="heim-balken"></div>
 
 
-
-<div id="xgAwayBar"
-
-class="away-bar">
-
-</div>
-
+<div class="gast-balken"></div>
 
 
 </div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- =====================
-     BALLBESITZ
-===================== -->
-
-
-<div class="panel">
-
-
-
-<div class="panel-title">
-
-Ballbesitz
-
-</div>
-
-
-
-
-<div class="werte">
-
-
-<span id="posHome"
-
-class="home-text">
-
-50%
-
-</span>
-
-
-
-<span id="posAway"
-
-class="away-text">
-
-50%
-
-</span>
-
-
-</div>
-
-
-
-
-<div class="balken">
-
-
-<div id="posHomeBar"
-
-class="home-bar">
-
-</div>
-
-
-
-<div id="posAwayBar"
-
-class="away-bar">
-
-</div>
-
 
 
 </div>
@@ -729,47 +456,89 @@ class="away-bar">
 </div>
 
 
-
-
-
+</div>
+<!-- =========================
+   TEIL 2 - SPIELTAG SYSTEM
+========================= -->
 
 
 <style>
 
 
-/* =====================
-   PANELS
-===================== */
+#spieltagInput{
 
 
-.panel{
+    width:100%;
+
+    height:220px;
 
 
-margin-top:25px;
+    background:#050505;
 
 
-background:
+    color:white;
 
 
-linear-gradient(
-
-145deg,
-
-#252525,
-
-#101010
-
-);
+    border:1px solid #555;
 
 
-
-border-radius:25px;
-
-
-padding:30px;
+    border-radius:15px;
 
 
-border:1px solid #333;
+    padding:15px;
+
+
+    resize:none;
+
+
+}
+
+
+
+.button{
+
+
+    width:100%;
+
+
+    margin-top:12px;
+
+
+    padding:14px;
+
+
+    border-radius:15px;
+
+
+    border:1px solid #777;
+
+
+    background:
+
+
+    linear-gradient(
+        #555,
+        #111
+    );
+
+
+    color:white;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.button:hover{
+
+
+    filter:brightness(1.2);
 
 
 }
@@ -777,19 +546,45 @@ border:1px solid #333;
 
 
 
-.panel-title{
+.spielkarte{
 
 
-font-size:26px;
+    margin-top:15px;
 
 
-font-weight:bold;
+    padding:15px;
 
 
-color:#f5c542;
+    background:
 
 
-margin-bottom:20px;
+    linear-gradient(
+        145deg,
+        #333,
+        #111
+    );
+
+
+    border-radius:18px;
+
+
+    border:1px solid #555;
+
+
+    text-align:center;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.spielkarte:hover{
+
+
+    border-color:#f5c542;
 
 
 }
@@ -797,557 +592,35 @@ margin-bottom:20px;
 
 
 
-.werte{
+.spielzeit{
 
 
-display:flex;
+    color:#aaa;
 
 
-justify-content:space-between;
+    font-size:13px;
 
 
-padding:0 40px;
-
-
-font-size:38px;
-
-
-font-weight:bold;
-
-
-margin-bottom:15px;
+    margin-bottom:8px;
 
 
 }
 
 
 
-
-.balken{
-
-
-height:40px;
+.verein{
 
 
-width:100%;
+    font-size:17px;
 
 
-display:flex;
+    font-weight:bold;
 
 
-background:#000;
-
-
-border-radius:25px;
-
-
-overflow:hidden;
-
-
-border:1px solid #555;
+    margin:6px;
 
 
 }
-
-
-
-
-.home-bar{
-
-
-height:100%;
-
-
-background:var(--home-color);
-
-
-transition:.5s;
-
-
-}
-
-
-
-
-.away-bar{
-
-
-height:100%;
-
-
-background:var(--away-color);
-
-
-transition:.5s;
-
-
-}
-
-
-
-</style>
-<!-- =====================
-     STATISTIK BEREICH
-===================== -->
-
-
-<div class="stats-grid">
-
-
-
-<div class="stat-box">
-
-<div class="stat-name">
-
-SCHÜSSE
-
-</div>
-
-
-<div class="stat-value">
-
-<span id="shotsHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="shotsAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-name">
-
-SCHÜSSE AUFS TOR
-
-</div>
-
-
-<div class="stat-value">
-
-<span id="targetHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="targetAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-name">
-
-GROSSCHANCEN
-
-</div>
-
-
-<div class="stat-value">
-
-<span id="chanceHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="chanceAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-name">
-
-ECKEN
-
-</div>
-
-
-<div class="stat-value">
-
-<span id="cornerHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="cornerAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-name">
-
-PÄSSE
-
-</div>
-
-
-<div class="stat-value">
-
-<span id="passHome"
-class="home-text">
-
-0/0
-
-</span>
-
-
-:
-
-
-<span id="passAway"
-class="away-text">
-
-0/0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="stat-box">
-
-<div class="stat-name">
-
-GELBE KARTEN
-
-</div>
-
-
-<div class="stat-value">
-
-<span id="cardHome"
-class="home-text">
-
-0
-
-</span>
-
-
-:
-
-
-<span id="cardAway"
-class="away-text">
-
-0
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<style>
-
-
-/* =====================
-   STATISTIK KARTEN
-===================== */
-
-
-.stats-grid{
-
-
-margin-top:25px;
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(3,1fr);
-
-
-gap:20px;
-
-
-}
-
-
-
-
-.stat-box{
-
-
-background:
-
-
-linear-gradient(
-
-145deg,
-
-#333,
-
-#111
-
-);
-
-
-
-border-radius:22px;
-
-
-padding:25px;
-
-
-text-align:center;
-
-
-border:1px solid #444;
-
-
-box-shadow:
-
-0 15px 30px #000;
-
-
-}
-
-
-
-
-.stat-name{
-
-
-color:#aaa;
-
-
-font-size:14px;
-
-
-letter-spacing:2px;
-
-
-margin-bottom:15px;
-
-
-}
-
-
-
-
-.stat-value{
-
-
-font-size:36px;
-
-
-font-weight:bold;
-
-
-}
-
-
-
-
-
-/* =====================
-   LIVE EINGABE
-===================== */
-
-
-.live-panel{
-
-
-margin-top:25px;
-
-
-background:
-
-
-linear-gradient(
-
-145deg,
-
-#252525,
-
-#101010
-
-);
-
-
-
-border-radius:25px;
-
-
-padding:30px;
-
-
-border:1px solid #333;
-
-
-}
-
-
-
-
-
-.live-title{
-
-
-font-size:26px;
-
-
-font-weight:bold;
-
-
-color:#f5c542;
-
-
-margin-bottom:20px;
-
-
-}
-
-
-
-
-
-#liveInput{
-
-
-width:100%;
-
-
-height:220px;
-
-
-background:#050505;
-
-
-color:white;
-
-
-border:1px solid #555;
-
-
-border-radius:15px;
-
-
-padding:20px;
-
-
-font-size:16px;
-
-
-}
-
-
-
-
 
 
 
@@ -1358,89 +631,269 @@ font-size:16px;
 
 
 
-
-
-<!-- =====================
-     LIVE DATEN
-===================== -->
-
-
-<div class="live-panel">
-
-
-
-<div class="live-title">
-
-LIVE DATEN EINGEBEN
-
-</div>
-
-
-
-
-<textarea id="liveInput"
-
-placeholder="
-
-xG:
-
-1.24
-
-0.80
-
-
-Ballbesitz:
-
-58%
-
-42%
-
-
-Schüsse:
-
-10
-
-12
-
-
-Pässe:
-
-454/526
-
-464/524
-
-
-Karten:
-
-1
-
-2
-
-"></textarea>
-
-
-
-
-
-<button id="updateBtn">
-
-DATEN ÜBERNEHMEN
-
-</button>
-
-
-
-
-</div>
 <script>
 
 
-/* =====================
-   VEREINSFARBEN
-===================== */
+let spiele=[];
 
 
-const teams = {
+
+function spieltagLaden(){
+
+
+    let eingabe=document
+    .getElementById("spieltagInput")
+    .value;
+
+
+
+    let zeilen=eingabe
+    .split("\n")
+    .map(x=>x.trim())
+    .filter(x=>x);
+
+
+
+    spiele=[];
+
+
+
+    let liste=document
+    .getElementById("spielListe");
+
+
+
+    liste.innerHTML="";
+
+
+
+
+    for(let i=0;i<zeilen.length;i++){
+
+
+
+        if(zeilen[i].match(/\d{2}\.\d{2}/)){
+
+
+
+            let datum=zeilen[i];
+
+
+            let teams=[];
+
+
+
+            for(let j=i+1;j<zeilen.length;j++){
+
+
+
+                if(zeilen[j]=="-"){
+
+                    break;
+
+                }
+
+
+
+                teams.push(zeilen[j]);
+
+
+
+            }
+
+
+
+
+
+            if(teams.length>=2){
+
+
+
+                let spiel={
+
+                    datum:datum,
+
+                    heim:teams[0],
+
+                    gast:teams[1]
+
+                };
+
+
+
+                spiele.push(spiel);
+
+
+
+                spielkarteErstellen(spiel);
+
+
+
+            }
+
+
+
+        }
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+function spielkarteErstellen(spiel){
+
+
+
+    let box=document.createElement("div");
+
+
+
+    box.className="spielkarte";
+
+
+
+    box.innerHTML=`
+
+
+    <div class="spielzeit">
+
+    ${spiel.datum}
+
+    </div>
+
+
+
+    <div class="verein">
+
+    ${spiel.heim}
+
+    </div>
+
+
+
+    <div>
+
+    VS
+
+    </div>
+
+
+
+    <div class="verein">
+
+    ${spiel.gast}
+
+    </div>
+
+
+
+    `;
+
+
+
+
+    box.onclick=function(){
+
+
+
+        document.querySelector(".heim").innerHTML=
+        spiel.heim;
+
+
+
+        document.querySelector(".gast").innerHTML=
+        spiel.gast;
+
+
+
+    };
+
+
+
+
+    document
+    .getElementById("spielListe")
+    .appendChild(box);
+
+
+
+}
+
+
+
+</script>
+<!-- =========================
+   TEIL 3 - MANNSCHAFTEN + FARBEN
+========================= -->
+
+
+<style>
+
+
+:root{
+
+    --heim-farbe:#0099ff;
+
+    --gast-farbe:#ff3344;
+
+}
+
+
+
+
+
+.heim{
+
+    color:var(--heim-farbe)!important;
+
+}
+
+
+
+.gast{
+
+    color:var(--gast-farbe)!important;
+
+}
+
+
+
+
+.heim-balken{
+
+    background:var(--heim-farbe);
+
+}
+
+
+
+.gast-balken{
+
+    background:var(--gast-farbe);
+
+}
+
+
+
+
+</style>
+
+
+
+
+
+<script>
+
+
+const vereinsFarben={
+
 
 
 "FC Bayern München":"#dc052d",
@@ -1477,7 +930,18 @@ const teams = {
 
 "VfL Bochum":"#005ca9",
 
-"1. FC Heidenheim":"#e30613"
+"1. FC Heidenheim":"#e30613",
+
+
+
+/* zusätzliche mögliche Teams */
+
+"FC Schalke 04":"#004d9f",
+
+"SC Paderborn":"#005ca9",
+
+"SV Elversberg":"#111111"
+
 
 
 };
@@ -1487,279 +951,52 @@ const teams = {
 
 
 
-let spieltag=[];
 
-let aktuellesSpiel=null;
+function farbenSetzen(heim,gast){
 
 
 
+let heimFarbe =
 
+vereinsFarben[heim]
 
+||
 
+"#0099ff";
 
-/* =====================
-   SPIELTAG EINLESEN
-===================== */
 
 
-document
-.getElementById("importBtn")
-.onclick=function(){
 
+let gastFarbe =
 
+vereinsFarben[gast]
 
-let text=document
-.getElementById("spieltagInput")
-.value;
+||
 
+"#ff3344";
 
 
-if(text.trim()==""){
 
 
-alert("Bitte Spieltag einfügen");
 
 
-return;
+document.documentElement.style.setProperty(
 
+"--heim-farbe",
 
-}
-
-
-
-
-let zeilen=text
-.split("\n")
-.map(x=>x.trim())
-.filter(x=>x);
-
-
-
-spieltag=[];
-
-
-
-for(let i=0;i<zeilen.length;i++){
-
-
-
-if(
-zeilen[i].match(/\d{2}\.\d{2}/)
-){
-
-
-
-let datum=zeilen[i];
-
-
-let vereine=[];
-
-
-
-for(
-let j=i+1;
-j<zeilen.length;
-j++
-){
-
-
-
-if(
-zeilen[j]=="-"
-){
-
-break;
-
-}
-
-
-
-vereine.push(
-zeilen[j]
-);
-
-
-
-}
-
-
-
-
-if(
-vereine.length>=2
-){
-
-
-
-spieltag.push({
-
-
-datum:datum,
-
-
-heim:vereine[0],
-
-
-gast:vereine[1],
-
-
-daten:{
-
-
-xg:[0,0],
-
-
-besitz:[50,50],
-
-
-schuesse:[0,0],
-
-
-aufsTor:[0,0],
-
-
-chancen:[0,0],
-
-
-ecken:[0,0],
-
-
-paesse:["0/0","0/0"],
-
-
-karten:[0,0]
-
-
-}
-
-
-
-});
-
-
-
-}
-
-
-}
-
-
-
-}
-
-
-
-zeigeSpiele();
-
-
-
-alert(
-
-spieltag.length+" Spiele geladen"
+heimFarbe
 
 );
 
 
 
-};
 
 
+document.documentElement.style.setProperty(
 
+"--gast-farbe",
 
-
-
-
-
-
-/* =====================
-   SPIELE LINKS ANZEIGEN
-===================== */
-
-
-function zeigeSpiele(){
-
-
-
-let liste=document
-.getElementById("spielListe");
-
-
-
-liste.innerHTML="";
-
-
-
-
-spieltag.forEach(
-
-(spiel,index)=>{
-
-
-
-let box=document
-.createElement("div");
-
-
-
-box.className="spiel-card";
-
-
-
-
-box.innerHTML=`
-
-<div style="color:#aaa">
-
-${spiel.datum}
-
-</div>
-
-
-<div style="color:${teams[spiel.heim] || '#0099ff'}">
-
-${spiel.heim}
-
-</div>
-
-
-<div>
-
-VS
-
-</div>
-
-
-<div style="color:${teams[spiel.gast] || '#ff3344'}">
-
-${spiel.gast}
-
-</div>
-
-`;
-
-
-
-
-
-box.onclick=function(){
-
-
-
-spielLaden(index);
-
-
-
-};
-
-
-
-liste.appendChild(box);
-
-
-
-}
-
-
+gastFarbe
 
 );
 
@@ -1774,37 +1011,35 @@ liste.appendChild(box);
 
 
 
-
-/* =====================
-   SPIEL ÖFFNEN
-===================== */
+/* Spiel öffnen erweitern */
 
 
 function spielLaden(index){
 
 
 
-aktuellesSpiel=index;
+let spiel=spiele[index];
 
 
 
-let spiel=spieltag[index];
+if(!spiel)
+
+return;
 
 
 
-document
-.getElementById("heimTeam")
-.innerHTML=
+
+
+document.querySelector(".heim").innerHTML=
 
 spiel.heim;
 
 
 
-document
-.getElementById("gastTeam")
-.innerHTML=
+document.querySelector(".gast").innerHTML=
 
 spiel.gast;
+
 
 
 
@@ -1819,59 +1054,729 @@ spiel.gast
 
 
 
-
-anzeigen();
-
-
-
 }
 
 
 
 
 
-
-
-
-
-/* =====================
-   FARBEN SETZEN
-===================== */
-
-
-function farbenSetzen(
-
-heim,
-
-gast
-
-){
-
-
-
-document.documentElement.style.setProperty(
-
-"--home-color",
-
-teams[heim] || "#0099ff"
-
-);
-
-
-
-document.documentElement.style.setProperty(
-
-"--away-color",
-
-teams[gast] || "#ff3344"
-
-);
-
-
-
-}
 
 
 </script>
+<!-- =========================
+   TEIL 4 - SPEICHERN / LADEN
+========================= -->
+
+
+<style>
+
+
+.speicher-bereich{
+
+
+    margin-top:25px;
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #252525,
+        #101010
+    );
+
+
+    border-radius:25px;
+
+
+    padding:25px;
+
+
+    border:1px solid #333;
+
+
+}
+
+
+
+
+.speicher-bereich h2{
+
+
+    color:#f5c542;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+<div class="speicher-bereich">
+
+
+<h2>
+
+SPIELTAG SPEICHERN
+
+</h2>
+
+
+
+<button class="button" onclick="speichern()">
+
+💾 SPEICHERN
+
+</button>
+
+
+
+<button class="button" onclick="laden()">
+
+📂 LADEN
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+let gespeicherteDaten={};
+
+
+
+
+
+function speichern(){
+
+
+
+    gespeicherteDaten={
+
+
+        spiele:spiele,
+
+
+        datum:new Date().toLocaleString("de-DE")
+
+
+    };
+
+
+
+
+
+    localStorage.setItem(
+
+        "Wettpropheten_Daten",
+
+        JSON.stringify(gespeicherteDaten)
+
+    );
+
+
+
+
+
+    alert(
+
+        "Spieltag gespeichert"
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+function laden(){
+
+
+
+    let daten=
+
+    localStorage.getItem(
+
+        "Wettpropheten_Daten"
+
+    );
+
+
+
+
+
+    if(!daten){
+
+
+        alert(
+
+            "Keine Daten vorhanden"
+
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    gespeicherteDaten=
+
+    JSON.parse(daten);
+
+
+
+
+
+    spiele=
+
+    gespeicherteDaten.spiele || [];
+
+
+
+
+
+    let liste=document
+
+    .getElementById("spielListe");
+
+
+
+    liste.innerHTML="";
+
+
+
+
+
+    spiele.forEach(function(spiel){
+
+
+        spielkarteErstellen(spiel);
+
+
+    });
+
+
+
+
+
+    alert(
+
+        "Spieltag geladen"
+
+    );
+
+
+
+}
+
+
+
+
+
+
+<!-- =========================
+   TEIL 5 - LIVE DATEN SYSTEM
+========================= -->
+
+
+<style>
+
+
+.live-bereich{
+
+
+    margin-top:25px;
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #252525,
+        #101010
+    );
+
+
+    border-radius:25px;
+
+
+    padding:25px;
+
+
+    border:1px solid #333;
+
+
+}
+
+
+
+
+.live-bereich h2{
+
+
+    color:#f5c542;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+#liveDaten{
+
+
+    width:100%;
+
+
+    height:220px;
+
+
+    background:#050505;
+
+
+    color:white;
+
+
+    border:1px solid #555;
+
+
+    border-radius:15px;
+
+
+    padding:15px;
+
+
+    resize:none;
+
+
+}
+
+
+
+
+
+
+.statistik{
+
+
+    margin-top:25px;
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(3,1fr);
+
+
+    gap:20px;
+
+
+}
+
+
+
+
+.statistik-box{
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #333,
+        #111
+    );
+
+
+    border-radius:20px;
+
+
+    padding:20px;
+
+
+    text-align:center;
+
+
+    border:1px solid #444;
+
+
+}
+
+
+
+
+.statistik-box h3{
+
+
+    color:#aaa;
+
+
+    font-size:14px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.statistik-box span{
+
+
+    font-size:30px;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+<!-- =========================
+   LIVE EINGABE
+========================= -->
+
+
+<div class="live-bereich">
+
+
+<h2>
+
+LIVE DATEN
+
+</h2>
+
+
+
+<textarea id="liveDaten"
+
+placeholder="
+
+xG
+
+1.24
+
+0.80
+
+
+Ballbesitz
+
+58%
+
+42%
+
+
+Schüsse
+
+10
+
+12
+
+
+Pässe
+
+454
+
+464
+
+
+Gelbe Karten
+
+1
+
+2
+
+"></textarea>
+
+
+
+
+<button class="button"
+
+onclick="liveAktualisieren()">
+
+DATEN ÜBERNEHMEN
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- =========================
+   STATISTIK
+========================= -->
+
+
+<div class="statistik">
+
+
+<div class="statistik-box">
+
+<h3>
+
+SCHÜSSE
+
+</h3>
+
+<span id="anzeigeSchuesse">
+
+0 : 0
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="statistik-box">
+
+<h3>
+
+PÄSSE
+
+</h3>
+
+<span id="anzeigePaesse">
+
+0 : 0
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="statistik-box">
+
+<h3>
+
+GELBE KARTEN
+
+</h3>
+
+<span id="anzeigeKarten">
+
+0 : 0
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+function liveAktualisieren(){
+
+
+
+let text=document
+
+.getElementById("liveDaten")
+
+.value;
+
+
+
+
+
+let zahlen=text.match(/\d+(?:\.\d+)?/g);
+
+
+
+if(!zahlen || zahlen.length<2){
+
+return;
+
+}
+
+
+
+
+
+
+/* xG */
+
+
+let xgHeim=
+
+Number(zahlen[0]);
+
+
+
+let xgGast=
+
+Number(zahlen[1]);
+
+
+
+let sum=xgHeim+xgGast;
+
+
+
+
+
+if(sum>0){
+
+
+document.querySelector(".heim-balken").style.width=
+
+(xgHeim/sum*100)+"%";
+
+
+
+document.querySelector(".gast-balken").style.width=
+
+(xgGast/sum*100)+"%";
+
+
+}
+
+
+
+
+
+
+/* Prozent */
+
+let prozent=text.match(/\d+%/g);
+
+
+
+if(prozent && prozent.length>=2){
+
+
+/* Ballbesitz wird später erweitert */
+
+}
+
+
+
+
+
+
+
+/* Zahlen suchen */
+
+
+let ganzeZahlen=text.match(/\b\d+\b/g);
+
+
+
+if(ganzeZahlen){
+
+
+
+let werte=ganzeZahlen.slice(2);
+
+
+
+document.getElementById("anzeigeSchuesse").innerHTML=
+
+(werte[0] || 0)+" : "+(werte[1] || 0);
+
+
+
+
+document.getElementById("anzeigePaesse").innerHTML=
+
+(werte[2] || 0)+" : "+(werte[3] || 0);
+
+
+
+
+document.getElementById("anzeigeKarten").innerHTML=
+
+(werte[4] || 0)+" : "+(werte[5] || 0);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
 </body>
+
+
 </html>
