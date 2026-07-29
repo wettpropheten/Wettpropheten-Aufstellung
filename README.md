@@ -13,12 +13,11 @@
 
 *{
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 
-html,
-body{
+html,body{
 
     margin:0;
     padding:0;
@@ -30,13 +29,12 @@ body{
     color:white;
 
     overflow:hidden;
-
 }
 
 
-/* =========================
-   APP
-========================= */
+/* =====================
+   GESAMT
+===================== */
 
 
 .app{
@@ -49,10 +47,9 @@ body{
 }
 
 
-
-/* =========================
+/* =====================
    SPIELTAG LINKS
-========================= */
+===================== */
 
 
 .sidebar{
@@ -73,15 +70,13 @@ body{
 
     padding:15px;
 
-    overflow-y:auto;
-
 }
 
 
 
 .sidebar h1{
 
-    margin:10px 0 20px;
+    margin:5px 0 20px;
 
     text-align:center;
 
@@ -92,135 +87,27 @@ body{
 }
 
 
-
-/* Eingabe Spieltag */
-
-
-#spieltagInput{
-
-    width:100%;
-
-    height:220px;
-
-    resize:none;
-
-    padding:15px;
-
-    border-radius:15px;
+.spieltag-box{
 
     background:#111;
 
-    color:white;
-
     border:1px solid #555;
-
-    font-size:15px;
-
-}
-
-
-
-/* Buttons */
-
-
-button{
-
-    width:100%;
-
-    margin-top:12px;
-
-    padding:14px;
 
     border-radius:15px;
 
-    border:1px solid #666;
-
-    background:
-
-    linear-gradient(
-        #555,
-        #111
-    );
-
-    color:white;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-}
-
-
-button:hover{
-
-    filter:brightness(1.25);
-
-}
-
-
-
-/* Spielkarten links */
-
-
-.match-card{
-
-    margin-top:15px;
+    height:300px;
 
     padding:15px;
 
-    border-radius:18px;
-
-    background:
-
-    linear-gradient(
-        145deg,
-        #333,
-        #111
-    );
-
-    border:1px solid #444;
-
-    cursor:pointer;
-
-}
-
-
-.match-card:hover{
-
-    border-color:#f5c542;
+    color:white;
 
 }
 
 
 
-.match-time{
-
-    text-align:center;
-
-    color:#aaa;
-
-    font-size:13px;
-
-}
-
-
-.match-team{
-
-    text-align:center;
-
-    margin:6px;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-}
-
-
-
-/* =========================
-   HAUPTFENSTER
-========================= */
+/* =====================
+   HAUPTBEREICH
+===================== */
 
 
 .main{
@@ -229,9 +116,9 @@ button:hover{
 
     height:100vh;
 
-    overflow-y:auto;
-
     padding:20px;
+
+    overflow:hidden;
 
 
     background:
@@ -246,29 +133,26 @@ button:hover{
 
 
 
-/* =========================
+
+/* =====================
    SPIELKOPF
-========================= */
+===================== */
 
 
 .score-header{
 
+
     width:100%;
+
+    height:180px;
+
 
     display:grid;
 
-    grid-template-columns:
-
-    1fr 220px 1fr;
+    grid-template-columns:1fr 200px 1fr;
 
 
     align-items:center;
-
-
-    padding:40px;
-
-
-    border-radius:30px;
 
 
     background:
@@ -280,11 +164,15 @@ button:hover{
         #ffffff15
     );
 
+
+    border-radius:30px;
+
+
 }
 
 
-
 .team-name{
+
 
     text-align:center;
 
@@ -292,36 +180,215 @@ button:hover{
 
     font-weight:bold;
 
+
 }
 
 
-
 .score{
+
 
     text-align:center;
 
     font-size:90px;
 
+    color:#f5c542;
+
     font-weight:bold;
+
+}
+
+
+
+
+
+/* =====================
+   BALKEN MODULE
+===================== */
+
+
+.panel{
+
+
+    margin-top:25px;
+
+    padding:25px;
+
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #252525,
+        #101010
+    );
+
+
+    border-radius:25px;
+
+    border:1px solid #333;
+
+
+}
+
+
+
+
+.panel-title{
 
     color:#f5c542;
 
+    font-size:25px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.values{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+
+    font-size:35px;
+
+    font-weight:bold;
+
+
+    padding:0 30px;
+
+    margin-bottom:15px;
+
+
 }
 
 
 
-/* Farben später per Javascript */
 
-:root{
 
-    --home-color:#00b7ff;
+.bar{
 
-    --away-color:#ff4757;
+
+    width:100%;
+
+    height:40px;
+
+
+    display:flex;
+
+    overflow:hidden;
+
+
+    border-radius:20px;
+
+
+    background:#000;
+
+
+    border:1px solid #555;
+
 
 }
+
+
+
+
+.home-bar{
+
+    width:60%;
+
+    background:#0099ff;
+
+
+}
+
+
+
+.away-bar{
+
+    width:40%;
+
+    background:#ff3344;
+
+
+}
+
+
+
+
+
+
+/* =====================
+   STATISTIK KARTEN
+===================== */
+
+
+.stats-grid{
+
+
+    margin-top:25px;
+
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+
+    gap:20px;
+
+
+}
+
+
+
+.stat-box{
+
+
+    background:#181818;
+
+
+    border:1px solid #444;
+
+
+    border-radius:20px;
+
+
+    padding:25px;
+
+
+    text-align:center;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+.stat-box strong{
+
+
+    display:block;
+
+
+    margin-top:15px;
+
+
+    font-size:35px;
+
+
+}
+
 
 
 </style>
+
 
 </head>
 
@@ -333,52 +400,23 @@ button:hover{
 
 
 
-<!-- =========================
-     LINKER SPIELTAG
-========================= -->
-
+<!-- LINKS -->
 
 <div class="sidebar">
 
 
 <h1>
+
 SPIELTAG
+
 </h1>
 
 
+<div class="spieltag-box">
 
-<textarea id="spieltagInput"
-
-placeholder="
-
-29.08. 15:30
-
-1. FC Köln
-
-TSG Hoffenheim
-
--
-
--
-
-">
-
-</textarea>
-
-
-
-<button id="spieleLaden">
-
-SPIELE LADEN
-
-</button>
-
-
-
-<div id="spieleListe">
+Spiele kommen hier rein
 
 </div>
-
 
 
 </div>
@@ -387,10 +425,7 @@ SPIELE LADEN
 
 
 
-<!-- =========================
-     HAUPTBEREICH
-========================= -->
-
+<!-- HAUPTANSICHT -->
 
 <div class="main">
 
@@ -399,15 +434,11 @@ SPIELE LADEN
 <div class="score-header">
 
 
-
-<div id="heimTeam"
-
-class="team-name">
+<div class="team-name">
 
 HEIM
 
 </div>
-
 
 
 <div class="score">
@@ -417,32 +448,164 @@ HEIM
 </div>
 
 
-
-<div id="gastTeam"
-
-class="team-name">
+<div class="team-name">
 
 GAST
 
 </div>
 
 
+</div>
+
+
+
+
+
+<div class="panel">
+
+
+<div class="panel-title">
+
+Expected Goals (xG)
+
+</div>
+
+
+<div class="values">
+
+<span>
+
+1.24
+
+</span>
+
+
+<span>
+
+0.80
+
+</span>
+
+
+</div>
+
+
+<div class="bar">
+
+
+<div class="home-bar"></div>
+
+<div class="away-bar"></div>
+
+
+</div>
+
 
 </div>
 
 
 
-<!-- HIER KOMMEN IN TEIL 2:
-     Balken
-     Statistik-Karten
-     Tabelle
-     Live-Daten
--->
+
+
+
+
+<div class="panel">
+
+
+<div class="panel-title">
+
+Ballbesitz
+
+</div>
+
+
+<div class="values">
+
+<span>
+
+58%
+
+</span>
+
+
+<span>
+
+42%
+
+</span>
+
+
+</div>
+
+
+<div class="bar">
+
+
+<div class="home-bar"></div>
+
+<div class="away-bar"></div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="stats-grid">
+
+
+<div class="stat-box">
+
+SCHÜSSE
+
+<strong>
+
+12 : 8
+
+</strong>
+
+</div>
+
+
+
+<div class="stat-box">
+
+ECKEN
+
+<strong>
+
+6 : 3
+
+</strong>
+
+</div>
+
+
+
+<div class="stat-box">
+
+PÄSSE
+
+<strong>
+
+450 : 380
+
+</strong>
+
+</div>
 
 
 
 </div>
 
+
+
+</div>
 
 
 </div>
