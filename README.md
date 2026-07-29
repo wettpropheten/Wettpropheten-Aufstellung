@@ -1,146 +1,38 @@
-<!-- =========================
-TEIL 5
-ABSCHLUSS / STARTSYSTEM
-========================= -->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wettpropheten Dashboard</title>
 
 
-
-<script>
-
-
-/* =========================
-START KONTROLLE
-========================= */
-
-
-window.onload=function(){
-
-
-
-/*
-Falls bereits Daten gespeichert sind,
-kann das Dashboard wiederhergestellt werden
-*/
-
-
-let vorhanden=
-
-localStorage.getItem(
-
-"WettprophetenDashboard"
-
-);
-
-
-
-
-if(vorhanden){
-
-
-
-let laden=
-
-confirm(
-
-"Gespeicherte Dashboard-Daten laden?"
-
-);
-
-
-
-if(laden){
-
-
-dashboardLaden();
-
-
-
-}
-
-
-}
-
-
-
-
-
-/*
-Startwerte anzeigen,
-falls keine Daten vorhanden sind
-*/
-
-
-statistikAnzeigen();
-
-
-
-};
-
-
-
+<style>
 
 
 /* =========================
-SICHERHEIT
+GRUNDLAGE
 ========================= */
 
-
-function sichereZahl(wert, standard){
-
-
-
-let zahl=
-
-Number(wert);
-
-
-
-if(
-isNaN(zahl)
-){
-
-
-return standard;
-
-
-}
-
-
-
-return zahl;
-
-
-
-}
-
-
-
-
-
-</script>
-
-
-
-</div>
-
-
-</div>
 
 *{
 
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
     font-family:Arial,Helvetica,sans-serif;
 
 }
 
 
 
+html,
 body{
 
     width:100%;
-    height:100vh;
+    height:100%;
 
     background:#050505;
 
@@ -150,12 +42,6 @@ body{
 
 }
 
-
-
-
-/* =====================
-HAUPT LAYOUT
-===================== */
 
 
 .app{
@@ -170,11 +56,9 @@ HAUPT LAYOUT
 
 
 
-
-
-/* =====================
+/* =========================
 LINKER SPIELTAG
-===================== */
+========================= */
 
 
 .sidebar{
@@ -187,15 +71,12 @@ LINKER SPIELTAG
 
     padding:15px;
 
-
     background:
-
     linear-gradient(
         180deg,
         #252525,
         #080808
     );
-
 
     border-right:2px solid #444;
 
@@ -205,61 +86,53 @@ LINKER SPIELTAG
 
 
 
-
 .sidebar h1{
 
     text-align:center;
 
     color:#f5c542;
 
-    margin-bottom:20px;
-
     font-size:28px;
+
+    margin-bottom:20px;
 
 }
 
 
 
-
-textarea{
+#spieltagInput{
 
     width:100%;
 
     height:220px;
 
-
     background:#050505;
 
     color:white;
-
 
     border:1px solid #555;
 
     border-radius:15px;
 
-
     padding:12px;
 
     resize:none;
-
-    font-size:15px;
 
 }
 
 
 
-
-
 button{
-
 
     width:100%;
 
     margin-top:12px;
 
-
     padding:13px;
 
+    border-radius:15px;
+
+    border:1px solid #777;
 
     background:
 
@@ -268,18 +141,11 @@ button{
         #111
     );
 
-
-    border:1px solid #777;
-
-    border-radius:15px;
-
-
     color:white;
 
     font-weight:bold;
 
     cursor:pointer;
-
 
 }
 
@@ -287,29 +153,22 @@ button{
 
 button:hover{
 
-
     border-color:#f5c542;
-
 
 }
 
 
 
-
-
-/* =====================
+/* =========================
 SPIELKARTEN
-===================== */
+========================= */
 
 
 .spielkarte{
 
-
     margin-top:15px;
 
-
     padding:15px;
-
 
     background:
 
@@ -319,18 +178,13 @@ SPIELKARTEN
         #111
     );
 
-
     border-radius:18px;
-
 
     border:1px solid #555;
 
-
     text-align:center;
 
-
     cursor:pointer;
-
 
 }
 
@@ -338,9 +192,7 @@ SPIELKARTEN
 
 .spielkarte:hover{
 
-
     border-color:#f5c542;
-
 
 }
 
@@ -348,64 +200,51 @@ SPIELKARTEN
 
 .datum{
 
-
     color:#aaa;
 
     font-size:13px;
 
-
 }
+
 
 
 .teamname{
 
-
     margin:8px;
-
-    font-weight:bold;
 
     font-size:17px;
 
+    font-weight:bold;
 
 }
 
 
 
-
-
-/* =====================
+/* =========================
 RECHTER BEREICH
-===================== */
+========================= */
 
 
 .main{
 
-
     flex:1;
-
 
     height:100vh;
 
-
     overflow-y:auto;
 
-
     padding:0;
-
 
 }
 
 
 
-
-
-/* =====================
+/* =========================
 SPIELKOPF
-===================== */
+========================= */
 
 
 .spielkopf{
-
 
     margin-top:20px;
 
@@ -413,118 +252,84 @@ SPIELKOPF
 
     margin-right:20px;
 
-
     height:190px;
-
 
     display:grid;
 
-
     grid-template-columns:
 
-    1fr 200px 1fr;
-
+    1fr 220px 1fr;
 
     align-items:center;
 
-
     background:#111;
-
 
     border-radius:30px;
 
-
     border:1px solid #333;
 
-
 }
-
-
 
 
 
 .team{
 
-
     text-align:center;
 
-
-    font-size:38px;
-
+    font-size:40px;
 
     font-weight:bold;
 
-
 }
-
 
 
 
 .heim{
 
-
     color:#0099ff;
 
-
 }
-
 
 
 
 .gast{
 
-
     color:#ff3344;
 
-
 }
-
 
 
 
 .score{
 
-
     text-align:center;
 
-
-    font-size:75px;
-
+    font-size:80px;
 
     font-weight:bold;
 
-
     color:#f5c542;
-
 
 }
 
 
 
-
-
-/* =====================
+/* =========================
 PANELS
-===================== */
+========================= */
 
 
 .panel{
 
-
     margin-top:20px;
-
-
-    margin-right:20px;
-
 
     margin-left:0;
 
+    margin-right:20px;
 
     padding:20px;
 
-
     background:
-
 
     linear-gradient(
         145deg,
@@ -532,12 +337,9 @@ PANELS
         #111
     );
 
-
     border-radius:25px;
 
-
     border:1px solid #333;
-
 
 }
 
@@ -545,53 +347,40 @@ PANELS
 
 .panel h2{
 
-
     color:#f5c542;
-
 
     margin-bottom:20px;
 
-
 }
-
 
 
 
 .panel h3{
 
-
     margin-top:15px;
 
     margin-bottom:10px;
 
-
     color:#aaa;
-
 
 }
 
 
 
-
-
-/* =====================
-STATISTIK
-===================== */
+/* =========================
+STATISTIK KÄSTEN
+========================= */
 
 
 .stats{
 
-
     display:grid;
-
 
     grid-template-columns:
 
     repeat(4,1fr);
 
-
     gap:15px;
-
 
 }
 
@@ -599,21 +388,15 @@ STATISTIK
 
 .stats div{
 
-
     background:#050505;
-
 
     border:1px solid #555;
 
-
     border-radius:18px;
-
 
     padding:15px;
 
-
     text-align:center;
-
 
 }
 
@@ -621,50 +404,33 @@ STATISTIK
 
 .stats span{
 
-
     display:block;
-
 
     margin-top:10px;
 
+    color:#f5c542;
 
     font-size:30px;
 
-
-    color:#f5c542;
-
-
 }
-
-
-
-
-
-/* =====================
+/* =========================
 BALLBESITZ
-===================== */
+========================= */
 
 
 .bar{
 
-
     width:100%;
-
 
     height:28px;
 
-
     background:#333;
-
 
     border-radius:20px;
 
-
     overflow:hidden;
 
-
     border:1px solid #555;
-
 
 }
 
@@ -672,62 +438,44 @@ BALLBESITZ
 
 #ballBalken{
 
+    width:50%;
 
     height:100%;
 
-
-    width:50%;
-
-
     background:#0099ff;
-
 
     transition:.3s;
 
-
 }
-
-
 
 
 
 .ballwerte{
 
-
     display:flex;
-
 
     justify-content:space-between;
 
-
     margin-top:8px;
 
-
     font-size:18px;
-
 
 }
 
 
 
-
-
-/* =====================
-INPUTS
-===================== */
+/* =========================
+EINGABEN
+========================= */
 
 
 label{
 
-
     display:block;
-
 
     margin-top:12px;
 
-
     color:#aaa;
-
 
 }
 
@@ -735,55 +483,39 @@ label{
 
 input{
 
-
     float:right;
-
 
     width:120px;
 
-
     padding:7px;
-
 
     background:#050505;
 
-
     color:white;
-
 
     border:1px solid #555;
 
-
     border-radius:8px;
 
-
 }
-
-
 
 
 
 #status{
 
-
     margin-top:15px;
-
-
-    color:#aaa;
-
 
     text-align:center;
 
+    color:#aaa;
 
 }
 
 
 
-
-
-/* =====================
-HANDY
-===================== */
+/* =========================
+MOBILE
+========================= */
 
 
 @media(max-width:900px){
@@ -818,37 +550,423 @@ HANDY
 
 }
 
-let spiele = [];
 
 
 
-let dashboard = {
+
+</style>
+
+</head>
 
 
-    statistik:{
+<body>
 
 
-        xgHeim:1.00,
-
-        xgGast:1.00,
+<div class="app">
 
 
-        ballHeim:50,
+
+<!-- =========================
+LINKER BEREICH
+========================= -->
 
 
-        passHeim:0,
+<div class="sidebar">
 
 
-        passGast:0,
+<h1>
+
+SPIELTAG
+
+</h1>
 
 
-        quoteHeim:0,
+
+<textarea id="spieltagInput"
+
+placeholder="
+
+08.08.2026
+
+Bayern München
+Borussia Dortmund
 
 
-        quoteGast:0
+09.08.2026
+
+Union Berlin
+Eintracht Frankfurt
+
+"></textarea>
 
 
-    },
+
+<button onclick="spieltagLaden()">
+
+SPIELTAG LADEN
+
+</button>
+
+
+
+<div id="spielListe">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- =========================
+HAUPTBEREICH
+========================= -->
+
+
+<div class="main">
+
+
+
+<div class="spielkopf">
+
+
+<div id="heimName"
+
+class="team heim">
+
+HEIM
+
+</div>
+
+
+
+<div class="score">
+
+0 : 0
+
+</div>
+
+
+
+<div id="gastName"
+
+class="team gast">
+
+GAST
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+Statistik
+
+</h2>
+
+
+
+<div class="stats">
+
+
+<div>
+
+<h3>
+
+xG Heim
+
+</h3>
+
+<span id="xgHeim">
+
+1.00
+
+</span>
+
+</div>
+
+
+
+<div>
+
+<h3>
+
+xG Gast
+
+</h3>
+
+<span id="xgGast">
+
+1.00
+
+</span>
+
+</div>
+
+
+
+<div>
+
+<h3>
+
+Pässe Heim
+
+</h3>
+
+<span id="passHeim">
+
+0
+
+</span>
+
+</div>
+
+
+
+<div>
+
+<h3>
+
+Pässe Gast
+
+</h3>
+
+<span id="passGast">
+
+0
+
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<h3>
+
+Ballbesitz
+
+</h3>
+
+
+<div class="bar">
+
+<div id="ballBalken">
+
+</div>
+
+</div>
+
+
+
+<div class="ballwerte">
+
+
+<span id="ballHeim">
+
+50%
+
+</span>
+
+
+
+<span id="ballGast">
+
+50%
+
+</span>
+
+
+</div>
+
+
+
+
+
+<h3>
+
+Passquote
+
+</h3>
+
+
+<div id="passQuote">
+
+Heim 0% | Gast 0%
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+
+Werte ändern
+
+</h2>
+
+
+
+
+<label>
+
+xG Heim
+
+<input id="inputXgHeim"
+
+type="number"
+
+step="0.01"
+
+value="1">
+
+</label>
+
+
+
+
+<label>
+
+xG Gast
+
+<input id="inputXgGast"
+
+type="number"
+
+step="0.01"
+
+value="1">
+
+</label>
+
+
+
+
+<label>
+
+Ballbesitz Heim %
+
+<input id="inputBall"
+
+type="number"
+
+value="50">
+
+</label>
+
+
+
+
+<label>
+
+Pässe Heim
+
+<input id="inputPassHeim"
+
+type="number"
+
+value="0">
+
+</label>
+
+
+
+
+<label>
+
+Pässe Gast
+
+<input id="inputPassGast"
+
+type="number"
+
+value="0">
+
+</label>
+
+
+
+
+<button onclick="updateStatistik()">
+
+AKTUALISIEREN
+
+</button>
+
+
+</div>
+<div class="panel">
+
+
+<h2>
+
+Speichern / Laden
+
+</h2>
+
+
+
+<button onclick="speichern()">
+
+💾 SPEICHERN
+
+</button>
+
+
+
+<button onclick="laden()">
+
+📂 LADEN
+
+</button>
+
+
+
+<p id="status">
+
+Bereit
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<script>
+
+
+let spiele=[];
+
+
+
+let dashboard={
 
 
     aktuell:{
@@ -859,10 +977,33 @@ let dashboard = {
         gast:"GAST"
 
 
+    },
+
+
+    statistik:{
+
+
+        xgHeim:1,
+
+        xgGast:1,
+
+        ballHeim:50,
+
+        passHeim:0,
+
+        passGast:0,
+
+        quoteHeim:0,
+
+        quoteGast:0
+
+
     }
 
 
 };
+
+
 
 
 
@@ -876,73 +1017,104 @@ SPIELTAG LADEN
 function spieltagLaden(){
 
 
-    let text = document
-    .getElementById("spieltagInput")
-    .value;
+let text=
+
+document
+.getElementById("spieltagInput")
+.value;
 
 
 
-    let zeilen = text
-    .split(/\n/)
-    .map(x => x.trim())
-    .filter(x => x !== "");
+let zeilen=
+
+text
+.split("\n")
+.map(
+x=>x.trim()
+)
+.filter(
+x=>x!=""
+);
 
 
 
-    spiele = [];
+spiele=[];
 
 
 
-    for(let i=0;i<zeilen.length;i++){
+for(
+let i=0;
+i<zeilen.length;
+i++
+){
 
 
 
-        if(
-        /^\d{2}\.\d{2}\.\d{4}$/
-        .test(zeilen[i])
-        ){
-
-
-            let datum = zeilen[i];
-
-
-            let heim = zeilen[i+1];
-
-
-            let gast = zeilen[i+2];
+if(
+/^\d{2}\.\d{2}\.\d{4}$/
+.test(
+zeilen[i]
+)
+){
 
 
 
-            if(heim && gast){
+let datum=
 
-
-                spiele.push({
-
-
-                    datum:datum,
-
-                    heim:heim,
-
-                    gast:gast
-
-
-                });
-
-
-            }
-
-
-        }
-
-
-    }
+zeilen[i];
 
 
 
-    spieleAnzeigen();
+let heim=
+
+zeilen[i+1];
+
+
+
+let gast=
+
+zeilen[i+2];
+
+
+
+
+
+if(
+heim &&
+gast
+){
+
+
+spiele.push({
+
+
+datum:datum,
+
+heim:heim,
+
+gast:gast
+
+
+});
 
 
 }
+
+
+
+}
+
+
+
+}
+
+
+
+spieleAnzeigen();
+
+
+}
+
 
 
 
@@ -958,76 +1130,92 @@ SPIELE ANZEIGEN
 function spieleAnzeigen(){
 
 
-    let liste = document
-    .getElementById("spielListe");
+
+let liste=
+
+document
+.getElementById("spielListe");
 
 
 
-    liste.innerHTML="";
+liste.innerHTML="";
 
 
 
-    spiele.forEach(function(spiel){
+spiele.forEach(
+
+function(spiel){
 
 
 
-        let karte =
-        document.createElement("div");
+let karte=
+
+document
+.createElement("div");
 
 
 
-        karte.className="spielkarte";
+karte.className=
+
+"spielkarte";
 
 
 
-        karte.innerHTML = `
+karte.innerHTML=`
 
-        <div class="datum">
+<div class="datum">
 
-        ${spiel.datum}
+${spiel.datum}
 
-        </div>
-
-
-        <div class="teamname">
-
-        ${spiel.heim}
-
-        </div>
+</div>
 
 
-        <div>
+<div class="teamname">
 
-        VS
+${spiel.heim}
 
-        </div>
-
-
-        <div class="teamname">
-
-        ${spiel.gast}
-
-        </div>
-
-        `;
+</div>
 
 
+<div>
 
-        karte.onclick=function(){
+VS
+
+</div>
 
 
-            spielLaden(spiel);
+<div class="teamname">
 
+${spiel.gast}
 
-        };
+</div>
+
+`;
 
 
 
-        liste.appendChild(karte);
+
+karte.onclick=function(){
+
+
+spielLaden(spiel);
+
+
+};
 
 
 
-    });
+
+liste.appendChild(karte);
+
+
+
+}
+
+
+
+);
+
 
 
 }
@@ -1038,8 +1226,10 @@ function spieleAnzeigen(){
 
 
 
+
+
 /* =========================
-SPIEL AUSWÄHLEN
+SPIEL LADEN
 ========================= */
 
 
@@ -1047,31 +1237,43 @@ function spielLaden(spiel){
 
 
 
-    dashboard.aktuell.heim =
-    spiel.heim;
+dashboard.aktuell.heim=
+
+spiel.heim;
 
 
 
-    dashboard.aktuell.gast =
-    spiel.gast;
+dashboard.aktuell.gast=
+
+spiel.gast;
 
 
 
-    document
-    .getElementById("heimName")
-    .textContent =
-    spiel.heim;
+
+document
+.getElementById("heimName")
+.textContent=
+
+spiel.heim;
 
 
 
-    document
-    .getElementById("gastName")
-    .textContent =
-    spiel.gast;
 
+document
+.getElementById("gastName")
+.textContent=
+
+spiel.gast;
+
+
+
+
+statistikAnzeigen();
 
 
 }
+
+
 
 
 
@@ -1080,7 +1282,7 @@ function spielLaden(spiel){
 
 
 /* =========================
-STATISTIK UPDATE
+STATISTIK ÄNDERN
 ========================= */
 
 
@@ -1088,97 +1290,125 @@ function updateStatistik(){
 
 
 
-    dashboard.statistik.xgHeim =
+let s=
 
-    Number(
-    document
-    .getElementById("inputXgHeim")
-    .value
-    );
+dashboard.statistik;
 
 
 
+s.xgHeim=
 
-    dashboard.statistik.xgGast =
-
-    Number(
-    document
-    .getElementById("inputXgGast")
-    .value
-    );
+zahl(
+"inputXgHeim",
+1
+);
 
 
 
+s.xgGast=
+
+zahl(
+"inputXgGast",
+1
+);
 
 
 
-    dashboard.statistik.ballHeim =
+s.ballHeim=
 
-    Number(
-    document
-    .getElementById("inputBall")
-    .value
-    );
-
-
-
-    if(
-    dashboard.statistik.ballHeim < 0
-    ){
-
-        dashboard.statistik.ballHeim=0;
-
-    }
+zahl(
+"inputBall",
+50
+);
 
 
 
 
-    if(
-    dashboard.statistik.ballHeim > 100
-    ){
+if(
+s.ballHeim<0
+)
+s.ballHeim=0;
 
-        dashboard.statistik.ballHeim=100;
 
-    }
+
+if(
+s.ballHeim>100
+)
+s.ballHeim=100;
 
 
 
 
 
+s.passHeim=
 
-    dashboard.statistik.passHeim =
-
-    Number(
-    document
-    .getElementById("inputPassHeim")
-    .value
-    );
+zahl(
+"inputPassHeim",
+0
+);
 
 
 
+s.passGast=
 
-
-    dashboard.statistik.passGast =
-
-    Number(
-    document
-    .getElementById("inputPassGast")
-    .value
-    );
+zahl(
+"inputPassGast",
+0
+);
 
 
 
 
-
-    passQuoteBerechnen();
-
+passQuote();
 
 
-    statistikAnzeigen();
+
+statistikAnzeigen();
 
 
 
 }
+
+
+
+
+
+
+
+
+
+/* =========================
+ZAHLEN SICHER LESEN
+========================= */
+
+
+function zahl(id,wert){
+
+
+
+let x=
+
+Number(
+document
+.getElementById(id)
+.value
+);
+
+
+
+if(
+isNaN(x)
+)
+return wert;
+
+
+
+return x;
+
+
+}
+
+
 
 
 
@@ -1191,58 +1421,46 @@ PASSQUOTE
 ========================= */
 
 
-function passQuoteBerechnen(){
+function passQuote(){
 
 
 
-    let s =
-    dashboard.statistik;
+let s=
+
+dashboard.statistik;
 
 
 
-    if(s.passHeim > 0){
+s.quoteHeim=
 
+s.passHeim>0
 
-        s.quoteHeim =
+?
 
-        Math.round(
-        (s.passHeim / 600) * 100
-        );
+Math.round(
+s.passHeim/6
+)
 
+:
 
-    }
-    else{
-
-
-        s.quoteHeim=0;
-
-
-    }
+0;
 
 
 
 
+s.quoteGast=
 
+s.passGast>0
 
-    if(s.passGast > 0){
+?
 
+Math.round(
+s.passGast/6
+)
 
-        s.quoteGast =
+:
 
-        Math.round(
-        (s.passGast / 600) * 100
-        );
-
-
-    }
-    else{
-
-
-        s.quoteGast=0;
-
-
-    }
-
+0;
 
 
 
@@ -1254,8 +1472,9 @@ function passQuoteBerechnen(){
 
 
 
+
 /* =========================
-STATISTIK ANZEIGEN
+ANZEIGE AKTUALISIEREN
 ========================= */
 
 
@@ -1263,16 +1482,16 @@ function statistikAnzeigen(){
 
 
 
-let s =
+let s=
+
 dashboard.statistik;
-
-
 
 
 
 document
 .getElementById("xgHeim")
-.textContent =
+.textContent=
+
 s.xgHeim.toFixed(2);
 
 
@@ -1280,17 +1499,17 @@ s.xgHeim.toFixed(2);
 
 document
 .getElementById("xgGast")
-.textContent =
+.textContent=
+
 s.xgGast.toFixed(2);
-
-
 
 
 
 
 document
 .getElementById("passHeim")
-.textContent =
+.textContent=
+
 s.passHeim;
 
 
@@ -1298,45 +1517,43 @@ s.passHeim;
 
 document
 .getElementById("passGast")
-.textContent =
+.textContent=
+
 s.passGast;
-
-
 
 
 
 
 document
 .getElementById("ballBalken")
-.style.width =
-s.ballHeim+"%";
+.style.width=
 
+s.ballHeim+"%";
 
 
 
 
 document
 .getElementById("ballHeim")
-.textContent =
-s.ballHeim+"%";
+.textContent=
 
+s.ballHeim+"%";
 
 
 
 
 document
 .getElementById("ballGast")
-.textContent =
+.textContent=
+
 (100-s.ballHeim)+"%";
-
-
 
 
 
 
 document
 .getElementById("passQuote")
-.textContent =
+.textContent=
 
 "Heim "
 +
@@ -1353,11 +1570,6 @@ s.quoteGast
 }
 
 
-
-
-
-
-
 /* =========================
 SPEICHERN
 ========================= */
@@ -1366,15 +1578,13 @@ SPEICHERN
 function speichern(){
 
 
-
-let speicher = {
+let daten={
 
 
 spiele:spiele,
 
 
 dashboard:dashboard
-
 
 
 };
@@ -1384,11 +1594,9 @@ dashboard:dashboard
 
 localStorage.setItem(
 
-"Wettpropheten",
+"WettprophetenDashboard",
 
-JSON.stringify(
-speicher
-)
+JSON.stringify(daten)
 
 );
 
@@ -1410,6 +1618,7 @@ document
 
 
 
+
 /* =========================
 LADEN
 ========================= */
@@ -1419,22 +1628,26 @@ function laden(){
 
 
 
-let daten =
+let daten=
 
 localStorage.getItem(
-"Wettpropheten"
+
+"WettprophetenDashboard"
+
 );
+
 
 
 
 if(!daten){
 
 
+
 document
 .getElementById("status")
 .textContent=
 
-"Keine Daten gefunden";
+"Keine Daten vorhanden";
 
 
 return;
@@ -1445,8 +1658,7 @@ return;
 
 
 
-
-let speicher =
+let gespeichert=
 
 JSON.parse(daten);
 
@@ -1454,16 +1666,15 @@ JSON.parse(daten);
 
 
 
-spiele =
-speicher.spiele || [];
+spiele=
+
+gespeichert.spiele || [];
 
 
 
+dashboard=
 
-
-dashboard =
-speicher.dashboard || dashboard;
-
+gespeichert.dashboard || dashboard;
 
 
 
@@ -1476,7 +1687,7 @@ spieleAnzeigen();
 
 document
 .getElementById("heimName")
-.textContent =
+.textContent=
 
 dashboard.aktuell.heim;
 
@@ -1485,17 +1696,14 @@ dashboard.aktuell.heim;
 
 document
 .getElementById("gastName")
-.textContent =
+.textContent=
 
 dashboard.aktuell.gast;
 
 
 
 
-
-
 statistikAnzeigen();
-
 
 
 
@@ -1515,138 +1723,299 @@ document
 
 
 
+
+
 /* =========================
-START
+BEISPIELDATEN
 ========================= */
 
 
-window.onload=function(){
+const beispielDaten={
+
+
+
+spiele:[
+
+
+{
+
+datum:"08.08.2026",
+
+heim:"Bayern München",
+
+gast:"Borussia Dortmund",
+
+
+statistik:{
+
+
+xgHeim:1.85,
+
+xgGast:1.20,
+
+
+ballHeim:58,
+
+
+passHeim:520,
+
+
+passGast:410
+
+
+}
+
+
+},
+
+
+
+{
+
+
+datum:"09.08.2026",
+
+heim:"Union Berlin",
+
+gast:"Eintracht Frankfurt",
+
+
+statistik:{
+
+
+xgHeim:1.10,
+
+xgGast:1.45,
+
+
+ballHeim:44,
+
+
+passHeim:350,
+
+
+passGast:480
+
+
+}
+
+
+}
+
+
+
+]
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =========================
+BEISPIELE LADEN
+========================= */
+
+
+function beispieleLaden(){
+
+
+
+spiele=
+
+JSON.parse(
+
+JSON.stringify(
+
+beispielDaten.spiele
+
+)
+
+);
+
+
+
+
+spieleAnzeigen();
+
+
+
+document
+.getElementById("status")
+.textContent=
+
+"Beispieldaten geladen";
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+STATISTIK AUS SPIEL ÜBERNEHMEN
+========================= */
+
+
+const alteSpielLaden=
+
+spielLaden;
+
+
+
+spielLaden=function(spiel){
+
+
+
+alteSpielLaden(spiel);
+
+
+
+
+
+let gefunden=
+
+spiele.find(
+
+function(x){
+
+
+
+return(
+
+x.datum===spiel.datum &&
+
+x.heim===spiel.heim &&
+
+x.gast===spiel.gast
+
+
+);
+
+
+
+}
+
+);
+
+
+
+
+
+
+if(
+gefunden &&
+gefunden.statistik
+){
+
+
+
+dashboard.statistik.xgHeim=
+
+gefunden.statistik.xgHeim;
+
+
+
+dashboard.statistik.xgGast=
+
+gefunden.statistik.xgGast;
+
+
+
+dashboard.statistik.ballHeim=
+
+gefunden.statistik.ballHeim;
+
+
+
+dashboard.statistik.passHeim=
+
+gefunden.statistik.passHeim;
+
+
+
+dashboard.statistik.passGast=
+
+gefunden.statistik.passGast;
+
+
+
+passQuote();
+
 
 
 statistikAnzeigen();
 
 
+
+}
+
+
+
+
+
 };
 
-{
-  "spieltag": "08.08.2026",
-  
-  "spiele": [
-
-    {
-      "datum": "08.08.2026",
-      "heim": "Bayern München",
-      "gast": "Borussia Dortmund",
-
-      "statistik": {
-
-        "xgHeim": 1.85,
-        "xgGast": 1.20,
-
-        "ballbesitzHeim": 58,
-
-        "paesseHeim": 520,
-        "paesseGast": 410,
-
-        "passquoteHeim": 87,
-        "passquoteGast": 82
-
-      }
-    },
-
-
-    {
-      "datum": "09.08.2026",
-      "heim": "Union Berlin",
-      "gast": "Eintracht Frankfurt",
-
-      "statistik": {
-
-        "xgHeim": 1.10,
-        "xgGast": 1.45,
-
-        "ballbesitzHeim": 44,
-
-        "paesseHeim": 350,
-        "paesseGast": 480,
-
-        "passquoteHeim": 76,
-        "passquoteGast": 84
-
-      }
-    }
-
-  ]
-}
-// ===============================
-// WETTPROPHETEN DASHBOARD
-// APP STARTSYSTEM
-// ===============================
-
-
-async function datenLaden(){
-
-
-    try{
-
-
-        const antwort =
-        await fetch("data.json");
-
-
-        const daten =
-        await antwort.json();
-
-
-
-        console.log(
-            "Daten geladen:",
-            daten
-        );
-
-
-
-    }
-    catch(error){
-
-
-        console.error(
-            "Fehler beim Laden:",
-            error
-        );
-
-
-    }
-
-
-}
 
 
 
 
 
-function dashboardStart(){
 
 
-    statistikAnzeigen();
-
-
-    datenLaden();
-
-
-}
-
-
-
+/* =========================
+START
+========================= */
 
 
 window.addEventListener(
 
 "load",
 
-dashboardStart
+function(){
+
+
+
+statistikAnzeigen();
+
+
+
+
+if(
+spiele.length===0
+){
+
+
+beispieleLaden();
+
+
+}
+
+
+
+}
 
 );
+</script>
+
+
+</div>
+
+
+</div>
+
+
 </body>
+
 
 </html>
