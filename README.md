@@ -23,6 +23,15 @@ RESET
 }
 
 
+:root{
+
+    --heim-farbe:#0099ff;
+    --gast-farbe:#ff3344;
+
+}
+
+
+
 html,
 body{
 
@@ -37,19 +46,23 @@ body{
 }
 
 
+
 /* =========================
-LAYOUT
+HAUPT LAYOUT
 ========================= */
 
 
 .app{
 
-    width:100vw;
-    height:100vh;
-
     display:flex;
 
+    width:100vw;
+
+    height:100vh;
+
 }
+
+
 
 
 /* =========================
@@ -60,6 +73,7 @@ LINKER SPIELTAG
 .sidebar{
 
     width:280px;
+
     min-width:280px;
 
     height:100vh;
@@ -93,6 +107,7 @@ LINKER SPIELTAG
 
 
 
+
 .spieltag-box{
 
     height:calc(100vh - 90px);
@@ -108,6 +123,7 @@ LINKER SPIELTAG
     overflow-y:auto;
 
 }
+
 
 
 
@@ -129,7 +145,10 @@ LINKER SPIELTAG
 
     resize:none;
 
+    font-size:15px;
+
 }
+
 
 
 
@@ -146,6 +165,7 @@ LINKER SPIELTAG
     border:1px solid #777;
 
     background:
+
     linear-gradient(
     #555,
     #111
@@ -160,6 +180,16 @@ LINKER SPIELTAG
 }
 
 
+
+
+.button:hover{
+
+    border-color:#f5c542;
+
+}
+
+
+
 /* =========================
 SPIELKARTEN
 ========================= */
@@ -172,6 +202,7 @@ SPIELKARTEN
     padding:15px;
 
     background:
+
     linear-gradient(
     145deg,
     #333,
@@ -198,13 +229,17 @@ SPIELKARTEN
 
 
 
+
 .spielzeit{
 
     color:#aaa;
 
     font-size:13px;
 
+    margin-bottom:8px;
+
 }
+
 
 
 
@@ -219,8 +254,13 @@ SPIELKARTEN
 }
 
 
+
+
+
 /* =========================
 RECHTER BEREICH
+WICHTIG:
+LINKS BÜNDIG
 ========================= */
 
 
@@ -230,11 +270,12 @@ RECHTER BEREICH
 
     height:100vh;
 
-    padding:0;
-
     overflow-y:auto;
 
+    padding:0;
+
     background:
+
     linear-gradient(
     145deg,
     #191919,
@@ -245,6 +286,8 @@ RECHTER BEREICH
 
 
 
+
+
 /* =========================
 SPIELKOPF
 ========================= */
@@ -252,16 +295,23 @@ SPIELKOPF
 
 .spielkopf{
 
-    margin:20px;
+    margin-top:20px;
+
+    margin-left:0;
+
+    margin-right:20px;
 
     height:190px;
 
     display:grid;
 
     grid-template-columns:
+
     1fr 220px 1fr;
 
+
     align-items:center;
+
 
     background:#111;
 
@@ -285,16 +335,6 @@ SPIELKOPF
 
 
 
-:root{
-
-    --heim-farbe:#0099ff;
-
-    --gast-farbe:#ff3344;
-
-}
-
-
-
 .team.heim{
 
     color:var(--heim-farbe);
@@ -308,6 +348,7 @@ SPIELKOPF
     color:var(--gast-farbe);
 
 }
+
 
 
 
@@ -325,6 +366,8 @@ SPIELKOPF
 
 
 
+
+
 </style>
 
 
@@ -338,6 +381,11 @@ SPIELKOPF
 
 
 
+<!-- =========================
+LINKS
+========================= -->
+
+
 <div class="sidebar">
 
 
@@ -347,31 +395,41 @@ SPIELTAG
 
 
 
+
 <div class="spieltag-box">
 
 
 
 <textarea id="spieltagInput"
+
 placeholder="
+
 08.08.2026
 
 1. FC Union Berlin
 Eintracht Frankfurt
 
+
 09.08.2026
 
 Bayern München
 Borussia Dortmund
+
 "></textarea>
 
 
 
+
+
 <button class="button"
+
 onclick="spieltagLaden()">
 
 SPIELTAG LADEN
 
 </button>
+
+
 
 
 
@@ -388,28 +446,54 @@ SPIELTAG LADEN
 
 
 
+
+
+<!-- =========================
+RECHTS
+========================= -->
+
+
 <div class="main">
+
+
 
 
 
 <div class="spielkopf">
 
 
-<div class="team heim" id="heimName">
+
+<div class="team heim"
+
+id="heimName">
+
 HEIM
+
 </div>
+
+
 
 
 
 <div class="ergebnis">
+
 0 : 0
+
 </div>
 
 
 
-<div class="team gast" id="gastName">
+
+
+<div class="team gast"
+
+id="gastName">
+
 GAST
+
 </div>
+
+
 
 
 
