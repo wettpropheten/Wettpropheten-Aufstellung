@@ -4,15 +4,16 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wettpropheten Ansicht</title>
+<title>Wettpropheten Dashboard</title>
 
 
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 
@@ -20,61 +21,146 @@ body{
 
 margin:0;
 
-background:#050505;
+background:
+
+radial-gradient(circle at top,#444,#050505 75%);
 
 color:white;
 
 }
 
 
+
+/* =========================
+   GESAMTANSICHT
+========================= */
+
+
 .app{
 
-display:flex;
+display:grid;
+
+grid-template-columns:320px 1fr;
 
 width:100vw;
 
-height:100vh;
+min-height:100vh;
 
 }
 
 
 
-/* LINKS */
+/* =========================
+   SPIELTAG LINKS
+========================= */
+
 
 .sidebar{
 
-width:300px;
+background:
 
-background:#111;
-
-border-right:2px solid #444;
+linear-gradient(180deg,#1d1d1d,#080808);
 
 padding:20px;
 
+border-right:2px solid #444;
+
 }
 
 
 
-.sidebar h2{
+.sidebar h1{
 
 text-align:center;
 
+font-size:28px;
+
 color:#f5c542;
 
+margin-top:0;
+
 }
+
 
 
 .match{
 
+background:
+
+linear-gradient(145deg,#333,#111);
+
+border:1px solid #555;
+
+border-radius:18px;
+
+padding:18px;
+
+margin-bottom:15px;
+
+text-align:center;
+
+font-weight:bold;
+
+}
+
+
+
+.match:hover{
+
+border-color:#f5c542;
+
+}
+
+
+
+
+
+
+/* =========================
+   HAUPTFENSTER
+========================= */
+
+
+.main{
+
+padding:30px;
+
+background:
+
+linear-gradient(145deg,#151515,#050505);
+
+}
+
+
+
+
+.game-header{
+
+width:100%;
+
+display:grid;
+
+grid-template-columns:1fr 180px 1fr;
+
+align-items:center;
+
 background:#222;
 
 border:1px solid #555;
 
-border-radius:15px;
+border-radius:30px;
 
-padding:15px;
+padding:40px;
 
-margin-top:15px;
+}
+
+
+
+.team{
+
+font-size:42px;
+
+font-weight:bold;
 
 text-align:center;
 
@@ -82,97 +168,60 @@ text-align:center;
 
 
 
+.score{
 
-
-/* RECHTS */
-
-.main{
-
-
-flex:1;
-
-
-background:#181818;
-
-
-padding:30px;
-
-
-}
-
-
-
-
-.header{
-
-
-width:100%;
-
-
-height:180px;
-
-
-background:#222;
-
-
-border-radius:25px;
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:space-around;
-
-
-font-size:40px;
-
+font-size:90px;
 
 font-weight:bold;
 
-
-border:1px solid #555;
-
-
-}
-
-
-
-.box{
-
-
-margin-top:30px;
-
-
-height:120px;
-
-
-background:#222;
-
-
-border-radius:25px;
-
-
-border:1px solid #555;
-
-
-padding:25px;
-
-
-font-size:25px;
-
+text-align:center;
 
 color:#f5c542;
 
+}
+
+
+
+
+
+
+/* Platzhalter für Module */
+
+
+.panel{
+
+margin-top:30px;
+
+background:
+
+linear-gradient(145deg,#222,#101010);
+
+border-radius:25px;
+
+border:1px solid #444;
+
+padding:30px;
+
+font-size:25px;
 
 }
+
+
+
+.panel-title{
+
+color:#f5c542;
+
+font-size:24px;
+
+margin-bottom:20px;
+
+}
+
 
 
 
 </style>
-
 
 </head>
 
@@ -180,19 +229,24 @@ color:#f5c542;
 <body>
 
 
+
 <div class="app">
 
 
-<!-- SPIELTAG -->
+
+<!-- =====================
+     LINKER SPIELTAG
+===================== -->
+
 
 <div class="sidebar">
 
 
-<h2>
+<h1>
 
 SPIELTAG
 
-</h2>
+</h1>
 
 
 
@@ -200,7 +254,7 @@ SPIELTAG
 
 29.08. 15:30
 
-<br>
+<br><br>
 
 1. FC Köln
 
@@ -216,7 +270,12 @@ TSG Hoffenheim
 
 
 
+
 <div class="match">
+
+29.08. 15:30
+
+<br><br>
 
 RB Leipzig
 
@@ -226,7 +285,7 @@ VS
 
 <br>
 
-Gladbach
+Borussia Mönchengladbach
 
 </div>
 
@@ -240,69 +299,37 @@ Gladbach
 
 
 
-<!-- HAUPTFENSTER -->
+
+<!-- =====================
+     HAUPTBEREICH
+===================== -->
 
 
 <div class="main">
 
 
-<div class="header">
+
+<div class="game-header">
 
 
-<span>
+<div class="team">
 
 1. FC Köln
 
-</span>
+</div>
 
 
-<span>
+<div class="score">
 
 0 : 0
 
-</span>
+</div>
 
 
-<span>
+<div class="team">
 
 TSG Hoffenheim
 
-</span>
-
-
-</div>
-
-
-
-
-<div class="box">
-
-Expected Goals (xG) Balken kommt hier
-
-</div>
-
-
-
-<div class="box">
-
-Ballbesitz Balken kommt hier
-
-</div>
-
-
-
-<div class="box">
-
-Statistik Kästchen kommen hier
-
-</div>
-
-
-
-<div class="box">
-
-Spieldaten Tabelle kommt hier
-
 </div>
 
 
@@ -311,7 +338,82 @@ Spieldaten Tabelle kommt hier
 
 
 
+
+
+
+
+<div class="panel">
+
+<div class="panel-title">
+
+Expected Goals (xG)
+
 </div>
+
+Balkenbereich
+
+</div>
+
+
+
+
+
+
+<div class="panel">
+
+<div class="panel-title">
+
+Ballbesitz
+
+</div>
+
+Balkenbereich
+
+</div>
+
+
+
+
+
+
+<div class="panel">
+
+<div class="panel-title">
+
+Statistik Kästchen
+
+</div>
+
+Bereich für Live-Werte
+
+</div>
+
+
+
+
+
+
+<div class="panel">
+
+<div class="panel-title">
+
+Spieldaten Tabelle
+
+</div>
+
+Bereich für Tabelle
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
 
 
 </body>
