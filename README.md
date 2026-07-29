@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wettpropheten-Aufstellung</title>
+<title>Wettpropheten-Aufstellung V3</title>
 
 
 <style>
@@ -18,9 +18,13 @@ font-family:Arial,Helvetica,sans-serif;
 
 
 :root{
+
 --home:#00b7ff;
 --away:#ff4757;
+--gold:#f5c542;
+
 }
+
 
 
 body{
@@ -28,7 +32,7 @@ body{
 margin:0;
 
 background:
-radial-gradient(circle at top,#444,#050505 70%);
+radial-gradient(circle at top,#333,#050505 75%);
 
 color:white;
 
@@ -38,29 +42,34 @@ min-height:100vh;
 
 
 
-.main-container{
 
-width:1500px;
+
+.dashboard{
+
+width:1600px;
 
 max-width:98%;
 
 margin:20px auto;
 
+background:
+
+linear-gradient(145deg,#1f1f1f,#050505);
+
+border-radius:35px;
+
 padding:25px;
 
-background:
-linear-gradient(145deg,#222,#050505);
-
-border-radius:30px;
-
 box-shadow:
-0 30px 80px #000;
+
+0 40px 100px #000;
 
 }
 
 
 
-.content{
+
+.layout{
 
 display:grid;
 
@@ -73,38 +82,58 @@ gap:25px;
 
 
 
-/* SPIELTAG */
 
-.sidebar{
+
+
+/* ==========================
+   SPIELTAG
+========================== */
+
+
+.matchday{
+
 
 background:
-linear-gradient(145deg,#292929,#090909);
+
+linear-gradient(145deg,#292929,#101010);
+
 
 border-radius:25px;
 
 padding:20px;
 
-height:900px;
+border:1px solid #555;
+
+height:950px;
 
 overflow:auto;
 
-border:1px solid #555;
-
 }
 
 
 
-.sidebar h2{
 
-text-align:center;
+.matchday-title{
+
 
 font-size:28px;
 
+font-weight:bold;
+
+text-align:center;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+
 }
+
 
 
 
 #spieltagInput{
+
 
 width:100%;
 
@@ -114,31 +143,32 @@ background:#000;
 
 color:white;
 
+border:1px solid #555;
+
 border-radius:15px;
 
 padding:15px;
-
-font-size:15px;
-
-border:1px solid #555;
 
 }
 
 
 
+
 button{
+
 
 width:100%;
 
-padding:14px;
+padding:15px;
 
 margin-top:12px;
 
 border-radius:15px;
 
-border:1px solid #777;
+border:none;
 
 background:
+
 linear-gradient(#555,#111);
 
 color:white;
@@ -147,24 +177,59 @@ font-weight:bold;
 
 cursor:pointer;
 
+
 }
 
 
 
-.match-item{
+button:hover{
+
+
+filter:brightness(1.3);
+
+
+}
+
+
+
+
+
+
+
+.match-card{
+
 
 margin-top:15px;
 
-padding:15px;
+padding:18px;
+
+border-radius:20px;
 
 background:
+
 linear-gradient(145deg,#333,#111);
 
-border-radius:18px;
 
 border:1px solid #555;
 
+
 cursor:pointer;
+
+
+box-shadow:
+
+0 10px 25px #000;
+
+
+}
+
+
+
+.match-card:hover{
+
+
+transform:scale(1.02);
+
 
 }
 
@@ -172,9 +237,11 @@ cursor:pointer;
 
 .match-time{
 
+
 color:#aaa;
 
 font-size:13px;
+
 
 }
 
@@ -182,33 +249,42 @@ font-size:13px;
 
 .match-team{
 
+
 text-align:center;
 
-font-size:17px;
+font-size:18px;
 
 font-weight:bold;
 
 margin:5px;
 
+
 }
 
 
 
 
 
-/* HAUPTBEREICH */
 
 
-.main-area{
+
+/* ==========================
+   HAUPT DASHBOARD
+========================== */
+
+
+.main-panel{
+
 
 background:
-linear-gradient(145deg,#181818,#050505);
+
+linear-gradient(145deg,#151515,#050505);
+
 
 border-radius:30px;
 
 padding:30px;
 
-min-height:900px;
 
 }
 
@@ -216,34 +292,55 @@ min-height:900px;
 
 
 
-.score-header{
 
-display:flex;
 
-justify-content:space-between;
+
+/* SPIELKOPF */
+
+
+.game-header{
+
+
+display:grid;
+
+grid-template-columns:1fr 200px 1fr;
 
 align-items:center;
 
-padding:30px;
 
 background:
-linear-gradient(90deg,#ffffff15,transparent,#ffffff15);
+
+linear-gradient(
+
+90deg,
+
+#ffffff10,
+
+transparent,
+
+#ffffff10
+
+);
+
 
 border-radius:25px;
+
+padding:35px;
+
 
 }
 
 
 
-.team{
+.team-name{
 
-width:40%;
+
+font-size:38px;
+
+font-weight:bold;
 
 text-align:center;
 
-font-size:32px;
-
-font-weight:bold;
 
 }
 
@@ -251,36 +348,49 @@ font-weight:bold;
 
 .score{
 
-font-size:70px;
+
+font-size:90px;
 
 font-weight:bold;
+
+text-align:center;
+
 
 }
 
 
 
+
+
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
-<div class="main-container">
+
+<div class="dashboard">
 
 
-<div class="content">
+<div class="layout">
 
 
-<!-- SPIELTAG -->
 
-<div class="sidebar">
+<!-- SPIELTAG LINKS -->
 
 
-<h2>
+<div class="matchday">
+
+
+<div class="matchday-title">
+
 SPIELTAG
-</h2>
+
+</div>
 
 
 <textarea id="spieltagInput"
@@ -323,16 +433,21 @@ SPIELE LADEN
 
 
 
+
+
 <!-- HAUPTANSICHT -->
 
 
-<div class="main-area">
+<div class="main-panel">
 
 
-<div class="score-header">
+
+<div class="game-header">
 
 
-<div id="heimTeam" class="team">
+<div id="heimTeam"
+
+class="team-name">
 
 HEIM
 
@@ -348,7 +463,9 @@ HEIM
 
 
 
-<div id="gastTeam" class="team">
+<div id="gastTeam"
+
+class="team-name">
 
 GAST
 
@@ -357,11 +474,11 @@ GAST
 
 
 <!-- ==========================
-     xG BALKEN
+     EXPECTED GOALS
 ========================== -->
 
 
-<div class="big-stat">
+<div class="analysis-block">
 
 
 <h2>
@@ -369,7 +486,8 @@ Expected Goals (xG)
 </h2>
 
 
-<div class="big-values">
+
+<div class="value-row">
 
 
 <span id="xgHeim">
@@ -377,25 +495,30 @@ Expected Goals (xG)
 </span>
 
 
+
 <span id="xgGast">
 0.00
 </span>
 
 
+
 </div>
 
 
-<div class="bar">
+
+<div class="progress-bar">
 
 
 <div id="xgHomeBar"
-class="home-bar">
+
+class="home-fill">
 
 </div>
 
 
 <div id="xgAwayBar"
-class="away-bar">
+
+class="away-fill">
 
 </div>
 
@@ -404,7 +527,6 @@ class="away-bar">
 
 
 </div>
-
 
 
 
@@ -414,11 +536,11 @@ class="away-bar">
 
 
 <!-- ==========================
-     BALLBESITZ BALKEN
+     BALLBESITZ
 ========================== -->
 
 
-<div class="big-stat">
+<div class="analysis-block">
 
 
 <h2>
@@ -426,7 +548,8 @@ Ballbesitz
 </h2>
 
 
-<div class="big-values">
+
+<div class="value-row">
 
 
 <span id="possHeim">
@@ -434,26 +557,30 @@ Ballbesitz
 </span>
 
 
+
 <span id="possGast">
 50%
 </span>
 
 
+
 </div>
 
 
 
-<div class="bar">
+<div class="progress-bar">
 
 
 <div id="possHomeBar"
-class="home-bar">
+
+class="home-fill">
 
 </div>
 
 
 <div id="possAwayBar"
-class="away-bar">
+
+class="away-fill">
 
 </div>
 
@@ -463,178 +590,6 @@ class="away-bar">
 
 </div>
 
-
-
-
-
-
-
-
-
-<!-- ==========================
-     STATISTIK KÄSTCHEN
-========================== -->
-
-
-<div class="stat-grid">
-
-
-
-<div class="stat-box">
-
-<h3>
-SCHÜSSE
-</h3>
-
-<div>
-
-<span id="shotsHome">
-0
-</span>
-
-:
-
-<span id="shotsAway">
-0
-</span>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<h3>
-SCHÜSSE AUFS TOR
-</h3>
-
-<div>
-
-<span id="targetHome">
-0
-</span>
-
-:
-
-<span id="targetAway">
-0
-</span>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<h3>
-GROSSCHANCEN
-</h3>
-
-<div>
-
-<span id="chanceHome">
-0
-</span>
-
-:
-
-<span id="chanceAway">
-0
-</span>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<h3>
-ECKEN
-</h3>
-
-<div>
-
-<span id="cornerHome">
-0
-</span>
-
-:
-
-<span id="cornerAway">
-0
-</span>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<h3>
-PÄSSE
-</h3>
-
-<div>
-
-<span id="passesHome">
-0/0
-</span>
-
-:
-
-<span id="passesAway">
-0/0
-</span>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="stat-box">
-
-<h3>
-GELBE KARTEN
-</h3>
-
-<div>
-
-<span id="cardsHome">
-0
-</span>
-
-:
-
-<span id="cardsAway">
-0
-</span>
-
-</div>
-
-</div>
-
-
-
-</div>
 
 
 
@@ -646,121 +601,104 @@ GELBE KARTEN
 <style>
 
 
-.big-stat{
+.analysis-block{
+
 
 margin-top:35px;
-
-}
-
-
-
-.big-stat h2{
-
-text-align:center;
-
-}
-
-
-
-.big-values{
-
-display:flex;
-
-justify-content:space-between;
-
-font-size:34px;
-
-font-weight:bold;
-
-padding:0 40px;
-
-}
-
-
-
-.bar{
-
-height:32px;
-
-display:flex;
-
-background:#000;
-
-border-radius:20px;
-
-overflow:hidden;
-
-border:1px solid #555;
-
-margin-top:15px;
-
-}
-
-
-
-.home-bar{
-
-height:100%;
-
-background:var(--home);
-
-}
-
-
-
-.away-bar{
-
-height:100%;
-
-background:var(--away);
-
-}
-
-
-
-.stat-grid{
-
-margin-top:35px;
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:20px;
-
-}
-
-
-
-.stat-box{
 
 background:
 
-linear-gradient(145deg,#333,#111);
+linear-gradient(145deg,#222,#090909);
 
-border-radius:20px;
+border-radius:25px;
 
 padding:25px;
-
-text-align:center;
-
-font-size:30px;
 
 box-shadow:
 
 0 15px 35px #000;
 
+
 }
 
 
 
-.stat-box h3{
+.analysis-block h2{
 
-font-size:16px;
 
-color:#aaa;
+text-align:center;
 
-margin-bottom:15px;
+font-size:24px;
+
+color:var(--gold);
+
+
+}
+
+
+
+
+.value-row{
+
+
+display:flex;
+
+justify-content:space-between;
+
+padding:0 50px;
+
+font-size:38px;
+
+font-weight:bold;
+
+
+}
+
+
+
+
+.progress-bar{
+
+
+height:38px;
+
+margin-top:20px;
+
+display:flex;
+
+background:#000;
+
+border-radius:25px;
+
+overflow:hidden;
+
+border:1px solid #555;
+
+
+}
+
+
+
+
+.home-fill{
+
+
+height:100%;
+
+background:var(--home);
+
+
+}
+
+
+
+.away-fill{
+
+
+height:100%;
+
+background:var(--away);
+
 
 }
 
@@ -771,13 +709,316 @@ margin-bottom:15px;
 </div>
 
 
+<!-- ==========================
+     LIVE STATISTIK KARTEN
+========================== -->
+
+
+<div class="stats-container">
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+SCHÜSSE
+</div>
+
+
+<div class="stat-value">
+
+<span id="shotsHome">
+0
+</span>
+
+:
+
+<span id="shotsAway">
+0
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+SCHÜSSE AUFS TOR
+</div>
+
+
+<div class="stat-value">
+
+
+<span id="targetHome">
+0
+</span>
+
+:
+
+<span id="targetAway">
+0
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+GROSSCHANCEN
+</div>
+
+
+<div class="stat-value">
+
+
+<span id="chanceHome">
+0
+</span>
+
+:
+
+<span id="chanceAway">
+0
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+ECKEN
+</div>
+
+
+<div class="stat-value">
+
+
+<span id="cornerHome">
+0
+</span>
+
+:
+
+<span id="cornerAway">
+0
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+PÄSSE
+</div>
+
+
+<div class="stat-value">
+
+
+<span id="passesHome">
+0/0
+</span>
+
+:
+
+<span id="passesAway">
+0/0
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="stat-card">
+
+
+<div class="stat-title">
+GELBE KARTEN
+</div>
+
+
+<div class="stat-value">
+
+
+<span id="cardsHome">
+0
+</span>
+
+:
+
+<span id="cardsAway">
+0
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<style>
+
+
+.stats-container{
+
+
+margin-top:35px;
+
+
+display:grid;
+
+
+grid-template-columns:repeat(3,1fr);
+
+
+gap:20px;
+
+
+}
+
+
+
+
+.stat-card{
+
+
+background:
+
+
+linear-gradient(145deg,#303030,#101010);
+
+
+border-radius:25px;
+
+
+padding:30px;
+
+
+text-align:center;
+
+
+border:1px solid #444;
+
+
+box-shadow:
+
+
+0 20px 40px #000;
+
+
+}
+
+
+
+
+.stat-title{
+
+
+font-size:15px;
+
+
+color:#aaa;
+
+
+letter-spacing:2px;
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+.stat-value{
+
+
+font-size:34px;
+
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+</style>
+
 
 <!-- ==========================
      SPIELDATEN TABELLE
 ========================== -->
 
 
-<div class="table-box">
+<div class="data-panel">
 
 
 <h2>
@@ -814,7 +1055,6 @@ GAST
 <tbody>
 
 
-
 <tr>
 
 <td>
@@ -833,8 +1073,6 @@ Expected Goals (xG)
 
 
 
-
-
 <tr>
 
 <td>
@@ -850,7 +1088,6 @@ Ballbesitz
 </td>
 
 </tr>
-
 
 
 
@@ -874,7 +1111,6 @@ Schüsse
 
 
 
-
 <tr>
 
 <td>
@@ -890,7 +1126,6 @@ Schüsse aufs Tor
 </td>
 
 </tr>
-
 
 
 
@@ -914,7 +1149,6 @@ Großchancen
 
 
 
-
 <tr>
 
 <td>
@@ -930,7 +1164,6 @@ Ecken
 </td>
 
 </tr>
-
 
 
 
@@ -954,7 +1187,6 @@ Passquote
 
 
 
-
 <tr>
 
 <td>
@@ -970,7 +1202,6 @@ Pässe
 </td>
 
 </tr>
-
 
 
 
@@ -1014,12 +1245,13 @@ Gelbe Karten
 ========================== -->
 
 
-<div class="input-box">
+<div class="live-panel">
 
 
 <h2>
 LIVE DATEN EINGEBEN
 </h2>
+
 
 
 
@@ -1043,6 +1275,10 @@ Schüsse insgesamt
 Schüsse aufs Tor
 5
 
+0
+Großchancen
+0
+
 86%
 (454/526)
 Pässe
@@ -1065,6 +1301,7 @@ Gelbe Karten
 DATEN ÜBERNEHMEN
 
 </button>
+
 
 
 
@@ -1096,49 +1333,94 @@ DATEN ÜBERNEHMEN
 <style>
 
 
-.table-box{
+.data-panel{
+
 
 margin-top:40px;
 
+
 background:
 
-linear-gradient(145deg,#222,#080808);
 
-padding:25px;
+linear-gradient(145deg,#222,#090909);
+
 
 border-radius:25px;
 
+
+padding:30px;
+
+
+box-shadow:
+
+
+0 20px 40px #000;
+
+
 }
 
 
 
-.table-box h2{
+
+.data-panel h2,
+
+
+.live-panel h2{
+
 
 text-align:center;
 
+
+color:var(--gold);
+
+
 }
+
+
 
 
 
 table{
 
+
 width:100%;
+
 
 border-collapse:collapse;
 
+
 font-size:18px;
+
 
 }
 
 
 
-th,td{
+
+th{
+
+
+background:#333;
+
 
 padding:15px;
 
+
+}
+
+
+
+td{
+
+
+padding:14px;
+
+
 border-bottom:1px solid #444;
 
+
 text-align:center;
+
 
 }
 
@@ -1146,44 +1428,70 @@ text-align:center;
 
 td:first-child{
 
+
 text-align:left;
+
 
 color:#bbb;
 
+
 }
 
 
 
 
-.input-box{
+.live-panel{
+
 
 margin-top:35px;
 
-background:#111;
 
-padding:25px;
+background:
+
+
+linear-gradient(145deg,#1f1f1f,#080808);
+
 
 border-radius:25px;
 
+
+padding:30px;
+
+
 }
+
 
 
 
 #datenInput{
 
+
 width:100%;
 
-height:250px;
+
+height:260px;
+
 
 background:#000;
 
+
 color:white;
 
-border-radius:15px;
 
-padding:15px;
+border:1px solid #555;
+
+
+border-radius:20px;
+
+
+padding:20px;
+
 
 font-size:16px;
+
+
+resize:none;
+
 
 }
 
@@ -1203,7 +1511,7 @@ let aktuellesSpiel = null;
 
 
 /* ==========================
-   DATENSTRUKTUR
+   BASIS DATEN
 ========================== */
 
 
@@ -1211,6 +1519,7 @@ function neueStatistik(){
 
 
 return {
+
 
 xg:{
 heim:0,
@@ -1277,6 +1586,7 @@ gast:0
 
 
 
+
 /* ==========================
    SPIELTAG LADEN
 ========================== */
@@ -1287,19 +1597,16 @@ document
 .onclick=function(){
 
 
+
 let text=
 
-document
-.getElementById("spieltagInput")
-.value;
+spieltagInput.value;
 
 
 
 let zeilen=
 
-text
-
-.split("\n")
+text.split("\n")
 
 .map(x=>x.trim())
 
@@ -1307,41 +1614,44 @@ text
 
 
 
-let liste=
-
-document
-.getElementById("spieleListe");
+spieleListe.innerHTML="";
 
 
-
-liste.innerHTML="";
 
 
 
 for(let i=0;i<zeilen.length;i++){
 
 
+
 if(
+
 zeilen[i].match(/\d{2}\.\d{2}/)
+
 ){
+
 
 
 let datum=zeilen[i];
 
-
 let teams=[];
+
 
 
 for(let j=i+1;j<zeilen.length;j++){
 
 
+
 if(zeilen[j]=="-")
+
 break;
 
 
 
 if(
-teams.indexOf(zeilen[j])===-1
+
+!teams.includes(zeilen[j])
+
 ){
 
 teams.push(zeilen[j]);
@@ -1356,7 +1666,8 @@ teams.push(zeilen[j]);
 if(teams.length>=2){
 
 
-erstelleSpiel(
+
+spielKarte(
 
 datum,
 
@@ -1367,13 +1678,17 @@ teams[1]
 );
 
 
-}
-
 
 }
 
 
+
 }
+
+
+
+}
+
 
 
 };
@@ -1391,7 +1706,7 @@ teams[1]
 ========================== */
 
 
-function erstelleSpiel(
+function spielKarte(
 
 datum,
 
@@ -1402,19 +1717,18 @@ gast
 ){
 
 
-let box=
+
+let div=
 
 document.createElement("div");
 
 
 
-box.className="match-item";
+div.className="match-card";
 
 
 
-box.innerHTML=
-
-`
+div.innerHTML=`
 
 <div class="match-time">
 
@@ -1422,20 +1736,17 @@ ${datum}
 
 </div>
 
-
 <div class="match-team">
 
 ${heim}
 
 </div>
 
-
 <div class="match-team">
 
 VS
 
 </div>
-
 
 <div class="match-team">
 
@@ -1448,7 +1759,7 @@ ${gast}
 
 
 
-box.onclick=function(){
+div.onclick=function(){
 
 
 spielOeffnen(
@@ -1464,11 +1775,7 @@ gast
 
 
 
-document
-
-.getElementById("spieleListe")
-
-.appendChild(box);
+spieleListe.appendChild(div);
 
 
 
@@ -1496,9 +1803,11 @@ gast
 ){
 
 
+
 aktuellesSpiel=
 
 heim+"_"+gast;
+
 
 
 
@@ -1524,21 +1833,13 @@ stats:neueStatistik()
 
 
 
-document
-
-.getElementById("heimTeam")
-
-.innerHTML=
+heimTeam.innerHTML=
 
 heim;
 
 
 
-document
-
-.getElementById("gastTeam")
-
-.innerHTML=
+gastTeam.innerHTML=
 
 gast;
 
@@ -1547,7 +1848,10 @@ gast;
 anzeigeAktualisieren();
 
 
+
 }
+
+
 
 
 
@@ -1556,118 +1860,30 @@ anzeigeAktualisieren();
 
 
 /* ==========================
-   DATEN ÜBERNEHMEN
+   ZAHLEN ERKENNEN
 ========================== */
 
 
-document
+function wert(text){
 
-.getElementById("datenUebernehmen")
 
-.onclick=function(){
+if(!text)
 
+return 0;
 
-datenEinlesen();
 
 
-};
+let x=
 
+text.match(/\d+(?:[.,]\d+)?/);
 
 
 
-
-function datenEinlesen(){
-
-
-if(!aktuellesSpiel)
-
-return;
-
-
-
-let text=
-
-document
-
-.getElementById("datenInput")
-
-.value;
-
-
-
-let s=
-
-spieleDaten[aktuellesSpiel].stats;
-
-
-
-let zeilen=
-
-text
-
-.split("\n")
-
-.map(x=>x.trim())
-
-.filter(x=>x);
-
-
-
-
-function finde(wort){
-
-
-let index=
-
-zeilen.findIndex(
-
-x=>
-
-x.toLowerCase()
-
-.includes(wort.toLowerCase())
-
-);
-
-
-
-if(index<0)
-
-return [0,0];
-
-
-
-return [
-
-zahlen(zeilen[index-1]),
-
-zahlen(zeilen[index+1])
-
-];
-
-
-}
-
-
-
-
-
-
-
-function zahlen(t){
-
-
-let n=
-
-t.match(/\d+(?:[.,]\d+)?/g);
-
-
-
-return n?
+return x?
 
 Number(
 
-n[0].replace(",", ".")
+x[0].replace(",", ".")
 
 )
 
@@ -1684,9 +1900,94 @@ n[0].replace(",", ".")
 
 
 
+/* ==========================
+   DATEN EINLESEN
+========================== */
+
+
+datenUebernehmen.onclick=function(){
+
+
+
+if(!aktuellesSpiel)
+
+return;
+
+
+
+let text=
+
+datenInput.value;
+
+
+
+let zeilen=
+
+text.split("\n")
+
+.map(x=>x.trim())
+
+.filter(x=>x);
+
+
+
+
+let s=
+
+spieleDaten[aktuellesSpiel].stats;
+
+
+
+
+
+
+function suche(name){
+
+
+let i=
+
+zeilen.findIndex(
+
+x=>
+
+x.toLowerCase()
+
+.includes(
+
+name.toLowerCase()
+
+)
+
+);
+
+
+
+if(i<1)
+
+return [0,0];
+
+
+
+return [
+
+wert(zeilen[i-1]),
+
+wert(zeilen[i+1])
+
+];
+
+
+}
+
+
+
+
+
+
+
 let xg=
 
-finde("Expected Goals");
+suche("Expected Goals");
 
 s.xg.heim=xg[0];
 
@@ -1695,9 +1996,11 @@ s.xg.gast=xg[1];
 
 
 
+
+
 let pos=
 
-finde("Ballbesitz");
+suche("Ballbesitz");
 
 s.ballbesitz.heim=pos[0];
 
@@ -1707,9 +2010,10 @@ s.ballbesitz.gast=pos[1];
 
 
 
+
 let sch=
 
-finde("Schüsse insgesamt");
+suche("Schüsse insgesamt");
 
 s.schuesse.heim=sch[0];
 
@@ -1719,9 +2023,10 @@ s.schuesse.gast=sch[1];
 
 
 
+
 let tor=
 
-finde("Schüsse aufs Tor");
+suche("Schüsse aufs Tor");
 
 s.aufsTor.heim=tor[0];
 
@@ -1731,56 +2036,61 @@ s.aufsTor.gast=tor[1];
 
 
 
-let chance=
 
-finde("Großchance");
+let ch=
 
-s.grosschancen.heim=chance[0];
+suche("Großchancen");
 
-s.grosschancen.gast=chance[1];
+s.grosschancen.heim=ch[0];
 
-
-
-
-
-let ecken=
-
-finde("Eck");
-
-s.ecken.heim=ecken[0];
-
-s.ecken.gast=ecken[1];
-
-
-
-
-
-let karten=
-
-finde("Gelbe Karten");
-
-s.karten.heim=karten[0];
-
-s.karten.gast=karten[1];
+s.grosschancen.gast=ch[1];
 
 
 
 
 
 
-let p=
+let ek=
+
+suche("Ecken");
+
+s.ecken.heim=ek[0];
+
+s.ecken.gast=ek[1];
+
+
+
+
+
+
+
+let gelb=
+
+suche("Gelbe Karten");
+
+s.karten.heim=gelb[0];
+
+s.karten.gast=gelb[1];
+
+
+
+
+
+
+
+let pass=
 
 text.match(/\d+\/\d+/g);
 
 
 
-if(p && p.length>=2){
+if(pass && pass.length>=2){
 
 
-s.paesse.heim=p[0];
+s.paesse.heim=pass[0];
 
 
-s.paesse.gast=p[1];
+s.paesse.gast=pass[1];
 
 
 }
@@ -1788,20 +2098,19 @@ s.paesse.gast=p[1];
 
 
 
-
-let q=
+let quote=
 
 text.match(/\d+%/g);
 
 
 
-if(q && q.length>=2){
+if(quote && quote.length>=2){
 
 
-s.passquote.heim=q[0];
+s.passquote.heim=quote[0];
 
 
-s.passquote.gast=q[1];
+s.passquote.gast=quote[1];
 
 
 }
@@ -1811,14 +2120,19 @@ s.passquote.gast=q[1];
 anzeigeAktualisieren();
 
 
-}
+
+};
+
+
+
+
 
 
 
 
 
 /* ==========================
-   ANZEIGE AKTUALISIEREN
+   ANZEIGE
 ========================== */
 
 
@@ -1841,12 +2155,11 @@ spieleDaten[aktuellesSpiel].stats;
 
 
 
-/* Balken Werte */
-
 
 xgHeim.innerHTML=
 
 s.xg.heim.toFixed(2);
+
 
 
 xgGast.innerHTML=
@@ -1857,9 +2170,12 @@ s.xg.gast.toFixed(2);
 
 
 
+
+
 possHeim.innerHTML=
 
 s.ballbesitz.heim+"%";
+
 
 
 possGast.innerHTML=
@@ -1871,25 +2187,28 @@ s.ballbesitz.gast+"%";
 
 
 
-let xgGesamt=
+
+let ges=
 
 s.xg.heim+s.xg.gast;
 
 
-if(xgGesamt>0){
+
+if(ges>0){
 
 
 xgHomeBar.style.width=
 
-(s.xg.heim/xgGesamt*100)+"%";
+(s.xg.heim/ges*100)+"%";
 
 
 xgAwayBar.style.width=
 
-(s.xg.gast/xgGesamt*100)+"%";
+(s.xg.gast/ges*100)+"%";
 
 
 }
+
 
 
 
@@ -1907,181 +2226,80 @@ s.ballbesitz.gast+"%";
 
 
 
+shotsHome.innerHTML=s.schuesse.heim;
 
-/* Kästchen */
+shotsAway.innerHTML=s.schuesse.gast;
 
 
-shotsHome.innerHTML=
+targetHome.innerHTML=s.aufsTor.heim;
 
-s.schuesse.heim;
+targetAway.innerHTML=s.aufsTor.gast;
 
 
-shotsAway.innerHTML=
+chanceHome.innerHTML=s.grosschancen.heim;
 
-s.schuesse.gast;
+chanceAway.innerHTML=s.grosschancen.gast;
 
 
+cornerHome.innerHTML=s.ecken.heim;
 
-targetHome.innerHTML=
+cornerAway.innerHTML=s.ecken.gast;
 
-s.aufsTor.heim;
 
+passesHome.innerHTML=s.paesse.heim;
 
-targetAway.innerHTML=
+passesAway.innerHTML=s.paesse.gast;
 
-s.aufsTor.gast;
 
+cardsHome.innerHTML=s.karten.heim;
 
+cardsAway.innerHTML=s.karten.gast;
 
-chanceHome.innerHTML=
 
-s.grosschancen.heim;
 
+tabXgHome.innerHTML=s.xg.heim.toFixed(2);
 
-chanceAway.innerHTML=
+tabXgAway.innerHTML=s.xg.gast.toFixed(2);
 
-s.grosschancen.gast;
 
+tabPossHome.innerHTML=s.ballbesitz.heim+"%";
 
+tabPossAway.innerHTML=s.ballbesitz.gast+"%";
 
-cornerHome.innerHTML=
 
-s.ecken.heim;
+tabShotsHome.innerHTML=s.schuesse.heim;
 
+tabShotsAway.innerHTML=s.schuesse.gast;
 
-cornerAway.innerHTML=
 
-s.ecken.gast;
+tabTargetHome.innerHTML=s.aufsTor.heim;
 
+tabTargetAway.innerHTML=s.aufsTor.gast;
 
 
-passesHome.innerHTML=
+tabChanceHome.innerHTML=s.grosschancen.heim;
 
-s.paesse.heim;
+tabChanceAway.innerHTML=s.grosschancen.gast;
 
 
-passesAway.innerHTML=
+tabCornerHome.innerHTML=s.ecken.heim;
 
-s.paesse.gast;
+tabCornerAway.innerHTML=s.ecken.gast;
 
 
+tabPassHome.innerHTML=s.paesse.heim;
 
-cardsHome.innerHTML=
+tabPassAway.innerHTML=s.paesse.gast;
 
-s.karten.heim;
 
+tabPassRateHome.innerHTML=s.passquote.heim;
 
-cardsAway.innerHTML=
+tabPassRateAway.innerHTML=s.passquote.gast;
 
-s.karten.gast;
 
+tabCardHome.innerHTML=s.karten.heim;
 
-
-
-
-
-
-
-
-/* Tabelle */
-
-
-tabXgHome.innerHTML=
-
-s.xg.heim.toFixed(2);
-
-
-tabXgAway.innerHTML=
-
-s.xg.gast.toFixed(2);
-
-
-
-tabPossHome.innerHTML=
-
-s.ballbesitz.heim+"%";
-
-
-tabPossAway.innerHTML=
-
-s.ballbesitz.gast+"%";
-
-
-
-tabShotsHome.innerHTML=
-
-s.schuesse.heim;
-
-
-tabShotsAway.innerHTML=
-
-s.schuesse.gast;
-
-
-
-tabTargetHome.innerHTML=
-
-s.aufsTor.heim;
-
-
-tabTargetAway.innerHTML=
-
-s.aufsTor.gast;
-
-
-
-tabChanceHome.innerHTML=
-
-s.grosschancen.heim;
-
-
-tabChanceAway.innerHTML=
-
-s.grosschancen.gast;
-
-
-
-tabCornerHome.innerHTML=
-
-s.ecken.heim;
-
-
-tabCornerAway.innerHTML=
-
-s.ecken.gast;
-
-
-
-tabPassHome.innerHTML=
-
-s.paesse.heim;
-
-
-tabPassAway.innerHTML=
-
-s.paesse.gast;
-
-
-
-tabPassRateHome.innerHTML=
-
-s.passquote.heim;
-
-
-tabPassRateAway.innerHTML=
-
-s.passquote.gast;
-
-
-
-tabCardHome.innerHTML=
-
-s.karten.heim;
-
-
-tabCardAway.innerHTML=
-
-s.karten.gast;
+tabCardAway.innerHTML=s.karten.gast;
 
 
 
@@ -2094,17 +2312,12 @@ s.karten.gast;
 
 
 
-
 /* ==========================
-   SPEICHERN
+   SPEICHERN / LADEN
 ========================== */
 
 
-document
-
-.getElementById("speichern")
-
-.onclick=function(){
+speichern.onclick=function(){
 
 
 if(!aktuellesSpiel)
@@ -2126,34 +2339,13 @@ spieleDaten[aktuellesSpiel]
 );
 
 
-
-alert(
-
-"Spiel gespeichert"
-
-);
-
-
 };
 
 
 
 
 
-
-
-
-
-/* ==========================
-   LADEN
-========================== */
-
-
-document
-
-.getElementById("laden")
-
-.onclick=function(){
+laden.onclick=function(){
 
 
 
@@ -2176,6 +2368,7 @@ localStorage.getItem(
 if(daten){
 
 
+
 spieleDaten[aktuellesSpiel]
 
 =
@@ -2188,92 +2381,11 @@ anzeigeAktualisieren();
 
 
 
-alert(
-
-"Spiel geladen"
-
-);
-
-
-
 }
 
 
 
 };
-
-
-
-
-
-
-
-
-
-/* ==========================
-   SPIELTAG SPEICHERN
-========================== */
-
-
-window.onload=function(){
-
-
-
-let alt=
-
-localStorage.getItem(
-
-"Wettpropheten_Spieltag"
-
-);
-
-
-
-if(alt){
-
-
-spieltagInput.value=alt;
-
-
-}
-
-
-
-};
-
-
-
-
-
-
-
-
-
-document
-
-.getElementById("spieleLaden")
-
-.addEventListener(
-
-"click",
-
-function(){
-
-
-
-localStorage.setItem(
-
-"Wettpropheten_Spieltag",
-
-spieltagInput.value
-
-);
-
-
-
-}
-
-);
 
 
 
