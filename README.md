@@ -44,9 +44,13 @@ GRUNDLAYOUT
 html,
 body{
 
-    width:100%;
+    margin:0 !important;
 
-    height:100%;
+    padding:0 !important;
+
+    width:100vw;
+
+    height:100vh;
 
     background:#050505;
 
@@ -59,6 +63,12 @@ body{
 
 
 .app{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
 
     width:100vw;
 
@@ -115,6 +125,7 @@ LINKER SPIELTAG
 
 
 
+
 .spieltag-box{
 
     height:calc(100vh - 90px);
@@ -159,6 +170,7 @@ LINKER SPIELTAG
 
 
 
+
 .button{
 
     width:100%;
@@ -185,13 +197,6 @@ LINKER SPIELTAG
 
 }
 
-
-
-.button:hover{
-
-    border-color:#f5c542;
-
-}
 
 
 
@@ -260,9 +265,11 @@ SPIELKARTEN
 
 
 
+
+
 /* =========================
-RECHTER BEREICH
-LINKS BÜNDIG
+RECHTER HAUPTBEREICH
+OHNE LINKEN ABSTAND
 ========================= */
 
 
@@ -272,11 +279,13 @@ LINKS BÜNDIG
 
     height:100vh;
 
+    width:calc(100vw - 280px);
+
     overflow-y:auto;
 
-    padding:0;
+    padding:0 !important;
 
-    margin:0;
+    margin:0 !important;
 
     background:
     linear-gradient(
@@ -292,34 +301,14 @@ LINKS BÜNDIG
 
 
 /* =========================
-ALLE RECHTEN MODULE
-GLEICHE LINKE KANTE
-========================= */
-
-
-.panel,
-.live-bereich,
-.speicher-bereich,
-.top-statistik{
-
-    margin-left:0 !important;
-
-    margin-right:20px;
-
-}
-
-
-
-
-
-/* =========================
 SPIELKOPF
+BÜNDIG AN HAUPTBEREICH
 ========================= */
 
 
 .spielkopf{
 
-    margin:20px 20px 0 0;
+    margin:20px 20px 20px 0;
 
     height:190px;
 
@@ -405,7 +394,7 @@ SPIELKOPF
 
 
 <!-- =========================
-LINKS SPIELTAG
+LINKER SPIELTAG
 ========================= -->
 
 
@@ -469,8 +458,10 @@ SPIELTAG LADEN
 
 
 
+
+
 <!-- =========================
-RECHTS DASHBOARD
+RECHTE HAUPTSEITE
 ========================= -->
 
 
