@@ -1,8 +1,18 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Wettpropheten Ansicht</title>
+
+
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+font-family:Arial, sans-serif;
 }
 
 
@@ -10,64 +20,36 @@ body{
 
 margin:0;
 
-background:
-radial-gradient(circle at top,#333,#050505 80%);
+background:#050505;
 
 color:white;
 
-overflow-x:hidden;
-
 }
 
-
-
-/* GANZER BEREICH */
 
 .app{
 
-display:grid;
+display:flex;
 
-grid-template-columns:300px 1fr;
+width:100vw;
 
-min-height:100vh;
-
-width:100%;
-
-gap:15px;
+height:100vh;
 
 }
 
 
 
-
-
-/* ======================
-   SPIELTAG GANZ LINKS
-====================== */
-
+/* LINKS */
 
 .sidebar{
 
-height:100vh;
+width:300px;
 
-position:sticky;
+background:#111;
 
-top:0;
+border-right:2px solid #444;
 
-
-background:
-
-linear-gradient(145deg,#252525,#080808);
-
-
-padding:18px;
-
-
-border-right:2px solid #555;
-
-
-overflow:auto;
-
+padding:20px;
 
 }
 
@@ -79,7 +61,22 @@ text-align:center;
 
 color:#f5c542;
 
-font-size:28px;
+}
+
+
+.match{
+
+background:#222;
+
+border:1px solid #555;
+
+border-radius:15px;
+
+padding:15px;
+
+margin-top:15px;
+
+text-align:center;
 
 }
 
@@ -87,127 +84,15 @@ font-size:28px;
 
 
 
-/* ======================
-   HAUPTFENSTER MAXIMAL
-====================== */
-
+/* RECHTS */
 
 .main{
 
 
-width:100%;
+flex:1;
 
 
-min-height:100vh;
-
-
-padding:30px 40px 50px 25px;
-
-
-background:
-
-linear-gradient(145deg,#171717,#050505);
-
-
-border-radius:30px 0 0 30px;
-
-
-box-shadow:
-
--20px 0 60px #000;
-
-
-}
-
-
-
-
-
-/* SPIELKOPF */
-
-.game-header{
-
-
-width:100%;
-
-
-display:grid;
-
-grid-template-columns:1fr 220px 1fr;
-
-
-align-items:center;
-
-
-padding:45px;
-
-
-border-radius:30px;
-
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#ffffff12,
-
-transparent,
-
-#ffffff12
-
-);
-
-
-}
-
-
-
-.team{
-
-font-size:42px;
-
-font-weight:bold;
-
-text-align:center;
-
-}
-
-
-
-.score{
-
-font-size:100px;
-
-font-weight:bold;
-
-text-align:center;
-
-}
-
-
-
-
-
-/* spätere Module volle Breite */
-
-
-.module{
-
-
-width:100%;
-
-
-margin-top:30px;
-
-
-background:
-
-linear-gradient(145deg,#222,#090909);
-
-
-border-radius:25px;
+background:#181818;
 
 
 padding:30px;
@@ -216,4 +101,219 @@ padding:30px;
 }
 
 
+
+
+.header{
+
+
+width:100%;
+
+
+height:180px;
+
+
+background:#222;
+
+
+border-radius:25px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:space-around;
+
+
+font-size:40px;
+
+
+font-weight:bold;
+
+
+border:1px solid #555;
+
+
+}
+
+
+
+.box{
+
+
+margin-top:30px;
+
+
+height:120px;
+
+
+background:#222;
+
+
+border-radius:25px;
+
+
+border:1px solid #555;
+
+
+padding:25px;
+
+
+font-size:25px;
+
+
+color:#f5c542;
+
+
+}
+
+
+
 </style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- SPIELTAG -->
+
+<div class="sidebar">
+
+
+<h2>
+
+SPIELTAG
+
+</h2>
+
+
+
+<div class="match">
+
+29.08. 15:30
+
+<br>
+
+1. FC Köln
+
+<br>
+
+VS
+
+<br>
+
+TSG Hoffenheim
+
+</div>
+
+
+
+<div class="match">
+
+RB Leipzig
+
+<br>
+
+VS
+
+<br>
+
+Gladbach
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- HAUPTFENSTER -->
+
+
+<div class="main">
+
+
+<div class="header">
+
+
+<span>
+
+1. FC Köln
+
+</span>
+
+
+<span>
+
+0 : 0
+
+</span>
+
+
+<span>
+
+TSG Hoffenheim
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+Expected Goals (xG) Balken kommt hier
+
+</div>
+
+
+
+<div class="box">
+
+Ballbesitz Balken kommt hier
+
+</div>
+
+
+
+<div class="box">
+
+Statistik Kästchen kommen hier
+
+</div>
+
+
+
+<div class="box">
+
+Spieldaten Tabelle kommt hier
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</body>
+
+</html>
