@@ -17,22 +17,26 @@ font-family:Arial,Helvetica,sans-serif;
 }
 
 
-body{
+html,body{
 
 margin:0;
 
-background:
+width:100%;
 
-radial-gradient(circle at top,#444,#050505 75%);
+height:100%;
+
+background:#050505;
 
 color:white;
+
+overflow:hidden;
 
 }
 
 
 
 /* =========================
-   GESAMTANSICHT
+   GESAMT
 ========================= */
 
 
@@ -40,11 +44,11 @@ color:white;
 
 display:grid;
 
-grid-template-columns:320px 1fr;
+grid-template-columns:250px 1fr;
 
 width:100vw;
 
-min-height:100vh;
+height:100vh;
 
 }
 
@@ -57,61 +61,74 @@ min-height:100vh;
 
 .sidebar{
 
+
 background:
 
-linear-gradient(180deg,#1d1d1d,#080808);
+linear-gradient(180deg,#202020,#090909);
 
-padding:20px;
+
+height:100vh;
+
+
+padding:15px;
+
 
 border-right:2px solid #444;
 
+
+overflow-y:auto;
+
+
 }
 
 
 
-.sidebar h1{
+
+.sidebar h2{
+
 
 text-align:center;
 
-font-size:28px;
 
 color:#f5c542;
 
-margin-top:0;
+
+font-size:24px;
+
+
+margin:10px 0 20px;
+
 
 }
+
 
 
 
 .match{
 
-background:
 
-linear-gradient(145deg,#333,#111);
+background:#151515;
 
-border:1px solid #555;
 
-border-radius:18px;
+border:1px solid #444;
 
-padding:18px;
 
-margin-bottom:15px;
+border-radius:15px;
+
+
+padding:12px;
+
+
+margin-bottom:12px;
+
 
 text-align:center;
 
-font-weight:bold;
+
+font-size:15px;
+
 
 }
-
-
-
-.match:hover{
-
-border-color:#f5c542;
-
-}
-
-
 
 
 
@@ -123,107 +140,142 @@ border-color:#f5c542;
 
 .main{
 
-padding:30px;
+
+height:100vh;
+
+
+width:100%;
+
+
+padding:20px;
+
 
 background:
 
-linear-gradient(145deg,#151515,#050505);
+
+linear-gradient(145deg,#181818,#050505);
+
+
+overflow:auto;
+
 
 }
 
 
+
+
+/* SPIELKOPF */
 
 
 .game-header{
 
+
 width:100%;
+
+
+height:170px;
+
 
 display:grid;
 
+
 grid-template-columns:1fr 180px 1fr;
+
 
 align-items:center;
 
+
 background:#222;
 
-border:1px solid #555;
 
-border-radius:30px;
+border-radius:25px;
 
-padding:40px;
+
+border:1px solid #444;
+
 
 }
+
 
 
 
 .team{
 
-font-size:42px;
+
+font-size:38px;
+
 
 font-weight:bold;
 
+
 text-align:center;
 
+
 }
+
 
 
 
 .score{
 
-font-size:90px;
+
+font-size:80px;
+
 
 font-weight:bold;
 
+
 text-align:center;
 
-color:#f5c542;
-
-}
-
-
-
-
-
-
-/* Platzhalter für Module */
-
-
-.panel{
-
-margin-top:30px;
-
-background:
-
-linear-gradient(145deg,#222,#101010);
-
-border-radius:25px;
-
-border:1px solid #444;
-
-padding:30px;
-
-font-size:25px;
-
-}
-
-
-
-.panel-title{
 
 color:#f5c542;
 
-font-size:24px;
-
-margin-bottom:20px;
 
 }
 
+
+
+
+
+
+/* BEREICHE */
+
+
+.section{
+
+
+margin-top:20px;
+
+
+height:120px;
+
+
+background:#151515;
+
+
+border:1px solid #333;
+
+
+border-radius:20px;
+
+
+padding:20px;
+
+
+font-size:22px;
+
+
+color:#f5c542;
+
+
+}
 
 
 
 </style>
 
 </head>
+
 
 
 <body>
@@ -234,19 +286,19 @@ margin-bottom:20px;
 
 
 
-<!-- =====================
-     LINKER SPIELTAG
-===================== -->
+<!-- =========================
+     SPIELTAG
+========================= -->
 
 
 <div class="sidebar">
 
 
-<h1>
+<h2>
 
 SPIELTAG
 
-</h1>
+</h2>
 
 
 
@@ -291,6 +343,26 @@ Borussia Mönchengladbach
 
 
 
+<div class="match">
+
+29.08. 15:30
+
+<br><br>
+
+Mainz 05
+
+<br>
+
+VS
+
+<br>
+
+Paderborn
+
+</div>
+
+
+
 </div>
 
 
@@ -299,10 +371,9 @@ Borussia Mönchengladbach
 
 
 
-
-<!-- =====================
+<!-- =========================
      HAUPTBEREICH
-===================== -->
+========================= -->
 
 
 <div class="main">
@@ -319,11 +390,13 @@ Borussia Mönchengladbach
 </div>
 
 
+
 <div class="score">
 
 0 : 0
 
 </div>
+
 
 
 <div class="team">
@@ -342,74 +415,44 @@ TSG Hoffenheim
 
 
 
-<div class="panel">
-
-<div class="panel-title">
+<div class="section">
 
 Expected Goals (xG)
 
 </div>
 
-Balkenbereich
-
-</div>
 
 
 
-
-
-
-<div class="panel">
-
-<div class="panel-title">
+<div class="section">
 
 Ballbesitz
 
 </div>
 
-Balkenbereich
-
-</div>
 
 
 
-
-
-
-<div class="panel">
-
-<div class="panel-title">
+<div class="section">
 
 Statistik Kästchen
 
 </div>
 
-Bereich für Live-Werte
-
-</div>
 
 
 
-
-
-
-<div class="panel">
-
-<div class="panel-title">
+<div class="section">
 
 Spieldaten Tabelle
 
 </div>
 
-Bereich für Tabelle
-
-</div>
-
-
 
 
 
 </div>
+
 
 
 </div>
