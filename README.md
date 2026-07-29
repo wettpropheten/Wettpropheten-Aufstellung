@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="de">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Wettpropheten Dashboard</title>
-
-
 <style>
 
 *{
@@ -22,29 +11,29 @@ body{
 margin:0;
 
 background:
-radial-gradient(circle at top,#333,#050505 75%);
+radial-gradient(circle at top,#333,#050505 80%);
 
 color:white;
+
+overflow-x:hidden;
 
 }
 
 
 
+/* GANZER BEREICH */
+
 .app{
-
-width:98%;
-
-max-width:1700px;
-
-margin:20px auto;
 
 display:grid;
 
-grid-template-columns:340px 1fr;
+grid-template-columns:300px 1fr;
 
-gap:25px;
+min-height:100vh;
 
-align-items:start;
+width:100%;
+
+gap:15px;
 
 }
 
@@ -53,29 +42,31 @@ align-items:start;
 
 
 /* ======================
-   SPIELTAG LINKS
+   SPIELTAG GANZ LINKS
 ====================== */
 
 
 .sidebar{
 
+height:100vh;
+
+position:sticky;
+
+top:0;
+
 
 background:
 
-linear-gradient(145deg,#252525,#090909);
+linear-gradient(145deg,#252525,#080808);
 
 
-border-radius:25px;
+padding:18px;
 
-padding:20px;
 
-height:900px;
+border-right:2px solid #555;
 
-border:1px solid #555;
 
-box-shadow:
-
-0 30px 70px #000;
+overflow:auto;
 
 
 }
@@ -94,65 +85,39 @@ font-size:28px;
 
 
 
-.match{
-
-background:
-
-linear-gradient(145deg,#333,#111);
-
-border-radius:18px;
-
-padding:15px;
-
-margin-top:15px;
-
-border:1px solid #555;
-
-}
-
-
-
-.match div{
-
-text-align:center;
-
-margin:5px;
-
-font-weight:bold;
-
-}
-
-
-
 
 
 /* ======================
-   HAUPTANSICHT RECHTS
+   HAUPTFENSTER MAXIMAL
 ====================== */
 
 
 .main{
 
 
+width:100%;
+
+
+min-height:100vh;
+
+
+padding:30px 40px 50px 25px;
+
+
 background:
 
-linear-gradient(145deg,#181818,#050505);
+linear-gradient(145deg,#171717,#050505);
 
 
-border-radius:30px;
-
-padding:35px;
-
-min-height:900px;
+border-radius:30px 0 0 30px;
 
 
 box-shadow:
 
-0 40px 90px #000;
+-20px 0 60px #000;
 
 
 }
-
 
 
 
@@ -160,41 +125,52 @@ box-shadow:
 
 /* SPIELKOPF */
 
-
 .game-header{
+
+
+width:100%;
 
 
 display:grid;
 
 grid-template-columns:1fr 220px 1fr;
 
+
 align-items:center;
+
+
+padding:45px;
+
+
+border-radius:30px;
 
 
 background:
 
-linear-gradient(90deg,#ffffff15,transparent,#ffffff15);
+linear-gradient(
 
+90deg,
 
-border-radius:25px;
+#ffffff12,
 
-padding:40px;
+transparent,
+
+#ffffff12
+
+);
 
 
 }
 
 
 
-
 .team{
 
-
-font-size:40px;
+font-size:42px;
 
 font-weight:bold;
 
 text-align:center;
-
 
 }
 
@@ -202,13 +178,11 @@ text-align:center;
 
 .score{
 
-
-font-size:95px;
+font-size:100px;
 
 font-weight:bold;
 
 text-align:center;
-
 
 }
 
@@ -216,13 +190,17 @@ text-align:center;
 
 
 
-/* Platzhalter Bereiche */
+/* spätere Module volle Breite */
 
 
-.section{
+.module{
 
 
-margin-top:35px;
+width:100%;
+
+
+margin-top:30px;
+
 
 background:
 
@@ -231,218 +209,11 @@ linear-gradient(145deg,#222,#090909);
 
 border-radius:25px;
 
+
 padding:30px;
 
 
 }
 
 
-
-.section-title{
-
-
-font-size:24px;
-
-color:#f5c542;
-
-margin-bottom:20px;
-
-
-}
-
-
-
 </style>
-
-</head>
-
-
-
-<body>
-
-
-<div class="app">
-
-
-
-
-
-<!-- ======================
-     SPIELTAG
-====================== -->
-
-
-<div class="sidebar">
-
-
-<h2>
-
-SPIELTAG
-
-</h2>
-
-
-
-<div class="match">
-
-<div>
-29.08. 15:30
-</div>
-
-<div>
-1. FC Köln
-</div>
-
-<div>
-VS
-</div>
-
-<div>
-TSG Hoffenheim
-</div>
-
-</div>
-
-
-
-
-<div class="match">
-
-<div>
-29.08. 15:30
-</div>
-
-<div>
-RB Leipzig
-</div>
-
-<div>
-VS
-</div>
-
-<div>
-Borussia Mönchengladbach
-</div>
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- ======================
-     HAUPTBEREICH
-====================== -->
-
-
-<div class="main">
-
-
-
-<div class="game-header">
-
-
-<div class="team">
-
-1. FC Köln
-
-</div>
-
-
-
-<div class="score">
-
-0 : 0
-
-</div>
-
-
-
-<div class="team">
-
-TSG Hoffenheim
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-<div class="section">
-
-<div class="section-title">
-
-Expected Goals (xG)
-
-</div>
-
-</div>
-
-
-
-
-<div class="section">
-
-<div class="section-title">
-
-Ballbesitz
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="section">
-
-<div class="section-title">
-
-Statistik
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="section">
-
-<div class="section-title">
-
-Spieldaten
-
-</div>
-
-</div>
-
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</body>
-
-</html>
