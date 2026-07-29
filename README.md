@@ -23,22 +23,33 @@ RESET
 }
 
 
+/* =========================
+FARB SYSTEM
+========================= */
+
 :root{
 
     --heim-farbe:#0099ff;
+
     --gast-farbe:#ff3344;
 
 }
 
 
 
+/* =========================
+GRUNDLAYOUT
+========================= */
+
 html,
 body{
 
     width:100%;
+
     height:100%;
 
     background:#050505;
+
     color:white;
 
     overflow:hidden;
@@ -47,20 +58,16 @@ body{
 
 
 
-/* =========================
-HAUPT LAYOUT
-========================= */
-
-
 .app{
-
-    display:flex;
 
     width:100vw;
 
     height:100vh;
 
+    display:flex;
+
 }
+
 
 
 
@@ -165,7 +172,6 @@ LINKER SPIELTAG
     border:1px solid #777;
 
     background:
-
     linear-gradient(
     #555,
     #111
@@ -181,12 +187,12 @@ LINKER SPIELTAG
 
 
 
-
 .button:hover{
 
     border-color:#f5c542;
 
 }
+
 
 
 
@@ -202,7 +208,6 @@ SPIELKARTEN
     padding:15px;
 
     background:
-
     linear-gradient(
     145deg,
     #333,
@@ -229,7 +234,6 @@ SPIELKARTEN
 
 
 
-
 .spielzeit{
 
     color:#aaa;
@@ -239,7 +243,6 @@ SPIELKARTEN
     margin-bottom:8px;
 
 }
-
 
 
 
@@ -259,7 +262,6 @@ SPIELKARTEN
 
 /* =========================
 RECHTER BEREICH
-WICHTIG:
 LINKS BÜNDIG
 ========================= */
 
@@ -274,13 +276,35 @@ LINKS BÜNDIG
 
     padding:0;
 
-    background:
+    margin:0;
 
+    background:
     linear-gradient(
     145deg,
     #191919,
     #050505
     );
+
+}
+
+
+
+
+
+/* =========================
+ALLE RECHTEN MODULE
+GLEICHE LINKE KANTE
+========================= */
+
+
+.panel,
+.live-bereich,
+.speicher-bereich,
+.top-statistik{
+
+    margin-left:0 !important;
+
+    margin-right:20px;
 
 }
 
@@ -295,11 +319,7 @@ SPIELKOPF
 
 .spielkopf{
 
-    margin-top:20px;
-
-    margin-left:0;
-
-    margin-right:20px;
+    margin:20px 20px 0 0;
 
     height:190px;
 
@@ -315,11 +335,14 @@ SPIELKOPF
 
     background:#111;
 
+
     border:1px solid #333;
+
 
     border-radius:30px;
 
 }
+
 
 
 
@@ -332,6 +355,7 @@ SPIELKOPF
     font-weight:bold;
 
 }
+
 
 
 
@@ -352,6 +376,7 @@ SPIELKOPF
 
 
 
+
 .ergebnis{
 
     text-align:center;
@@ -363,8 +388,6 @@ SPIELKOPF
     color:#f5c542;
 
 }
-
-
 
 
 
@@ -382,7 +405,7 @@ SPIELKOPF
 
 
 <!-- =========================
-LINKS
+LINKS SPIELTAG
 ========================= -->
 
 
@@ -432,7 +455,6 @@ SPIELTAG LADEN
 
 
 
-
 <div id="spielListe"></div>
 
 
@@ -447,9 +469,8 @@ SPIELTAG LADEN
 
 
 
-
 <!-- =========================
-RECHTS
+RECHTS DASHBOARD
 ========================= -->
 
 
@@ -496,8 +517,13 @@ GAST
 
 
 
-
 </div>
+
+
+
+
+
+<!-- TEIL 2 FOLGT -->
 <!-- =========================
 SPIELTAG SYSTEM
 ========================= -->
